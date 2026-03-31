@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Intel — Competitor Analysis Tool</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a24;
+    --border: #2a2a3a;
+    --accent: #e8ff47;
+    --accent2: #7c6aff;
+    --text: #f0f0f8;
+    --muted: #6b6b88;
+    --red: #ff4f4f;
+    --green: #47ffb2;
+    --orange: #ffaa47;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(124,106,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,106,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(124,106,255,0.15);
+    border: 1px solid rgba(124,106,255,0.3);
+    color: var(--accent2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--surface);
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .tab {
+    padding: 8px 20px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+
+  .tab.active {
+    background: var(--accent);
+    color: #0a0a0f;
+    font-weight: 700;
+  }
+
+  .tab:hover:not(.active) { color: var(--text); background: var(--surface2); }
+
+  /* PANELS */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* FORM ELEMENTS */
+  input, textarea, select {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent2);
+    box-shadow: 0 0 0 3px rgba(124,106,255,0.1);
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0f;
+    font-weight: 700;
+  }
+
+  .btn-primary:hover { background: #d4eb2e; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .btn-danger {
+    background: rgba(255,79,79,0.1);
+    color: var(--red);
+    border: 1px solid rgba(255,79,79,0.2);
+  }
+
+  .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+  /* STATUS BAR */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .status-dot.active { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 1.5s infinite; }
+  .status-dot.error { background: var(--red); }
+  .status-dot.warning { background: var(--orange); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* LOG */
+  .log-area {
+    background: #06060a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 11px;
+    line-height: 1.8;
+    max-height: 180px;
+    overflow-y: auto;
+    color: var(--muted);
+  }
+
+  .log-area .log-line { display: flex; gap: 10px; }
+  .log-area .log-time { color: var(--accent2); flex-shrink: 0; }
+  .log-area .log-ok { color: var(--green); }
+  .log-area .log-err { color: var(--red); }
+  .log-area .log-info { color: var(--orange); }
+
+  /* REVIEW TABLE */
+  .reviews-table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  thead tr {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(42,42,58,0.5);
+    vertical-align: top;
+    max-width: 240px;
+  }
+
+  tr:hover td { background: rgba(124,106,255,0.04); }
+  tr:last-child td { border-bottom: none; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    margin: 2px;
+    white-space: nowrap;
+  }
+
+  .tag-yes { background: rgba(71,255,178,0.12); color: var(--green); border: 1px solid rgba(71,255,178,0.2); }
+  .tag-no { background: rgba(107,107,136,0.1); color: var(--muted); border: 1px solid rgba(107,107,136,0.2); }
+  .tag-pos { background: rgba(71,255,178,0.12); color: var(--green); border: 1px solid rgba(71,255,178,0.2); }
+  .tag-neg { background: rgba(255,79,79,0.1); color: var(--red); border: 1px solid rgba(255,79,79,0.2); }
+  .tag-mix { background: rgba(255,170,71,0.1); color: var(--orange); border: 1px solid rgba(255,170,71,0.2); }
+
+  .stars { color: var(--accent); letter-spacing: -2px; }
+
+  /* SNIPPET */
+  .snippet {
+    max-width: 220px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--muted);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .snippet:hover { color: var(--accent); }
+
+  /* REVIEW MODAL */
+  #review-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  #review-modal.open { display: flex; }
+  #review-modal-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 620px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  #review-modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #review-modal-text {
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 13px;
+    white-space: pre-wrap;
+    margin-top: 8px;
+  }
+  #review-modal-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+  }
+
+  .empty-state .icon { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
+  .empty-state p { font-size: 13px; }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* PROGRESS */
+  .progress-wrap {
+    background: var(--surface2);
+    border-radius: 4px;
+    height: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  /* METHOD SELECTOR */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .method-card {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--surface2);
+  }
+
+  .method-card:hover, .method-card.selected {
+    border-color: var(--accent);
+    background: rgba(232,255,71,0.04);
+  }
+
+  .method-card .method-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .method-card .method-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .method-card.selected .method-title { color: var(--accent); }
+
+  /* SECTION DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+
+  /* TOOLTIP */
+  .tip {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .tip a { color: var(--accent2); text-decoration: none; }
+  .tip a:hover { text-decoration: underline; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+  /* COMPETITOR LIST */
+  .competitor-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .competitor-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .competitor-item:hover { border-color: var(--accent2); }
+
+  .competitor-name { font-weight: 500; }
+  .competitor-meta { color: var(--muted); font-size: 11px; }
+
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* HIGHLIGHT */
+  mark {
+    background: rgba(232,255,71,0.15);
+    color: var(--accent);
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  /* API KEY SECTION */
+  .api-note {
+    background: rgba(124,106,255,0.08);
+    border: 1px solid rgba(124,106,255,0.2);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #a09acc;
+    margin-bottom: 16px;
+  }
+
+  .api-note strong { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🔍</div>
+        <div class="logo-text">Review<span>Intel</span></div>
+      </div>
+      <div class="badge">Competitor Analysis</div>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('scrape')">① Scrape</button>
+    <button class="tab" onclick="switchTab('analyze')">② AI Analyze</button>
+    <button class="tab" onclick="switchTab('results')">③ Results</button>
+    <button class="tab" onclick="switchTab('export')">④ Export</button>
+  </div>
+
+  <!-- ─────────────── TAB 1: SCRAPE ─────────────── -->
+  <div id="tab-scrape" class="panel active">
+
+    <div class="card">
+      <div class="card-title">Scrape Method</div>
+      <div class="method-grid">
+        <div class="method-card selected" id="method-serpapi" onclick="selectMethod('serpapi')">
+          <div class="method-title">⚡ SerpApi <span class="tag tag-yes" style="font-size:9px">Recommended</span></div>
+          <div class="method-desc">Structured Google Maps reviews via API. Reliable, no blocks. Free tier: 100 searches/month.</div>
+        </div>
+        <div class="method-card" id="method-paste" onclick="selectMethod('paste')">
+          <div class="method-title">📋 Manual Paste</div>
+          <div class="method-desc">Copy-paste raw review text from Google Maps. Works with zero setup. Best for quick tests.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERPAPI METHOD -->
+    <div id="section-serpapi">
+      <div class="card">
+        <div class="card-title">SerpApi Configuration</div>
+
+        <div style="background:rgba(255,79,79,0.08);border:1px solid rgba(255,79,79,0.25);border-radius:8px;padding:14px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:#ffaaaa">
+          <strong style="color:#ff4f4f">⚠ Browser CORS Limitation</strong><br>
+          SerpApi blocks direct browser calls. You need to run the scraper via the <strong>Node.js script below</strong> instead — it takes 2 minutes to set up and outputs a CSV you paste back here.
+        </div>
+
+        <div class="api-note">
+          <strong>How it works:</strong> Run the Node.js script on your computer → it saves a <code>reviews.json</code> file → paste the contents into the JSON Import box below → AI analysis runs as normal.
+        </div>
+
+        <div class="form-group">
+          <label>SerpApi Key (for the Node.js script)</label>
+          <input type="text" id="serpapi-key" placeholder="your_serpapi_key_here">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label>Max Reviews Per Business</label>
+            <select id="max-reviews">
+              <option value="20">20 reviews</option>
+              <option value="40" selected>40 reviews</option>
+              <option value="80">80 reviews</option>
+              <option value="120">120 reviews</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label>Sort By</label>
+            <select id="sort-by">
+              <option value="newestFirst">Newest First</option>
+              <option value="ratingLow">Lowest Rating First</option>
+              <option value="ratingHigh">Highest Rating First</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="card-title" style="margin-bottom:12px">📦 Node.js Script — Run This on Your Computer</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6">
+          1. Make sure Node.js is installed (<a href="https://nodejs.org" target="_blank" style="color:var(--accent2)">nodejs.org</a>)<br>
+          2. Click <strong style="color:var(--accent)">Generate Script</strong> → copy it → save as <code>scrape.mjs</code><br>
+          3. Open terminal in same folder → run: <code style="color:var(--accent)">node scrape.mjs</code><br>
+          4. Copy the output JSON → paste into <strong>JSON Import</strong> box below
+        </div>
+        <button class="btn btn-secondary" onclick="generateScript()" style="margin-bottom:16px">⚙ Generate Script</button>
+
+        <div id="script-output" style="display:none">
+          <div class="form-group">
+            <label>Generated Script — Save as scrape.mjs</label>
+            <textarea id="script-code" style="min-height:260px;font-size:11px;color:var(--green);background:#06060a" readonly></textarea>
+          </div>
+          <button class="btn btn-secondary" onclick="copyScript()">📋 Copy Script</button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="card-title" style="margin-bottom:12px">📥 JSON Import — Paste Script Output Here</div>
+        <div class="form-group">
+          <textarea id="json-import" placeholder='Paste the JSON array output from the Node.js script here...&#10;&#10;Example:&#10;[{"business":"Removery","stars":4,"text":"Great results...","date":"2024-11"}]' style="min-height:100px;font-size:11px"></textarea>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="importJSON()">📥 Import Reviews</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Competitors — Add to Script</div>
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label>Business Name</label>
+            <input type="text" id="comp-name" placeholder="e.g. Removery Tattoo Removal">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label>City / Location</label>
+            <input type="text" id="comp-location" placeholder="e.g. Los Angeles, CA">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-secondary" onclick="addCompetitor()">+ Add Competitor</button>
+        </div>
+        <hr class="divider">
+        <div class="competitor-list" id="competitor-list">
+          <div class="competitor-item">
+            <div>
+              <div class="competitor-name">Removery Tattoo Removal</div>
+              <div class="competitor-meta">Los Angeles, CA</div>
+            </div>
+            <button class="btn btn-danger" style="padding:4px 10px;font-size:10px" onclick="this.closest('.competitor-item').remove()">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASTE METHOD -->
+    <div id="section-paste" style="display:none">
+      <div class="card">
+        <div class="card-title">Paste Raw Reviews</div>
+        <div class="api-note">
+          Go to Google Maps → find the competitor → click Reviews → copy all visible review text and paste below.
+          Include star ratings if visible (e.g. "★★★★☆ Great results but painful...").
+        </div>
+        <div class="form-group">
+          <label>Competitor / Business Name</label>
+          <input type="text" id="paste-name" placeholder="e.g. Removery Tattoo Removal LA">
+        </div>
+        <div class="form-group">
+          <label>Raw Review Text</label>
+          <textarea id="paste-text" placeholder="Paste reviews here. Each review should be separated by a blank line or clearly distinguishable. Star ratings like ★★★★☆ or 4/5 will be auto-detected..."></textarea>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="processPaste()">▶ Process Reviews</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRESS / LOG -->
+    <div id="scrape-progress" style="display:none">
+      <div class="card">
+        <div class="card-title">Scrape Log</div>
+        <div class="status-bar">
+          <div class="status-dot active" id="status-dot"></div>
+          <span id="status-text">Initializing...</span>
+        </div>
+        <div class="progress-wrap" style="margin-bottom:16px">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="log-area" id="log-area"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─────────────── TAB 2: AI ANALYZE ─────────────── -->
+  <div id="tab-analyze" class="panel">
+    <div class="card">
+      <div class="card-title">AI Categorization — Claude API</div>
+      <div class="api-note">
+        <strong>This step uses Claude to categorize each review</strong> into structured columns:
+        sentiment, pain mentioned, scarring mentioned, sessions count, results quality, and pricing sentiment.
+        Your Anthropic API key is used directly — never stored.
+      </div>
+      <div class="form-group">
+        <label>Anthropic API Key</label>
+        <input type="password" id="anthropic-key" placeholder="sk-ant-...">
+        <div class="tip">Get yours at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0">
+          <label>Batch Size (reviews per API call)</label>
+          <select id="batch-size">
+            <option value="5" selected>5 reviews</option>
+            <option value="10">10 reviews</option>
+            <option value="15">15 reviews</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label>Focus Industry</label>
+          <select id="industry">
+            <option value="tattoo removal">Tattoo Removal</option>
+            <option value="aesthetics">Aesthetics / MedSpa</option>
+            <option value="laser clinic">Laser Clinic</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div id="analyze-ready">
+        <div id="unanalyzed-count" class="status-bar">
+          <div class="status-dot warning"></div>
+          <span>No scraped reviews loaded yet. Complete Step 1 first.</span>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="startAnalysis()">🤖 Run AI Analysis</button>
+        <button class="btn btn-secondary" onclick="loadSampleData()">Load Sample Data</button>
+      </div>
+    </div>
+
+    <div id="analyze-progress" style="display:none">
+      <div class="card">
+        <div class="card-title">Analysis Progress</div>
+        <div class="status-bar">
+          <div class="status-dot active"></div>
+          <span id="analyze-status">Analyzing reviews...</span>
+        </div>
+        <div class="progress-wrap" style="margin-bottom:16px">
+          <div class="progress-bar" id="analyze-progress-bar"></div>
+        </div>
+        <div class="log-area" id="analyze-log"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────── TAB 3: RESULTS ─────────────── -->
+  <div id="tab-results" class="panel">
+
+    <div style="margin-bottom:20px;display:flex;align-items:center;gap:12px">
+      <label style="background:var(--accent);color:#0a0a0f;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:8px;cursor:pointer;letter-spacing:0.5px">
+        ↑ LOAD analyzed.json
+        <input type="file" accept=".json" style="display:none" onchange="loadAnalyzedFile(this)">
+      </label>
+      <span id="load-status" style="color:var(--muted);font-size:12px"></span>
+    </div>
+
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total" style="color:var(--accent)">0</div>
+        <div class="stat-label">Total Reviews</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-positive" style="color:var(--green)">0</div>
+        <div class="stat-label">Positive</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-negative" style="color:var(--red)">0</div>
+        <div class="stat-label">Negative</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-pain" style="color:var(--orange)">0%</div>
+        <div class="stat-label">Mention Pain</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-scarring" style="color:var(--red)">0%</div>
+        <div class="stat-label">Mention Scarring</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="card" style="padding:16px">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <select id="filter-business" style="width:auto;flex:1;min-width:160px" onchange="renderTable()">
+          <option value="">All Businesses</option>
+        </select>
+        <select id="filter-sentiment" style="width:auto;flex:1;min-width:140px" onchange="renderTable()">
+          <option value="">All Sentiments</option>
+          <option value="positive">Positive</option>
+          <option value="negative">Negative</option>
+          <option value="mixed">Mixed</option>
+        </select>
+        <select id="filter-pain" style="width:auto;flex:1;min-width:140px" onchange="renderTable()">
+          <option value="">Pain: Any</option>
+          <option value="yes">Pain: Mentioned</option>
+          <option value="no">Pain: Not Mentioned</option>
+        </select>
+        <select id="filter-stars" style="width:auto;flex:1;min-width:140px" onchange="renderTable()">
+          <option value="">All Ratings</option>
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+        </select>
+        <input type="text" id="filter-search" placeholder="Search reviews..." style="flex:2;min-width:180px" oninput="renderTable()">
+      </div>
+    </div>
+
+    <div class="reviews-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Business</th>
+            <th>Stars</th>
+            <th>Sentiment</th>
+            <th>Pain</th>
+            <th>Scarring</th>
+            <th>Sessions</th>
+            <th>Results</th>
+            <th>Pricing</th>
+            <th>Review Snippet</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="results-tbody">
+          <tr>
+            <td colspan="11">
+              <div class="empty-state">
+                <div class="icon">📭</div>
+                <p>No reviews yet. Run a scrape and AI analysis first.</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─────────────── TAB 4: EXPORT ─────────────── -->
+  <div id="tab-export" class="panel">
+    <div class="card">
+      <div class="card-title">Export Options</div>
+
+      <div class="method-grid">
+        <div class="method-card selected" id="export-csv" onclick="selectExport('csv')">
+          <div class="method-title">📊 CSV Export</div>
+          <div class="method-desc">All columns in a spreadsheet-ready CSV. Import into Google Sheets, Airtable, or Notion.</div>
+        </div>
+        <div class="method-card" id="export-json" onclick="selectExport('json')">
+          <div class="method-title">🔧 JSON Export</div>
+          <div class="method-desc">Structured JSON for developers. Ready to feed into your reviews page or database.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Include Columns</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-business" checked style="width:auto"> Business
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-stars" checked style="width:auto"> Stars
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-sentiment" checked style="width:auto"> Sentiment
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-pain" checked style="width:auto"> Pain Mentioned
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-scarring" checked style="width:auto"> Scarring Mentioned
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-sessions" checked style="width:auto"> Sessions
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-results" checked style="width:auto"> Results Quality
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-pricing" checked style="width:auto"> Pricing Sentiment
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-text" checked style="width:auto"> Full Review Text
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--text)">
+            <input type="checkbox" id="col-date" checked style="width:auto"> Date
+          </label>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="exportData()">⬇ Download Export</button>
+        <button class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Export Preview</div>
+      <div class="log-area" id="export-preview" style="max-height:300px;color:var(--text)">
+        No data to preview yet.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── STATE ──────────────────────────────────────────────
+let scrapedReviews = [];   // raw from scrape/paste
+let analyzedReviews = [];  // after AI categorization
+let currentMethod = 'serpapi';
+let currentExport = 'csv';
+let competitors = [{ name: 'Removery Tattoo Removal', location: 'Los Angeles, CA' }];
+
+// ── TAB SWITCHING ──────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+  if (tab === 'results') renderTable();
+  if (tab === 'export') renderExportPreview();
+}
+
+// ── METHOD SELECT ──────────────────────────────────────
+function selectMethod(m) {
+  currentMethod = m;
+  document.querySelectorAll('.method-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('method-' + m).classList.add('selected');
+  document.getElementById('section-serpapi').style.display = m === 'serpapi' ? 'block' : 'none';
+  document.getElementById('section-paste').style.display = m === 'paste' ? 'block' : 'none';
+}
+
+function selectExport(e) {
+  currentExport = e;
+  document.getElementById('export-csv').classList.toggle('selected', e === 'csv');
+  document.getElementById('export-json').classList.toggle('selected', e === 'json');
+  renderExportPreview();
+}
+
+// ── ADD COMPETITOR ─────────────────────────────────────
+function addCompetitor() {
+  const name = document.getElementById('comp-name').value.trim();
+  const location = document.getElementById('comp-location').value.trim();
+  if (!name) return alert('Enter a business name.');
+  competitors.push({ name, location });
+  renderCompetitorList();
+  document.getElementById('comp-name').value = '';
+  document.getElementById('comp-location').value = '';
+}
+
+function renderCompetitorList() {
+  const list = document.getElementById('competitor-list');
+  list.innerHTML = competitors.map((c, i) => `
+    <div class="competitor-item">
+      <div>
+        <div class="competitor-name">${c.name}</div>
+        <div class="competitor-meta">${c.location || 'No location specified'}</div>
+      </div>
+      <button class="btn btn-danger" style="padding:4px 10px;font-size:10px"
+        onclick="removeCompetitor(${i})">Remove</button>
+    </div>
+  `).join('');
+}
+
+function removeCompetitor(i) {
+  competitors.splice(i, 1);
+  renderCompetitorList();
+}
+
+// ── LOGGING ───────────────────────────────────────────
+function log(area, msg, type = 'info') {
+  const el = document.getElementById(area);
+  const time = new Date().toLocaleTimeString();
+  const cls = { ok: 'log-ok', err: 'log-err', info: 'log-info' }[type] || '';
+  el.innerHTML += `<div class="log-line"><span class="log-time">${time}</span><span class="${cls}">${msg}</span></div>`;
+  el.scrollTop = el.scrollHeight;
+}
+
+// ── GENERATE NODE.JS SCRIPT ───────────────────────────
+function generateScript() {
+  const key = document.getElementById('serpapi-key').value.trim();
+  if (!key) return alert('Enter your SerpApi key first.');
+  const maxReviews = document.getElementById('max-reviews').value;
+  const sortBy = document.getElementById('sort-by').value;
+
+  const items = document.querySelectorAll('#competitor-list .competitor-item');
+  const compList = [];
+  items.forEach(item => {
+    const name = item.querySelector('.competitor-name')?.textContent?.trim();
+    const loc  = item.querySelector('.competitor-meta')?.textContent?.trim();
+    if (name) compList.push({ name, location: loc || '' });
+  });
+
+  if (compList.length === 0) return alert('Add at least one competitor first.');
+
+  const compsJSON = JSON.stringify(compList, null, 2);
+
+  const script = `// ReviewIntel — SerpApi Scraper
+// Run: node scrape.mjs
+// Output: reviews.json
+import fs from 'fs';
+
+const API_KEY = '${key}';
+const MAX = ${maxReviews};
+const SORT_BY = '${sortBy}';
+
+const COMPETITORS = ${compsJSON};
+
+async function get(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function scrape() {
+  const allReviews = [];
+  for (const comp of COMPETITORS) {
+    const q = encodeURIComponent(comp.name + ' ' + comp.location);
+    console.log('Searching:', comp.name, comp.location);
+    const searchUrl = \`https://serpapi.com/search.json?engine=google_maps&q=\${q}&api_key=\${API_KEY}\`;
+    let searchData;
+    try { searchData = await get(searchUrl); }
+    catch (e) { console.error('Search failed:', e.message); continue; }
+    if (searchData.error) { console.error('API error:', searchData.error); continue; }
+    const place = searchData.local_results?.[0];
+    if (!place) { console.warn('No results found for', comp.name); continue; }
+    const placeId = place.place_id;
+    console.log('Found:', place.title, '| ID:', placeId);
+    const reviewUrl = \`https://serpapi.com/search.json?engine=google_maps_reviews&place_id=\${placeId}&sort_by=\${SORT_BY}&num=\${MAX}&api_key=\${API_KEY}\`;
+    let reviewData;
+    try { reviewData = await get(reviewUrl); }
+    catch (e) { console.error('Reviews failed:', e.message); continue; }
+    const reviews = reviewData.reviews || [];
+    console.log('Fetched', reviews.length, 'reviews');
+    reviews.forEach(r => {
+      allReviews.push({
+        business: comp.name,
+        location: comp.location,
+        stars: r.rating ?? null,
+        text: r.snippet || r.text || '',
+        date: r.date || '',
+        author: r.user?.name || 'Anonymous'
+      });
+    });
+    await new Promise(r => setTimeout(r, 800));
+  }
+  fs.writeFileSync('reviews.json', JSON.stringify(allReviews, null, 2));
+  console.log('Done!', allReviews.length, 'reviews saved to reviews.json');
+}
+
+scrape().catch(console.error);
+`;
+
+  document.getElementById('script-output').style.display = 'block';
+  document.getElementById('script-code').value = script;
+}
+
+function copyScript() {
+  const code = document.getElementById('script-code').value;
+  navigator.clipboard.writeText(code);
+  alert('Script copied! Save it as scrape.mjs then run: node scrape.mjs');
+}
+
+// ── IMPORT JSON ────────────────────────────────────────
+function importJSON() {
+  const raw = document.getElementById('json-import').value.trim();
+  if (!raw) return alert('Paste the JSON output from the Node.js script first.');
+  try {
+    const data = JSON.parse(raw);
+    if (!Array.isArray(data)) throw new Error('Expected a JSON array.');
+    scrapedReviews = data.map(r => ({
+      business: r.business || 'Unknown',
+      stars: r.stars || null,
+      text: r.text || '',
+      date: r.date || '',
+      author: r.author || 'Anonymous'
+    }));
+    document.getElementById('scrape-progress').style.display = 'block';
+    document.getElementById('status-dot').classList.add('active');
+    document.getElementById('status-text').textContent = `${scrapedReviews.length} reviews imported successfully.`;
+    document.getElementById('progress-bar').style.width = '100%';
+    log('log-area', `Imported ${scrapedReviews.length} reviews from JSON`, 'ok');
+    updateAnalyzeCount();
+    alert(`${scrapedReviews.length} reviews imported! Go to the AI Analyze tab next.`);
+  } catch (e) {
+    alert('Invalid JSON: ' + e.message);
+  }
+}
+
+// ── SCRAPE VIA SERPAPI ─────────────────────────────────
+async function startScrape() {
+  const key = document.getElementById('serpapi-key').value.trim();
+  if (!key) return alert('Enter your SerpApi key first.');
+  if (competitors.length === 0) return alert('Add at least one competitor.');
+
+  document.getElementById('scrape-progress').style.display = 'block';
+  document.getElementById('log-area').innerHTML = '';
+  scrapedReviews = [];
+
+  const maxReviews = parseInt(document.getElementById('max-reviews').value);
+  const sortBy = document.getElementById('sort-by').value;
+
+  let total = competitors.length;
+  let done = 0;
+
+  for (const comp of competitors) {
+    log('log-area', `Searching for: ${comp.name} ${comp.location}`, 'info');
+
+    try {
+      // Step 1: Find place_id
+      const searchUrl = `https://serpapi.com/search.json?engine=google_maps&q=${encodeURIComponent(comp.name + ' ' + comp.location)}&api_key=${key}`;
+      const res = await fetch(searchUrl);
+      const data = await res.json();
+
+      if (data.error) throw new Error(data.error);
+
+      const place = data.local_results?.[0];
+      if (!place) { log('log-area', `No results found for ${comp.name}`, 'err'); continue; }
+
+      const placeId = place.place_id;
+      log('log-area', `Found: ${place.title} — Place ID: ${placeId}`, 'ok');
+
+      // Step 2: Get reviews
+      const reviewUrl = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&sort_by=${sortBy}&num=${maxReviews}&api_key=${key}`;
+      const rRes = await fetch(reviewUrl);
+      const rData = await rRes.json();
+
+      const reviews = rData.reviews || [];
+      log('log-area', `Fetched ${reviews.length} reviews`, 'ok');
+
+      reviews.forEach(r => {
+        scrapedReviews.push({
+          business: comp.name,
+          stars: r.rating || null,
+          text: r.snippet || r.text || '',
+          date: r.date || '',
+          author: r.user?.name || 'Anonymous',
+          likes: r.likes || 0
+        });
+      });
+
+    } catch (err) {
+      log('log-area', `Error: ${err.message}`, 'err');
+    }
+
+    done++;
+    document.getElementById('progress-bar').style.width = (done / total * 100) + '%';
+  }
+
+  document.getElementById('status-dot').classList.remove('active');
+  document.getElementById('status-text').textContent = `Done. ${scrapedReviews.length} reviews collected.`;
+  log('log-area', `✓ Scrape complete. ${scrapedReviews.length} total reviews.`, 'ok');
+
+  updateAnalyzeCount();
+}
+
+// ── PROCESS PASTE ──────────────────────────────────────
+function processPaste() {
+  const name = document.getElementById('paste-name').value.trim() || 'Pasted Business';
+  const text = document.getElementById('paste-text').value.trim();
+  if (!text) return alert('Paste some review text first.');
+
+  // Split by double newline or common review separators
+  const chunks = text.split(/\n{2,}|---+/).map(s => s.trim()).filter(s => s.length > 20);
+
+  chunks.forEach(chunk => {
+    const starMatch = chunk.match(/[★☆]{1,5}|(\d)[\/\s]5|(\d)\s*star/i);
+    const stars = starMatch ? (starMatch[1] || starMatch[2] || (starMatch[0].match(/★/g)?.length)) : null;
+    scrapedReviews.push({
+      business: name,
+      stars: stars ? parseInt(stars) : null,
+      text: chunk.replace(/[★☆]/g, '').replace(/\d\/5/g, '').trim(),
+      date: '',
+      author: 'Manual'
+    });
+  });
+
+  log('log-area', `Processed ${chunks.length} reviews from paste`, 'ok');
+  document.getElementById('scrape-progress').style.display = 'block';
+  document.getElementById('status-text').textContent = `${scrapedReviews.length} reviews ready for analysis.`;
+  document.getElementById('progress-bar').style.width = '100%';
+  updateAnalyzeCount();
+}
+
+function updateAnalyzeCount() {
+  const el = document.getElementById('unanalyzed-count');
+  if (scrapedReviews.length > 0) {
+    el.innerHTML = `<div class="status-dot active"></div><span>${scrapedReviews.length} reviews ready for AI analysis.</span>`;
+  }
+}
+
+// ── LOAD SAMPLE DATA ───────────────────────────────────
+function loadSampleData() {
+  analyzedReviews = [
+    { business:'Removery LA', stars:2, sentiment:'negative', pain:'yes', scarring:'yes', sessions:'8+', results:'poor', pricing:'expensive', text:'After 8 sessions barely any fading. The laser burns and I have some scarring now. Way overpriced for the results.', date:'2024-11-15' },
+    { business:'Removery LA', stars:5, sentiment:'positive', pain:'yes', results:'excellent', scarring:'no', sessions:'6', pricing:'fair', text:'Incredible results in just 6 sessions! Yes it hurts but the staff made it bearable. Worth every penny.', date:'2024-12-01' },
+    { business:'Removery LA', stars:3, sentiment:'mixed', pain:'yes', scarring:'no', sessions:'4', results:'moderate', pricing:'expensive', text:'Decent fading after 4 sessions but the pain is intense. Pricier than competitors.', date:'2024-10-20' },
+    { business:'Clean Slate Laser', stars:1, sentiment:'negative', pain:'yes', scarring:'yes', sessions:'10+', results:'poor', pricing:'expensive', text:'Terrible experience. 10+ sessions and my tattoo looks almost the same. Left with a scar. Never going back.', date:'2024-09-05' },
+    { business:'Clean Slate Laser', stars:4, sentiment:'positive', pain:'no', scarring:'no', sessions:'5', results:'good', pricing:'fair', text:'Good results and the team was professional. Minimal pain thanks to their cooling system.', date:'2024-11-30' },
+    { business:'Clean Slate Laser', stars:2, sentiment:'negative', pain:'yes', scarring:'no', sessions:'7', results:'moderate', pricing:'expensive', text:'Slow progress after 7 sessions. Pain is manageable but the prices keep going up.', date:'2024-08-12' },
+  ];
+  renderTable();
+  updateStats();
+  switchTab('results');
+  alert('Sample data loaded! Switch to Results tab to view.');
+}
+
+// ── AI ANALYSIS ────────────────────────────────────────
+async function startAnalysis() {
+  const key = document.getElementById('anthropic-key').value.trim();
+  if (!key) return alert('Enter your Anthropic API key.');
+  if (scrapedReviews.length === 0) return alert('No scraped reviews to analyze. Load sample data or scrape first.');
+
+  document.getElementById('analyze-progress').style.display = 'block';
+  document.getElementById('analyze-log').innerHTML = '';
+  analyzedReviews = [];
+
+  const batchSize = parseInt(document.getElementById('batch-size').value);
+  const industry = document.getElementById('industry').value;
+  const batches = [];
+  for (let i = 0; i < scrapedReviews.length; i += batchSize) {
+    batches.push(scrapedReviews.slice(i, i + batchSize));
+  }
+
+  log('analyze-log', `Starting analysis: ${scrapedReviews.length} reviews in ${batches.length} batches`, 'info');
+
+  for (let b = 0; b < batches.length; b++) {
+    const batch = batches[b];
+    log('analyze-log', `Processing batch ${b+1}/${batches.length} (${batch.length} reviews)...`, 'info');
+
+    const reviewsText = batch.map((r, i) =>
+      `REVIEW ${i+1}:\nBusiness: ${r.business}\nStars: ${r.stars || 'unknown'}\nText: "${r.text}"`
+    ).join('\n\n');
+
+    const prompt = `You are analyzing ${industry} customer reviews for competitive intelligence.
+
+Analyze each review below and return a JSON array. Each object must have:
+- "index": number (1-based)
+- "sentiment": "positive" | "negative" | "mixed"
+- "pain_mentioned": "yes" | "no"
+- "scarring_mentioned": "yes" | "no"
+- "sessions_count": number of sessions mentioned as a string, or "not mentioned"
+- "results_quality": "excellent" | "good" | "moderate" | "poor" | "not mentioned"
+- "pricing_sentiment": "cheap" | "fair" | "expensive" | "not mentioned"
+- "key_complaint": one short phrase for negative/mixed, or "" for positive
+
+Return ONLY valid JSON array, no markdown, no explanation.
+
+REVIEWS TO ANALYZE:
+${reviewsText}`;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+
+      const raw = data.content[0].text.replace(/```json|```/g, '').trim();
+      const parsed = JSON.parse(raw);
+
+      parsed.forEach((item, i) => {
+        const base = batch[item.index - 1] || batch[i];
+        analyzedReviews.push({
+          ...base,
+          sentiment: item.sentiment,
+          pain: item.pain_mentioned,
+          scarring: item.scarring_mentioned,
+          sessions: item.sessions_count,
+          results: item.results_quality,
+          pricing: item.pricing_sentiment,
+          key_complaint: item.key_complaint
+        });
+      });
+
+      log('analyze-log', `Batch ${b+1} done. ${parsed.length} reviews categorized.`, 'ok');
+
+    } catch (err) {
+      log('analyze-log', `Batch ${b+1} error: ${err.message}`, 'err');
+      // Still push raw reviews with empty analysis
+      batch.forEach(r => analyzedReviews.push({ ...r, sentiment:'unknown', pain:'unknown', scarring:'unknown', sessions:'unknown', results:'unknown', pricing:'unknown' }));
+    }
+
+    document.getElementById('analyze-progress-bar').style.width = ((b+1)/batches.length * 100) + '%';
+    await new Promise(r => setTimeout(r, 500)); // Rate limit buffer
+  }
+
+  document.getElementById('analyze-status').textContent = `Complete. ${analyzedReviews.length} reviews categorized.`;
+  log('analyze-log', `✓ Analysis complete!`, 'ok');
+
+  renderTable();
+  updateStats();
+  populateFilters();
+}
+
+// ── RENDER TABLE ───────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById('results-tbody');
+  if (analyzedReviews.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="11"><div class="empty-state"><div class="icon">📭</div><p>No reviews yet. Run AI analysis or load sample data.</p></div></td></tr>';
+    return;
+  }
+
+  const filterBiz = document.getElementById('filter-business').value;
+  const filterSent = document.getElementById('filter-sentiment').value;
+  const filterPain = document.getElementById('filter-pain').value;
+  const filterStars = document.getElementById('filter-stars').value;
+  const filterSearch = document.getElementById('filter-search').value.toLowerCase();
+
+  let filtered = analyzedReviews.filter(r => {
+    if (filterBiz && r.business !== filterBiz) return false;
+    if (filterSent && r.sentiment !== filterSent) return false;
+    if (filterPain && r.pain !== filterPain) return false;
+    if (filterStars && r.stars != filterStars) return false;
+    if (filterSearch && !r.text.toLowerCase().includes(filterSearch) && !r.business.toLowerCase().includes(filterSearch)) return false;
+    return true;
+  });
+
+  const starsHtml = s => {
+    if (!s) return '<span style="color:var(--muted)">—</span>';
+    return '<span class="stars">' + '★'.repeat(s) + '☆'.repeat(5 - s) + '</span>';
+  };
+
+  const tagSent = s => {
+    const map = { positive:'tag-pos', negative:'tag-neg', mixed:'tag-mix', unknown:'tag-no' };
+    return `<span class="tag ${map[s]||'tag-no'}">${s||'—'}</span>`;
+  };
+
+  const tagYN = v => `<span class="tag ${v==='yes'?'tag-yes':'tag-no'}">${v||'—'}</span>`;
+
+  const highlightSearch = text => {
+    if (!filterSearch) return text;
+    const re = new RegExp(`(${filterSearch})`, 'gi');
+    return text.replace(re, '<mark>$1</mark>');
+  };
+
+  window.filteredRows = filtered;
+  tbody.innerHTML = filtered.map((r, i) => `
+    <tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td><div class="truncate" style="max-width:120px;font-weight:500">${r.business}</div></td>
+      <td>${starsHtml(r.stars)}</td>
+      <td>${tagSent(r.sentiment)}</td>
+      <td>${tagYN(r.pain)}</td>
+      <td>${tagYN(r.scarring)}</td>
+      <td style="color:var(--accent2)">${r.sessions||'—'}</td>
+      <td><span class="tag tag-no" style="font-size:10px">${r.results||'—'}</span></td>
+      <td><span class="tag tag-no" style="font-size:10px">${r.pricing||'—'}</span></td>
+      <td><div class="snippet" onclick='openReviewModal(filteredRows[${i}])' title="Click to expand">${highlightSearch(r.text)}</div></td>
+      <td style="color:var(--muted);white-space:nowrap">${r.date||'—'}</td>
+    </tr>
+  `).join('');
+
+  updateStats();
+}
+
+function updateStats() {
+  const data = analyzedReviews;
+  document.getElementById('stat-total').textContent = data.length;
+  document.getElementById('stat-positive').textContent = data.filter(r => r.sentiment === 'positive').length;
+  document.getElementById('stat-negative').textContent = data.filter(r => r.sentiment === 'negative').length;
+  const painPct = data.length ? Math.round(data.filter(r => r.pain === 'yes').length / data.length * 100) : 0;
+  const scarPct = data.length ? Math.round(data.filter(r => r.scarring === 'yes').length / data.length * 100) : 0;
+  document.getElementById('stat-pain').textContent = painPct + '%';
+  document.getElementById('stat-scarring').textContent = scarPct + '%';
+}
+
+function populateFilters() {
+  const bizSet = [...new Set(analyzedReviews.map(r => r.business))];
+  const sel = document.getElementById('filter-business');
+  sel.innerHTML = '<option value="">All Businesses</option>' + bizSet.map(b => `<option value="${b}">${b}</option>`).join('');
+}
+
+// ── EXPORT ─────────────────────────────────────────────
+function getColumns() {
+  return [
+    { id:'col-business', key:'business', label:'Business' },
+    { id:'col-stars', key:'stars', label:'Stars' },
+    { id:'col-sentiment', key:'sentiment', label:'Sentiment' },
+    { id:'col-pain', key:'pain', label:'Pain Mentioned' },
+    { id:'col-scarring', key:'scarring', label:'Scarring Mentioned' },
+    { id:'col-sessions', key:'sessions', label:'Sessions Count' },
+    { id:'col-results', key:'results', label:'Results Quality' },
+    { id:'col-pricing', key:'pricing', label:'Pricing Sentiment' },
+    { id:'col-text', key:'text', label:'Full Review Text' },
+    { id:'col-date', key:'date', label:'Date' },
+  ].filter(c => document.getElementById(c.id)?.checked);
+}
+
+function renderExportPreview() {
+  const preview = document.getElementById('export-preview');
+  if (analyzedReviews.length === 0) { preview.textContent = 'No data yet.'; return; }
+  const cols = getColumns();
+  const sample = analyzedReviews.slice(0, 3);
+  if (currentExport === 'csv') {
+    const header = cols.map(c => c.label).join(',');
+    const rows = sample.map(r => cols.map(c => `"${(r[c.key]||'').toString().replace(/"/g,'""')}"`).join(','));
+    preview.textContent = [header, ...rows, '... (showing 3 of ' + analyzedReviews.length + ')'].join('\n');
+  } else {
+    const data = sample.map(r => Object.fromEntries(cols.map(c => [c.key, r[c.key]])));
+    preview.textContent = JSON.stringify(data, null, 2) + '\n\n// ... ' + analyzedReviews.length + ' total records';
+  }
+}
+
+function exportData() {
+  if (analyzedReviews.length === 0) return alert('No data to export. Run analysis first or load sample data.');
+  const cols = getColumns();
+  let content, filename, mime;
+
+  if (currentExport === 'csv') {
+    const header = cols.map(c => c.label).join(',');
+    const rows = analyzedReviews.map(r => cols.map(c => `"${(r[c.key]||'').toString().replace(/"/g,'""')}"`).join(','));
+    content = [header, ...rows].join('\n');
+    filename = 'competitor-reviews.csv';
+    mime = 'text/csv';
+  } else {
+    const data = analyzedReviews.map(r => Object.fromEntries(cols.map(c => [c.key, r[c.key]])));
+    content = JSON.stringify(data, null, 2);
+    filename = 'competitor-reviews.json';
+    mime = 'application/json';
+  }
+
+  const blob = new Blob([content], { type: mime });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+}
+
+function loadAnalyzedFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!Array.isArray(data)) throw new Error('Expected a JSON array.');
+      analyzedReviews = data.map(r => ({
+        business: r.business || 'Unknown',
+        location: r.location || '',
+        stars: r.stars ?? null,
+        text: r.text || '',
+        date: r.date || '',
+        author: r.author || 'Anonymous',
+        sentiment: r.sentiment || 'unknown',
+        pain: r.pain_mentioned || 'unknown',
+        scarring: r.scarring_mentioned || 'unknown',
+        sessions: r.sessions_count ?? 'unknown',
+        results: r.results_quality || 'unknown',
+        pricing: r.pricing_sentiment || 'unknown',
+      }));
+      document.getElementById('load-status').textContent = `✓ ${analyzedReviews.length} reviews loaded`;
+      renderTable();
+      updateStats();
+      populateFilters();
+    } catch (err) {
+      alert('Error loading file: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function copyToClipboard() {
+  if (analyzedReviews.length === 0) return alert('No data to copy.');
+  const cols = getColumns();
+  const header = cols.map(c => c.label).join('\t');
+  const rows = analyzedReviews.map(r => cols.map(c => r[c.key]||'').join('\t'));
+  navigator.clipboard.writeText([header, ...rows].join('\n'));
+  alert('Copied to clipboard! Paste directly into Google Sheets.');
+}
+
+function openReviewModal(r) {
+  const stars = r.stars ? '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) : '—';
+  document.getElementById('review-modal-meta').innerHTML =
+    `<span>${r.business}</span><span>${r.location || ''}</span><span>${stars}</span><span>${r.author}</span><span>${r.date}</span>`;
+  document.getElementById('review-modal-text').textContent = r.text || '(no text)';
+  document.getElementById('review-modal').classList.add('open');
+}
+function closeReviewModal() {
+  document.getElementById('review-modal').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReviewModal(); });
+</script>
+
+<div id="review-modal" onclick="if(event.target===this)closeReviewModal()">
+  <div id="review-modal-box">
+    <button id="review-modal-close" onclick="closeReviewModal()">✕</button>
+    <div id="review-modal-meta"></div>
+    <div id="review-modal-text"></div>
+  </div>
+</div>
+</body>
+</html>

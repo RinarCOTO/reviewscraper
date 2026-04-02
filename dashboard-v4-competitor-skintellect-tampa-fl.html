@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ReviewIntel — Skintellect</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--accent:#6c63ff;
+    --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;}
+  header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  header h1{font-size:20px;font-weight:700;color:#fff;}
+  header h1 span{color:var(--accent);}
+  .meta{color:var(--muted);font-size:12px;}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav a{padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+  .nav a:hover,.nav a.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .container{max-width:1400px;margin:0 auto;padding:24px 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .kpi .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:#fff;}
+  .kpi .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .section{margin-bottom:36px;}
+  .section h2{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .card h3{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .chart-wrap{position:relative;height:200px;}
+  .chart-wrap-lg{position:relative;height:300px;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+  tbody tr{border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:rgba(108,99,255,.06);}
+  tbody td{padding:10px 12px;vertical-align:middle;}
+  tbody tr:last-child{border-bottom:none;}
+  .stars{color:#f59e0b;font-weight:600;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;}
+  .badge-green{background:rgba(34,197,94,.15);color:var(--green);}
+  .badge-yellow{background:rgba(245,158,11,.15);color:var(--yellow);}
+  .badge-red{background:rgba(239,68,68,.15);color:var(--red);}
+  .badge-blue{background:rgba(59,130,246,.15);color:var(--blue);}
+  .badge-purple{background:rgba(108,99,255,.15);color:#a78bfa;}
+  .badge-gray{background:#1e293b;color:#64748b;}
+  .bar-bg{background:var(--border);border-radius:4px;height:6px;flex:1;}
+  .bar-fill{height:6px;border-radius:4px;}
+  .bar-row{display:flex;align-items:center;gap:8px;}
+  .bar-label{min-width:28px;text-align:right;color:var(--muted);font-size:12px;}
+  /* Review cards */
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;position:relative;}
+  .review-card:hover{border-color:rgba(108,99,255,.4);}
+  .review-card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;}
+  .review-card .author{font-weight:600;color:#fff;font-size:13px;}
+  .review-card .date{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .review-card .text{color:#e2e8f0;line-height:1.7;font-size:14px;margin-bottom:10px;}
+  .review-card .copy-btn{position:absolute;top:12px;right:12px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a78bfa;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s;}
+  .review-card:hover .copy-btn{opacity:1;}
+  .review-card .copy-btn:hover{background:rgba(108,99,255,.3);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  /* Filter bar */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+  .filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;}
+  .filter-bar select:focus{border-color:var(--accent);}
+  .filter-bar label{color:var(--muted);font-size:12px;}
+  .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="meta" style="margin-bottom:4px">ReviewIntel · Competitor Deep-Dive</div>
+    <h1><span>Skintellect</span> — Tampa, FL</h1>
+  </div>
+  <div class="nav">
+    <a href="dashboard-v4-city-tampa-fl.html">← Tampa, FL</a>
+    <a href="dashboard-v4-overview.html">← Overview</a>
+  </div>
+</header>
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total Reviews</div><div class="value">50</div><div class="sub">Google · Tampa, FL</div></div>
+    <div class="kpi"><div class="label">Avg Rating</div><div class="value">4.8★</div><div class="sub">out of 5</div></div>
+    <div class="kpi"><div class="label">Positive Results</div><div class="value" style="color:var(--green)">52%</div><div class="sub">4% negative</div></div>
+    <div class="kpi"><div class="label">Method</div><div class="value" style="font-size:18px">Other</div><div class="sub">1 avg sessions</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Performance Overview</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Rating Distribution</h3><div class="chart-wrap"><canvas id="ratingDist"></canvas></div></div>
+      <div class="card"><h3>Result Rating Breakdown</h3><div class="chart-wrap"><canvas id="resultDonut"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pain &amp; Use Case</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Pain Level Distribution (when mentioned)</h3><div class="chart-wrap"><canvas id="painChart"></canvas></div></div>
+      <div class="card"><h3>Use Case Breakdown</h3>
+        <div style="margin-top:8px"><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Other</div><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--accent)"></div></div><span class="bar-label">4</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All Reviews <span style="color:var(--muted);font-size:13px;font-weight:400">(50)</span></h2>
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <select id="filter-result" onchange="renderReviews()">
+        <option value="">All Results</option>
+        <option value="Positive">Positive</option>
+        <option value="Neutral">Neutral</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Negative">Negative</option>
+      </select>
+      <select id="filter-stars" onchange="renderReviews()">
+        <option value="">All Stars</option>
+        <option value="5">5★</option>
+        <option value="4">4★</option>
+        <option value="3">3★</option>
+        <option value="2">2★</option>
+        <option value="1">1★</option>
+      </select>
+      <select id="filter-usecase" onchange="renderReviews()">
+        <option value="">All Use Cases</option>
+        <option value="Complete">Complete Removal</option>
+        <option value="Cover-up">Cover-up</option>
+        <option value="Microblading">Microblading</option>
+        <option value="Color">Color Ink</option>
+      </select>
+      <span class="review-count" id="review-count"></span>
+    </div>
+    <div id="reviews-list"></div>
+  </div>
+
+</div>
+<script>
+
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
+function barChart(id,labels,datasets,opts={}){
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets},options:{
+    indexAxis:opts.horizontal?'y':'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:opts.legend||false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed[opts.horizontal?'x':'y']+(opts.suffix||'')}}},
+    scales:{x:{grid:{color:'#2a2d3a'},ticks:{color:'#94a3b8'},stacked:opts.stacked||false,max:opts.xmax},
+            y:{grid:{display:opts.horizontal?false:true,color:'#2a2d3a'},ticks:{color:'#e2e8f0',font:{size:11}},stacked:opts.stacked||false}}}});
+}
+function donut(id,labels,data,colors){
+  new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',boxWidth:12,padding:12}}}}});
+}
+function starStr(n){return '★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n))+' '+n.toFixed(1);}
+function sentBadge(p){return p>=85?'<span class="badge badge-green">'+p+'%</span>':p>=65?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function negBadge(p){return p===0?'<span class="badge badge-green">'+p+'%</span>':p<=10?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function pctBar(p,color){return '<div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-label">'+p+'%</span></div>';}
+function shortName(b){return b.replace('Tattoo Removal & Fading','').replace('Tattoo Removal','').replace('Laser Clinic','').replace('Medical Aesthetics','Med Aesthetics').replace('Med Spa & Hair Restoration','Med Spa').replace('Cosmetic Center','Cosmetics').replace('(Aesthetica)','').trim();}
+const starColor=s=>s>=4.8?'#22c55e':s>=4.5?'#3b82f6':s>=4?'#f59e0b':'#ef4444';
+
+const REVIEWS = [{"author":"ELIZABETH PERKS","stars":2,"date":"2 days ago","text":"I went in as a new patient today… I showed up to\nMy appt on time.\nI waited 45 mints yo be brought back, the nurse practitioner talked to me about the procedure l, her assistant came in, gave me a robe, a hair net, and placed topical anesthetic on the are to be laser, and I waited like an hour before I went to ask how much longer… office manager came in apologized and told me some excused about why I was waiting so long.\nI told her I was going to wait but another 30 mts went by and the nurse never came.\nI took off the robe and hair net and left the center without looking back.\n\nMy thoughts:… this practice of not telling the patient that there was a mistake on the schedule and move on to ask them to put on a robe and hairnet and placed topical anesthetic, so they have not choice but to wait in the room is a poor tactic business move that only infuriates people more.\nBefore that anesthetic was placed on my neck someone should had told me that they were running behind and asked me if I was willing to wait.\nNo one did that bc once a patient is on a robe and hairnet and anesthetized you then get them “stuck” waiting for the provider to come in:\nThat’s not a good business move… that only made me upset and come to Google to let people know that this center may not be as upfront and honest as they should be.","result":"Negative","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Isabella Gonzalez","stars":5,"date":"5 days ago","text":"Love it here so much! Stephanie is THE best laser technician ever. Never ever leaving this place, mostly because of her. Entire staff is also so friendly. 100% recommend this place!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Esmeralda Hernandez","stars":5,"date":"5 days ago","text":"Stephanie is AWESOME!! She makes me feel like family. Everyone is awesome! Great place would recommend it to everyone.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Emily Jookar","stars":5,"date":"a week ago","text":"This is one of my FAVORITE med spas. The staff, the quality of the services and their care for their customers is what keeps me coming back. I live in another state and I fly in once or twice a year to get maintenance done and I will continue to do it!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"K C","stars":5,"date":"a week ago","text":"Laser hair removal has been one of the best investments I’ve made. Stephanie, my laser specialist, is exceptionally friendly and creates a comfortable experience. I highly recommend her—she is truly outstanding.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Veronica Suarez","stars":5,"date":"a week ago","text":"I’ve been going to Stephanie Parisi for years, and I honestly wouldn’t trust anyone else. She is hands down the best laser hair removal tech out there. The attention and care she gives every session really sets her apart she makes you feel comfortable, heard, and taken care of. You can tell she truly cares about her clients and the results. Highly recommend her to anyone looking for top quality service!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Richard Minichiello","stars":5,"date":"2 weeks ago","text":"I highly recommend Callie! She’s nice, personable and super talented at what she does. I got therapeutic Botox with her to control some of how my body sweats - and it’s made all the difference! I’ll be seeing her again!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jamie Woodside","stars":5,"date":"2 weeks ago","text":"I’ve been here for multiple services and always the best experience! Recently, I saw Callie for Botox. She is incredibly thorough and knowledgeable. I had Botox in my forehead, and eyes. Let me tell you- the confidence when you have a refreshed youthful look…it’s the best!!! I just feel so happy with my results! I’m a fan 1000%! Highly recommend to go see Callie!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Celeste Cortes","stars":5,"date":"2 weeks ago","text":"I highly recommend Skintellect! I got Botox done by Callie and she does an amazing job explaining any questions I had! I trust her and the staff at skintellect! I also had gotten laser hair removal by Cristina and I’m seeing amazing results as well !","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Danova Glow","stars":5,"date":"3 weeks ago","text":"Gina was amazing with my HydraFacial. After having a bad experience somewhere else, I was a little nervous, but she was extremely gentle and took great care of my skin. I truly appreciate how attentive she was.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Amanda B. Gutierrez","stars":5,"date":"3 weeks ago","text":"The Team is Amazing!!! Every treatment I have had has been superior. I just went through a traumatic injury scarring my face and they have been working with me along with my medical team. The emotional support as well as professional was beyond expectation.\n\nCaring for yourself should be a high priority and investment and they make it so easy with the Teal program they offer. Discounts and a savings account is excellent.\n\nI can’t say enough and HIGHLY RECOMMEND!!! Thank you to everyone!!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Other","scarring":"Yes"},{"author":"zahraa fawzi","stars":5,"date":"a month ago","text":"I normally don't leave reviews before visiting the place but I called today to ask about something, Nikki is the one who spoke to me, she was very kind and professional, she was very nice to me and made me feel very welcomed. She really needs to be recognized for her wonderful customer service. I will for sure call again to make an appointment after confirming with the dermatologist. Thank you Nikki :)","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sarah Ibrahim","stars":5,"date":"a month ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Ali Marie","stars":5,"date":"2 months ago","text":"I kind of want to gatekeep, but this is too good not to share. Callie is so professional and amazing; I don’t trust anyone else to inject me!\n\nShe is very thorough and explains the entire tox process so I understand and really know what to expect. She’s very patient and doesn’t make me feel pressured to make any decisions on the spot. I really appreciate how she’s never pushy- she’s informative and will give me her honest opinion which is why I trust her so much. Callie does a great job of going over pricing before she gets any materials or equipment. The whole process is so seamless and she has little tricks and toys to help with my anxiety (I hate needles, though the pain is very minimal). She’s also follows up to ensure I love my results and if I’m not happy, she’ll give me suggestions to make sure I’m satisfied (though I’ve never not loved my results).\n\nAlso, Skintellect is a very friendly, clean, and safe environment. Everyone always has a smile on their face when I come in, and I’m greeted from the moment I open the door. The waiting area is very spacious and clean. I like how the establishment is very timely and I don’t have to wait long at all before I’m escorted to the next room. The staff members are kind and politely answer any questions I have, and give step by step details about how my appointment will go.\n\nOverall, I’m highly satisfied and would recommend Callie and Skintellect to my friends and family.","result":"unknown","pain":2,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"JW","stars":5,"date":"2 months ago","text":"Callie did an amazing job on my filler and Botox. I’m so happy! She does the best lip filler and facial fillers! By far the best injector in Tampa Bay!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"B C","stars":5,"date":"2 months ago","text":"I wanted to get laser hair removal and this was one the places that I checked. Out of all the other places I checked, (including the most well-known national brand for laser hair removal) they were the most affordable and the most flexible. While other places tried to pressure me into signing long term contracts and loans, Skintellect offered me the ability to get one treatment or do a package bundle for a couple of treatments. I picked them for my laser hair removal, because they offered me double the treatments as the other places at less than a 3rd of the price. While other places were pushy and kept hounding me with lower prices, discounts and limited time sales that never materialized, Skintellect from the very beginning offered me a straight forward affordable price and excellent treatment. From my very first treatment I saw drastic results and as I am nearing the end of my treatment, I am so glad I was able to find them. In a very crowded marketplace, they stand out among their competitors due to their excellent service, remarkable treatments and affordable prices. Shoutout to Kristina, who has worked with me when I am either early or late for my appointments (I am driving from Orlando, so traffic is difficult to predict), and has always been extremely knowledgeable, friendly and professional.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Everley brown","stars":5,"date":"2 months ago","text":"Stephanie did an amazing job she makes me feel so comfortable and relaxing the best","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"briana rosario","stars":5,"date":"Edited 2 months ago","text":"I cannot say enough positive things about Gina at Skintellect! She is, hands down, the only person I trust to touch my face. With 8+ years of experience in the industry, Gina is an exceptionally knowledgeable esthetician who truly understands skin science. Every treatment feels like a luxury experience, yet it's backed by genuine expertise, not just pampering. The fact that she's also bilingual is a wonderful bonus, making communication incredibly easy and comfortable. If you're looking for an esthetician who combines a personalized, high-end approach with deep professional knowledge, you absolutely must seek her out. Highly, highly recommend!\n\nI couldn't make a review and not mention Stephanie. If you are looking for the absolute best in skin treatments, look no further than Stephanie. I have been seeing her for both skin lightening and tattoo removal, and the results have been nothing short of incredible. Stephanie is clearly extremely educated and a true expert in her field; she takes the time to explain the science behind the treatments, which gives me so much confidence. Beyond her skill, she has a way of making you feel entirely comfortable from the moment you walk in. What could be an intimidating process is actually a very pleasant experience. 10/10 would recommend","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"tala","stars":5,"date":"2 months ago","text":"Stephanie is incredibly empathetic, patient, and knowledgeable! Every single session is not only productive but also entertaining as we chat about the service & our personal lives. I’m very grateful to have entrusted her with my needs, and recommend Skintellect to anyone.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Mario Lamar","stars":5,"date":"2 months ago","text":"This was my first time doing any kind of facial treatment and the entire staff was so welcoming. Kristina and Gina were amazing and I'm already seeing significant results. I'll definitely be back!","result":"Positive","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Katerah Dixon","stars":5,"date":"3 months ago","text":"I absolutely love Stephanie! Ive had several sessions of laser hair removal and Stephanie's attention to detail is second to none. Please do not walk to Skintellect; RUN!! Ask for Stephanie!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Rebecca Lopez","stars":5,"date":"3 months ago","text":"Had a great experience at Skintallect. Would definitely recommend. Kristina was always so nice and great to work with!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Dalal Hamdar","stars":5,"date":"3 months ago","text":"I have been doing laser with Stephanie  for six months now and she has been amazing ! She explained the process ,the two types of laser she would be using on me to the expectation! Its not painful at all . I highly recommend her and so happy with result so far","result":"Positive","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"R S","stars":5,"date":"Edited 3 months ago","text":"I have been coming her for years for laser hair removal. Yody is amazing and you can tell she cares about her customers. Stephanie is friendly and welcome and makes the process very easy!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"xuxa major","stars":5,"date":"3 months ago","text":"I am legit blessed for Gina","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jaqui P","stars":5,"date":"4 months ago","text":"I have nothing but great thing to say about Stephanie. My skin care journey has been amazing thanks to her. In the beginning of my journey I was nervous and didn't know what to expect but Stephanie guided me and made me feel relaxed at each and every visit.  Thank you Stephanie for all the amazing skin care advice and for being so patient with me.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Aneska Bailey","stars":5,"date":"4 months ago","text":"Stephanie is very professional. She took her time and walked me through the whole process. she also made me feel comfortable.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jasmine P","stars":5,"date":"4 months ago","text":"I’ve had two HydroFacials with Gina, she is super sweet and gentle. My skin is now smooth, healthy and soft. Gina also educated me on the importance of continuing a healthy skincare routine.  I am excited to continue my skincare journey with Skintellect and their beautiful team.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Belinda Perry","stars":5,"date":"4 months ago","text":"I've been going to Stephanie for a few months now for laser treatments. She's great - super sweet and knowledgeable about all skin types! And, our chats during my treatments are awesome! To be completely honest, I don't know anyone there who's not nice, welcoming, and helpful. 10/10!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Anthony Hernandez","stars":5,"date":"4 months ago","text":"Been getting my hair removal by Stephanie, she is hands down one of the best people I've ever met. So friendly but still professional. I love the results and I have fun coming in everytime!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Heather Jacobs","stars":5,"date":"Edited 4 months ago","text":"Stephanie was amazing and informative!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"KelliSue","stars":5,"date":"4 months ago","text":"Stephanie Parisi was great!  Very personable and made me feel comfortable from the first visit.  The service from all the staff was excellent.  I’m very happy with the outcome of the services I chose.  I will definitely be back.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Aryan Maya","stars":5,"date":"4 months ago","text":"Stephanie is amazing and laser hair removal! Been going here for awhile, and wouldn’t choose anywhere else! She’s amazing!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Julia McD","stars":5,"date":"Edited 4 months ago","text":"Callie was amazing! I came in for subcision and she made me feel so comfortable and cared for the whole time. She took her time, explained everything, and you can really tell she loves what she does. I’ve been insecure about this area for years and she gave me so much hope. So grateful for her! 🤍","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Rhoda Ramnarine-Ramoutar","stars":5,"date":"4 months ago","text":"Stephanie is just phenomenal!!! 🎉","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Racquel Creus","stars":5,"date":"4 months ago","text":"Stephanie is very skilled! Shannon so helpful as well. Got great results just from the first session. Highly recommend!","result":"Positive","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Tracey Khan","stars":5,"date":"4 months ago","text":"I had such a wonderful experience with Gina! She was kind, caring, and really took the time to help me feel more confident about my skin journey. I came in feeling anxious, but she made me feel completely comfortable and informed about each step of the process. The entire office was welcoming, understanding, and had such a clean, relaxing atmosphere. I truly appreciate the care and professionalism — thank you, Gina, for helping me feel better about my skin and myself! So excited for what my future skin!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Alejandra Aguilar","stars":5,"date":"5 months ago","text":"I love skintellect is been my life saver after so many years shaving and waxing.. Stephanie always making feel comfortable so professional.  i love my results 💖","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"remington baturin","stars":5,"date":"5 months ago","text":"I have truly loved my experience with Skintellect. I’ve been going consistently for almost one year now & I have had nothing but a great experience. Gina has been working closely with me on my skin journey and she is a microneedling QUEEN! Her gentle & effective approach has worked wonders for my skin. Gina is so good at what she does and I can’t wait to continue my sessions with her!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"G Davis","stars":5,"date":"5 months ago","text":"Skintellect as a whole has been a blessing for my skin journey! I couldn’t be more thankful for two special ladies, Stephanie and Gina for truly helping me achieve my skin goals from my face to my woo hoo ladies! 😉 I’d recommend Skintellect to any one who’s looking to enhance their natural beauty step by step! I love my results and trust me, it’s worth every penny! ❤️","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"RaRa","stars":4,"date":"5 months ago","text":"Callie,Shannon and Ashley were very warm and inviting. I am excited to continue my journey knowing these ladies will be there every step of the way!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Robert Mermer","stars":5,"date":"5 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"celeste delgado","stars":5,"date":"5 months ago","text":"Gina has been amazing!! She is super gentle with my skin and makes me feel very comfortable ❤️","result":"Positive","pain":2,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Michelle Schnyders","stars":5,"date":"Edited 5 months ago","text":"Stephanie always makes my hair removal appointments so “comfortable.” She is very thorough and I’ve had excellent results.... she doesn’t miss not one spot! She has extensive knowledge of the process of hair growth and the cycles and I no longer have to shave from the waist down!! I’ve had laser hair removal done at other clinics and Stephanie exceeds their performance tremendously. If you don’t want to shave anymore, go see Stephanie!!","result":"Positive","pain":1,"sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Kevin Hernández","stars":5,"date":"5 months ago","text":"Love this place, I have been coming here for a while now, I started doing my laser hair removal with Stephany and so far I’ve seen great results, definitely recommend this place, and Stephany if your seeing this just letting you know you are THE BEST","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kandice Rae","stars":5,"date":"5 months ago","text":"Words can not describe how obsessed I am with Callie!!!! I don’t even have to say what I want she just looks at you and helps shape you into a gorgeous masterpiece. I always leave with confidence and feeling so beautiful. I wouldn’t let another soul touch my face but her!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Yordan Martinez Lambert","stars":1,"date":"5 months ago","text":"","result":"Negative","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Alison MCSWEEN","stars":5,"date":"5 months ago","text":"I received great service from Kristina  on Saturday 10/4/2025. Friendly and professional environment. Love Jody, miss talking with her on Saturdays. I’ve been a member for several years and I am very happy with my service. ⭐️⭐️⭐️⭐️⭐️","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Heather Bordash","stars":5,"date":"5 months ago","text":"Had my first fotona 4d and still have 3 more treatments for completion! And the results are amazing! My dark spots are fading so much! Can’t wait for my future treatments! The Botox after my laser was the icing on the cake. These girls are amazing at what they do!","result":"Positive","pain":"unknown","sessions":1,"use_case":"Other","scarring":"No"},{"author":"Calsie Boyd","stars":5,"date":"5 months ago","text":"Gina is the best. Best hydrafacial and microneedling I’ve ever had. Highly recommend!!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"}];
+const ratingDist = [1,1,0,1,47];
+const painLevels = [2,2,0,0,0];
+
+barChart('ratingDist',['1★','2★','3★','4★','5★'],[{data:ratingDist,backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#22c55e'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+donut('resultDonut',['Positive','Neutral','Mixed','Negative','Unknown'],
+  [52,12,0,4,32],
+  ['#22c55e','#3b82f6','#f59e0b','#ef4444','#374151']);
+barChart('painChart',['1-Painless','2-Minimal','3-Moderate','4-Intense','5-Severe'],[{data:painLevels,backgroundColor:['#22c55e','#86efac','#f59e0b','#f97316','#ef4444'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+
+const resultColor = r => r==='Positive'?'var(--green)':r==='Negative'?'var(--red)':r==='Mixed'?'var(--yellow)':r==='Neutral'?'var(--blue)':'#374151';
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 1500);
+  });
+}
+
+function renderReviews() {
+  const rf = document.getElementById('filter-result').value;
+  const sf = document.getElementById('filter-stars').value;
+  const uf = document.getElementById('filter-usecase').value;
+  const filtered = REVIEWS.filter(r =>
+    (!rf || r.result === rf) &&
+    (!sf || Math.round(r.stars) === parseInt(sf)) &&
+    (!uf || r.use_case === uf)
+  );
+  document.getElementById('review-count').textContent = filtered.length + ' reviews';
+  document.getElementById('reviews-list').innerHTML = filtered.map(r => `
+    <div class="review-card">
+      <button class="copy-btn" onclick="copyText(${JSON.stringify(r.text||'')})">Copy</button>
+      <div class="top">
+        <span class="author">${r.author || 'Anonymous'}</span>
+        <span class="date">${r.date || ''}</span>
+      </div>
+      <div class="stars" style="margin-bottom:8px">${'★'.repeat(r.stars||0)}${'☆'.repeat(5-(r.stars||0))} ${r.stars||'?'}★</div>
+      <div class="text">${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      <div class="tags">
+        <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid ${resultColor(r.result)};color:${resultColor(r.result)}">${r.result||'unknown'}</span>
+        ${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
+        ${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
+        ${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
+        ${r.scarring==='Yes'?'<span class="badge badge-red">Scarring</span>':r.scarring==='Positive'?'<span class="badge badge-green">Healed well</span>':''}
+      </div>
+    </div>
+  `).join('');
+}
+renderReviews();
+</script>
+</body></html>

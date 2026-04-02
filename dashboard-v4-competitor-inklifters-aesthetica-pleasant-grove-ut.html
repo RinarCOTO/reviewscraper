@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ReviewIntel — Inklifters (Aesthetica)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--accent:#6c63ff;
+    --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;}
+  header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  header h1{font-size:20px;font-weight:700;color:#fff;}
+  header h1 span{color:var(--accent);}
+  .meta{color:var(--muted);font-size:12px;}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav a{padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+  .nav a:hover,.nav a.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .container{max-width:1400px;margin:0 auto;padding:24px 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .kpi .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:#fff;}
+  .kpi .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .section{margin-bottom:36px;}
+  .section h2{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .card h3{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .chart-wrap{position:relative;height:200px;}
+  .chart-wrap-lg{position:relative;height:300px;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+  tbody tr{border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:rgba(108,99,255,.06);}
+  tbody td{padding:10px 12px;vertical-align:middle;}
+  tbody tr:last-child{border-bottom:none;}
+  .stars{color:#f59e0b;font-weight:600;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;}
+  .badge-green{background:rgba(34,197,94,.15);color:var(--green);}
+  .badge-yellow{background:rgba(245,158,11,.15);color:var(--yellow);}
+  .badge-red{background:rgba(239,68,68,.15);color:var(--red);}
+  .badge-blue{background:rgba(59,130,246,.15);color:var(--blue);}
+  .badge-purple{background:rgba(108,99,255,.15);color:#a78bfa;}
+  .badge-gray{background:#1e293b;color:#64748b;}
+  .bar-bg{background:var(--border);border-radius:4px;height:6px;flex:1;}
+  .bar-fill{height:6px;border-radius:4px;}
+  .bar-row{display:flex;align-items:center;gap:8px;}
+  .bar-label{min-width:28px;text-align:right;color:var(--muted);font-size:12px;}
+  /* Review cards */
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;position:relative;}
+  .review-card:hover{border-color:rgba(108,99,255,.4);}
+  .review-card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;}
+  .review-card .author{font-weight:600;color:#fff;font-size:13px;}
+  .review-card .date{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .review-card .text{color:#e2e8f0;line-height:1.7;font-size:14px;margin-bottom:10px;}
+  .review-card .copy-btn{position:absolute;top:12px;right:12px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a78bfa;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s;}
+  .review-card:hover .copy-btn{opacity:1;}
+  .review-card .copy-btn:hover{background:rgba(108,99,255,.3);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  /* Filter bar */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+  .filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;}
+  .filter-bar select:focus{border-color:var(--accent);}
+  .filter-bar label{color:var(--muted);font-size:12px;}
+  .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="meta" style="margin-bottom:4px">ReviewIntel · Competitor Deep-Dive</div>
+    <h1><span>Inklifters (Aesthetica)</span> — Pleasant Grove, UT</h1>
+  </div>
+  <div class="nav">
+    <a href="dashboard-v4-city-pleasant-grove-ut.html">← Pleasant Grove, UT</a>
+    <a href="dashboard-v4-overview.html">← Overview</a>
+  </div>
+</header>
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total Reviews</div><div class="value">50</div><div class="sub">Google · Pleasant Grove, UT</div></div>
+    <div class="kpi"><div class="label">Avg Rating</div><div class="value">4.9★</div><div class="sub">out of 5</div></div>
+    <div class="kpi"><div class="label">Positive Results</div><div class="value" style="color:var(--green)">90%</div><div class="sub">2% negative</div></div>
+    <div class="kpi"><div class="label">Method</div><div class="value" style="font-size:18px">Other</div><div class="sub">4.8 avg sessions</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Performance Overview</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Rating Distribution</h3><div class="chart-wrap"><canvas id="ratingDist"></canvas></div></div>
+      <div class="card"><h3>Result Rating Breakdown</h3><div class="chart-wrap"><canvas id="resultDonut"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pain &amp; Use Case</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Pain Level Distribution (when mentioned)</h3><div class="chart-wrap"><canvas id="painChart"></canvas></div></div>
+      <div class="card"><h3>Use Case Breakdown</h3>
+        <div style="margin-top:8px"><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Complete</div><div class="bar-bg"><div class="bar-fill" style="width:48%;background:var(--accent)"></div></div><span class="bar-label">24</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Microblading</div><div class="bar-bg"><div class="bar-fill" style="width:10%;background:var(--accent)"></div></div><span class="bar-label">5</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All Reviews <span style="color:var(--muted);font-size:13px;font-weight:400">(50)</span></h2>
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <select id="filter-result" onchange="renderReviews()">
+        <option value="">All Results</option>
+        <option value="Positive">Positive</option>
+        <option value="Neutral">Neutral</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Negative">Negative</option>
+      </select>
+      <select id="filter-stars" onchange="renderReviews()">
+        <option value="">All Stars</option>
+        <option value="5">5★</option>
+        <option value="4">4★</option>
+        <option value="3">3★</option>
+        <option value="2">2★</option>
+        <option value="1">1★</option>
+      </select>
+      <select id="filter-usecase" onchange="renderReviews()">
+        <option value="">All Use Cases</option>
+        <option value="Complete">Complete Removal</option>
+        <option value="Cover-up">Cover-up</option>
+        <option value="Microblading">Microblading</option>
+        <option value="Color">Color Ink</option>
+      </select>
+      <span class="review-count" id="review-count"></span>
+    </div>
+    <div id="reviews-list"></div>
+  </div>
+
+</div>
+<script>
+
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
+function barChart(id,labels,datasets,opts={}){
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets},options:{
+    indexAxis:opts.horizontal?'y':'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:opts.legend||false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed[opts.horizontal?'x':'y']+(opts.suffix||'')}}},
+    scales:{x:{grid:{color:'#2a2d3a'},ticks:{color:'#94a3b8'},stacked:opts.stacked||false,max:opts.xmax},
+            y:{grid:{display:opts.horizontal?false:true,color:'#2a2d3a'},ticks:{color:'#e2e8f0',font:{size:11}},stacked:opts.stacked||false}}}});
+}
+function donut(id,labels,data,colors){
+  new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',boxWidth:12,padding:12}}}}});
+}
+function starStr(n){return '★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n))+' '+n.toFixed(1);}
+function sentBadge(p){return p>=85?'<span class="badge badge-green">'+p+'%</span>':p>=65?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function negBadge(p){return p===0?'<span class="badge badge-green">'+p+'%</span>':p<=10?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function pctBar(p,color){return '<div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-label">'+p+'%</span></div>';}
+function shortName(b){return b.replace('Tattoo Removal & Fading','').replace('Tattoo Removal','').replace('Laser Clinic','').replace('Medical Aesthetics','Med Aesthetics').replace('Med Spa & Hair Restoration','Med Spa').replace('Cosmetic Center','Cosmetics').replace('(Aesthetica)','').trim();}
+const starColor=s=>s>=4.8?'#22c55e':s>=4.5?'#3b82f6':s>=4?'#f59e0b':'#ef4444';
+
+const REVIEWS = [{"author":"Noelle","stars":5,"date":"3 months ago","text":"I drive over 30 mins from Salt Lake to come here because Kylee is so great! Pricing is reasonable and there are different options for pain relief during removal sessions. When people tell you tattoo removal hurts, they are not lying!!! I don’t think I could I go through this process if it weren't for the team there. They are so kind and always do whatever they can to make me comfortable. Highly recommend!","result":"Positive","pain":4,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"SAMI BONNIWELL","stars":5,"date":"4 months ago","text":"Great experience. Makes the process super easy. Have been seeing results quick and everyone is super welcoming and nice! I recommend going here!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Hailee","stars":5,"date":"4 months ago","text":"April has been great with my tattoo removal process. Super happy so far!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Amanda Hall","stars":5,"date":"4 months ago","text":"Aunika is absolutely amazing! From my initial tattoo removal consultation to each treatment session, she explained everything clearly and made sure I was comfortable throughout the entire process. She’s incredibly kind and professional, and I’m so glad I chose to come here. I highly recommend Aunika to anyone considering tattoo removal—you’ll be in the best hands!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Denise","stars":5,"date":"5 months ago","text":"Aunika was so professional and did such a great job on my eyebrow tattoo removal. The process was so quick and with the numbing cream, barely painful at all. I would definitely recommend doing this at Aesthetica Plastic Surgery. If you have any regrets about getting your eyebrows micro bladed as I did, I recommend this 100%. A great experience!","result":"Positive","pain":1,"sessions":"unknown","use_case":"Microblading","scarring":"No"},{"author":"Carlin Smart","stars":5,"date":"5 months ago","text":"April was incredible. Super transparent, friendly and personable. Made the decision to work with them a no brainer, can’t recommend enough!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"diana valle","stars":5,"date":"5 months ago","text":"O have had such a great experience with Inklifters! April has been amazing from day one — she is professional, caring, and always follows up to make sure the healing process is going well. The tattoo removal treatments have been effective, and I feel comfortable and informed every step of the way. I highly recommend asking for April; she truly goes above and beyond to provide excellent service. 🩶🖤","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Jaz Aquino","stars":5,"date":"5 months ago","text":"I decided to remove my microblading and went to Aesthetica it was the 🤓best decision\nAunika was amazing; she explained every step with so much care and made sure I felt comfortable and confident. She’s incredibly sweet and kind, and her work was excellent. Everything turned out just how I hoped.\nHighly recommend her, 11/10🥰 yes!\n\nDecidí remover mi microblading y fui a Aesthetica  ¡fue la mejor decisión🤓\nAunika fue maravillosa; me explicó cada paso con mucho cuidado y se aseguró de que me sintiera cómoda y segura. Es muy dulce y amable, y su trabajo fue excelente. Todo salió tal como lo esperaba.\nLa recomiendo muchísimo, 11/10! 🥰 yes!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Microblading","scarring":"No"},{"author":"Savannah Williams","stars":5,"date":"5 months ago","text":"I had my microblading removed by Kylee at Aesthetica, and she was absolutely amazing! She made me feel completely comfortable throughout the process, explained everything clearly, and was so gentle and professional. The results are already incredible — my skin looks great and is healing beautifully. I highly recommend Kylee to anyone considering removal of microblading!","result":"Positive","pain":1,"sessions":"unknown","use_case":"Microblading","scarring":"Positive"},{"author":"Kelsey Simonsen","stars":5,"date":"5 months ago","text":"My experience at Inklifters has been so good that I’ve started removal of a second tattoo! April has done all of my treatments; she’s been amazing and very educated on exactly what’s going on with the skin/ink through the whole process. It takes time but be patient- the end result is worth it! I wouldn’t go anywhere else for my removals.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Noelle Phillips","stars":5,"date":"5 months ago","text":"I’m very impressed with my tattoo removal progress with Aunika! From the very first session, she has been professional, kind, and incredibly knowledgeable. She takes her time explaining the process and always makes me feel comfortable. The results have been amazing, my tattoo has lightened so much after four sessions. You can tell she genuinely cares about her clients and takes pride in her work. If you’re considering tattoo removal, I can’t recommend Aunika enough.","result":"Positive","pain":"unknown","sessions":4,"use_case":"Complete","scarring":"No"},{"author":"Heather Gardner","stars":5,"date":"5 months ago","text":"Aunika has been amazing at Ink Lifters. I’ve taken photos of my progress and it’s amazing what a difference there is. She is always so nice and efficient. Definitely recommend her.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Stephanie Cloward","stars":5,"date":"5 months ago","text":"I’ve had 4 treatments and so far it’s been great! Aunika has been amazing! She always checks in to see how I’m doing. I’m excited to see the end results!","result":"Positive","pain":"unknown","sessions":4,"use_case":"unknown","scarring":"No"},{"author":"Alissa Dailey","stars":5,"date":"5 months ago","text":"April has been amazing during my tattoo removal process. She has kept me well informed on potential hyperpigmentation and treatment options - something I don’t think every removal place will be transparent about. She’s professional, warm, and informative at each session.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Angie Ehrenzweig","stars":5,"date":"5 months ago","text":"⭐️⭐️⭐️⭐️⭐️\nIt was my first time getting a tattoo removal treatment, and my experience with Aesthetica (Inklifters) was excellent! The process was super quick and comfortable, and Aunika made me feel completely at ease. I’m really happy with how everything went and highly recommend them!","result":"Positive","pain":1,"sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Danielle Talbot","stars":5,"date":"5 months ago","text":"I have had the best experience with Aunika at Aesthetica. She’s super knowledgeable, friendly, and my treatments are progressing well. The facility is clean and polished. I came to Aesthetica after receiving a poor treatment experience elsewhere and I’m so grateful that Aunika has been collaborating with me to help correct the area. I should have started here in the first place! I highly recommend them for  removal services.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kordell Garrett","stars":5,"date":"5 months ago","text":"Needed to get a tattoo removed for work and found a decently priced package with inklifters.\nIts quick, they're understanding when I have to reschedule, and their employees very kind.\nAunika in particular is fantastic, the session is over before I have time to think about the painful part. 😄","result":"Positive","pain":4,"sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Malinda Andrew","stars":5,"date":"5 months ago","text":"Kylee has been amazing! I’m almost done with the removal process and I’m so happy.  Kylee is professional and amazing at what she does.  Highly recommend coming to her with any laser services.  😃 inklifters 💜","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Rachel Swenson","stars":5,"date":"5 months ago","text":"April is amazing! I am seeing really good results. I feel like her knowledge has been so helpful going through this process! I am so lucky to have connected with her!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Joseph Erickson","stars":5,"date":"5 months ago","text":"My experience here has been very positive, staff is great, April is very friendly and professional and has been great to work with. Would highly recommend.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Lauren Pulsipher","stars":5,"date":"5 months ago","text":"Great experience! Great prices! Great results! Loved everything about my treatment! Aunika was the best!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"ashlyn masse","stars":5,"date":"5 months ago","text":"I have had nothing but an amazing experience here. April is awesome :)","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jett Smith","stars":5,"date":"5 months ago","text":"Great work! April is awesome to work with","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kennedy Bradford","stars":5,"date":"5 months ago","text":"My tattoo is removal is looking fantastic, and Kylee is a lovely esthetician to be working with. Thank you to Kylee!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Izzy Hansen","stars":5,"date":"5 months ago","text":"April at aesthetica is the best! I have had about 6 sessions to get my tattoo removed and she is so quick! She also makes sure I know all of the care instructions and is always open for questions.","result":"Positive","pain":"unknown","sessions":6,"use_case":"Complete","scarring":"No"},{"author":"Carley Jensen","stars":5,"date":"5 months ago","text":"Kylee’s helped so much to help lighten my microbladded eyebrows. They had turned grey bluish tones and they are much lighter. Not completely gone but much easy to cover. She’s got the best personality and makes everything so comforting.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Microblading","scarring":"No"},{"author":"Sydney Savage","stars":5,"date":"5 months ago","text":"I’ve had 8 tattoo removal sessions with Kiley and she’s done an amazing job! Really happy with how much my tattoo has faded! Kiley is great at what she does! Would highly recommend!","result":"Positive","pain":"unknown","sessions":8,"use_case":"Complete","scarring":"No"},{"author":"Teera Jensen","stars":5,"date":"5 months ago","text":"I have had approximately 12 treatments to remove a tattoo on my back. The first half of my treatments, results were slow and minimal. After some maintenance on their machine and switching my aesthetician to April, I have had great results. April is not afraid to do what it takes to create results even if the process is painful and I appreciate that about her. She is great at recommending procedures and products that will help create the result I am looking for.  I have a couple of sessions left in my package and my once black and blownout tattoo is barely noticeable. It is so painful, but so worth it.","result":"Positive","pain":5,"sessions":12,"use_case":"Complete","scarring":"No"},{"author":"Alex Fairbourn","stars":5,"date":"6 months ago","text":"Kylee has been doing my tattoo laser removal treatments and it’s been amazing! She’s so great to work with and you can tell she cares. I’d recommend Kylee if doing tattoo removal!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Kamaile","stars":5,"date":"6 months ago","text":"I’ve only had one tattoo removal session so far, but everything has been so great. I started with a consultation where they were very thorough with explaining everything and answering all of my questions I even called back later with more questions and they answered them without issue. The process itself was a bit painful but that was expected and Kylee was checking in with me the whole time to make sure that I was comfortable. Kylee even called in a week later to check in on me and the healing process. She’s super nice and I have no complaints about my experience at all. Looking forward to the final results!","result":"Positive","pain":3,"sessions":1,"use_case":"Complete","scarring":"No"},{"author":"Taylor Varney","stars":5,"date":"6 months ago","text":"I’ve had such a great experience here! April is super kind and knowledgeable, and during every session she has been very honest about the progress of my removal, and keeps me in-the-know on if she is going to turn up the laser or go over it again and why. I feel like an active participant in my treatment rather than just a client. She’s amazing!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Andrea Hulse","stars":5,"date":"6 months ago","text":"Aunika does a great job! She is thorough, aware, knowledgeable and I’ve seen excellent results!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"connor weiss","stars":5,"date":"6 months ago","text":"Kylee has been amazing throughout my tattoo removal process. Super friendly, professional, and easy to work with. The whole team at Inklifters makes the experience comfortable and welcoming. Highly recommend them if you’re considering tattoo removal!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Whitney Hinz","stars":5,"date":"6 months ago","text":"I have had the best experience with April at Ink Lifters!! I just finished my second treatment and I am so thrilled with my results so far! I have seen a huge difference. April makes you feel comfortable and she is very knowledgeable! Can’t wait to see the end result!","result":"Positive","pain":"unknown","sessions":2,"use_case":"Complete","scarring":"No"},{"author":"Vincent Luna","stars":5,"date":"6 months ago","text":"Honestly the staff is super nice and welcoming! Kylee has been helping me out with a tattoo removal and she is the best at what she does! I would highly recommend them!!!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Hannah Carruthers","stars":5,"date":"6 months ago","text":"I have been getting laser tattoo removal from Kylie for over a year now and she is great! She’s always super understanding and makes sure I’m comfortable. My tattoo has made lots of progress!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"McKell Brown","stars":5,"date":"6 months ago","text":"April has been doing my tattoo removal and it’s been great so far! She is so kind and answers every question I have. I highly recommend getting your tattoo removal done here!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Keaton Gallagher","stars":5,"date":"6 months ago","text":"I have been coming here for close to a year and I go to April! She is incredible at what she does and honestly great to be around! She is funny and makes the session go by so quick! I highly recommend April! ☺️","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jennifer Russell","stars":5,"date":"6 months ago","text":"April with Inklifters is absolutely fantastic! She is always ready to answer any questions I have and puts you at ease with the treatments.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Brooklyn Dean","stars":5,"date":"6 months ago","text":"I love love love April !!! She is so sweet. I’ve been going to her for tattoo removal for close to a year now and I just adore her !! HIGHLY recommend going to see she !","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Jeremy Hulse","stars":5,"date":"7 months ago","text":"I love inklifters! They’re clean and organized,  communication is amazing and my provider, Aunika, is pleasant, professional, and quite Polished.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jenna Pemberton","stars":5,"date":"a year ago","text":"I went here to get my micro bladed eyebrows laser removed. I was so nervous, it took me years to even get up the courage to do this. April was great to explain the whole process for me and to answer any questions I had. The results were incredible, truly life changing. I will not hesitate to go back to them again. Overall, great experience!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Microblading","scarring":"No"},{"author":"Neal Covell","stars":5,"date":"a year ago","text":"I have been going to Inklifters for almost 2 years now working with April and the team is always professional and thorough! Highly recommend inklifters if you need a tattoo removed!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"ryan ponce","stars":5,"date":"a year ago","text":"This is hands down the best shop I’ve been to. Super professional, courteous, and clean. Excellent work! We will definitely be back!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Tessa Farnsworth","stars":5,"date":"2 years ago","text":"This place is always very clean. They are professional and pleasant and they get me in and out quickly. Highly recommend!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Faith Thomas","stars":2,"date":"2 years ago","text":"Very expensive!","result":"Negative","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sandra salazar","stars":5,"date":"2 years ago","text":"I've been coming here for almost 12months for 2 removals and every time was seen by Mckayla. She made every session a good experience always assuring I was comfortable thru the entire process. Definitely recommend for any tattoo removal.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Kenzie Holden","stars":5,"date":"3 years ago","text":"April was so sweet and patient with me! She explained everything so well and was very thoughtful, I would definitely go here again if I needed another tattoo fade/removal!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Carisa Ham","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Tiffany Richards","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"}];
+const ratingDist = [0,1,0,0,49];
+const painLevels = [3,0,1,2,1];
+
+barChart('ratingDist',['1★','2★','3★','4★','5★'],[{data:ratingDist,backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#22c55e'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+donut('resultDonut',['Positive','Neutral','Mixed','Negative','Unknown'],
+  [90,8,0,2,0],
+  ['#22c55e','#3b82f6','#f59e0b','#ef4444','#374151']);
+barChart('painChart',['1-Painless','2-Minimal','3-Moderate','4-Intense','5-Severe'],[{data:painLevels,backgroundColor:['#22c55e','#86efac','#f59e0b','#f97316','#ef4444'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+
+const resultColor = r => r==='Positive'?'var(--green)':r==='Negative'?'var(--red)':r==='Mixed'?'var(--yellow)':r==='Neutral'?'var(--blue)':'#374151';
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 1500);
+  });
+}
+
+function renderReviews() {
+  const rf = document.getElementById('filter-result').value;
+  const sf = document.getElementById('filter-stars').value;
+  const uf = document.getElementById('filter-usecase').value;
+  const filtered = REVIEWS.filter(r =>
+    (!rf || r.result === rf) &&
+    (!sf || Math.round(r.stars) === parseInt(sf)) &&
+    (!uf || r.use_case === uf)
+  );
+  document.getElementById('review-count').textContent = filtered.length + ' reviews';
+  document.getElementById('reviews-list').innerHTML = filtered.map(r => `
+    <div class="review-card">
+      <button class="copy-btn" onclick="copyText(${JSON.stringify(r.text||'')})">Copy</button>
+      <div class="top">
+        <span class="author">${r.author || 'Anonymous'}</span>
+        <span class="date">${r.date || ''}</span>
+      </div>
+      <div class="stars" style="margin-bottom:8px">${'★'.repeat(r.stars||0)}${'☆'.repeat(5-(r.stars||0))} ${r.stars||'?'}★</div>
+      <div class="text">${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      <div class="tags">
+        <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid ${resultColor(r.result)};color:${resultColor(r.result)}">${r.result||'unknown'}</span>
+        ${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
+        ${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
+        ${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
+        ${r.scarring==='Yes'?'<span class="badge badge-red">Scarring</span>':r.scarring==='Positive'?'<span class="badge badge-green">Healed well</span>':''}
+      </div>
+    </div>
+  `).join('');
+}
+renderReviews();
+</script>
+</body></html>

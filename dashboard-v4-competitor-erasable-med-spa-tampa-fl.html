@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ReviewIntel — Erasable Med Spa</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--accent:#6c63ff;
+    --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;}
+  header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  header h1{font-size:20px;font-weight:700;color:#fff;}
+  header h1 span{color:var(--accent);}
+  .meta{color:var(--muted);font-size:12px;}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav a{padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+  .nav a:hover,.nav a.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .container{max-width:1400px;margin:0 auto;padding:24px 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .kpi .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:#fff;}
+  .kpi .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .section{margin-bottom:36px;}
+  .section h2{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .card h3{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .chart-wrap{position:relative;height:200px;}
+  .chart-wrap-lg{position:relative;height:300px;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+  tbody tr{border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:rgba(108,99,255,.06);}
+  tbody td{padding:10px 12px;vertical-align:middle;}
+  tbody tr:last-child{border-bottom:none;}
+  .stars{color:#f59e0b;font-weight:600;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;}
+  .badge-green{background:rgba(34,197,94,.15);color:var(--green);}
+  .badge-yellow{background:rgba(245,158,11,.15);color:var(--yellow);}
+  .badge-red{background:rgba(239,68,68,.15);color:var(--red);}
+  .badge-blue{background:rgba(59,130,246,.15);color:var(--blue);}
+  .badge-purple{background:rgba(108,99,255,.15);color:#a78bfa;}
+  .badge-gray{background:#1e293b;color:#64748b;}
+  .bar-bg{background:var(--border);border-radius:4px;height:6px;flex:1;}
+  .bar-fill{height:6px;border-radius:4px;}
+  .bar-row{display:flex;align-items:center;gap:8px;}
+  .bar-label{min-width:28px;text-align:right;color:var(--muted);font-size:12px;}
+  /* Review cards */
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;position:relative;}
+  .review-card:hover{border-color:rgba(108,99,255,.4);}
+  .review-card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;}
+  .review-card .author{font-weight:600;color:#fff;font-size:13px;}
+  .review-card .date{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .review-card .text{color:#e2e8f0;line-height:1.7;font-size:14px;margin-bottom:10px;}
+  .review-card .copy-btn{position:absolute;top:12px;right:12px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a78bfa;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s;}
+  .review-card:hover .copy-btn{opacity:1;}
+  .review-card .copy-btn:hover{background:rgba(108,99,255,.3);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  /* Filter bar */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+  .filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;}
+  .filter-bar select:focus{border-color:var(--accent);}
+  .filter-bar label{color:var(--muted);font-size:12px;}
+  .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="meta" style="margin-bottom:4px">ReviewIntel · Competitor Deep-Dive</div>
+    <h1><span>Erasable Med Spa</span> — Tampa, FL</h1>
+  </div>
+  <div class="nav">
+    <a href="dashboard-v4-city-tampa-fl.html">← Tampa, FL</a>
+    <a href="dashboard-v4-overview.html">← Overview</a>
+  </div>
+</header>
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total Reviews</div><div class="value">50</div><div class="sub">Google · Tampa, FL</div></div>
+    <div class="kpi"><div class="label">Avg Rating</div><div class="value">4.9★</div><div class="sub">out of 5</div></div>
+    <div class="kpi"><div class="label">Positive Results</div><div class="value" style="color:var(--green)">48%</div><div class="sub">2% negative</div></div>
+    <div class="kpi"><div class="label">Method</div><div class="value" style="font-size:18px">PicoWay</div><div class="sub">1.6 avg sessions</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Performance Overview</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Rating Distribution</h3><div class="chart-wrap"><canvas id="ratingDist"></canvas></div></div>
+      <div class="card"><h3>Result Rating Breakdown</h3><div class="chart-wrap"><canvas id="resultDonut"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pain &amp; Use Case</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Pain Level Distribution (when mentioned)</h3><div class="chart-wrap"><canvas id="painChart"></canvas></div></div>
+      <div class="card"><h3>Use Case Breakdown</h3>
+        <div style="margin-top:8px"><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Complete</div><div class="bar-bg"><div class="bar-fill" style="width:6%;background:var(--accent)"></div></div><span class="bar-label">3</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Microblading</div><div class="bar-bg"><div class="bar-fill" style="width:4%;background:var(--accent)"></div></div><span class="bar-label">2</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Color</div><div class="bar-bg"><div class="bar-fill" style="width:2%;background:var(--accent)"></div></div><span class="bar-label">1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All Reviews <span style="color:var(--muted);font-size:13px;font-weight:400">(50)</span></h2>
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <select id="filter-result" onchange="renderReviews()">
+        <option value="">All Results</option>
+        <option value="Positive">Positive</option>
+        <option value="Neutral">Neutral</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Negative">Negative</option>
+      </select>
+      <select id="filter-stars" onchange="renderReviews()">
+        <option value="">All Stars</option>
+        <option value="5">5★</option>
+        <option value="4">4★</option>
+        <option value="3">3★</option>
+        <option value="2">2★</option>
+        <option value="1">1★</option>
+      </select>
+      <select id="filter-usecase" onchange="renderReviews()">
+        <option value="">All Use Cases</option>
+        <option value="Complete">Complete Removal</option>
+        <option value="Cover-up">Cover-up</option>
+        <option value="Microblading">Microblading</option>
+        <option value="Color">Color Ink</option>
+      </select>
+      <span class="review-count" id="review-count"></span>
+    </div>
+    <div id="reviews-list"></div>
+  </div>
+
+</div>
+<script>
+
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
+function barChart(id,labels,datasets,opts={}){
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets},options:{
+    indexAxis:opts.horizontal?'y':'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:opts.legend||false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed[opts.horizontal?'x':'y']+(opts.suffix||'')}}},
+    scales:{x:{grid:{color:'#2a2d3a'},ticks:{color:'#94a3b8'},stacked:opts.stacked||false,max:opts.xmax},
+            y:{grid:{display:opts.horizontal?false:true,color:'#2a2d3a'},ticks:{color:'#e2e8f0',font:{size:11}},stacked:opts.stacked||false}}}});
+}
+function donut(id,labels,data,colors){
+  new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',boxWidth:12,padding:12}}}}});
+}
+function starStr(n){return '★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n))+' '+n.toFixed(1);}
+function sentBadge(p){return p>=85?'<span class="badge badge-green">'+p+'%</span>':p>=65?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function negBadge(p){return p===0?'<span class="badge badge-green">'+p+'%</span>':p<=10?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function pctBar(p,color){return '<div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-label">'+p+'%</span></div>';}
+function shortName(b){return b.replace('Tattoo Removal & Fading','').replace('Tattoo Removal','').replace('Laser Clinic','').replace('Medical Aesthetics','Med Aesthetics').replace('Med Spa & Hair Restoration','Med Spa').replace('Cosmetic Center','Cosmetics').replace('(Aesthetica)','').trim();}
+const starColor=s=>s>=4.8?'#22c55e':s>=4.5?'#3b82f6':s>=4?'#f59e0b':'#ef4444';
+
+const REVIEWS = [{"author":"Jesse Phillips","stars":5,"date":"5 days ago","text":"Truly exceptional experience at Erasable Med Spa.  Emily, Anna, Jessica & Lacey wrre wonderful and engaging during my appointment.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Katie McGhee","stars":5,"date":"2 weeks ago","text":"They made the tattoo removal process as easy and painless as possible. They are true professionals and I highly recommend coming here!","result":"Positive","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Joanna","stars":5,"date":"2 weeks ago","text":"This is my go to medspa for tattoo removal. Always a great service, experience and friendly staff!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Hadiya Isaacs (Hadiya)","stars":5,"date":"2 weeks ago","text":"CAUTION READ 1ST BEFORE CONSIDERING ERASEABLE INC !!! ⚠️⚠️⚠️⚠️⚠️\n\nRead this first if you’re considering tattoo removal.\n\nIt takes a special level of precision, experience, and attention to detail to properly target tattoo ink, especially colored ink, the way Kristen and her team do. The care they put into their work is truly impressive.\n\nThe results I’ve seen are remarkable. The before and after photos speak for themselves. Proof that what they’re doing really works. Seeing those results kept me motivated throughout my own tattoo removal journey, especially knowing they are removing something that was meant to be permanent.\n\nErasable Inc. truly feels like a one of a kind business. I can understand why they are not franchised or spread across multiple locations, because the level of meticulous work they do would be very hard to duplicate.\n\nI highly recommend Erasable Inc. to anyone thinking about tattoo removal. Thank you Kristen and the team. I’m looking forward to my next session!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Color","scarring":"No"},{"author":"Elena Alexiev","stars":5,"date":"3 weeks ago","text":"Lacey was absolutely wonderful! She was knowledgeable, spent the time to educate me, and the services were painless. Coming back for more!","result":"Positive","pain":1,"sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Rebecca Loveland","stars":5,"date":"3 weeks ago","text":"Love Erasable Med Spa. Everyone is so sweet, knowledgeable and helpful. They thrive to do what's right for you. Love and highly recommend them.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sandra Beronda","stars":5,"date":"4 weeks ago","text":"Got laser tattoo removal with Lacey. She’s awesome!! Makes a painful experience much better to deal with. She’s super nice, personable and always in a good mood!!","result":"Positive","pain":4,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Cynthia Humayun","stars":5,"date":"Edited 4 weeks ago","text":"I have nothing but good things to say about Erasable. Ease of scheduling, check in, consultations, procedures, check out; all professional and efficient. ARNP Kristen is patient and personable, and takes the time to discuss needs and expectations.\n\nSecond review 3/2/26:\nProbably the most relaxing and enjoyable facial I've had, even with the \"gritty\" DiamondGlow dermabrasion part. Aysha took the time to listen to my concerns, explain the treatment, and recommend products. I appreciated the skincare routine advice without being pushy about selling. I look forward to my next treatment with her.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"P Vidal","stars":5,"date":"Edited a month ago","text":"Lacey and her assistant were careful (as always) to help me feel comfortable during my session. Lacey always explains what she is going to do before she does it so you are not surprised. She is caring, thoughtful and very knowledgeable. I trust her to always have my very best interests at heart and highly recommend her to anyone who is looking to have a stubborn tattoo removed.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Lina Caracappa","stars":5,"date":"a month ago","text":"Love going to this spot! Every time I go in I see Lacey it's an always an enjoyable experience. She is so knowledgeable and easy to talk to and she always gets my Botox or my dysport just right.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jon A","stars":5,"date":"a month ago","text":"\"Incredible experience. When i walked in I was greeted by a beautiful staff of complete professionals. Jessica was so kind and helpful with it being my first visit. Once back in the room Lacey eased any nervousness I was hiding inside. She was so sweet and so knowledgeable on the procedure. When I decided to drive down from Crystal River I was hoping it wasn't a waste of time, needless to say it was a blessing. I look forward to my next visit\"","result":"Positive","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Leanne Rogers","stars":5,"date":"a month ago","text":"\"I have nothing but wonderful things to say about Lacey. It was my first time having a procedure done with her and she was very informative and made sure I was comfortable the entire time. Five out of five stars!","result":"Neutral","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Sarah Michelle Villanueva","stars":5,"date":"a month ago","text":"Loved my experience, everything was great and she gave me a lot of useful information.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Julie Donovan","stars":5,"date":"Edited a month ago","text":"I felt totally relaxed during my treatment. The technics used felt incredible.  My skin felt amazing afterwards.  I would highly recomended the Hydra Facial.","result":"Neutral","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Rana Mahmoud","stars":5,"date":"a month ago","text":"Amazing place and super professional staff. Love it","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Bella Gaffney","stars":5,"date":"2 months ago","text":"I had the best experience here. I came to Kirsten for my first time ever getting lip filler and everyone made me so incredibly comfortable. Looking forward to coming back.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Shea Swain","stars":5,"date":"2 months ago","text":"Kristen was amazing. Very patient, friendly and professional","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Amanda P","stars":5,"date":"2 months ago","text":"Loved Lacey. Honestly was bummed about Laura leaving but Lacey is even better and I was so pleased. Honest and kind. Really great!!!! 10/10","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Cathy Edwards","stars":5,"date":"2 months ago","text":"Kristen Capo is truly exceptional. She is an incredibly skilled nurse practitioner with a deep understanding of Botox and facial aesthetics, and what really sets her apart is her expertise with Asian skin and facial structure. Kristen takes the time to recommend the right products and procedures specifically for my skin and features, never a one-size-fits-all approach. My results are always natural, balanced, and exactly what I’m looking for. I completely trust her with my face and highly recommend her to anyone looking for thoughtful, expert aesthetic care.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Alina","stars":5,"date":"2 months ago","text":"Loretta is knowledgeable and honest. She recommends only what you would benefit from and advices against anything that wouldn't be in your best interest","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jessica Locke","stars":5,"date":"Edited 2 months ago","text":"Loretta is truly an expert in her craft! So happy to have found her. The staff and  facility are also both beautiful!!!\n\nUpdate- 1 year later….\nAlways appreciate all the time Loretta spends with me! She is so knowledgeable and thorough - I always seem to come up with lots of questions which she answers with a great deal of kindness and patience. Plus, her injector skills are top notch, and despite being a baby, she always makes me comfortable!\n\nI’ve had multiple experiences and services at erasable since moving to Tampa and all of them have been a 10 out of 10!","result":"Positive","pain":2,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Nelia Bruce","stars":5,"date":"2 months ago","text":"I had such a great experience with my MOXI laser and scar treatment! The staff was professional, knowledgeable, and made me feel completely comfortable throughout the process. Everything was explained clearly, and I felt well cared for from start to finish. I'm already excited to see my results and would absolutely recommend them to anyone considering laser treatments.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"Positive"},{"author":"Rowena Barnett","stars":5,"date":"2 months ago","text":"\"I came for Radiesse to improve my neck and Lacy and the medical assistant gave me excellent care. Lacy and I conversed before the procedure and gave me a lot of information about what to expect for aftercare and results. She also did my Dysport during the same visit. I fully trust the medical and aesthetic professionals at Erasable MedSpa! They are kind, professional and careful to do what's right for their patients.\"","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Aura Blais","stars":5,"date":"2 months ago","text":"Loretta is incredibly knowledgeable and provided thoughtful, personalized recommendations. I feel confident in her expertise and comfortable with my treatment plan. The office is clean and welcoming, and the staff were all very kind and professional!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Giana Shaulis","stars":5,"date":"2 months ago","text":"Great place and they do a wonderful job!! The staff is so sweet and makes sure you feel so comfortable. This place is extremely professional and the workers feel like they are your family. Would recommend to anyone!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Celeste Cacciatore","stars":5,"date":"2 months ago","text":"I had a facial with Anna and it was fantastic! Loved all of their technology, products and the treatment was elite! Will definitely be going back!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"haley sass","stars":5,"date":"2 months ago","text":"I had an incredible facial here from Anna - I felt so relaxed and she explained everything since it was my first HydraFacial. I also bought a product she recommended on my way out - it has made my skin really glow. She only recommended the one product, didn’t try to push me and get a ton of things which I appreciated.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Maria Cacciatore","stars":5,"date":"2 months ago","text":"I had an amazing hydrafacial with Anna. It was my first time going to Erasable Med Spa. She did a skin analysis on me first which I loved.  Anna was great and super knowledgeable! I’ve had a lot of facials but this was the best my skin looked after having one. Would for sure go back. 10/10 recommend.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jenn Rojas","stars":5,"date":"Edited 2 months ago","text":"I had such a great experience at Erasable MedSpa! The staff was welcoming and professional, and the service exceeded my expectations. The atmosphere was absolutely beautiful. Clean, calming, and luxurious. You can tell they truly care about their clients. I'll definitely be coming back and recommending them to everyone I know!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Maureen Ayral","stars":5,"date":"3 months ago","text":"Fabulous Botox & and filler protocol + cool latter repayments. They definitely make sure you feel NO PAIN!","result":"unknown","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kristina Scallon","stars":5,"date":"3 months ago","text":"I was beyond impressed with my visit.  Lacey was so thorough and informative during the consult.  Moving on to the procedure, Lacey kept me informed at every step and put me at ease. Everything was wonderful and I’m kicking myself for not booking earlier.  Looking forward to my next visit!","result":"Positive","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Alf Xander","stars":5,"date":"3 months ago","text":"5 stars all around!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Pamela Gibson","stars":5,"date":"4 months ago","text":"Aysha makes me feel welcomed. She is personable, professional and patient. She makes the experience very pleasant! She remembers talks we have about my family. She is a great team member of Erasable Med Spa!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"kristina wardlow","stars":5,"date":"4 months ago","text":"The entire staff here is incredible. I had my consultation with Lacey, and she is genuinely amazing. From the moment I sat in her chair, she made me feel completely comfortable. I’ve wanted to remove a tattoo for a long time but kept putting it off because I’m very sensitive and also deal with eczema. She took her time, really listened to my concerns, and explained everything clearly. I decided to go through with my first session, and it was so much easier than I expected. She was patient, kind, and supportive the whole time, even when I was nervous. I truly couldn’t recommend this place more.","result":"Positive","pain":"unknown","sessions":1,"use_case":"Complete","scarring":"No"},{"author":"Natasha Leisch","stars":5,"date":"4 months ago","text":"Love LoLo! She keeps me looking my best and is always so kind to me and my bestie Beth. Keep up the fantastic work Lo we love you!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Julie Vo","stars":5,"date":"5 months ago","text":"My experience at Erasable Medspa with Laura Osterweil for my third Halo/BBL laser experience was exceptional! Laura always makes the process seamless using her meticulous professional skills to give me the results to my glowing revitalized skin!","result":"Positive","pain":"unknown","sessions":3,"use_case":"unknown","scarring":"No"},{"author":"Shannon Schmelzer","stars":5,"date":"5 months ago","text":"Laura was so professional and took her time with my teenager who was a first time hair removal client. She made sure she was comfortable and walked her through every step! I love Laura!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Liz McLain","stars":5,"date":"5 months ago","text":"Loving my experience so far! Anna is fantastic!! She makes you as comfortable as possible and is so attentive, caring, and friendly, I could go on and on! Highly recommend!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Ana Mendez","stars":5,"date":"5 months ago","text":"This is an excellent med spa. They take the time to listen to your concerns and address them. The service is always stellar.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Nicole Lavagnino","stars":5,"date":"5 months ago","text":"Great location! Everyone is very kind and helpful, no complaints on service. I'll keep coming back here for multiple services.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Brent Bohn","stars":5,"date":"6 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sierra","stars":5,"date":"6 months ago","text":"At first, I was so scared about getting my old microbladed eyebrow tattoos removed… but the minute I walked in, I was impressed. The office was beautiful, spacious, and clean. I first had a consultation with Lacey, and then the procedure.  It exceeded my expectations. The staff were very friendly and professional, and Lacey made me feel very comfortable. She and the staff are wonderful! - Paula","result":"Positive","pain":"unknown","sessions":1,"use_case":"Microblading","scarring":"No"},{"author":"Kristin Ann Pelletier","stars":5,"date":"Edited 7 months ago","text":"2025 - Still a loyal customer and today had a facial with Aysha!  I had one last month too and she did a full scan of my face - was an eye opener for sure, but that was really cool to see the damage (sad but cool).  Aysha created a plan to bring that youthful glow and undo (as much as possible) the damage over the years (I'm 60).  Today's facial was a bit different and longer than last month - she used some kind of mask (can't remember the name) and I immediately felt tightening of my face after.  Aysha is a true professional and is super knowledgeable.  Signed up for the monthly and can't wait for next month to see what magic she will do.  Oh, and the new location is right across the street from the old and it is beautiful!  Well done Loretta and Kristin (yes same name same spelling as me- automatic bond right there).  So happy to be a customer and so proud of the amazing business and caring team you have built!\n\n2021 - Still going to Erasable Inc for my facials and other treatments.  They have specials all the time to help me save $$. They truly care about their customers and always go the extra mile. Luv ma gurls at EI!!\n2020 - I have been going to erasable inc for over a year now.  Started out with tattoo removal (see review about that below) and then decided on other services such as their hydrafacial, botox (which I vowed I would never do...so glad I did), cool sculpting and true flex.  OMG the difference is amazing.  I work out and try to eat healthy most of the time (ice cream is a weakness) and even as a life long athlete, I still would have to work out 2 hours per day to get the results I got from cool sculpting and true flex.  The girls there are warm and welcoming, caring and considerate.  They have a clean healthy environment and are open for business but have done it thoughtfully and strategically for the safety of their patients.  I feel like I have a new family with the staff there.  Luv my EI girls!\n\n2019 - Everyone at Eraseable Inc is incredibly knowledgeable and attentive.   I’m having a tattoo removed and can’t believe the difference from when I first came in.  Just a few more sessions to go and it’s already almost gone!   Got a great package price too that included multiple sessions and it saved me $ instead of paying for each visit.  They’ve got a great set up.   Next...cool sculpting!   Loretta and her team are very friendly and professional!    Thanks you guys!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Carrie Cohen","stars":5,"date":"7 months ago","text":"I felt so comfortable and take care of by Laura. I was nervous about the procedure and she explained every step, easing my uncertainty and anxiety. I'm also really pleased with my results.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"m.s.d.","stars":5,"date":"8 months ago","text":"Outstanding Experience!\n\nI had a fantastic experience with Loretta at Eraseable Med Spa. She took the time to thoroughly explain each procedure, including the expected results, costs, and what would work best for my specific needs. I really appreciated her honesty — she even pointed out a few treatments that I wouldn’t benefit much from, which shows she truly has her clients' best interests at heart. I never felt rushed or pressured, and I left feeling informed, comfortable, and confident in my choices. Highly recommend her for anyone looking for personalized, professional care!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"delores surpass","stars":1,"date":"8 months ago","text":"WASTE OF MONEY!!! they take 3 appointments to do what others do in one appt.  They are just racking up $'s","result":"Negative","pain":"unknown","sessions":3,"use_case":"unknown","scarring":"No"},{"author":"Kendall McIntosh","stars":5,"date":"8 months ago","text":"So patient, knowledgeable, and kind! All my questions were answered before I even got to ask anything. The consultation process was quick and setting up my next appointment was seamless!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Lisa Guzman","stars":5,"date":"8 months ago","text":"Loved it! Had my second tattoo removal session and Dr Lacey. She was super helpful and let me know the different steps she was taking to give me the best experience in removing the color from my eyebrows. Anna made my laser hair removal so easy and pleasant. She was great to talk to and made my appt very comfortable considering I'm lasering intimate parts ;). Will definitely be recommending this place to my friends.","result":"Positive","pain":"unknown","sessions":2,"use_case":"Microblading","scarring":"No"},{"author":"Linie Lika","stars":5,"date":"8 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Victoria Lynch","stars":5,"date":"9 months ago","text":"I was referred to Erasable Med Spa by MADabolic and had such a great experience! I started with a VISIA facial consultation with Aysha—she was incredibly helpful throughout the process and took the time to thoroughly explain my results. I returned the next day for a Hydrafacial, and my skin has been glowing ever since! Aysha was so attentive, made sure I was comfortable the whole time, and patiently answered all of my questions. The spa itself is very clean, and the staff is welcoming and professional. Highly recommend!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"}];
+const ratingDist = [1,0,0,0,49];
+const painLevels = [4,1,0,1,0];
+
+barChart('ratingDist',['1★','2★','3★','4★','5★'],[{data:ratingDist,backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#22c55e'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+donut('resultDonut',['Positive','Neutral','Mixed','Negative','Unknown'],
+  [48,26,0,2,24],
+  ['#22c55e','#3b82f6','#f59e0b','#ef4444','#374151']);
+barChart('painChart',['1-Painless','2-Minimal','3-Moderate','4-Intense','5-Severe'],[{data:painLevels,backgroundColor:['#22c55e','#86efac','#f59e0b','#f97316','#ef4444'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+
+const resultColor = r => r==='Positive'?'var(--green)':r==='Negative'?'var(--red)':r==='Mixed'?'var(--yellow)':r==='Neutral'?'var(--blue)':'#374151';
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 1500);
+  });
+}
+
+function renderReviews() {
+  const rf = document.getElementById('filter-result').value;
+  const sf = document.getElementById('filter-stars').value;
+  const uf = document.getElementById('filter-usecase').value;
+  const filtered = REVIEWS.filter(r =>
+    (!rf || r.result === rf) &&
+    (!sf || Math.round(r.stars) === parseInt(sf)) &&
+    (!uf || r.use_case === uf)
+  );
+  document.getElementById('review-count').textContent = filtered.length + ' reviews';
+  document.getElementById('reviews-list').innerHTML = filtered.map(r => `
+    <div class="review-card">
+      <button class="copy-btn" onclick="copyText(${JSON.stringify(r.text||'')})">Copy</button>
+      <div class="top">
+        <span class="author">${r.author || 'Anonymous'}</span>
+        <span class="date">${r.date || ''}</span>
+      </div>
+      <div class="stars" style="margin-bottom:8px">${'★'.repeat(r.stars||0)}${'☆'.repeat(5-(r.stars||0))} ${r.stars||'?'}★</div>
+      <div class="text">${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      <div class="tags">
+        <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid ${resultColor(r.result)};color:${resultColor(r.result)}">${r.result||'unknown'}</span>
+        ${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
+        ${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
+        ${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
+        ${r.scarring==='Yes'?'<span class="badge badge-red">Scarring</span>':r.scarring==='Positive'?'<span class="badge badge-green">Healed well</span>':''}
+      </div>
+    </div>
+  `).join('');
+}
+renderReviews();
+</script>
+</body></html>

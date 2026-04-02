@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ReviewIntel — inkout</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--accent:#6c63ff;
+    --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;}
+  header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  header h1{font-size:20px;font-weight:700;color:#fff;}
+  header h1 span{color:var(--accent);}
+  .meta{color:var(--muted);font-size:12px;}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav a{padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+  .nav a:hover,.nav a.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .container{max-width:1400px;margin:0 auto;padding:24px 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .kpi .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:#fff;}
+  .kpi .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .section{margin-bottom:36px;}
+  .section h2{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .card h3{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .chart-wrap{position:relative;height:200px;}
+  .chart-wrap-lg{position:relative;height:300px;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+  tbody tr{border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:rgba(108,99,255,.06);}
+  tbody td{padding:10px 12px;vertical-align:middle;}
+  tbody tr:last-child{border-bottom:none;}
+  .stars{color:#f59e0b;font-weight:600;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;}
+  .badge-green{background:rgba(34,197,94,.15);color:var(--green);}
+  .badge-yellow{background:rgba(245,158,11,.15);color:var(--yellow);}
+  .badge-red{background:rgba(239,68,68,.15);color:var(--red);}
+  .badge-blue{background:rgba(59,130,246,.15);color:var(--blue);}
+  .badge-purple{background:rgba(108,99,255,.15);color:#a78bfa;}
+  .badge-gray{background:#1e293b;color:#64748b;}
+  .bar-bg{background:var(--border);border-radius:4px;height:6px;flex:1;}
+  .bar-fill{height:6px;border-radius:4px;}
+  .bar-row{display:flex;align-items:center;gap:8px;}
+  .bar-label{min-width:28px;text-align:right;color:var(--muted);font-size:12px;}
+  /* Review cards */
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;position:relative;}
+  .review-card:hover{border-color:rgba(108,99,255,.4);}
+  .review-card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;}
+  .review-card .author{font-weight:600;color:#fff;font-size:13px;}
+  .review-card .date{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .review-card .text{color:#e2e8f0;line-height:1.7;font-size:14px;margin-bottom:10px;}
+  .review-card .copy-btn{position:absolute;top:12px;right:12px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a78bfa;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s;}
+  .review-card:hover .copy-btn{opacity:1;}
+  .review-card .copy-btn:hover{background:rgba(108,99,255,.3);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  /* Filter bar */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+  .filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;}
+  .filter-bar select:focus{border-color:var(--accent);}
+  .filter-bar label{color:var(--muted);font-size:12px;}
+  .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="meta" style="margin-bottom:4px">ReviewIntel · Competitor Deep-Dive</div>
+    <h1><span>inkout</span> — Houston, TX</h1>
+  </div>
+  <div class="nav">
+    <a href="dashboard-v4-city-houston-tx.html">← Houston, TX</a>
+    <a href="dashboard-v4-overview.html">← Overview</a>
+  </div>
+</header>
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total Reviews</div><div class="value">50</div><div class="sub">Google · Houston, TX</div></div>
+    <div class="kpi"><div class="label">Avg Rating</div><div class="value">4.9★</div><div class="sub">out of 5</div></div>
+    <div class="kpi"><div class="label">Positive Results</div><div class="value" style="color:var(--green)">76%</div><div class="sub">2% negative</div></div>
+    <div class="kpi"><div class="label">Method</div><div class="value" style="font-size:18px">TEPR</div><div class="sub">2.1 avg sessions</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Performance Overview</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Rating Distribution</h3><div class="chart-wrap"><canvas id="ratingDist"></canvas></div></div>
+      <div class="card"><h3>Result Rating Breakdown</h3><div class="chart-wrap"><canvas id="resultDonut"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pain &amp; Use Case</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Pain Level Distribution (when mentioned)</h3><div class="chart-wrap"><canvas id="painChart"></canvas></div></div>
+      <div class="card"><h3>Use Case Breakdown</h3>
+        <div style="margin-top:8px"><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Complete</div><div class="bar-bg"><div class="bar-fill" style="width:36%;background:var(--accent)"></div></div><span class="bar-label">18</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Microblading</div><div class="bar-bg"><div class="bar-fill" style="width:4%;background:var(--accent)"></div></div><span class="bar-label">2</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Color</div><div class="bar-bg"><div class="bar-fill" style="width:2%;background:var(--accent)"></div></div><span class="bar-label">1</span></div><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Other</div><div class="bar-bg"><div class="bar-fill" style="width:2%;background:var(--accent)"></div></div><span class="bar-label">1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All Reviews <span style="color:var(--muted);font-size:13px;font-weight:400">(50)</span></h2>
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <select id="filter-result" onchange="renderReviews()">
+        <option value="">All Results</option>
+        <option value="Positive">Positive</option>
+        <option value="Neutral">Neutral</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Negative">Negative</option>
+      </select>
+      <select id="filter-stars" onchange="renderReviews()">
+        <option value="">All Stars</option>
+        <option value="5">5★</option>
+        <option value="4">4★</option>
+        <option value="3">3★</option>
+        <option value="2">2★</option>
+        <option value="1">1★</option>
+      </select>
+      <select id="filter-usecase" onchange="renderReviews()">
+        <option value="">All Use Cases</option>
+        <option value="Complete">Complete Removal</option>
+        <option value="Cover-up">Cover-up</option>
+        <option value="Microblading">Microblading</option>
+        <option value="Color">Color Ink</option>
+      </select>
+      <span class="review-count" id="review-count"></span>
+    </div>
+    <div id="reviews-list"></div>
+  </div>
+
+</div>
+<script>
+
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
+function barChart(id,labels,datasets,opts={}){
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets},options:{
+    indexAxis:opts.horizontal?'y':'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:opts.legend||false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed[opts.horizontal?'x':'y']+(opts.suffix||'')}}},
+    scales:{x:{grid:{color:'#2a2d3a'},ticks:{color:'#94a3b8'},stacked:opts.stacked||false,max:opts.xmax},
+            y:{grid:{display:opts.horizontal?false:true,color:'#2a2d3a'},ticks:{color:'#e2e8f0',font:{size:11}},stacked:opts.stacked||false}}}});
+}
+function donut(id,labels,data,colors){
+  new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',boxWidth:12,padding:12}}}}});
+}
+function starStr(n){return '★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n))+' '+n.toFixed(1);}
+function sentBadge(p){return p>=85?'<span class="badge badge-green">'+p+'%</span>':p>=65?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function negBadge(p){return p===0?'<span class="badge badge-green">'+p+'%</span>':p<=10?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function pctBar(p,color){return '<div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-label">'+p+'%</span></div>';}
+function shortName(b){return b.replace('Tattoo Removal & Fading','').replace('Tattoo Removal','').replace('Laser Clinic','').replace('Medical Aesthetics','Med Aesthetics').replace('Med Spa & Hair Restoration','Med Spa').replace('Cosmetic Center','Cosmetics').replace('(Aesthetica)','').trim();}
+const starColor=s=>s>=4.8?'#22c55e':s>=4.5?'#3b82f6':s>=4?'#f59e0b':'#ef4444';
+
+const REVIEWS = [{"author":"Charles","stars":4,"date":"a month ago","text":"Great service fair orices","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Mireya Martinez","stars":5,"date":"2 months ago","text":"Hi what’s the hours?","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"juan banda","stars":5,"date":"7 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"B. W.","stars":5,"date":"Edited 7 months ago","text":"I have been wanting to get my microblading removed for a while, and after much research, decided to schedule a consult here. The receptionist and technician made me feel so welcome and at home here. The technician was very kind and gentle, explaining every step of the process. I was fortunate to have only needed 1 session and a touch up later on. I couldn’t believe how much of the ink was visibly gone just after the first session!! The only regret I have is that I wish I had come here much sooner! I had a follow up appointment about 2 months later, and she touched up a few shadowy spots, complimentary. I am so grateful for my treatment here! Don’t hesitate to contact them, especially if you are living with embarrassing eyebrows like I was!! Thank you! 🫶❤️","result":"Positive","pain":"unknown","sessions":2,"use_case":"Microblading","scarring":"No"},{"author":"Yesenia Elizondo","stars":5,"date":"7 months ago","text":"Just had my microblading removed here and I’m so impressed! 💖 They knew exactly what they were doing, explained everything so well, and made me feel completely at ease. The process was quick, the results are amazing, and the prices were super reasonable. Highly recommend them if you’re thinking about tattoo or microblading removal! 🙌✨","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Microblading","scarring":"No"},{"author":"alexa herrera","stars":5,"date":"8 months ago","text":"I highly recommend this place! She walked me through the entire process and explained everything in detail about the tattoo removal. She also offered a college discount.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Bladimir Baltazar","stars":5,"date":"11 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Tomie Jo Lovelace","stars":5,"date":"a year ago","text":"This woman is literally the best. Years ago I got a tattoo removed and she did an amazing job as well as talked me through the process. She also removed a small star behind my ear for free! Fast forward to YEARS later. I text to get my never scheduled and she still had my number saved and asked about how my tattoo was doing, as well as giving my neice a referral discount !!! I highly recommend!!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Francisco Salgado","stars":5,"date":"a year ago","text":"The girls who work here are very professional and super friendly! God bless there souls, my appointment was fast and great service. Great place hands down. No scabbing or nothing with my tattoo removal, highly recommend!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"Positive"},{"author":"Maria Strand","stars":5,"date":"a year ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Marisa","stars":5,"date":"a year ago","text":"I couldn't be happier with my tattoo removal experience (as silly as that sounds)! Celia was so kind, knowledgeable, and professional. Tattoo removal is very painful for me, but she really took the time to ensure I was ready and as comfortable as possible to power through. I've been to a few other tattoo removal places, and I am standing on business with Houston Tattoo Removal Clinic.\n10/10 would get a bad tattoo just to come back and get it removed by Houston Tattoo Removal Clinic! 😂","result":"Positive","pain":4,"sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Shauntia Laird","stars":5,"date":"a year ago","text":"Very caring very professional my appt goes so quickly. I’ve been about four or five times and my tattoo is almost gone. No blisters no scabs just fading tattoo ink. I’m always so impressed on how quick it is and how they keep me updated. They text bk so fast they’re the best!!! Oh and they have snacks!","result":"Positive","pain":"unknown","sessions":5,"use_case":"Complete","scarring":"Positive"},{"author":"Bat Lobo","stars":5,"date":"2 years ago","text":"Very nice people good work","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Stephanie Conejo","stars":5,"date":"2 years ago","text":"Celia and team are nothing short of amazing. Everyone is so warm and kind, I’m happy to get rid of this tattoo but I will be extremely sad to not see them every couple of months anymore. Prices are super reasonable and I couldn’t have picked a better place for my first tattoo removal experience. Hopefully I won’t have to remove any other tattoos but I would choose them again and again!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"J G","stars":5,"date":"2 years ago","text":"Celia - director, Amanda - technician, Aimee - receptionist  gave me the best service in  Houston , my tattoos are gone in 2 sessons.","result":"Positive","pain":"unknown","sessions":2,"use_case":"Complete","scarring":"No"},{"author":"Kayla King","stars":1,"date":"2 years ago","text":"The tested zap was great, first session they put on lowest setting. Didn't affect tattoo at all, not even faded. Didn't peel or do anything! Go to removery this place is a scam","result":"Negative","pain":"unknown","sessions":1,"use_case":"Complete","scarring":"No"},{"author":"Jane Doh","stars":5,"date":"2 years ago","text":"They have the best lasers for every color, very knowledgable, fair priced, and great customer service.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Color","scarring":"No"},{"author":"Carlos S","stars":5,"date":"2 years ago","text":"Realmente este ha sido de los mejores servicios que he recibido en mi vida. La doctora went far and beyond con nosotros. Espectaculares, super profesionales, amables. Super recomendado sin duda alguna.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Derrick Escobedo","stars":5,"date":"2 years ago","text":"Thank you so much for your Kindness and the great service your Team is doing for ex-gang members. Keep up the great work!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Alexandra Parrott","stars":5,"date":"2 years ago","text":"The girls who work here are angels and the business is truly set up to help people. Pricing is very fair, they aren’t trying to get as much money out of you as they can, and they are professional, informative, and available by text for any questions or concerns during healing. They even gave me my second session free after it didn’t fade as much as we expected. Highly recommend this place over any other clinic!","result":"Mixed","pain":"unknown","sessions":2,"use_case":"unknown","scarring":"No"},{"author":"Selena Sel","stars":5,"date":"2 years ago","text":"So sweet fast and very professional","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Janeth Hernandez","stars":5,"date":"2 years ago","text":"I love the customers service here and the lady that does the tattoo removal omggggg she amazing explains exactly what she gonna do to you and how the process is gonna be n how is gonna heal how is gonna look like n what not .. the replying to the questions is fast. Im going for my second treatment and if i gotta keep going to get tattoo removal ill completely be coming back here for sure the prices are pretty good to me depending what u removing other then that LOVE YOU GUYS♥️🩵","result":"Positive","pain":"unknown","sessions":1,"use_case":"Complete","scarring":"No"},{"author":"Heidi B Flota Sanchez","stars":5,"date":"3 years ago","text":"Courteous and knowledgeable. Pam made me feel comfortable and welcomed.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sofia Rodriguez","stars":5,"date":"3 years ago","text":"I’ve visited 2 tattoo removal places prior to this one and I can assure this is one of the best places. I’ve been going here for a year now 4 sessions and my tattoo is nearly gone. The staff is friendly and most of all Celia is just the best of the best. She pays attention to detail when treating your skin, gives all the advice and information you need or you might be concerned about and on top of that she has an amazing personality and speaks 100miles/hour lol. My husband and I highly recommend this place. And a big plus plus reasonable pricing!!","result":"Positive","pain":"unknown","sessions":4,"use_case":"Complete","scarring":"No"},{"author":"carreon2409","stars":5,"date":"3 years ago","text":"A very positive experience! I was throughly interacted with and educated from the moment I called. Fantastic service and top notch work. Looking forward to my next session 😊🙏🏼","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Queen “Queen” Al","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Slinda Ordogne","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Dana G","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"John Keels","stars":5,"date":"3 years ago","text":"Great job on removing an unwanted tattoo,  very nice and friendly staff","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Shadow_chris Heitzmann","stars":5,"date":"3 years ago","text":"I was really nervous about using anyone for this process. I didn't know if it would ever be in my budget at all. However, these guys made getting my tattoos removed possible.\nCelia is awesome, and she really cares about you as a person/client and will make you feel extremely comfortable with the process.\nI am more than half way done with some of my removals and started a few others not to long ago, and I have one more large one to get to after thoughs. They've made the whole process very easy and affordable. They stay in contact after-hours and are available by text.\n10/10 recommend this place to get your no longer loved marks removed!\nAsk for Celia!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Angela Ortiz (angelarose546)","stars":5,"date":"3 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Eddie Chabera","stars":5,"date":"3 years ago","text":"Looking forward to my appointment this Saturday for hopefully my last session on my cheek","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Rudolph “The World Inspector”","stars":5,"date":"3 years ago","text":"I cant say enough good things about this place. Extremely patient, customer oriented, priced reasonably and just truly amazing human beings that work here. They treat you like you are a human not just another number here. I would highly recommend everyone to come visit here. Even if you live on the other side of town. Trust me there is no place like Houston Tattoo removal.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Mary Williams","stars":5,"date":"4 years ago","text":"Omg!! The experience was so great Celia made me feel right at home!! She gave me great aftercare instructions as well.The front desk was very welcoming as well!!.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Adam Jensen","stars":5,"date":"4 years ago","text":"I went here today to get a tattoo removed.  Everything about the visit before and durring when perfect.  Nice and knowlegeable people and a great price.   I went to removal first and this place is going to be around half the price with better service.    And they are open Mondays which helps me.  I showed up early and they were able to take me right away.  I was in and out in 15 mins or so.   If you are looking around give them a shot.","result":"Neutral","pain":"unknown","sessions":1,"use_case":"unknown","scarring":"No"},{"author":"Tanner Davis","stars":5,"date":"4 years ago","text":"I went in for my first session and I was scared as hell! I was quickly put to ease by the cleanliness and amazing staff! My technician didn’t sugar coat anything but was honest and told me EXACTLY what I was going to feel. I loved that no matter how many times I asked her to stop (3times) she did and no matter how many f bombs I dropped she still asked if I was okay! I highly recommend Houston Tattoo Removal Clinic if you need a tattoo removal!","result":"Positive","pain":4,"sessions":1,"use_case":"Complete","scarring":"No"},{"author":"Candice Henderson","stars":5,"date":"4 years ago","text":"Wonderful service, friendly and great tattoo removal work.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kristina Schaeffer","stars":5,"date":"4 years ago","text":"Tattoo removal is not a fast or painless process but these woman make it better. They are upfront and honest with how it will go down.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"Dwizz Fields","stars":5,"date":"4 years ago","text":"These people are awesome! They greet you as soon as you walk in. They’re very professional and amazing. The work is very meticulous. If they’re closed they are still attentive to your questions and concerns. I recommend people to come here and get your laser removal done comfortably and in a friendly environment! You two are GREAT!","result":"Positive","pain":2,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sara H","stars":5,"date":"4 years ago","text":"I recently went for my 2nd session, and I’m pleased to say that this tattoo removal clinic is the best of the best, staff is great, clinic is clean, very informative, and they will treat you amazing through the entire process, thus far I’m seeing amazing results.","result":"Positive","pain":"unknown","sessions":2,"use_case":"Complete","scarring":"No"},{"author":"Henry Gilbert","stars":5,"date":"Edited 4 years ago","text":"Great place to erase the mistakes made in life.\nVery cozy.\nThe staff are wonderful.\nVery well priced.\nI have looked all over Houston and this is the best.\nThey work with you.\n501 c friendly also.\nAsk your church to help.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"V B","stars":5,"date":"4 years ago","text":"Very polite and still going to them","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Joseph Russell","stars":5,"date":"4 years ago","text":"Nice people and clean clinic,  fast and friendly","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Clint C.","stars":5,"date":"4 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jamillah Locks","stars":5,"date":"4 years ago","text":"Informative and down to Earth.  Will be getting tattoos removed.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"X Xxx","stars":5,"date":"4 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Melanie Mendoza","stars":5,"date":"4 years ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jessica Padron","stars":5,"date":"5 years ago","text":"I would highly recommend coming here not only for the great experience for cost as well, we had Celia help my husband in his removal and she was very informative, very helpful to have us understand the whole process. Did not feel rushed at all! Not only that well sanitized! Will be returning!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Complete","scarring":"No"},{"author":"T. D.","stars":5,"date":"5 years ago","text":"Feels super great","result":"Positive","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jennifer Lozano","stars":5,"date":"5 years ago","text":"I have had treatment at multiple tattoo removal clinics. Houston Tattoo Removal is by far the best!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"}];
+const ratingDist = [1,0,0,1,48];
+const painLevels = [1,1,0,2,0];
+
+barChart('ratingDist',['1★','2★','3★','4★','5★'],[{data:ratingDist,backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#22c55e'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+donut('resultDonut',['Positive','Neutral','Mixed','Negative','Unknown'],
+  [76,16,2,2,4],
+  ['#22c55e','#3b82f6','#f59e0b','#ef4444','#374151']);
+barChart('painChart',['1-Painless','2-Minimal','3-Moderate','4-Intense','5-Severe'],[{data:painLevels,backgroundColor:['#22c55e','#86efac','#f59e0b','#f97316','#ef4444'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+
+const resultColor = r => r==='Positive'?'var(--green)':r==='Negative'?'var(--red)':r==='Mixed'?'var(--yellow)':r==='Neutral'?'var(--blue)':'#374151';
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 1500);
+  });
+}
+
+function renderReviews() {
+  const rf = document.getElementById('filter-result').value;
+  const sf = document.getElementById('filter-stars').value;
+  const uf = document.getElementById('filter-usecase').value;
+  const filtered = REVIEWS.filter(r =>
+    (!rf || r.result === rf) &&
+    (!sf || Math.round(r.stars) === parseInt(sf)) &&
+    (!uf || r.use_case === uf)
+  );
+  document.getElementById('review-count').textContent = filtered.length + ' reviews';
+  document.getElementById('reviews-list').innerHTML = filtered.map(r => `
+    <div class="review-card">
+      <button class="copy-btn" onclick="copyText(${JSON.stringify(r.text||'')})">Copy</button>
+      <div class="top">
+        <span class="author">${r.author || 'Anonymous'}</span>
+        <span class="date">${r.date || ''}</span>
+      </div>
+      <div class="stars" style="margin-bottom:8px">${'★'.repeat(r.stars||0)}${'☆'.repeat(5-(r.stars||0))} ${r.stars||'?'}★</div>
+      <div class="text">${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      <div class="tags">
+        <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid ${resultColor(r.result)};color:${resultColor(r.result)}">${r.result||'unknown'}</span>
+        ${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
+        ${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
+        ${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
+        ${r.scarring==='Yes'?'<span class="badge badge-red">Scarring</span>':r.scarring==='Positive'?'<span class="badge badge-green">Healed well</span>':''}
+      </div>
+    </div>
+  `).join('');
+}
+renderReviews();
+</script>
+</body></html>

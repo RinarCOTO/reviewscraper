@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ReviewIntel — DermSurgery Associates</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--accent:#6c63ff;
+    --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;}
+  header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  header h1{font-size:20px;font-weight:700;color:#fff;}
+  header h1 span{color:var(--accent);}
+  .meta{color:var(--muted);font-size:12px;}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav a{padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:12px;transition:all .15s;}
+  .nav a:hover,.nav a.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .container{max-width:1400px;margin:0 auto;padding:24px 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .kpi .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .kpi .value{font-size:28px;font-weight:700;color:#fff;}
+  .kpi .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .section{margin-bottom:36px;}
+  .section h2{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .card h3{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .chart-wrap{position:relative;height:200px;}
+  .chart-wrap-lg{position:relative;height:300px;}
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+  tbody tr{border-bottom:1px solid var(--border);}
+  tbody tr:hover{background:rgba(108,99,255,.06);}
+  tbody td{padding:10px 12px;vertical-align:middle;}
+  tbody tr:last-child{border-bottom:none;}
+  .stars{color:#f59e0b;font-weight:600;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;}
+  .badge-green{background:rgba(34,197,94,.15);color:var(--green);}
+  .badge-yellow{background:rgba(245,158,11,.15);color:var(--yellow);}
+  .badge-red{background:rgba(239,68,68,.15);color:var(--red);}
+  .badge-blue{background:rgba(59,130,246,.15);color:var(--blue);}
+  .badge-purple{background:rgba(108,99,255,.15);color:#a78bfa;}
+  .badge-gray{background:#1e293b;color:#64748b;}
+  .bar-bg{background:var(--border);border-radius:4px;height:6px;flex:1;}
+  .bar-fill{height:6px;border-radius:4px;}
+  .bar-row{display:flex;align-items:center;gap:8px;}
+  .bar-label{min-width:28px;text-align:right;color:var(--muted);font-size:12px;}
+  /* Review cards */
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;position:relative;}
+  .review-card:hover{border-color:rgba(108,99,255,.4);}
+  .review-card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px;}
+  .review-card .author{font-weight:600;color:#fff;font-size:13px;}
+  .review-card .date{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .review-card .text{color:#e2e8f0;line-height:1.7;font-size:14px;margin-bottom:10px;}
+  .review-card .copy-btn{position:absolute;top:12px;right:12px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a78bfa;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s;}
+  .review-card:hover .copy-btn{opacity:1;}
+  .review-card .copy-btn:hover{background:rgba(108,99,255,.3);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;}
+  /* Filter bar */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
+  .filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;}
+  .filter-bar select:focus{border-color:var(--accent);}
+  .filter-bar label{color:var(--muted);font-size:12px;}
+  .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="meta" style="margin-bottom:4px">ReviewIntel · Competitor Deep-Dive</div>
+    <h1><span>DermSurgery Associates</span> — Houston, TX</h1>
+  </div>
+  <div class="nav">
+    <a href="dashboard-v4-city-houston-tx.html">← Houston, TX</a>
+    <a href="dashboard-v4-overview.html">← Overview</a>
+  </div>
+</header>
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total Reviews</div><div class="value">50</div><div class="sub">Google · Houston, TX</div></div>
+    <div class="kpi"><div class="label">Avg Rating</div><div class="value">4.7★</div><div class="sub">out of 5</div></div>
+    <div class="kpi"><div class="label">Positive Results</div><div class="value" style="color:var(--green)">54%</div><div class="sub">2% negative</div></div>
+    <div class="kpi"><div class="label">Method</div><div class="value" style="font-size:18px">Q-Switch</div><div class="sub">3 avg sessions</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Performance Overview</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Rating Distribution</h3><div class="chart-wrap"><canvas id="ratingDist"></canvas></div></div>
+      <div class="card"><h3>Result Rating Breakdown</h3><div class="chart-wrap"><canvas id="resultDonut"></canvas></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pain &amp; Use Case</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Pain Level Distribution (when mentioned)</h3><div class="chart-wrap"><canvas id="painChart"></canvas></div></div>
+      <div class="card"><h3>Use Case Breakdown</h3>
+        <div style="margin-top:8px"><div class="bar-row" style="margin-bottom:10px"><div style="min-width:130px;color:var(--text);font-size:12px">Other</div><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--accent)"></div></div><span class="bar-label">4</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>All Reviews <span style="color:var(--muted);font-size:13px;font-weight:400">(50)</span></h2>
+    <div class="filter-bar">
+      <label>Filter:</label>
+      <select id="filter-result" onchange="renderReviews()">
+        <option value="">All Results</option>
+        <option value="Positive">Positive</option>
+        <option value="Neutral">Neutral</option>
+        <option value="Mixed">Mixed</option>
+        <option value="Negative">Negative</option>
+      </select>
+      <select id="filter-stars" onchange="renderReviews()">
+        <option value="">All Stars</option>
+        <option value="5">5★</option>
+        <option value="4">4★</option>
+        <option value="3">3★</option>
+        <option value="2">2★</option>
+        <option value="1">1★</option>
+      </select>
+      <select id="filter-usecase" onchange="renderReviews()">
+        <option value="">All Use Cases</option>
+        <option value="Complete">Complete Removal</option>
+        <option value="Cover-up">Cover-up</option>
+        <option value="Microblading">Microblading</option>
+        <option value="Color">Color Ink</option>
+      </select>
+      <span class="review-count" id="review-count"></span>
+    </div>
+    <div id="reviews-list"></div>
+  </div>
+
+</div>
+<script>
+
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
+function barChart(id,labels,datasets,opts={}){
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets},options:{
+    indexAxis:opts.horizontal?'y':'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:opts.legend||false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed[opts.horizontal?'x':'y']+(opts.suffix||'')}}},
+    scales:{x:{grid:{color:'#2a2d3a'},ticks:{color:'#94a3b8'},stacked:opts.stacked||false,max:opts.xmax},
+            y:{grid:{display:opts.horizontal?false:true,color:'#2a2d3a'},ticks:{color:'#e2e8f0',font:{size:11}},stacked:opts.stacked||false}}}});
+}
+function donut(id,labels,data,colors){
+  new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',boxWidth:12,padding:12}}}}});
+}
+function starStr(n){return '★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n))+' '+n.toFixed(1);}
+function sentBadge(p){return p>=85?'<span class="badge badge-green">'+p+'%</span>':p>=65?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function negBadge(p){return p===0?'<span class="badge badge-green">'+p+'%</span>':p<=10?'<span class="badge badge-yellow">'+p+'%</span>':'<span class="badge badge-red">'+p+'%</span>';}
+function pctBar(p,color){return '<div class="bar-row"><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-label">'+p+'%</span></div>';}
+function shortName(b){return b.replace('Tattoo Removal & Fading','').replace('Tattoo Removal','').replace('Laser Clinic','').replace('Medical Aesthetics','Med Aesthetics').replace('Med Spa & Hair Restoration','Med Spa').replace('Cosmetic Center','Cosmetics').replace('(Aesthetica)','').trim();}
+const starColor=s=>s>=4.8?'#22c55e':s>=4.5?'#3b82f6':s>=4?'#f59e0b':'#ef4444';
+
+const REVIEWS = [{"author":"Moore Angela","stars":1,"date":"a week ago","text":"BEYOND ridiculous!!! DO NOT GO HERE!!!I was going to another location and loved it (Willowbrook) then I received a called 2 weeks before my appointment that the laser machine was “moved” to this location.  I was so happy with Willowbrook I decided to give this place a try.. a week ago I asked if they would honor the same price given its the same service and same machine!\n\nOver a week later I get a call,  the price is now DOUBLE and with an aesthetician when I paid half the price with a Dr.!  This was beyond an inconvenience and just plan greedy!  I will definitely NOT suggest going to this location for anything!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Lundyn Cuellar","stars":5,"date":"a month ago","text":"Love Dr. Huang! He is very attentive, takes his time, and super kind. Really appreciate him.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Michael Mason","stars":5,"date":"2 months ago","text":"Dr. Nguyen has performed two surgical procedures for me, one of which was particularly difficult, and his skill and expertise were outstanding. He handled everything with confidence and precision. Dr. Nguyen and his assistant, Nelly, both have excellent bedside manner and made me feel comfortable and well cared for throughout the process. I trust Dr. Nguyen completely and will continue to see him for any future dermatologic surgery needs.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Gina R","stars":1,"date":"2 months ago","text":"Horrible staff. They don’t return calls. I have called several times to make an appt with one of the doctors for surgery and was told that their medical assistant, Giovanni would call me back to set up an appointment: It’s been 2 week2  and no called back. I called again last Friday and I was told again that the medical assistant., Giovanni would call back and again she did NOT call back. I do NOT recommend this provider, stay away!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Deepika Gupta","stars":1,"date":"3 months ago","text":"I had a very disappointing experience at this dermatologist’s office. I arrived about 10 minutes late to my appointment, but no one informed me that this would significantly impact my wait time. I ended up sitting in the waiting room for an hour and 20 minutes, during which I watched multiple patients who arrived after me get called in before me.\n\nThe staff only apologized after I went up to the front desk to ask what was going on. At that point, I was so frustrated that I decided to leave without even seeing the doctor.\n\nOverall, the lack of communication and the excessive wait time made this visit incredibly frustrating. I won’t be returning.","result":"Negative","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Jesus & Donna Balderas","stars":5,"date":"4 months ago","text":"A small basal cell carcinoma was found just below my eyebrow after a biopsy was analyzed. Dr. Conner Chan referred me to  Dermsurgery Associates in Bellaire, TX. This was my first experience with cancer and the term MOHS surgery. I was nervous. When I called the office, they were kind, patient and informative . Prior to the appointment, we visited the offices which are very easy to find and very nice.  My doctor was Dr.Nhan Nguyen. He and his assistant were personable and thorough. I had no pain at all. I highly recommend Dr. Nguyen and this location.","result":"unknown","pain":1,"sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Stephanie Freeman","stars":5,"date":"5 months ago","text":"I called at 8 AM to see if I could reschedule an appointment for my highschooler. They got me in at nine that same day! Dr. Boulos was on time, and as it was just a check in, we were out the door by 910! No chemistry lab was missed!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Sania Khan","stars":1,"date":"5 months ago","text":"I called to schedule a consultation with Dr. Kromberg and specifically asked if there was a consult fee. I was told there wasn’t one. My appointment was scheduled for 10:45 am, and I arrived at 10:30. However, I wasn’t seen until 11:30, and the appointment itself lasted no more than 10 minutes.\n\nAfterward, I was informed there was a $150 consult fee. I explained that I was told over the phone there was no charge, but the staff said they weren’t sure who I spoke with and that I still needed to pay.\n\nI’m sharing this so others are aware - be sure to confirm any fees in writing beforehand. I feel misled and disappointed to have been charged $150 for something I was told would be free. Transparency and clear communication about costs are very important, and unfortunately, that was lacking here.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Leslie Mims","stars":5,"date":"5 months ago","text":"Mandy was very helpful to work me in when I accidentally had cancelled my appointment when I responded to the recorded reminder.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"N B","stars":5,"date":"5 months ago","text":"Amazing experience!!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"james mccarthy","stars":5,"date":"5 months ago","text":"The very best service in Houston","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"rivka donin","stars":5,"date":"5 months ago","text":"Nicest staff and so efficient!!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Leonard Goldberg","stars":5,"date":"5 months ago","text":"I love my work and my staff and the patients","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"don toole","stars":5,"date":"5 months ago","text":"Nice clean facility with polite friendly staff and prompt appointments.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Darrell Cherry","stars":5,"date":"5 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Michael Friedman","stars":5,"date":"5 months ago","text":"Efficient, friendly, and professional\nIve been there on three separate occasions always with excellent results\nCompletely satisfied","result":"Positive","pain":"unknown","sessions":3,"use_case":"unknown","scarring":"No"},{"author":"Stef Levy","stars":5,"date":"5 months ago","text":"Angela Sweeney is the best. She is so knowledgeable, patient and gentle. She does not push tons of products or procedures. She always allows me to go at my own pace and do as much or little as I would like.  I would highly recommend her to any and all of my friends anf family.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Chip Colvill","stars":5,"date":"5 months ago","text":"Dr White and her staff are the best in the business!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kinverlin Perez","stars":5,"date":"6 months ago","text":"Everyone was so nice Dr.Asadi is so nice and great, he helped me remove my embedded tragus piercing I felt no pain. Thank you so much!! He’s great i recommend if you having a similar issue like me.","result":"Positive","pain":1,"sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"judy breitenbach","stars":5,"date":"6 months ago","text":"Wonderful. Loved. My  new doctor. Very thorough very knowledgeable. I liked him a lot.dr Jhi was actually, the star who saw the melanoma yesterday and Ceci who got me in today  all was great. The melanoma is gone and I have nothing to worry about all the tests were negative yay","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Glenda Hermes","stars":5,"date":"6 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Debbie Frank","stars":5,"date":"6 months ago","text":"Dr. Goldberg and his staff were absolutely wonderful! It was the most delightful experience I’ve ever had with any medical procedure!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Melissa Holmgren","stars":5,"date":"6 months ago","text":"I had a great experience. Everyone in the office is very nice and professional.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"robert garner","stars":5,"date":"6 months ago","text":"Always professional and kind. Been with Derma surgery for over a decade!! Scheduling has been easy as well.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Michelle Bridges Lane","stars":5,"date":"6 months ago","text":"Great staff! Very professional!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Natural Gas","stars":5,"date":"6 months ago","text":"Had a concern over a non-healing wound. Called and had it evaluated in less than 24 hours. Very responsive and caring staff.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Angie","stars":5,"date":"7 months ago","text":"I was a new patient and I was very nervous about seeing a Dermatologist. Dr Huang was so nice and professional, I learned he was not only a Dermatologist but he was also a Pathologist! His whole staff was Amazing!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"KRISTIN Hughes","stars":5,"date":"7 months ago","text":"I have always received excellent care from DermSurgery. The staff is very helpful and doctors Boulos and Goldberg very kind and professional.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Karen Krevalis","stars":5,"date":"7 months ago","text":"Dr. Jih and her staff are great!  We have been seeing her for over 12 years.  She takes care of my husband and me—skin checks and special issues.  She always takes time to answer all our questions.  She is very helpful making suggestions of things we can do to improve our health.  We drive down from The Woodlands because she is so good to us.","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kathryn Hicks","stars":5,"date":"7 months ago","text":"I cannot imagine a better medical office to get expert care in a friendly atmosphere! Kathy Hicks","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Mario Garcia","stars":5,"date":"7 months ago","text":"Great experience with them!","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Robert Fischer","stars":5,"date":"7 months ago","text":"I wasn't really expecting a whole team to remove the small growth on my ear, but that's what I got.  Everybody was nice, and everything went smoothly.  The doctor was kind of funny, and the Fellow was telling chemistry jokes, then to make matters worse, I started telling jokes.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Sam Stacy","stars":5,"date":"7 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"David Bonfil","stars":5,"date":"7 months ago","text":"Dr Goldberg is not only a true artist but also a wizard. Spa treatment. Caring staff.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Dede Wadler","stars":5,"date":"7 months ago","text":"Very efficient and painless","result":"Positive","pain":1,"sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"John Nelson","stars":5,"date":"7 months ago","text":"Excellent level of care, friendly staff. Dr. Goldberg and his team were highly skilled and thorough. If having surgery could be considered a pleasure, this is the place to experience that.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Carole Hutchens","stars":5,"date":"7 months ago","text":"Dr. Goldberg has taken care of my Mohs surgeries and I would go to no one else for my care. He is outstanding as is all on his staff.\nAnd one more thing ...no scars from Dr. Goldberg surgery...EVER!","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"Positive"},{"author":"Les Galloway","stars":5,"date":"7 months ago","text":"Excellent service very friendly and courteous","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Micaela Sifuentes","stars":5,"date":"7 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Karrie DeLeon","stars":5,"date":"7 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Kent Olsan","stars":5,"date":"7 months ago","text":"Friendly front desk! Dr. Huang and Julia were amazing! Thorough and communicative!","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Brenda Lopez","stars":5,"date":"7 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Robert Townsend","stars":5,"date":"7 months ago","text":"Mandy was very helpful in getting my med situation worked out. She made sure that i was involved in all the communication in getting the issue resolved,","result":"Neutral","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"ragina gary","stars":5,"date":"7 months ago","text":"Dr. Jih has been our dermatologist for years. She is always professional and thorough in her exams. My husband and I highly recommend Dr. Jih.","result":"unknown","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Yassamyn Jahlul","stars":5,"date":"7 months ago","text":"Dr. Jih and Beatriz were such an amazing help! They thoroughly explained the process and helped remove my mucous seal.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"Other","scarring":"No"},{"author":"Isabella Smith","stars":5,"date":"8 months ago","text":"Dr. Jih is so kind and helpful! I had a great experience","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Beatriz Andrade","stars":5,"date":"Edited 8 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Glenn Godoy","stars":5,"date":"8 months ago","text":"Always the best care.","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Julia Sykes","stars":5,"date":"8 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"},{"author":"Latosha Butler","stars":5,"date":"8 months ago","text":"","result":"Positive","pain":"unknown","sessions":"unknown","use_case":"unknown","scarring":"No"}];
+const ratingDist = [4,0,0,0,46];
+const painLevels = [3,0,0,0,0];
+
+barChart('ratingDist',['1★','2★','3★','4★','5★'],[{data:ratingDist,backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#22c55e'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+donut('resultDonut',['Positive','Neutral','Mixed','Negative','Unknown'],
+  [54,32,0,2,12],
+  ['#22c55e','#3b82f6','#f59e0b','#ef4444','#374151']);
+barChart('painChart',['1-Painless','2-Minimal','3-Moderate','4-Intense','5-Severe'],[{data:painLevels,backgroundColor:['#22c55e','#86efac','#f59e0b','#f97316','#ef4444'],borderRadius:4,borderSkipped:false}],{suffix:' reviews'});
+
+const resultColor = r => r==='Positive'?'var(--green)':r==='Negative'?'var(--red)':r==='Mixed'?'var(--yellow)':r==='Neutral'?'var(--blue)':'#374151';
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    event.target.textContent = 'Copied!';
+    setTimeout(() => event.target.textContent = 'Copy', 1500);
+  });
+}
+
+function renderReviews() {
+  const rf = document.getElementById('filter-result').value;
+  const sf = document.getElementById('filter-stars').value;
+  const uf = document.getElementById('filter-usecase').value;
+  const filtered = REVIEWS.filter(r =>
+    (!rf || r.result === rf) &&
+    (!sf || Math.round(r.stars) === parseInt(sf)) &&
+    (!uf || r.use_case === uf)
+  );
+  document.getElementById('review-count').textContent = filtered.length + ' reviews';
+  document.getElementById('reviews-list').innerHTML = filtered.map(r => `
+    <div class="review-card">
+      <button class="copy-btn" onclick="copyText(${JSON.stringify(r.text||'')})">Copy</button>
+      <div class="top">
+        <span class="author">${r.author || 'Anonymous'}</span>
+        <span class="date">${r.date || ''}</span>
+      </div>
+      <div class="stars" style="margin-bottom:8px">${'★'.repeat(r.stars||0)}${'☆'.repeat(5-(r.stars||0))} ${r.stars||'?'}★</div>
+      <div class="text">${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      <div class="tags">
+        <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid ${resultColor(r.result)};color:${resultColor(r.result)}">${r.result||'unknown'}</span>
+        ${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
+        ${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
+        ${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
+        ${r.scarring==='Yes'?'<span class="badge badge-red">Scarring</span>':r.scarring==='Positive'?'<span class="badge badge-green">Healed well</span>':''}
+      </div>
+    </div>
+  `).join('');
+}
+renderReviews();
+</script>
+</body></html>

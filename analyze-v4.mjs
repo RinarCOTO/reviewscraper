@@ -24,7 +24,8 @@ const MODEL = 'claude-sonnet-4-20250514';
 // ── Provider → method lookup ──
 // Source: Page Intent Map v6, Section 1
 const METHOD_MAP = {
-  'inkout':                     'TEPR',
+  'inkOUT':                     'TEPR',
+  'Tatt2Away':                  'TEPR',
   'Removery':                   'PicoWay',
   'Removery (South Congress)':  'PicoWay',
   'Removery (Bucktown)':        'PicoWay',
@@ -53,7 +54,6 @@ function lookupMethod(providerName) {
 }
 
 // ── Target markets — exclude everything else ──
-const TARGET_STATES = new Set(['TX', 'UT', 'FL', 'IL']);
 const EXCLUDED_CITIES = new Set([
   'Chula Vista', 'Los Angeles', 'LA', 'Pasadena', 'San Diego', 'Woodland Hills',
   // Add any other CA cities that show up

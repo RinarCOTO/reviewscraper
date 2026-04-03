@@ -445,9 +445,9 @@ renderReviews();
 // 3. OVERVIEW DASHBOARD
 // ══════════════════════════════════════════════════════════════════════════
 const overallSummary = summarize(all);
-const inkoutAll = all.filter(r => r.provider_name === 'inkout');
+const inkoutAll = all.filter(r => r.provider_name === 'inkOUT');
 const inkoutSummary = summarize(inkoutAll);
-const competitorAll = all.filter(r => r.provider_name !== 'inkout');
+const competitorAll = all.filter(r => r.provider_name !== 'inkOUT');
 const competitorSummary = summarize(competitorAll);
 
 // Per-city summary
@@ -505,7 +505,7 @@ ${CHART_JS}
           ${providerRankings.map((p,i) => `
           <tr>
             <td style="color:var(--muted)">${i+1}</td>
-            <td style="font-weight:600;color:${p.provider==='inkout'?'#a78bfa':'#fff'}">${p.provider}${p.provider==='inkout'?'<span class="badge badge-purple" style="margin-left:6px">inkout</span>':''}</td>
+            <td style="font-weight:600;color:${p.provider==='inkOUT'?'#a78bfa':'#fff'}">${p.provider}${p.provider==='inkOUT'?'<span class="badge badge-purple" style="margin-left:6px">inkOUT</span>':''}</td>
             <td style="color:var(--muted)">${p.city}, ${p.state}</td>
             <td><span class="badge badge-gray">${p.method||'—'}</span></td>
             <td><a href="dashboard-v4-competitor-${slug(p.provider+'-'+p.city+', '+p.state)}.html" style="color:var(--blue)">${p.total}</a></td>

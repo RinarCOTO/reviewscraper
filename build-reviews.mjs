@@ -19,7 +19,7 @@ const reviews = all.map(r => ({
   sessions: r.sessions_completed,
   use_case: r.use_case,
   scarring: r.scarring_mentioned,
-  isInkout: r.provider_name === 'inkout',
+  isInkout: r.provider_name === 'inkOUT',
   file: `dashboard-v4-competitor-${slug(`${r.provider_name}-${r.location_city}, ${r.location_state}`)}.html`,
 }));
 

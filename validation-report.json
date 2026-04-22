@@ -1,0 +1,503 @@
+{
+  "validated_at": "2026-04-22T14:31:16.316Z",
+  "total_files": 20,
+  "excluded": [
+    "inkout-tampa-fl"
+  ],
+  "results": [
+    {
+      "slug": "arviv-medical-aesthetics-tampa-fl",
+      "file": "reviews-v3-arviv-medical-aesthetics-tampa-fl.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 5,
+      "text_coverage": {
+        "empty": 5,
+        "total": 50,
+        "empty_rate_pct": 10
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Arviv Medical Aesthetics Tampa"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "clarity-skin-draper-ut",
+      "file": "reviews-v3-clarity-skin-draper-ut.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.6,
+      "text_coverage": {
+        "empty": 7,
+        "total": 50,
+        "empty_rate_pct": 14
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Clarity Skin"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "clean-slate-ink-austin-tx",
+      "file": "reviews-v3-clean-slate-ink-austin-tx.json",
+      "status": "WARNING",
+      "review_count": 22,
+      "avg_rating": 5,
+      "text_coverage": {
+        "empty": 1,
+        "total": 22,
+        "empty_rate_pct": 4.5
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 22,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Clean Slate Ink"
+      },
+      "issues": [],
+      "warnings": [
+        "Low review count: 22 (minimum 30)",
+        "22 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "dermsurgery-associates-houston-tx",
+      "file": "reviews-v3-dermsurgery-associates-houston-tx.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.68,
+      "text_coverage": {
+        "empty": 9,
+        "total": 50,
+        "empty_rate_pct": 18
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "DermSurgery Associates – Main - Dermatology"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "enfuse-medical-spa-chicago-il",
+      "file": "reviews-v3-enfuse-medical-spa-chicago-il.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 5,
+      "text_coverage": {
+        "empty": 1,
+        "total": 50,
+        "empty_rate_pct": 2
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Enfuse Medical Spa & Hair Restoration"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "erasable-med-spa-tampa-fl",
+      "file": "reviews-v3-erasable-med-spa-tampa-fl.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.92,
+      "text_coverage": {
+        "empty": 2,
+        "total": 50,
+        "empty_rate_pct": 4
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Erasable Med Spa"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkfree-md-houston-tx",
+      "file": "reviews-v3-inkfree-md-houston-tx.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.84,
+      "text_coverage": {
+        "empty": 7,
+        "total": 50,
+        "empty_rate_pct": 14
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Inkfree, MD Laser Clinic"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inklifters-draper-ut",
+      "file": "reviews-v3-inklifters-draper-ut.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.94,
+      "text_coverage": {
+        "empty": 2,
+        "total": 50,
+        "empty_rate_pct": 4
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Inklifters Tattoo Removal"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-austin-tx",
+      "file": "reviews-v3-inkout-austin-tx.json",
+      "status": "WARNING",
+      "review_count": 45,
+      "avg_rating": 4.62,
+      "text_coverage": {
+        "empty": 2,
+        "total": 45,
+        "empty_rate_pct": 4.4
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 45,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Rejuvatek Aesthetics providing inkOUT®"
+      },
+      "issues": [],
+      "warnings": [
+        "45 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-chicago-il",
+      "file": "reviews-v3-inkout-chicago-il.json",
+      "status": "WARNING",
+      "review_count": 11,
+      "avg_rating": 4.64,
+      "text_coverage": {
+        "empty": 0,
+        "total": 11,
+        "empty_rate_pct": 0
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 11,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Rejuvatek Aesthetics providing inkOUT®"
+      },
+      "issues": [],
+      "warnings": [
+        "Low review count: 11 (minimum 30)",
+        "11 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-draper-ut",
+      "file": "reviews-v3-inkout-draper-ut.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.1,
+      "text_coverage": {
+        "empty": 3,
+        "total": 50,
+        "empty_rate_pct": 6
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Rejuvatek Aesthetics providing inkOUT®"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-houston-tx.bak",
+      "file": "reviews-v3-inkout-houston-tx.bak.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.9,
+      "text_coverage": {
+        "empty": 10,
+        "total": 50,
+        "empty_rate_pct": 20
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "UNVERIFIED",
+        "value": "No title pattern registered for inkout-houston-tx.bak — manual check needed"
+      },
+      "issues": [],
+      "warnings": [
+        "Place title unverified: No title pattern registered for inkout-houston-tx.bak — manual check needed",
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-houston-tx",
+      "file": "reviews-v3-inkout-houston-tx.json",
+      "status": "WARNING",
+      "review_count": 6,
+      "avg_rating": 5,
+      "text_coverage": {
+        "empty": 0,
+        "total": 6,
+        "empty_rate_pct": 0
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 6,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Rejuvatek Aesthetics providing inkOUT®"
+      },
+      "issues": [],
+      "warnings": [
+        "Low review count: 6 (minimum 30)",
+        "6 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "inkout-tampa-fl",
+      "file": "reviews-v3-inkout-tampa-fl.json",
+      "status": "EXCLUDED",
+      "reason": "No verified Google Business listing found — excluded pending direct confirmation from provider"
+    },
+    {
+      "slug": "kovak-cosmetic-chicago-il",
+      "file": "reviews-v3-kovak-cosmetic-chicago-il.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.72,
+      "text_coverage": {
+        "empty": 12,
+        "total": 50,
+        "empty_rate_pct": 24
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Kovak Cosmetic Center"
+      },
+      "issues": [],
+      "warnings": [
+        "High empty text rate: 24% (12 of 50 reviews)",
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "medermis-austin-tx",
+      "file": "reviews-v3-medermis-austin-tx.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 5,
+      "text_coverage": {
+        "empty": 4,
+        "total": 50,
+        "empty_rate_pct": 8
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "MEDermis Tattoo Removal"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "removery-bucktown-chicago-il",
+      "file": "reviews-v3-removery-bucktown-chicago-il.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.86,
+      "text_coverage": {
+        "empty": 18,
+        "total": 50,
+        "empty_rate_pct": 36
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Removery Tattoo Removal & Fading"
+      },
+      "issues": [],
+      "warnings": [
+        "High empty text rate: 36% (18 of 50 reviews)",
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "removery-lincoln-square-chicago-il",
+      "file": "reviews-v3-removery-lincoln-square-chicago-il.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.84,
+      "text_coverage": {
+        "empty": 17,
+        "total": 50,
+        "empty_rate_pct": 34
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Removery Tattoo Removal & Fading"
+      },
+      "issues": [],
+      "warnings": [
+        "High empty text rate: 34% (17 of 50 reviews)",
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "removery-south-congress-austin-tx",
+      "file": "reviews-v3-removery-south-congress-austin-tx.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.96,
+      "text_coverage": {
+        "empty": 4,
+        "total": 50,
+        "empty_rate_pct": 8
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Removery Tattoo Removal & Fading"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    },
+    {
+      "slug": "skintellect-tampa-fl",
+      "file": "reviews-v3-skintellect-tampa-fl.json",
+      "status": "WARNING",
+      "review_count": 50,
+      "avg_rating": 4.84,
+      "text_coverage": {
+        "empty": 3,
+        "total": 50,
+        "empty_rate_pct": 6
+      },
+      "date_format": {
+        "iso": 0,
+        "relative": 50,
+        "missing": 0
+      },
+      "place_title": {
+        "status": "OK",
+        "value": "Skintellect Laser & Aesthetics"
+      },
+      "issues": [],
+      "warnings": [
+        "50 relative date strings — anchor to scrape_date needed"
+      ]
+    }
+  ],
+  "summary": {
+    "ok": 0,
+    "warnings": 19,
+    "errors": 0,
+    "excluded": 2
+  }
+}

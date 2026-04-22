@@ -1,0 +1,93 @@
+{
+  "document_title": "Review Dataset Disclosure and Methodology",
+  "prepared_for": "Internal audit and legal review",
+  "dataset_file": "analyzed-v4-all-dated.json",
+  "scrape_date": "2026-04-02",
+  "processed_date": "2026-04-22",
+  "total_reviews": 848,
+  "total_locations": 22,
+  "total_brands": 13,
+
+  "data_source": {
+    "platform": "Google Maps",
+    "method": "Automated scraper pulling publicly visible reviews",
+    "note": "All reviews were publicly visible on Google Maps at the time of the scrape. No private or non-public data was accessed."
+  },
+
+  "sampling_methodology": {
+    "summary": "Up to 50 reviews were collected per location. The scraper pulled the most recently posted reviews first.",
+    "implication": "This dataset is a sample, not the complete review history for any location. Providers with more total reviews on Google may have a different distribution of ratings in their full history.",
+    "inkout_note": "inkOUT locations have fewer than 50 reviews in this dataset at some locations (Chicago: 7, Tampa: 20, Austin: 30, Draper: 42, Houston: 50) because those locations had fewer total reviews available on Google at the time of scrape."
+  },
+
+  "date_methodology": {
+    "summary": "Google Maps displays review dates as relative strings such as '8 months ago' rather than absolute calendar dates.",
+    "anchor_date": "2026-04-02",
+    "conversion_method": "Relative strings were converted to approximate month-year values by subtracting the stated interval from the scrape date of April 2, 2026.",
+    "accuracy": "Month-level accuracy. A review shown as '8 months ago' is estimated as August 2025. The actual posting date could be anywhere within that calendar month.",
+    "field_names": {
+      "review_date": "Original raw string as scraped from Google (e.g. '8 months ago')",
+      "review_date_estimated": "Converted approximate date in YYYY-MM format (e.g. '2025-08')",
+      "review_date_label": "Full human-readable label showing the raw string, anchor date, and any edit flag",
+      "review_date_source": "Always 'estimated' in this dataset"
+    },
+    "disclosure_statement": "All dates in this dataset are estimates derived from relative timestamps. They are not verified absolute dates provided by Google. This methodology and its limitations must be disclosed in any legal or formal use of this data."
+  },
+
+  "location_transition_flags": {
+    "summary": "Four inkOUT locations (Austin TX, Chicago IL, Draper UT, Houston TX) previously operated under the Tatt2Away brand before transitioning to inkOUT.",
+    "flagged_reviews": 79,
+    "field_name": "location_transition",
+    "meaning": "When location_transition is true, the review was left on a Google listing shared between the Tatt2Away-era operation and the current inkOUT operation. The reviewer may have been a customer of either brand.",
+    "implication": "These 79 reviews should be treated with caution in any analysis that attributes experience specifically to inkOUT, as the reviewer may have received service under the Tatt2Away brand."
+  },
+
+  "text_coverage": {
+    "reviews_with_text": 738,
+    "rating_only_reviews": 110,
+    "field_name": "has_text",
+    "note": "110 reviews contain only a star rating with no written comment. These are excluded from any text-based or sentiment analysis but are included in rating averages."
+  },
+
+  "multi_location_brands": {
+    "summary": "Three brands operate multiple locations in this dataset. Comparing brand totals directly inflates the apparent volume of multi-location brands.",
+    "brands": [
+      {
+        "brand": "Removery",
+        "locations": ["Removery (South Congress) - Austin TX", "Removery (Bucktown) - Chicago IL", "Removery (Lincoln Square) - Chicago IL"],
+        "total_reviews_in_dataset": 150
+      },
+      {
+        "brand": "inkOUT",
+        "locations": ["inkOUT - Austin TX", "inkOUT - Chicago IL", "inkOUT - Draper UT", "inkOUT - Houston TX", "inkOUT - Tampa FL"],
+        "total_reviews_in_dataset": 149
+      },
+      {
+        "brand": "Tatt2Away",
+        "locations": ["Tatt2Away - Austin TX", "Tatt2Away - Chicago IL", "Tatt2Away - Draper UT"],
+        "total_reviews_in_dataset": 27
+      }
+    ],
+    "recommendation": "Compare at the individual location level for fair analysis. Brand-level totals are provided for context only."
+  },
+
+  "star_distribution_note": {
+    "summary": "94.2% of reviews in this dataset are 5-star (799 of 848). This reflects the recency-based sampling method, not the complete rating history of these businesses.",
+    "negative_reviews_present": 35,
+    "explanation": "Google sorts reviews with recent high-rated reviews appearing first by default. A scraper pulling the top 50 recent reviews will capture a disproportionately positive sample. This is a known limitation of the sampling approach and should be disclosed."
+  },
+
+  "intended_uses": [
+    "Competitive analysis and market research",
+    "Internal business review",
+    "Legal reference with disclosure of methodology"
+  ],
+
+  "limitations_summary": [
+    "Dates are estimated, not verified absolute dates",
+    "Dataset is a sample of up to 50 reviews per location, not complete history",
+    "Star distribution skews positive due to recency-based sampling",
+    "79 inkOUT reviews may reflect Tatt2Away-era customer experiences",
+    "110 reviews contain no written text, only a star rating"
+  ]
+}

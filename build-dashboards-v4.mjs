@@ -4,7 +4,7 @@
 // Run: node build-dashboards-v4.mjs
 import fs from 'fs';
 
-const all = JSON.parse(fs.readFileSync('analyzed-v4-all.json', 'utf8'));
+const all = JSON.parse(fs.readFileSync('analyzed-v4-all-dated.json', 'utf8'));
 console.log(`Loaded ${all.length} reviews`);
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -116,11 +116,28 @@ const CSS = `
   .filter-bar select:focus{border-color:var(--accent);}
   .filter-bar label{color:var(--muted);font-size:12px;}
   .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  .disclosure{background:#1a1d27;border:1px solid #f59e0b44;border-left:3px solid #f59e0b;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:12px;color:#94a3b8;line-height:1.7;}
+  .disclosure strong{color:#f59e0b;}
+  .badge-transition{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);}
+  .badge-notext{background:rgba(100,116,139,.15);color:#64748b;border:1px solid rgba(100,116,139,.3);}
+  .review-footer{text-align:center;padding:32px;color:#374151;font-size:11px;border-top:1px solid var(--border);margin-top:40px;}
   @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
 `;
 
 const CHART_JS = `<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>`;
+
+const DISCLOSURE_BANNER = `
+<div class="disclosure">
+  <strong>Data Disclosure:</strong> This dataset contains <strong>848 reviews</strong> scraped from Google Maps on <strong>April 2, 2026</strong> (up to 50 per location, most recent first).
+  All dates are <strong>estimated</strong> from relative timestamps (e.g. "8 months ago") and carry month-level accuracy only, not verified calendar dates.
+  <strong>79 inkOUT reviews</strong> are flagged as transition-era: they were left on listings that previously operated as Tatt2Away.
+  <strong>110 reviews</strong> contain no written text (rating only) and are excluded from text analysis.
+  Removery operates 3 locations in this dataset (150 total reviews). inkOUT operates 5 locations (149 total reviews). Compare at location level for fair analysis.
+  Full methodology: <a href="data_disclosure.json" style="color:#f59e0b">data_disclosure.json</a>
+</div>`;
+
+const REVIEW_FOOTER = `<div class="review-footer">Source: Google Maps, scraped April 2, 2026. Dates estimated from relative timestamps. Sample of up to 50 reviews per location. Not a complete review history. See data_disclosure.json for full methodology.</div>`;
 
 const CHART_HELPERS = `
 Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';
@@ -185,6 +202,8 @@ ${CHART_JS}
 </header>
 <div class="container">
 
+  ${DISCLOSURE_BANNER}
+
   <div class="kpi-row" id="kpis"></div>
 
   <div class="section">
@@ -213,6 +232,7 @@ ${CHART_JS}
     <div class="grid-3" id="biz-cards"></div>
   </div>
 
+  ${REVIEW_FOOTER}
 </div>
 <script>
 const DATA = ${scriptData};
@@ -295,13 +315,15 @@ for (const key of providerKeys) {
   const reviewsJson = JSON.stringify(reviews.map(r => ({
     author: r.reviewer_name,
     stars: r.star_rating,
-    date: r.review_date,
+    date: r.review_date_label || r.review_date,
     text: r.review_text,
     result: r.result_rating,
     pain: r.pain_level,
     sessions: r.sessions_completed,
     use_case: r.use_case,
     scarring: r.scarring_mentioned,
+    has_text: r.has_text,
+    transition: r.location_transition,
   })));
 
   const html = `<!DOCTYPE html>
@@ -324,6 +346,8 @@ ${CHART_JS}
   </div>
 </header>
 <div class="container">
+
+  ${DISCLOSURE_BANNER}
 
   <div class="kpi-row">
     <div class="kpi"><div class="label">Total Reviews</div><div class="value">${s.total}</div><div class="sub">Google · ${cityKey}</div></div>
@@ -377,11 +401,22 @@ ${CHART_JS}
         <option value="Microblading">Microblading</option>
         <option value="Color">Color Ink</option>
       </select>
+      <select id="filter-transition" onchange="renderReviews()">
+        <option value="">All Reviews</option>
+        <option value="current">Current-era only</option>
+        <option value="transition">Transition-era only</option>
+      </select>
+      <select id="filter-text" onchange="renderReviews()">
+        <option value="">All</option>
+        <option value="text">With text only</option>
+        <option value="notext">Rating only</option>
+      </select>
       <span class="review-count" id="review-count"></span>
     </div>
     <div id="reviews-list"></div>
   </div>
 
+  ${REVIEW_FOOTER}
 </div>
 <script>
 ${CHART_HELPERS}
@@ -408,10 +443,14 @@ function renderReviews() {
   const rf = document.getElementById('filter-result').value;
   const sf = document.getElementById('filter-stars').value;
   const uf = document.getElementById('filter-usecase').value;
+  const tf = document.getElementById('filter-transition').value;
+  const txf = document.getElementById('filter-text').value;
   const filtered = REVIEWS.filter(r =>
     (!rf || r.result === rf) &&
     (!sf || Math.round(r.stars) === parseInt(sf)) &&
-    (!uf || r.use_case === uf)
+    (!uf || r.use_case === uf) &&
+    (!tf || (tf === 'current' ? !r.transition : r.transition)) &&
+    (!txf || (txf === 'text' ? r.has_text : !r.has_text))
   );
   document.getElementById('review-count').textContent = filtered.length + ' reviews';
   document.getElementById('reviews-list').innerHTML = filtered.map(r => \`
@@ -419,12 +458,13 @@ function renderReviews() {
       <button class="copy-btn" onclick="copyText(\${JSON.stringify(r.text||'')})">Copy</button>
       <div class="top">
         <span class="author">\${r.author || 'Anonymous'}</span>
-        <span class="date">\${r.date || ''}</span>
+        <span class="date" title="\${r.date||''}">\${r.date ? r.date.replace(/^~/, '').split(' (')[0] : ''}</span>
       </div>
       <div class="stars" style="margin-bottom:8px">\${'★'.repeat(r.stars||0)}\${'☆'.repeat(5-(r.stars||0))} \${r.stars||'?'}★</div>
-      <div class="text">\${r.text || '<em style="color:var(--muted)">No review text</em>'}</div>
+      \${!r.has_text ? '<div style="color:#64748b;font-size:12px;font-style:italic;margin-bottom:8px">Rating only — no written review</div>' : '<div class="text">'+r.text+'</div>'}
       <div class="tags">
         <span class="badge" style="background:rgba(0,0,0,.3);border:1px solid \${resultColor(r.result)};color:\${resultColor(r.result)}">\${r.result||'unknown'}</span>
+        \${r.transition?'<span class="badge badge-transition" title="Left on a listing that previously operated as Tatt2Away">Transition-era</span>':''}
         \${r.pain!=='unknown'?'<span class="badge badge-yellow">Pain: '+r.pain+'/5</span>':''}
         \${r.sessions!=='unknown'&&r.sessions?'<span class="badge badge-blue">'+r.sessions+' sessions</span>':''}
         \${r.use_case&&r.use_case!=='unknown'?'<span class="badge badge-purple">'+r.use_case+'</span>':''}
@@ -486,6 +526,8 @@ ${CHART_JS}
   </div>
 </header>
 <div class="container">
+
+  ${DISCLOSURE_BANNER}
 
   <div class="kpi-row">
     <div class="kpi"><div class="label">Total Reviews</div><div class="value">${overallSummary.total}</div><div class="sub">across all providers</div></div>
@@ -553,6 +595,7 @@ ${CHART_JS}
     </div>
   </div>
 
+  ${REVIEW_FOOTER}
 </div>
 <script>
 ${CHART_HELPERS}

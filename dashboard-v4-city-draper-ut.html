@@ -66,6 +66,11 @@
   .filter-bar select:focus{border-color:var(--accent);}
   .filter-bar label{color:var(--muted);font-size:12px;}
   .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  .disclosure{background:#1a1d27;border:1px solid #f59e0b44;border-left:3px solid #f59e0b;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:12px;color:#94a3b8;line-height:1.7;}
+  .disclosure strong{color:#f59e0b;}
+  .badge-transition{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);}
+  .badge-notext{background:rgba(100,116,139,.15);color:#64748b;border:1px solid rgba(100,116,139,.3);}
+  .review-footer{text-align:center;padding:32px;color:#374151;font-size:11px;border-top:1px solid var(--border);margin-top:40px;}
   @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
 </style>
@@ -82,6 +87,16 @@
   </div>
 </header>
 <div class="container">
+
+  
+<div class="disclosure">
+  <strong>Data Disclosure:</strong> This dataset contains <strong>848 reviews</strong> scraped from Google Maps on <strong>April 2, 2026</strong> (up to 50 per location, most recent first).
+  All dates are <strong>estimated</strong> from relative timestamps (e.g. "8 months ago") and carry month-level accuracy only, not verified calendar dates.
+  <strong>79 inkOUT reviews</strong> are flagged as transition-era: they were left on listings that previously operated as Tatt2Away.
+  <strong>110 reviews</strong> contain no written text (rating only) and are excluded from text analysis.
+  Removery operates 3 locations in this dataset (150 total reviews). inkOUT operates 5 locations (149 total reviews). Compare at location level for fair analysis.
+  Full methodology: <a href="data_disclosure.json" style="color:#f59e0b">data_disclosure.json</a>
+</div>
 
   <div class="kpi-row" id="kpis"></div>
 
@@ -111,9 +126,10 @@
     <div class="grid-3" id="biz-cards"></div>
   </div>
 
+  <div class="review-footer">Source: Google Maps, scraped April 2, 2026. Dates estimated from relative timestamps. Sample of up to 50 reviews per location. Not a complete review history. See data_disclosure.json for full methodology.</div>
 </div>
 <script>
-const DATA = {"cityKey":"Draper, UT","businesses":[{"provider":"Clarity Skin","method":"PicoWay","total":50,"avg_stars":4.6,"result_pct":{"positive":40,"negative":6,"mixed":2,"neutral":26,"unknown":26},"pain_pct":6,"scarring_pct":4,"avg_sessions":1.2,"use_case":{"Other":1,"unknown":46,"Microblading":3}},{"provider":"inkOUT","method":"TEPR","total":42,"avg_stars":4.3,"result_pct":{"positive":64,"negative":17,"mixed":0,"neutral":19,"unknown":0},"pain_pct":24,"scarring_pct":17,"avg_sessions":2.3,"use_case":{"unknown":24,"Complete":18}},{"provider":"Tatt2Away","method":"TEPR","total":8,"avg_stars":3,"result_pct":{"positive":50,"negative":50,"mixed":0,"neutral":0,"unknown":0},"pain_pct":25,"scarring_pct":63,"avg_sessions":1.5,"use_case":{"Complete":6,"unknown":1,"Microblading":1}}]};
+const DATA = {"cityKey":"Draper, UT","businesses":[{"provider":"Clarity Skin","method":"PicoWay","total":50,"avg_stars":4.6,"result_pct":{"positive":36,"negative":6,"mixed":2,"neutral":32,"unknown":24},"pain_pct":6,"scarring_pct":4,"avg_sessions":1.3,"use_case":{"Other":1,"unknown":46,"Microblading":3}},{"provider":"inkOUT","method":"TEPR","total":50,"avg_stars":4.1,"result_pct":{"positive":64,"negative":22,"mixed":0,"neutral":12,"unknown":2},"pain_pct":22,"scarring_pct":24,"avg_sessions":2,"use_case":{"unknown":24,"Complete":25,"Microblading":1}}]};
 const biz = DATA.businesses;
 
 Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';

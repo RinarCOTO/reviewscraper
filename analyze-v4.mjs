@@ -30,6 +30,15 @@ const METHOD_MAP = {
   'Removery (South Congress)':  'PicoWay',
   'Removery (Bucktown)':        'PicoWay',
   'Removery (Lincoln Square)':  'PicoWay',
+  'Removery (Round Rock)':      'PicoWay',
+  'Removery (Hedwig Village)':  'PicoWay',
+  'Removery (East Houston)':    'PicoWay',
+  'Removery (Katy)':            'PicoWay',
+  'Removery (Friendswood)':     'PicoWay',
+  'Removery (Sugar Land)':      'PicoWay',
+  'Removery (The Woodlands)':   'PicoWay',
+  'Removery (Rice Village)':    'PicoWay',
+  'Removery (Westshore)':       'PicoWay',
   'MEDermis Laser Clinic':      'Spectra',
   'Clean Slate Ink':            'Q-Switch',
   'Inklifters':                 'PicoWay',
@@ -39,9 +48,9 @@ const METHOD_MAP = {
   'Arviv Medical Aesthetics':   'PicoWay',
   'Skintellect':                'Fotona',
   'Enfuse Medical Spa':         'PicoWay',
-  'Kovak Cosmetic Center':      'Laser (unspecified)',
+  'Kovak Cosmetic Center':      'PicoWay',
   'DermSurgery Associates':     'Q-Switch',
-  'InkFree, MD':                'PicoSure',
+  'InkFree, MD':                'Other',
 };
 
 function lookupMethod(providerName) {
@@ -278,7 +287,7 @@ async function analyze() {
   }
 
   const inkoutLocations = [...new Set(
-    analyzed.filter(r => r.provider_name === 'inkout').map(r => r.location_city)
+    analyzed.filter(r => r.provider_name === 'inkOUT').map(r => r.location_city)
   )];
 
   const hasCa = analyzed.some(r => r.location_state === 'CA');

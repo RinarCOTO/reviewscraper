@@ -24,7 +24,7 @@ const PROVIDERS = [
   // ── Austin TX competitors ──
   { slug: 'removery-south-congress-austin-tx', query: 'Removery South Congress Austin',       providerName: 'Removery (South Congress)', city: 'Austin', state: 'TX', method: 'PicoWay' },
   { slug: 'medermis-austin-tx',        query: 'MEDermis Laser Clinic Austin',                  providerName: 'MEDermis Laser Clinic',      city: 'Austin', state: 'TX', method: 'Spectra' },
-  { slug: 'clean-slate-ink-austin-tx', query: 'Clean Slate Ink Austin tattoo removal',         providerName: 'Clean Slate Ink',            city: 'Austin', state: 'TX', method: 'Q-Switch' },
+  { slug: 'clean-slate-ink-austin-tx', query: 'Clean Slate Ink Austin tattoo removal',         providerName: 'Clean Slate Ink',            city: 'Austin', state: 'TX', method: 'Laser' },
 
   // ── Draper UT competitors ──
   { slug: 'inklifters-draper-ut',      query: 'Inklifters Aesthetica Draper',                  providerName: 'Inklifters (Aesthetica)',    city: 'Draper',  state: 'UT', method: 'Other' },
@@ -43,7 +43,22 @@ const PROVIDERS = [
 
   // ── Houston TX competitors ──
   { slug: 'dermsurgery-associates-houston-tx',  query: 'DermSurgery Associates Houston',       providerName: 'DermSurgery Associates',    city: 'Houston', state: 'TX', method: 'Q-Switch' },
-  { slug: 'inkfree-md-houston-tx',              query: 'InkFree MD Houston tattoo removal',    providerName: 'InkFree, MD',               city: 'Houston', state: 'TX', method: 'PicoWay' },
+  { slug: 'inkfree-md-houston-tx',              query: 'InkFree MD Houston tattoo removal',    providerName: 'InkFree, MD',               city: 'Houston', state: 'TX', method: 'Other' },
+
+  // ── Removery expansion — Austin TX ──
+  { slug: 'removery-round-rock-tx',             query: 'Removery Round Rock Texas tattoo removal',          providerName: 'Removery (Round Rock)',      city: 'Round Rock',   state: 'TX', method: 'PicoWay' },
+
+  // ── Removery expansion — Houston TX ──
+  { slug: 'removery-hedwig-village-tx',         query: 'Removery Hedwig Village Houston tattoo removal',    providerName: 'Removery (Hedwig Village)', city: 'Houston',      state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-east-houston-tx',           query: 'Removery East Houston tattoo removal',              providerName: 'Removery (East Houston)',   city: 'Houston',      state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-katy-tx',                   query: 'Removery Katy Texas tattoo removal',                providerName: 'Removery (Katy)',           city: 'Katy',         state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-friendswood-tx',            query: 'Removery Friendswood Texas tattoo removal',         providerName: 'Removery (Friendswood)',    city: 'Friendswood',  state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-sugar-land-tx',             query: 'Removery Sugar Land Texas tattoo removal',          providerName: 'Removery (Sugar Land)',     city: 'Sugar Land',   state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-the-woodlands-tx',          query: 'Removery The Woodlands Shenandoah tattoo removal',  providerName: 'Removery (The Woodlands)',  city: 'Shenandoah',   state: 'TX', method: 'PicoWay' },
+  { slug: 'removery-rice-village-tx',           query: 'Removery Rice Village Houston tattoo removal',      providerName: 'Removery (Rice Village)',   city: 'Houston',      state: 'TX', method: 'PicoWay' },
+
+  // ── Removery expansion — Tampa FL ──
+  { slug: 'removery-westshore-fl',              query: 'Removery Westshore Tampa tattoo removal',           providerName: 'Removery (Westshore)',      city: 'Tampa',        state: 'FL', method: 'PicoWay' },
 ];
 
 // Safety check — no California locations should ever be scraped

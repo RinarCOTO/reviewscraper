@@ -66,6 +66,11 @@
   .filter-bar select:focus{border-color:var(--accent);}
   .filter-bar label{color:var(--muted);font-size:12px;}
   .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  .disclosure{background:#1a1d27;border:1px solid #f59e0b44;border-left:3px solid #f59e0b;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:12px;color:#94a3b8;line-height:1.7;}
+  .disclosure strong{color:#f59e0b;}
+  .badge-transition{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);}
+  .badge-notext{background:rgba(100,116,139,.15);color:#64748b;border:1px solid rgba(100,116,139,.3);}
+  .review-footer{text-align:center;padding:32px;color:#374151;font-size:11px;border-top:1px solid var(--border);margin-top:40px;}
   @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
 </style>
@@ -82,6 +87,16 @@
   </div>
 </header>
 <div class="container">
+
+  
+<div class="disclosure">
+  <strong>Data Disclosure:</strong> This dataset contains <strong>848 reviews</strong> scraped from Google Maps on <strong>April 2, 2026</strong> (up to 50 per location, most recent first).
+  All dates are <strong>estimated</strong> from relative timestamps (e.g. "8 months ago") and carry month-level accuracy only, not verified calendar dates.
+  <strong>79 inkOUT reviews</strong> are flagged as transition-era: they were left on listings that previously operated as Tatt2Away.
+  <strong>110 reviews</strong> contain no written text (rating only) and are excluded from text analysis.
+  Removery operates 3 locations in this dataset (150 total reviews). inkOUT operates 5 locations (149 total reviews). Compare at location level for fair analysis.
+  Full methodology: <a href="data_disclosure.json" style="color:#f59e0b">data_disclosure.json</a>
+</div>
 
   <div class="kpi-row" id="kpis"></div>
 
@@ -111,9 +126,10 @@
     <div class="grid-3" id="biz-cards"></div>
   </div>
 
+  <div class="review-footer">Source: Google Maps, scraped April 2, 2026. Dates estimated from relative timestamps. Sample of up to 50 reviews per location. Not a complete review history. See data_disclosure.json for full methodology.</div>
 </div>
 <script>
-const DATA = {"cityKey":"Tampa, FL","businesses":[{"provider":"Arviv Medical Aesthetics","method":"Other","total":50,"avg_stars":5,"result_pct":{"positive":60,"negative":0,"mixed":0,"neutral":10,"unknown":30},"pain_pct":8,"scarring_pct":0,"avg_sessions":2.3,"use_case":{"unknown":43,"Microblading":4,"Other":3}},{"provider":"Erasable Med Spa","method":"PicoWay","total":50,"avg_stars":4.9,"result_pct":{"positive":48,"negative":2,"mixed":0,"neutral":26,"unknown":24},"pain_pct":12,"scarring_pct":2,"avg_sessions":1.6,"use_case":{"unknown":44,"Color":1,"Complete":3,"Microblading":2}},{"provider":"inkOUT","method":"TEPR","total":20,"avg_stars":4.8,"result_pct":{"positive":50,"negative":0,"mixed":0,"neutral":10,"unknown":40},"pain_pct":10,"scarring_pct":0,"avg_sessions":1,"use_case":{"unknown":16,"Complete":4}},{"provider":"Skintellect","method":"Other","total":50,"avg_stars":4.8,"result_pct":{"positive":52,"negative":4,"mixed":0,"neutral":12,"unknown":32},"pain_pct":8,"scarring_pct":2,"avg_sessions":1,"use_case":{"unknown":46,"Other":4}}]};
+const DATA = {"cityKey":"Tampa, FL","businesses":[{"provider":"Arviv Medical Aesthetics","method":"PicoWay","total":50,"avg_stars":5,"result_pct":{"positive":62,"negative":0,"mixed":0,"neutral":14,"unknown":24},"pain_pct":4,"scarring_pct":0,"avg_sessions":1,"use_case":{"unknown":46,"Other":2,"Microblading":2}},{"provider":"Erasable Med Spa","method":"PicoWay","total":50,"avg_stars":4.9,"result_pct":{"positive":48,"negative":2,"mixed":0,"neutral":26,"unknown":24},"pain_pct":14,"scarring_pct":2,"avg_sessions":1.5,"use_case":{"unknown":45,"Color":1,"Complete":3,"Microblading":1}},{"provider":"Skintellect","method":"Fotona","total":50,"avg_stars":4.9,"result_pct":{"positive":46,"negative":2,"mixed":0,"neutral":10,"unknown":42},"pain_pct":8,"scarring_pct":2,"avg_sessions":1,"use_case":{"unknown":48,"Other":2}}]};
 const biz = DATA.businesses;
 
 Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';

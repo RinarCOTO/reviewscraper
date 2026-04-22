@@ -66,6 +66,11 @@
   .filter-bar select:focus{border-color:var(--accent);}
   .filter-bar label{color:var(--muted);font-size:12px;}
   .review-count{color:var(--muted);font-size:12px;margin-left:auto;}
+  .disclosure{background:#1a1d27;border:1px solid #f59e0b44;border-left:3px solid #f59e0b;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:12px;color:#94a3b8;line-height:1.7;}
+  .disclosure strong{color:#f59e0b;}
+  .badge-transition{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);}
+  .badge-notext{background:rgba(100,116,139,.15);color:#64748b;border:1px solid rgba(100,116,139,.3);}
+  .review-footer{text-align:center;padding:32px;color:#374151;font-size:11px;border-top:1px solid var(--border);margin-top:40px;}
   @media(max-width:900px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.kpi-row,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
 </style>
@@ -82,6 +87,16 @@
   </div>
 </header>
 <div class="container">
+
+  
+<div class="disclosure">
+  <strong>Data Disclosure:</strong> This dataset contains <strong>848 reviews</strong> scraped from Google Maps on <strong>April 2, 2026</strong> (up to 50 per location, most recent first).
+  All dates are <strong>estimated</strong> from relative timestamps (e.g. "8 months ago") and carry month-level accuracy only, not verified calendar dates.
+  <strong>79 inkOUT reviews</strong> are flagged as transition-era: they were left on listings that previously operated as Tatt2Away.
+  <strong>110 reviews</strong> contain no written text (rating only) and are excluded from text analysis.
+  Removery operates 3 locations in this dataset (150 total reviews). inkOUT operates 5 locations (149 total reviews). Compare at location level for fair analysis.
+  Full methodology: <a href="data_disclosure.json" style="color:#f59e0b">data_disclosure.json</a>
+</div>
 
   <div class="kpi-row" id="kpis"></div>
 
@@ -111,9 +126,10 @@
     <div class="grid-3" id="biz-cards"></div>
   </div>
 
+  <div class="review-footer">Source: Google Maps, scraped April 2, 2026. Dates estimated from relative timestamps. Sample of up to 50 reviews per location. Not a complete review history. See data_disclosure.json for full methodology.</div>
 </div>
 <script>
-const DATA = {"cityKey":"Austin, TX","businesses":[{"provider":"Removery (South Congress)","method":"PicoWay","total":50,"avg_stars":5,"result_pct":{"positive":78,"negative":0,"mixed":0,"neutral":14,"unknown":8},"pain_pct":26,"scarring_pct":2,"avg_sessions":1.9,"use_case":{"unknown":33,"Complete":16,"Microblading":1}},{"provider":"MEDermis Laser Clinic","method":"Spectra","total":50,"avg_stars":5,"result_pct":{"positive":92,"negative":0,"mixed":0,"neutral":8,"unknown":0},"pain_pct":20,"scarring_pct":10,"avg_sessions":3.7,"use_case":{"unknown":24,"Complete":24,"Cover-up":1,"Microblading":1}},{"provider":"Clean Slate Ink","method":"Q-Switch","total":22,"avg_stars":5,"result_pct":{"positive":77,"negative":0,"mixed":0,"neutral":23,"unknown":0},"pain_pct":9,"scarring_pct":0,"avg_sessions":1.8,"use_case":{"unknown":14,"Microblading":3,"Complete":5}},{"provider":"Tatt2Away","method":"TEPR","total":15,"avg_stars":4.7,"result_pct":{"positive":87,"negative":7,"mixed":0,"neutral":7,"unknown":0},"pain_pct":27,"scarring_pct":7,"avg_sessions":1.8,"use_case":{"unknown":8,"Complete":5,"Cover-up":1,"Other":1}},{"provider":"inkOUT","method":"TEPR","total":30,"avg_stars":4.6,"result_pct":{"positive":73,"negative":10,"mixed":0,"neutral":13,"unknown":3},"pain_pct":17,"scarring_pct":13,"avg_sessions":2,"use_case":{"unknown":22,"Complete":6,"Microblading":1,"Other":1}}]};
+const DATA = {"cityKey":"Austin, TX","businesses":[{"provider":"Removery (South Congress)","method":"PicoWay","total":50,"avg_stars":5,"result_pct":{"positive":70,"negative":0,"mixed":0,"neutral":26,"unknown":4},"pain_pct":26,"scarring_pct":2,"avg_sessions":2,"use_case":{"Complete":14,"unknown":36}},{"provider":"MEDermis Laser Clinic","method":"Spectra","total":50,"avg_stars":5,"result_pct":{"positive":92,"negative":0,"mixed":0,"neutral":8,"unknown":0},"pain_pct":22,"scarring_pct":12,"avg_sessions":3.7,"use_case":{"unknown":25,"Complete":23,"Cover-up":1,"Microblading":1}},{"provider":"inkOUT","method":"TEPR","total":44,"avg_stars":4.6,"result_pct":{"positive":73,"negative":9,"mixed":0,"neutral":16,"unknown":2},"pain_pct":20,"scarring_pct":9,"avg_sessions":1.9,"use_case":{"unknown":29,"Complete":12,"Cover-up":1,"Microblading":1,"Other":1}},{"provider":"Clean Slate Ink","method":"Laser","total":50,"avg_stars":4.6,"result_pct":{"positive":68,"negative":10,"mixed":0,"neutral":18,"unknown":4},"pain_pct":6,"scarring_pct":2,"avg_sessions":2.8,"use_case":{"unknown":37,"Complete":7,"Color":2,"Microblading":3,"Other":1}}]};
 const biz = DATA.businesses;
 
 Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#2a2d3a';

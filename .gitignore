@@ -2,3 +2,5 @@
 node_modules/
 .claude/
 CLAUDE.md
+web/.next/
+web/out/

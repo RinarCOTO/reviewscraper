@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "scrape": "node scrape.mjs",
+    "scrape:reddit": "node scrape-reddit.mjs",
     "analyze": "node analyze.mjs"
   },
   "dependencies": {

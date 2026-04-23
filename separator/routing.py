@@ -12,11 +12,8 @@ def assign_bucket(record: dict) -> str:
         return 'review_required'
 
     classification = record.get('stage_2_classification')
-    confidence = float(record.get('stage_2_confidence') or 0.0)
 
-    if classification == 'negative':
-        return 'tatt2away' if confidence >= 0.75 else 'review_required'
-    if classification == 'ambiguous':
-        return 'review_required'
+    if classification in ('negative', 'ambiguous'):
+        return 'tatt2away'
 
     return 'inkout'

@@ -86,7 +86,7 @@ export default function OverviewPage() {
     return summaries.map((s, i) => ({ ...s, rank: i + 1 }))
   }, [reviews])
 
-  const inkoutReviews = useMemo(() => reviews.filter(r => r.brand_name === 'inkOUT'), [reviews])
+  const inkoutReviews = useMemo(() => reviews.filter(r => r.bucket === 'inkout'), [reviews])
   const competitorReviews = useMemo(() => reviews.filter(r => r.brand_name !== 'inkOUT'), [reviews])
   const inkout = useMemo(() => computeGroupStats(inkoutReviews), [inkoutReviews])
   const competitor = useMemo(() => computeGroupStats(competitorReviews), [competitorReviews])

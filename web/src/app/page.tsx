@@ -47,7 +47,7 @@ export default function HubPage() {
 
   const totalReviews = reviews.length
   const totalCompetitors = new Set(reviews.map(r => r.provider_name)).size
-  const inkoutReviews = reviews.filter(r => r.brand_name === 'inkOUT')
+  const inkoutReviews = reviews.filter(r => r.bucket === 'inkout')
   const inkoutLocations = new Set(inkoutReviews.map(r => r.location_city + '|' + r.location_state)).size
   const cities = CITY_CONFIG.map(c => ({ ...c, ...computeCityStats(reviews, c.city, c.state) }))
 

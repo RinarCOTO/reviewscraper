@@ -99,9 +99,10 @@ pain_level: 1 | 2 | 3 | 4 | 5 | "unknown"
   "unknown" = pain is never mentioned at all
 
 scarring_mentioned: "Yes" | "No" | "Positive"
-  Yes = mentions scarring, scars, blistering, skin damage as a concern or complaint
-  Positive = mentions scarring or healing in a good context (e.g. "healed perfectly", "no scarring at all", "skin looks great")
-  No = scarring never mentioned
+  CRITICAL: this field is about scarring CAUSED BY the removal treatment — not pre-existing scarring from the original tattoo.
+  Yes = reviewer experienced or is complaining about scarring, blistering, raised skin, or adverse skin effects from the removal procedure itself
+  Positive = reviewer explicitly says the treatment did NOT scar them, healed well, "no scarring", skin recovered well
+  No = no treatment-related scarring mentioned — INCLUDING cases where the reviewer mentions pre-existing tattoo scarring only as background context (e.g. "my skin had scarred over from the tattoo", "older tattoo with scar tissue")
 
 sessions_completed: integer or "unknown"
   Extract the number of sessions/treatments/visits the reviewer has had or mentions completing.
@@ -122,11 +123,11 @@ use_case: "Complete" | "Cover-up" | "Microblading" | "Color" | "Other" | "unknow
 
 result_rating: "Positive" | "Neutral" | "Mixed" | "Negative" | "unknown"
   CRITICAL — infer aggressively from stars + language, minimize "unknown":
-  Positive  = 5★ with positive outcome language OR 4★ mentioning good results / progress / fading / happy with results
-  Neutral   = review is only about staff/scheduling/pricing, zero mention of removal results; OR 3★ with neither positive nor negative outcome language
-  Mixed     = mentions BOTH good and bad aspects of results, or 3★ with some disappointment
-  Negative  = expresses disappointment, poor results, no change, waste of money, visible still
-  "unknown" = review is so short or vague (e.g. "Great place!") that result quality genuinely cannot be inferred even from star context
+  Positive  = 5★ with positive outcome language OR 4★ mentioning good results / progress / fading / happy with treatment results
+  Neutral   = review is only about staff/scheduling/consultation/pricing with zero mention of removal outcome; OR reviewer is early in treatment and says results are too soon to judge; OR 3★ with neither positive nor negative outcome language
+  Mixed     = mentions BOTH positive and negative aspects of results, OR 3★ with some disappointment about outcomes
+  Negative  = expresses disappointment, poor results, no visible change, waste of money, scarring from treatment, pain complaints as the main message
+  "unknown" = review is so short or vague that result quality genuinely cannot be inferred even from star context — use sparingly
 
 Respond with ONLY the JSON object. No markdown, no explanation, no code fences.`;
 

@@ -12,6 +12,18 @@ export async function getAllReviews(): Promise<Review[]> {
   return data as Review[]
 }
 
+export async function getInkoutReviews(): Promise<Review[]> {
+  const { data, error } = await supabase
+    .from('competitor_reviews')
+    .select('*')
+    .eq('status', 'published')
+    .eq('bucket', 'inkout')
+    .order('review_date_iso', { ascending: false })
+
+  if (error) throw new Error(`getInkoutReviews: ${error.message}`)
+  return data as Review[]
+}
+
 export async function getCityData(slug: string): Promise<CityData | null> {
   const cityMap: Record<string, { city: string; state: string }> = {
     'austin-tx':        { city: 'Austin',         state: 'TX' },

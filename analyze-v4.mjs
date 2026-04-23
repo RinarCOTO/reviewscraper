@@ -165,14 +165,34 @@ Review: ${review.review_text || '[no text — star rating only]'}`;
 }
 
 async function analyze() {
-  const inputFile = process.argv[2] || 'reviews-v3-all.json';
+  const args = process.argv.slice(2);
+  const inputFile = args.find(a => !a.startsWith('--')) || 'reviews-v3-all.json';
+  const INCREMENTAL = args.includes('--mode=incremental');
+
   if (!fs.existsSync(inputFile)) {
-    console.error(`${inputFile} not found — run scrape-v3.mjs first`);
+    console.error(`${inputFile} not found — run scrape-v4.mjs first`);
     process.exit(1);
   }
 
   let reviews = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
-  console.log(`ReviewIntel v4 Analyzer — ${reviews.length} raw reviews loaded\n`);
+  console.log(`ReviewIntel v4 Analyzer — ${reviews.length} raw reviews loaded`);
+
+  // Incremental: skip reviews already in analyzed-v4-all-dated.json
+  let existingAnalyzed = [];
+  if (INCREMENTAL && fs.existsSync('analyzed-v4-all-dated.json')) {
+    existingAnalyzed = JSON.parse(fs.readFileSync('analyzed-v4-all-dated.json', 'utf8'));
+    const analyzedKeys = new Set(
+      existingAnalyzed.map(r => `${r.reviewer_name}|${r.review_date_iso}|${r.location_city}`)
+    );
+    const before = reviews.length;
+    reviews = reviews.filter(r => !analyzedKeys.has(`${r.reviewer_name}|${r.review_date_iso}|${r.location_city}`));
+    console.log(`Incremental: ${before - reviews.length} already analyzed, ${reviews.length} new to process`);
+    if (reviews.length === 0) {
+      console.log('Nothing new to analyze — exiting.');
+      return;
+    }
+  }
+  console.log();
 
   // ── Step 1: Exclude California / out-of-market ──
   const excluded = reviews.filter(r => shouldExclude(r));
@@ -238,13 +258,14 @@ async function analyze() {
 
   console.log('\n');
 
-  // Save combined output
-  fs.writeFileSync('analyzed-v4-all.json', JSON.stringify(analyzed, null, 2));
-  console.log(`Saved ${analyzed.length} analyzed reviews → analyzed-v4-all.json`);
+  // Merge with existing if incremental, then save
+  const allAnalyzed = INCREMENTAL ? [...analyzed, ...existingAnalyzed] : analyzed;
+  fs.writeFileSync('analyzed-v4-all.json', JSON.stringify(allAnalyzed, null, 2));
+  console.log(`Saved ${allAnalyzed.length} analyzed reviews → analyzed-v4-all.json (${analyzed.length} new)`);
 
   // Save per-provider files
   const byProvider = {};
-  for (const r of analyzed) {
+  for (const r of allAnalyzed) {
     const key = `${r.provider_name} (${r.location_city}, ${r.location_state})`;
     if (!byProvider[key]) byProvider[key] = [];
     byProvider[key].push(r);

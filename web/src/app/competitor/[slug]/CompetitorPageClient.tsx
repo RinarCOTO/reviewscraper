@@ -5,26 +5,9 @@ import Link from 'next/link'
 import { getCompetitorReviews } from '@/lib/data'
 import CompetitorCharts from '@/components/CompetitorCharts'
 import ReviewList from '@/components/ReviewList'
+import Topbar from '@/components/Topbar'
+import { getCityForCompetitor } from '@/lib/config'
 import type { Review } from '@/lib/types'
-
-function slugToCity(slug: string): string {
-  if (slug.endsWith('-chicago-il')) return 'Chicago, IL'
-  if (slug.endsWith('-austin-tx')) return 'Austin, TX'
-  if (slug.endsWith('-houston-tx')) return 'Houston, TX'
-  if (slug.endsWith('-draper-ut')) return 'Draper, UT'
-  if (slug.endsWith('-tampa-fl')) return 'Tampa, FL'
-  if (slug.endsWith('-pleasant-grove-ut')) return 'Pleasant Grove, UT'
-  return ''
-}
-function citySlug(competitorSlug: string): string {
-  if (competitorSlug.endsWith('-chicago-il')) return 'chicago-il'
-  if (competitorSlug.endsWith('-austin-tx')) return 'austin-tx'
-  if (competitorSlug.endsWith('-houston-tx')) return 'houston-tx'
-  if (competitorSlug.endsWith('-draper-ut')) return 'draper-ut'
-  if (competitorSlug.endsWith('-tampa-fl')) return 'tampa-fl'
-  if (competitorSlug.endsWith('-pleasant-grove-ut')) return 'pleasant-grove-ut'
-  return ''
-}
 
 function computeStats(reviews: Review[]) {
   const total = reviews.length
@@ -61,6 +44,7 @@ function computeStats(reviews: Review[]) {
     avgSessions, useCaseMap,
     method: reviews[0]?.method_used || '—',
     provider: reviews[0]?.provider_name || '',
+    isInkout: reviews[0]?.brand_name === 'inkOUT',
   }
 }
 
@@ -75,42 +59,60 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
     })
   }, [slug])
 
-  const city = slugToCity(slug)
-  const cityLink = citySlug(slug)
+  const cityConfig = getCityForCompetitor(slug)
+  const cityLabel = cityConfig?.label ?? ''
+  const citySlugStr = cityConfig?.slug ?? ''
 
   if (loading) {
     return (
-      <>
-        <header>
-          <div>
-            <div className="meta" style={{ marginBottom: 4 }}>ReviewIntel · Competitor Deep-Dive</div>
-            <h1>Loading…</h1>
-          </div>
-          <nav className="nav">
-            {cityLink && <Link href={`/city/${cityLink}/`}>← {city}</Link>}
-            <Link href="/overview/">← Overview</Link>
-          </nav>
-        </header>
+      <div className="hub-main">
+        <Topbar
+          title="Competitor Deep-Dive"
+          crumbs={cityConfig
+            ? [{ label: cityConfig.label, href: `/city/${cityConfig.slug}` }, { label: 'Loading…' }]
+            : [{ label: 'Loading…' }]
+          }
+        />
         <div style={{ padding: 40, color: 'var(--muted)', textAlign: 'center' }}>Loading competitor data…</div>
-      </>
+      </div>
     )
   }
 
   const stats = computeStats(reviews)
-  if (!stats) return <div style={{ padding: 40, color: 'var(--muted)' }}>No reviews found for this competitor.</div>
+  if (!stats) {
+    return <div className="hub-main" style={{ padding: 40, color: 'var(--muted)' }}>No reviews found for this competitor.</div>
+  }
+
+  // Market rank by avg stars among peers
+  const peers = cityConfig?.competitors ?? []
+  const marketRank = peers.findIndex(c => c.slug === slug) + 1
 
   return (
-    <>
-      <header>
-        <div>
-          <div className="meta" style={{ marginBottom: 4 }}>ReviewIntel · Competitor Deep-Dive</div>
-          <h1><span>{stats.provider}</span> — {city}</h1>
+    <div className="hub-main">
+      <Topbar
+        title={`${stats.provider} — ${cityLabel}`}
+        crumbs={[
+          { label: cityLabel, href: `/city/${citySlugStr}` },
+          { label: stats.provider },
+        ]}
+      />
+
+      {/* Peer competitor strip */}
+      {peers.length > 1 && (
+        <div className="peer-strip">
+          {peers.map((c, i) => (
+            <Link
+              key={c.slug}
+              href={`/competitor/${c.slug}`}
+              className={`peer-card${c.slug === slug ? ' peer-current' : ''}${c.isInkout ? ' peer-inkout' : ''}`}
+            >
+              <div className="peer-dot" style={{ background: c.dotColor }} />
+              <span>#{i + 1} {c.name}</span>
+              <span className="peer-stars">{c.stars}</span>
+            </Link>
+          ))}
         </div>
-        <nav className="nav">
-          {cityLink && <Link href={`/city/${cityLink}/`}>← {city}</Link>}
-          <Link href="/overview/">← Overview</Link>
-        </nav>
-      </header>
+      )}
 
       <div className="container">
         <div className="disclosure">
@@ -119,10 +121,28 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
         </div>
 
         <div className="kpi-row">
-          <div className="kpi"><div className="label">Total Reviews</div><div className="value">{stats.total}</div><div className="sub">Google · {city}</div></div>
-          <div className="kpi"><div className="label">Avg Rating</div><div className="value">{stats.avgStars}★</div><div className="sub">out of 5</div></div>
-          <div className="kpi"><div className="label">Positive Results</div><div className="value" style={{ color: 'var(--green)' }}>{stats.positive}%</div><div className="sub">{stats.negative}% negative</div></div>
-          <div className="kpi"><div className="label">Method</div><div className="value" style={{ fontSize: 18 }}>{stats.method}</div><div className="sub">{stats.avgSessions} avg sessions</div></div>
+          <div className="kpi">
+            <div className="label">Total Reviews</div>
+            <div className="value">{stats.total}</div>
+            <div className="sub">Google · {cityLabel}</div>
+          </div>
+          <div className="kpi">
+            <div className="label">Avg Rating</div>
+            <div className="value">{stats.avgStars}★</div>
+            <div className="sub">out of 5</div>
+          </div>
+          <div className="kpi">
+            <div className="label">Positive Results</div>
+            <div className="value" style={{ color: 'var(--green)' }}>{stats.positive}%</div>
+            <div className="sub">{stats.negative}% negative</div>
+          </div>
+          <div className="kpi">
+            <div className="label">Market Rank</div>
+            <div className="value" style={{ fontSize: 20, color: stats.isInkout ? '#a78bfa' : '#fff' }}>
+              #{marketRank} <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}>of {peers.length}</span>
+            </div>
+            <div className="sub">{stats.method} · {stats.avgSessions} avg sessions</div>
+          </div>
         </div>
 
         <div className="section">
@@ -144,6 +164,6 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
           Source: Google Maps, scraped April 2, 2026. Sample of up to 50 reviews per location.
         </div>
       </div>
-    </>
+    </div>
   )
 }

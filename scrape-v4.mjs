@@ -341,16 +341,30 @@ async function scrapeProvider(provider) {
 
   const count = reviews.length;
   if (count === 0) {
-    console.warn(`  NO reviews returned`);
-  } else if (count < 10) {
+    console.warn(`  NO new reviews returned`);
+  } else if (count < 10 && MODE !== 'incremental') {
     console.warn(`  Only ${count} reviews — low count, verify listing is correct`);
   } else {
-    console.log(`  ${count} reviews fetched`);
+    console.log(`  ${count} new reviews fetched`);
   }
 
-  fs.writeFileSync(`reviews-v4-${slug}.json`, JSON.stringify(reviews, null, 2));
+  // Incremental: merge new reviews in front of existing ones
+  let merged = reviews;
+  if (MODE === 'incremental') {
+    const existingPath = `./reviews-v4-${slug}.json`;
+    const existing = fs.existsSync(existingPath)
+      ? JSON.parse(fs.readFileSync(existingPath, 'utf8'))
+      : [];
+    // Deduplicate by reviewer_name|review_date_iso in case of overlap
+    const seenKeys = new Set(reviews.map(r => `${r.reviewer_name}|${r.review_date_iso}`));
+    const dedupedExisting = existing.filter(r => !seenKeys.has(`${r.reviewer_name}|${r.review_date_iso}`));
+    merged = [...reviews, ...dedupedExisting];
+    console.log(`  Merged: ${reviews.length} new + ${dedupedExisting.length} existing = ${merged.length} total`);
+  }
+
+  fs.writeFileSync(`reviews-v4-${slug}.json`, JSON.stringify(merged, null, 2));
   console.log(`  Saved → reviews-v4-${slug}.json`);
-  return reviews;
+  return merged;
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────

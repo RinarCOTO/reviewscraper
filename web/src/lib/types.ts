@@ -24,6 +24,7 @@ export interface Review {
   multi_location_brand: boolean
   location_transition: boolean
   transition_note: string
+  bucket: 'inkout' | 'tatt2away' | null
 }
 
 export interface Provider {

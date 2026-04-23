@@ -73,6 +73,10 @@ create trigger competitor_reviews_updated_at
   before update on competitor_reviews
   for each row execute function set_updated_at();
 
+-- Separator bucket field (inkout | tatt2away — null for competitor rows)
+alter table if exists competitor_reviews add column if not exists bucket text
+  check (bucket in ('inkout', 'tatt2away'));
+
 -- Indexes for the queries the dashboard will run most
 create index if not exists idx_cr_provider       on competitor_reviews (provider_name);
 create index if not exists idx_cr_brand          on competitor_reviews (brand_name);
@@ -82,6 +86,7 @@ create index if not exists idx_cr_star           on competitor_reviews (star_rat
 create index if not exists idx_cr_date           on competitor_reviews (review_date_iso desc);
 create index if not exists idx_cr_place          on competitor_reviews (_place_id);
 create index if not exists idx_cr_transition     on competitor_reviews (location_transition);
+create index if not exists idx_cr_bucket         on competitor_reviews (bucket);
 
 -- Row Level Security: only authenticated users can read
 alter table competitor_reviews enable row level security;

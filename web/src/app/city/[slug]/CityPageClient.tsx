@@ -4,13 +4,9 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getCityData } from '@/lib/data'
 import CityCharts from '@/components/CityCharts'
+import Topbar from '@/components/Topbar'
+import { CITIES as ALL_CITIES } from '@/lib/config'
 import type { CityData } from '@/lib/types'
-
-const CITIES = ['austin-tx', 'chicago-il', 'draper-ut', 'houston-tx', 'pleasant-grove-ut', 'tampa-fl']
-const CITY_LABELS: Record<string, string> = {
-  'austin-tx': 'Austin, TX', 'chicago-il': 'Chicago, IL', 'draper-ut': 'Draper, UT',
-  'houston-tx': 'Houston, TX', 'pleasant-grove-ut': 'Pleasant Grove, UT', 'tampa-fl': 'Tampa, FL',
-}
 
 function starStr(n: number) {
   return '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n)) + ' ' + n.toFixed(1)
@@ -38,6 +34,14 @@ function pctBar(p: number, color: string) {
   )
 }
 
+const CityNav = ({ slug }: { slug: string }) => (
+  <nav className="nav">
+    {ALL_CITIES.map(c => (
+      <Link key={c.slug} href={`/city/${c.slug}/`} className={c.slug === slug ? 'active' : ''}>{c.label}</Link>
+    ))}
+  </nav>
+)
+
 export default function CityPageClient({ slug }: { slug: string }) {
   const [data, setData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -51,54 +55,67 @@ export default function CityPageClient({ slug }: { slug: string }) {
 
   if (loading) {
     return (
-      <>
-        <header>
-          <div>
-            <div className="meta" style={{ marginBottom: 4 }}>ReviewIntel · City Report</div>
-            <h1>Loading…</h1>
-          </div>
-          <nav className="nav">
-            {CITIES.map(s => (
-              <Link key={s} href={`/city/${s}/`} className={s === slug ? 'active' : ''}>{CITY_LABELS[s]}</Link>
-            ))}
-            <Link href="/overview/">← Overview</Link>
-          </nav>
-        </header>
+      <div className="hub-main">
+        <Topbar
+          title="City Report"
+          crumbs={[{ label: 'Loading…' }]}
+          actions={<CityNav slug={slug} />}
+        />
         <div style={{ padding: 40, color: 'var(--muted)', textAlign: 'center' }}>Loading city data…</div>
-      </>
+      </div>
     )
   }
 
   if (!data) {
-    return <div style={{ padding: 40, color: 'var(--muted)' }}>City not found.</div>
+    return <div className="hub-main" style={{ padding: 40, color: 'var(--muted)' }}>City not found.</div>
   }
 
   const { cityKey, businesses: biz } = data
-  const best = biz.reduce((a, b) => a.avg_stars > b.avg_stars ? a : b)
+  const sorted = [...biz].sort((a, b) => b.avg_stars - a.avg_stars)
+  const best = sorted[0]
   const worst = biz.reduce((a, b) => a.result_pct.negative > b.result_pct.negative ? a : b)
   const marketAvg = (biz.reduce((s, b) => s + b.avg_stars, 0) / biz.length).toFixed(1)
+  const inkoutEntry = biz.find(b => b.isInkout)
+  const inkoutRank = inkoutEntry ? sorted.indexOf(inkoutEntry) + 1 : null
 
   return (
-    <>
-      <header>
-        <div>
-          <div className="meta" style={{ marginBottom: 4 }}>ReviewIntel · City Report</div>
-          <h1><span>{cityKey}</span> — Competitor Analysis</h1>
-        </div>
-        <nav className="nav">
-          {CITIES.map(s => (
-            <Link key={s} href={`/city/${s}/`} className={s === slug ? 'active' : ''}>{CITY_LABELS[s]}</Link>
-          ))}
-          <Link href="/overview/">← Overview</Link>
-        </nav>
-      </header>
+    <div className="hub-main">
+      <Topbar
+        title={`${cityKey} — Competitor Analysis`}
+        crumbs={[{ label: cityKey }]}
+        actions={<CityNav slug={slug} />}
+      />
 
       <div className="container">
         <div className="kpi-row">
-          <div className="kpi"><div className="label">Competitors Analyzed</div><div className="value" style={{ fontSize: 20 }}>{biz.length}</div><div className="sub">{cityKey}</div></div>
-          <div className="kpi"><div className="label">Market Avg Rating</div><div className="value" style={{ fontSize: 20 }}>{marketAvg}★</div><div className="sub">across all providers</div></div>
-          <div className="kpi"><div className="label">Top Rated</div><div className="value" style={{ fontSize: 20 }}>{shortName(best.provider)}</div><div className="sub">{best.avg_stars}★</div></div>
-          <div className="kpi"><div className="label">Most Negative</div><div className="value" style={{ fontSize: 20 }}>{shortName(worst.provider)}</div><div className="sub">{worst.result_pct.negative}% negative results</div></div>
+          <div className="kpi">
+            <div className="label">Competitors Analyzed</div>
+            <div className="value" style={{ fontSize: 20 }}>{biz.length}</div>
+            <div className="sub">{cityKey}</div>
+          </div>
+          <div className="kpi">
+            <div className="label">Market Avg Rating</div>
+            <div className="value" style={{ fontSize: 20 }}>{marketAvg}★</div>
+            <div className="sub">across all providers</div>
+          </div>
+          <div className="kpi">
+            <div className="label">Top Rated</div>
+            <div className="value" style={{ fontSize: 20 }}>{shortName(best.provider)}</div>
+            <div className="sub">{best.avg_stars}★</div>
+          </div>
+          {inkoutEntry ? (
+            <div className="kpi">
+              <div className="label">inkOUT Position</div>
+              <div className="value" style={{ fontSize: 20, color: '#a78bfa' }}>#{inkoutRank} of {biz.length}</div>
+              <div className="sub">{inkoutEntry.avg_stars}★ · {inkoutEntry.result_pct.positive}% positive</div>
+            </div>
+          ) : (
+            <div className="kpi">
+              <div className="label">Most Negative</div>
+              <div className="value" style={{ fontSize: 20 }}>{shortName(worst.provider)}</div>
+              <div className="sub">{worst.result_pct.negative}% negative results</div>
+            </div>
+          )}
         </div>
 
         <div className="section">
@@ -107,18 +124,26 @@ export default function CityPageClient({ slug }: { slug: string }) {
             <table>
               <thead>
                 <tr>
-                  <th>Provider</th><th>Reviews</th><th>Avg Stars</th>
-                  <th>Positive Results</th><th>Negative Results</th>
-                  <th>Pain Mentions</th><th>Scarring</th><th>Method</th>
+                  <th>#</th>
+                  <th>Provider</th>
+                  <th>Reviews</th>
+                  <th>Avg Stars</th>
+                  <th>Positive Results</th>
+                  <th>Negative Results</th>
+                  <th>Pain Mentions</th>
+                  <th>Scarring</th>
+                  <th>Method</th>
                 </tr>
               </thead>
               <tbody>
-                {biz.map(b => (
-                  <tr key={b.slug}>
-                    <td style={{ fontWeight: 600, color: '#fff' }}>
+                {sorted.map((b, i) => (
+                  <tr key={b.slug} className={b.isInkout ? 'inkout-row' : ''}>
+                    <td style={{ color: 'var(--muted)', fontWeight: 600 }}>{i + 1}</td>
+                    <td style={{ fontWeight: 600 }}>
                       <Link href={`/competitor/${b.slug}/`} style={{ color: b.isInkout ? '#a78bfa' : '#fff' }}>
                         {b.provider}
                       </Link>
+                      {b.isInkout && <span className="badge badge-purple" style={{ marginLeft: 6 }}>inkOUT</span>}
                     </td>
                     <td>{b.total}</td>
                     <td className="stars">{starStr(b.avg_stars)}</td>
@@ -142,9 +167,12 @@ export default function CityPageClient({ slug }: { slug: string }) {
         <div className="section">
           <h2>Business Cards</h2>
           <div className="grid-3">
-            {biz.map(b => (
-              <Link key={b.slug} href={`/competitor/${b.slug}/`} className="card" style={{ display: 'block', textDecoration: 'none' }}>
-                <div style={{ fontWeight: 700, color: '#fff', fontSize: 15, marginBottom: 4 }}>{shortName(b.provider)}</div>
+            {sorted.map((b, i) => (
+              <Link key={b.slug} href={`/competitor/${b.slug}/`} className={`card biz-card${b.isInkout ? ' biz-card-inkout' : ''}`} style={{ display: 'block', textDecoration: 'none' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
+                  <div style={{ fontWeight: 700, color: b.isInkout ? '#a78bfa' : '#fff', fontSize: 15 }}>{shortName(b.provider)}</div>
+                  <span style={{ color: 'var(--muted)', fontSize: 11, fontWeight: 600 }}>#{i + 1}</span>
+                </div>
                 <div className="stars" style={{ marginBottom: 10 }}>{starStr(b.avg_stars)} <span style={{ color: 'var(--muted)', fontSize: 12 }}>({b.total} reviews)</span></div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: 12 }}>
                   <div><div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 2 }}>Positive Results</div>{sentBadge(b.result_pct.positive)}</div>
@@ -162,6 +190,6 @@ export default function CityPageClient({ slug }: { slug: string }) {
           Source: Google Maps, scraped April 2, 2026. Sample of up to 50 reviews per location.
         </div>
       </div>
-    </>
+    </div>
   )
 }

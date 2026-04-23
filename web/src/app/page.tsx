@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
-import Sidebar from '@/components/Sidebar'
-import HubSearch from '@/components/HubSearch'
+import Topbar from '@/components/Topbar'
 import { getAllReviews } from '@/lib/data'
 import type { Review } from '@/lib/types'
 
@@ -52,80 +51,128 @@ export default function HubPage() {
   const inkoutLocations = new Set(inkoutReviews.map(r => r.location_city + '|' + r.location_state)).size
   const cities = CITY_CONFIG.map(c => ({ ...c, ...computeCityStats(reviews, c.city, c.state) }))
 
-  return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar totalReviews={loading ? undefined : totalReviews} />
+  // Dynamically compute biggest non-inkOUT threat by positive%
+  const biggestThreat = useMemo<{ name: string; pct: number; city: string; state: string } | null>(() => {
+    if (!reviews.length) return null
+    const groups = new Map<string, { reviews: Review[]; city: string; state: string }>()
+    reviews.filter(r => r.brand_name !== 'inkOUT').forEach(r => {
+      const key = r.provider_name
+      if (!groups.has(key)) groups.set(key, { reviews: [], city: r.location_city, state: r.location_state })
+      groups.get(key)!.reviews.push(r)
+    })
+    let best: { name: string; pct: number; city: string; state: string } | null = null
+    groups.forEach(({ reviews: gr, city, state }, name) => {
+      const withText = gr.filter(r => r.has_text)
+      if (!withText.length) return
+      const pct = Math.round(withText.filter(r => (r.result_rating || '').toLowerCase() === 'positive').length / withText.length * 100)
+      if (!best || pct > best.pct) best = { name, pct, city, state }
+    })
+    return best
+  }, [reviews])
 
-      <div className="hub-main">
-        <div className="topbar">
-          <div className="page-title">Intelligence Hub</div>
-          <div className="quick-links">
-            <Link href="/overview" className="ql">📊 Full Overview</Link>
+  // Dynamically compute inkOUT weak spot by lowest avg stars
+  const inkoutWeakSpot = useMemo<{ city: string; state: string; stars: number } | null>(() => {
+    if (!inkoutReviews.length) return null
+    const groups = new Map<string, Review[]>()
+    inkoutReviews.forEach(r => {
+      const key = `${r.location_city}|${r.location_state}`
+      if (!groups.has(key)) groups.set(key, [])
+      groups.get(key)!.push(r)
+    })
+    let worst: { city: string; state: string; stars: number } | null = null
+    groups.forEach((gr, key) => {
+      const avg = parseFloat((gr.reduce((s, r) => s + r.star_rating, 0) / gr.length).toFixed(1))
+      if (!worst || avg < worst.stars) {
+        const [city, state] = key.split('|')
+        worst = { city, state, stars: avg }
+      }
+    })
+    return worst
+  }, [inkoutReviews])
+
+  return (
+    <div className="hub-main">
+      <Topbar
+        title="Intelligence Hub"
+        actions={<Link href="/overview" className="ql">📊 Full Overview</Link>}
+      />
+
+      <div className="hub-content">
+        <div className="hero">
+          <div className="hero-card">
+            <div className="label">Total Reviews</div>
+            <div className="value">{loading ? '…' : totalReviews}</div>
+            <div className="sub">Google reviews</div>
           </div>
-          <HubSearch />
+          <div className="hero-card">
+            <div className="label">Competitors Tracked</div>
+            <div className="value">{loading ? '…' : totalCompetitors}</div>
+            <div className="sub">across 6 markets</div>
+          </div>
+          <div className="hero-card">
+            <div className="label">Biggest Threat</div>
+            <div className="value" style={{ fontSize: 16 }}>
+              {loading ? '…' : biggestThreat?.name ?? '—'}
+            </div>
+            <div className="sub">
+              {loading ? '' : biggestThreat ? `${biggestThreat.pct}% positive · ${biggestThreat.city}, ${biggestThreat.state}` : ''}
+            </div>
+          </div>
+          <div className="hero-card">
+            <div className="label">inkOUT Weak Spot</div>
+            <div className="value" style={{ fontSize: 18 }}>
+              {loading ? '…' : inkoutWeakSpot ? `${inkoutWeakSpot.city}, ${inkoutWeakSpot.state}` : '—'}
+            </div>
+            <div className="sub">
+              {loading ? '' : inkoutWeakSpot ? `${inkoutWeakSpot.stars}★ avg rating` : ''}
+            </div>
+          </div>
         </div>
 
-        <div className="hub-content">
-          <div className="hero">
-            <div className="hero-card">
-              <div className="label">Total Reviews</div>
-              <div className="value">{loading ? '…' : totalReviews}</div>
-              <div className="sub">Google reviews</div>
+        <div className="section-title">Special Views</div>
+        <div className="special-grid">
+          <Link href="/overview" className="special-card">
+            <div className="icon-wrap" style={{ background: 'rgba(108,99,255,.15)' }}>📊</div>
+            <div>
+              <div className="sc-label">Overview</div>
+              <div className="sc-title">Full Competitive Dashboard</div>
+              <div className="sc-sub">All businesses, all metrics, all cities</div>
             </div>
-            <div className="hero-card">
-              <div className="label">Competitors Tracked</div>
-              <div className="value">{loading ? '…' : totalCompetitors}</div>
-              <div className="sub">across 6 markets</div>
+          </Link>
+          <Link href="/reviews" className="special-card">
+            <div className="icon-wrap" style={{ background: 'rgba(34,197,94,.12)' }}>💬</div>
+            <div>
+              <div className="sc-label">Browse</div>
+              <div className="sc-title">All Reviews</div>
+              <div className="sc-sub">Filter, search, and copy review text</div>
             </div>
-            <div className="hero-card">
-              <div className="label">Biggest Threat</div>
-              <div className="value" style={{ fontSize: 18 }}>MEDermis Laser Clinic</div>
-              <div className="sub">91% positive · Austin TX</div>
-            </div>
-            <div className="hero-card">
-              <div className="label">Inkout Weak Spot</div>
-              <div className="value" style={{ fontSize: 18 }}>Draper UT</div>
-              <div className="sub">4.1★ · inkout Draper UT</div>
+          </Link>
+          <div className="special-card" style={{ borderColor: 'rgba(167,139,250,.3)' }}>
+            <div className="icon-wrap" style={{ background: 'rgba(167,139,250,.15)' }}>🎯</div>
+            <div>
+              <div className="sc-label">Target</div>
+              <div className="sc-title">inkOUT / Rejuvatek</div>
+              <div className="sc-sub">
+                {loading ? '…' : `${inkoutLocations} locations · ${inkoutReviews.length} reviews analyzed`}
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="section-title">Special Views</div>
-          <div className="special-grid">
-            <Link href="/overview" className="special-card">
-              <div className="icon-wrap" style={{ background: 'rgba(108,99,255,.15)' }}>📊</div>
-              <div>
-                <div className="sc-label">Overview</div>
-                <div className="sc-title">Full Competitive Dashboard</div>
-                <div className="sc-sub">All businesses, all metrics, all cities</div>
+        <div className="section-title">Markets</div>
+        <div className="city-grid">
+          {cities.map(c => (
+            <Link key={c.slug} href={`/city/${c.slug}/`} className="city-card">
+              <div className="city-label">Market</div>
+              <div className="city-name">{c.name}</div>
+              <div className="city-stats">
+                <div className="city-stat"><span className="k">Competitors</span><span className="v">{loading ? '…' : c.competitors}</span></div>
+                <div className="city-stat"><span className="k">Reviews</span><span className="v">{loading ? '…' : c.total}</span></div>
+                <div className="city-stat"><span className="k">Avg Stars</span><span className="v stars">{loading ? '…' : `${c.avgStars}★`}</span></div>
+                <div className="city-stat"><span className="k">Positive</span><span className="v" style={{ color: positiveColor(c.posPct) }}>{loading ? '…' : `${c.posPct}%`}</span></div>
               </div>
             </Link>
-            <div className="special-card" style={{ borderColor: 'rgba(167,139,250,.3)' }}>
-              <div className="icon-wrap" style={{ background: 'rgba(167,139,250,.15)' }}>🎯</div>
-              <div>
-                <div className="sc-label">Target</div>
-                <div className="sc-title">Inkout / Rejuvatek</div>
-                <div className="sc-sub">
-                  {loading ? '…' : `${inkoutLocations} locations · ${inkoutReviews.length} reviews analyzed`}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="section-title">Markets</div>
-          <div className="city-grid">
-            {cities.map(c => (
-              <Link key={c.slug} href={`/city/${c.slug}/`} className="city-card">
-                <div className="city-label">Market</div>
-                <div className="city-name">{c.name}</div>
-                <div className="city-stats">
-                  <div className="city-stat"><span className="k">Competitors</span><span className="v">{loading ? '…' : c.competitors}</span></div>
-                  <div className="city-stat"><span className="k">Reviews</span><span className="v">{loading ? '…' : c.total}</span></div>
-                  <div className="city-stat"><span className="k">Avg Stars</span><span className="v stars">{loading ? '…' : `${c.avgStars}★`}</span></div>
-                  <div className="city-stat"><span className="k">Positive</span><span className="v" style={{ color: positiveColor(c.posPct) }}>{loading ? '…' : `${c.posPct}%`}</span></div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ import anthropic
 
 from filters.stage_1 import run_stage_1
 from filters.stage_2 import run_stage_2a, run_stage_2b
-from routing import assign_bucket, REBRAND_DATE
+from routing import assign_bucket
 
 
 # ---------------------------------------------------------------------------
@@ -46,17 +46,22 @@ def load_input(pattern: str) -> list[dict]:
         if isinstance(data, list):
             reviews.extend(data)
         elif isinstance(data, dict):
-            # Support {reviews: [...]} wrapper
             for v in data.values():
                 if isinstance(v, list):
                     reviews.extend(v)
                     break
 
+    # When loading from the all-providers analyzed file, keep inkOUT only.
+    # When loading from the raw inkout source files they're already filtered.
+    inkout = [r for r in reviews if r.get('provider_name') in ('inkOUT', 'inkout')]
+    if inkout:
+        reviews = inkout
+
     for i, r in enumerate(reviews):
         if 'review_id' not in r:
             r['review_id'] = f'rev_{i:06d}'
 
-    print(f"Loaded {len(reviews)} reviews from {len(paths)} file(s)")
+    print(f"Loaded {len(reviews)} inkOUT reviews from {len(paths)} file(s)")
     return reviews
 
 
@@ -117,15 +122,6 @@ def check_pre_rebrand(record: dict, clinic_dates: dict) -> bool:
     return review_dt < rebrand_dt
 
 
-def is_post_rebrand(record: dict) -> bool:
-    """True if the review was written on or after the universal inkOUT rebrand date."""
-    dt = _parse_iso(record.get('review_date_iso') or record.get('review_date', ''))
-    if dt is None:
-        return False  # unknown date → treat conservatively as pre-rebrand
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
-    return dt >= REBRAND_DATE
-
 
 _EMPTY_STAGE1 = {
     'stage_1_hit': False,
@@ -184,16 +180,18 @@ def write_bucket_lookup(buckets: 'dict[str, list]', path: Path):
 def write_summary(buckets: 'dict[str, list]', path: Path, api_calls: int):
     inkout = buckets['inkout']
     tatt2away = buckets['tatt2away']
-    all_reviews = inkout + tatt2away
+    review_required = buckets['review_required']
+    all_reviews = inkout + tatt2away + review_required
 
     lines = [
         f"Review Separation Summary — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         '',
         'BUCKET COUNTS',
-        f"  inkout:    {len(inkout):>5}",
-        f"  tatt2away: {len(tatt2away):>5}",
-        f"  TOTAL:     {len(all_reviews):>5}",
-        f"  API calls: {api_calls:>5}",
+        f"  inkout:          {len(inkout):>5}",
+        f"  tatt2away:       {len(tatt2away):>5}",
+        f"  review_required: {len(review_required):>5}",
+        f"  TOTAL:           {len(all_reviews):>5}",
+        f"  API calls:       {api_calls:>5}",
         '',
         'BY SOURCE (platform)',
     ]
@@ -265,8 +263,8 @@ def main():
     parser = argparse.ArgumentParser(description='Separate inkOUT reviews into buckets')
     parser.add_argument(
         '--input',
-        default='../reviews-v4-inkout-*.json',
-        help='Input JSON file or glob pattern (default: ../reviews-v4-inkout-*.json)',
+        default='../analyzed-v4-all-dated.json',
+        help='Input JSON file — analyzed all-providers file (default) or inkout source glob',
     )
     parser.add_argument(
         '--output-dir',
@@ -302,10 +300,6 @@ def main():
     for review in reviews:
         raw_text = review.get('review_text') or ''
 
-        # Stamp era — used by routing to decide whether Stage 2 negatives
-        # go to tatt2away (pre-rebrand) or review_required (post-rebrand)
-        review['post_rebrand'] = is_post_rebrand(review)
-
         # Optional per-clinic pre-rebrand date auto-route
         pre_rebrand = check_pre_rebrand(review, clinic_dates)
         review['pre_rebrand_date_routed'] = pre_rebrand
@@ -318,33 +312,63 @@ def main():
             review.update(run_stage_1(raw_text))
 
             if not review['stage_1_hit']:
-                # Stage 2A
+                # Stage 2A: keyword tagging (metadata — recorded in CSV output)
                 review.update(run_stage_2a(raw_text))
 
                 if review['stage_2_flagged']:
-                    # Stage 2B — LLM
-                    dry_run_capped = (
-                        args.dry_run
-                        and args.dry_run_limit is not None
-                        and api_calls >= args.dry_run_limit
-                    )
-                    if client is None or dry_run_capped:
+                    # Use analyzer's result_rating as primary signal — avoids duplicate LLM calls.
+                    result_rating = review.get('result_rating', 'unknown')
+
+                    if result_rating == 'Negative':
+                        review.update({
+                            'stage_2_classification': 'negative',
+                            'stage_2_confidence': 1.0,
+                            'stage_2_reasoning': 'analyzer result_rating=Negative',
+                        })
+                    elif result_rating == 'Mixed':
                         review.update({
                             'stage_2_classification': 'ambiguous',
-                            'stage_2_confidence': 0.0,
-                            'stage_2_reasoning': 'skipped (no API key or dry-run limit)',
+                            'stage_2_confidence': 1.0,
+                            'stage_2_reasoning': 'analyzer result_rating=Mixed (contradictory signals)',
+                        })
+                    elif result_rating in ('Positive', 'Neutral'):
+                        review.update({
+                            'stage_2_classification': 'neutral_positive',
+                            'stage_2_confidence': 1.0,
+                            'stage_2_reasoning': f'analyzer result_rating={result_rating}',
                         })
                     else:
-                        review.update(run_stage_2b(raw_text, client))
-                        api_calls += 1
+                        # unknown result_rating: fall back to LLM, or star rating if unavailable
+                        dry_run_capped = (
+                            args.dry_run
+                            and args.dry_run_limit is not None
+                            and api_calls >= args.dry_run_limit
+                        )
+                        if raw_text and client and not dry_run_capped:
+                            review.update(run_stage_2b(raw_text, client))
+                            api_calls += 1
+                        else:
+                            stars = int(review.get('star_rating') or 3)
+                            if stars <= 2:
+                                cls, conf, reason = 'negative', 0.8, f'{stars}★ with no text → negative'
+                            elif stars <= 3:
+                                cls, conf, reason = 'ambiguous', 0.6, f'{stars}★ ambiguous'
+                            else:
+                                cls, conf, reason = 'neutral_positive', 0.8, f'{stars}★ with no text → positive'
+                            review.update({
+                                'stage_2_classification': cls,
+                                'stage_2_confidence': conf,
+                                'stage_2_reasoning': reason,
+                            })
                 else:
+                    # No keyword flags → no LLM needed
                     review.update({
                         'stage_2_classification': None,
                         'stage_2_confidence': None,
                         'stage_2_reasoning': None,
                     })
             else:
-                # Stage 1 hit — skip Stage 2 entirely
+                # Stage 1 hit → tatt2away; skip Stage 2 entirely
                 review.update({
                     'stage_2_flagged': False,
                     'stage_2_matched_terms': [],
@@ -358,22 +382,25 @@ def main():
     buckets: dict[str, list] = {
         'inkout': [r for r in reviews if r['bucket'] == 'inkout'],
         'tatt2away': [r for r in reviews if r['bucket'] == 'tatt2away'],
+        'review_required': [r for r in reviews if r['bucket'] == 'review_required'],
     }
 
     suffix = '_DRYRUN' if args.dry_run else ''
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    write_csv(buckets['inkout'],    out / f'inkout_reviews{suffix}.csv')
-    write_csv(buckets['tatt2away'], out / f'tatt2away_reviews{suffix}.csv')
+    write_csv(buckets['inkout'],          out / f'inkout_reviews{suffix}.csv')
+    write_csv(buckets['tatt2away'],       out / f'tatt2away_reviews{suffix}.csv')
+    write_csv(buckets['review_required'], out / f'review_required_reviews{suffix}.csv')
     write_summary(buckets, out / f'summary{suffix}.txt', api_calls)
     if not args.dry_run:
         write_bucket_lookup(buckets, out / 'bucket_lookup.json')
 
     print(f"\nOutput → {out}/")
-    print(f"  inkout:    {len(buckets['inkout'])}")
-    print(f"  tatt2away: {len(buckets['tatt2away'])}")
-    print(f"  API calls: {api_calls}")
+    print(f"  inkout:          {len(buckets['inkout'])}")
+    print(f"  tatt2away:       {len(buckets['tatt2away'])}")
+    print(f"  review_required: {len(buckets['review_required'])}")
+    print(f"  API calls:       {api_calls}")
 
     if args.dry_run:
         print_samples(buckets)

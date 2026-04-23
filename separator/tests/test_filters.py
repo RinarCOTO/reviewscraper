@@ -208,10 +208,9 @@ class TestStage2B(unittest.TestCase):
 
 class TestRouting(unittest.TestCase):
 
-    def _base(self, post_rebrand=False, **overrides) -> dict:
+    def _base(self, **overrides) -> dict:
         base = {
             'pre_rebrand_date_routed': False,
-            'post_rebrand': post_rebrand,
             'stage_1_hit': False,
             'stage_1_matched_terms': [],
             'stage_1_bridging_flag': False,
@@ -225,14 +224,12 @@ class TestRouting(unittest.TestCase):
         base.update(overrides)
         return base
 
-    # --- Original fixtures (pre-rebrand era) ---
-
-    # Fixture 1: Stage 1 hit → tatt2away (any era)
+    # Fixture 1: Stage 1 hit → tatt2away
     def test_stage1_hit_routes_tatt2away(self):
         r = self._base(stage_1_hit=True, stage_1_matched_terms=['Tatt2Away'])
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # Fixture 2: pre-rebrand, Stage 2 neutral_positive → inkout
+    # Fixture 2: Stage 2 neutral_positive → inkout
     def test_neutral_positive_routes_inkout(self):
         r = self._base(
             stage_2_flagged=True,
@@ -242,10 +239,9 @@ class TestRouting(unittest.TestCase):
         )
         self.assertEqual(assign_bucket(r), 'inkout')
 
-    # Fixture 3: pre-rebrand, Stage 2 negative high-confidence → tatt2away
-    def test_negative_high_confidence_pre_rebrand_routes_tatt2away(self):
+    # Fixture 3: Stage 2 negative high-confidence → tatt2away
+    def test_negative_high_confidence_routes_tatt2away(self):
         r = self._base(
-            post_rebrand=False,
             stage_2_flagged=True,
             stage_2_matched_terms=['scar'],
             stage_2_classification='negative',
@@ -253,98 +249,80 @@ class TestRouting(unittest.TestCase):
         )
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # Fixture 4: Bridging flag, no Stage 1 hit → inkout (recorded but not auto-routed)
-    def test_bridging_no_stage1_routes_inkout(self):
+    # Fixture 4: Bridging flag, no Stage 1 hit → review_required (editorial queue)
+    def test_bridging_no_stage1_routes_review_required(self):
         r = self._base(
             stage_1_bridging_flag=True,
             stage_1_bridging_terms=['rebranded'],
         )
-        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(assign_bucket(r), 'review_required')
 
     # Fixture 5: Clean review → inkout
     def test_clean_review_routes_inkout(self):
         r = self._base()
         self.assertEqual(assign_bucket(r), 'inkout')
 
-    # Fixture 6: Pre-rebrand date auto-route → tatt2away
+    # Fixture 6: Per-clinic pre-rebrand date auto-route → tatt2away
     def test_pre_rebrand_date_routes_tatt2away(self):
         r = self._base(pre_rebrand_date_routed=True)
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # --- Pre-rebrand era edge cases ---
-
-    def test_negative_pre_rebrand_any_confidence_routes_tatt2away(self):
-        for conf in [0.4, 0.6, 0.9]:
+    # Confidence threshold: negative ≥ 0.75 → tatt2away, < 0.75 → review_required
+    def test_negative_high_confidence_routes_tatt2away_threshold(self):
+        for conf in [0.75, 0.9, 1.0]:
             r = self._base(
-                post_rebrand=False,
                 stage_2_flagged=True,
                 stage_2_classification='negative',
                 stage_2_confidence=conf,
             )
             self.assertEqual(assign_bucket(r), 'tatt2away', f"conf={conf}")
 
-    # --- Post-rebrand era: everything goes to inkout except Stage 1 hits ---
+    def test_negative_low_confidence_routes_review_required(self):
+        for conf in [0.4, 0.6, 0.74]:
+            r = self._base(
+                stage_2_flagged=True,
+                stage_2_classification='negative',
+                stage_2_confidence=conf,
+            )
+            self.assertEqual(assign_bucket(r), 'review_required', f"conf={conf}")
 
-    def test_negative_post_rebrand_routes_inkout(self):
-        # Bad inkOUT review → inkout, user reviews it personally
-        r = self._base(
-            post_rebrand=True,
-            stage_2_flagged=True,
-            stage_2_classification='negative',
-            stage_2_confidence=0.9,
-        )
-        self.assertEqual(assign_bucket(r), 'inkout')
+    # Ambiguous → review_required at any confidence
+    def test_ambiguous_routes_review_required(self):
+        for conf in [0.4, 0.6, 0.9]:
+            r = self._base(
+                stage_2_flagged=True,
+                stage_2_classification='ambiguous',
+                stage_2_confidence=conf,
+            )
+            self.assertEqual(assign_bucket(r), 'review_required', f"conf={conf}")
 
-    def test_ambiguous_post_rebrand_routes_inkout(self):
-        r = self._base(
-            post_rebrand=True,
-            stage_2_flagged=True,
-            stage_2_classification='ambiguous',
-            stage_2_confidence=0.8,
-        )
-        self.assertEqual(assign_bucket(r), 'inkout')
-
-    def test_neutral_positive_post_rebrand_routes_inkout(self):
-        r = self._base(
-            post_rebrand=True,
-            stage_2_flagged=True,
-            stage_2_classification='neutral_positive',
-            stage_2_confidence=0.95,
-        )
-        self.assertEqual(assign_bucket(r), 'inkout')
-
-    def test_clean_post_rebrand_routes_inkout(self):
-        r = self._base(post_rebrand=True)
-        self.assertEqual(assign_bucket(r), 'inkout')
-
-    def test_stage1_hit_post_rebrand_still_routes_tatt2away(self):
-        # Explicitly naming Tatt2Away in a post-rebrand review → still tatt2away
-        r = self._base(
-            post_rebrand=True,
-            stage_1_hit=True,
-            stage_1_matched_terms=['Tatt2Away'],
-        )
-        self.assertEqual(assign_bucket(r), 'tatt2away')
-
-    # --- Pre-rebrand era: negative + ambiguous → tatt2away ---
-
-    def test_ambiguous_pre_rebrand_routes_tatt2away(self):
-        r = self._base(
-            post_rebrand=False,
-            stage_2_flagged=True,
-            stage_2_classification='ambiguous',
-            stage_2_confidence=0.6,
-        )
-        self.assertEqual(assign_bucket(r), 'tatt2away')
-
+    # Stage 1 always wins over bridging
     def test_stage1_hit_overrides_bridging(self):
-        # If both hit, Stage 1 name match wins → tatt2away (not review_required)
         r = self._base(stage_1_hit=True, stage_1_bridging_flag=True)
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
+    # Per-clinic date overrides everything
     def test_pre_rebrand_overrides_everything(self):
-        # Even with stage_1_hit = False, pre_rebrand auto-routes
         r = self._base(pre_rebrand_date_routed=True, stage_1_hit=False)
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+
+    # Stage 1 hit wins even with a positive Stage 2 classification
+    def test_stage1_hit_positive_still_routes_tatt2away(self):
+        r = self._base(
+            stage_1_hit=True,
+            stage_1_matched_terms=['Tatt2away'],
+            stage_2_classification='neutral_positive',
+        )
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+
+    # negative with no keyword flags but high LLM confidence → tatt2away
+    def test_negative_no_keywords_high_confidence_routes_tatt2away(self):
+        r = self._base(
+            stage_2_flagged=False,
+            stage_2_matched_terms=[],
+            stage_2_classification='negative',
+            stage_2_confidence=0.88,
+        )
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
 

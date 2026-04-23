@@ -111,7 +111,11 @@ function toRow(review, status) {
       return BUCKET_LOOKUP.get(key) ?? null;
     })(),
 
-    status,
+    // review_required reviews are always pending until a company user approves them
+    status: (() => {
+      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      return BUCKET_LOOKUP.get(key) === 'review_required' ? 'pending' : status;
+    })(),
   };
 }
 

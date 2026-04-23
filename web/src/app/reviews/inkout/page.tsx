@@ -27,7 +27,7 @@ export default function InkoutReviewsPage() {
     })
   }, [])
 
-  const cities = [...new Set(reviews.map(cityLabel))].sort()
+  const cities = Array.from(new Set(reviews.map(cityLabel))).sort()
 
   const filtered = reviews.filter(r => {
     if (cityFilter !== 'all' && cityLabel(r) !== cityFilter) return false
@@ -125,7 +125,7 @@ export default function InkoutReviewsPage() {
                   </div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
                     <span style={{ color: '#f59e0b', fontSize: 13 }}>{stars(r.star_rating)}</span>
-                    <span style={{ color: 'var(--muted)', fontSize: 11 }}>{r.review_date_iso ? new Date(r.review_date_iso).toLocaleDateString() : r.review_date}</span>
+                    <span style={{ color: 'var(--muted)', fontSize: 11 }}>{r.review_date}</span>
                   </div>
                 </div>
                 <p style={{ color: 'var(--text)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>

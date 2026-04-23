@@ -63,14 +63,17 @@ _STAGE2A_RE = re.compile(
 )
 
 _CLASSIFY_PROMPT = """\
-You are classifying a tattoo removal customer review. The review has been \
-flagged because it contains language that may describe a negative outcome \
-(scarring, severe pain, treatment failure, or abandonment).
+You are classifying a tattoo removal customer review. Determine whether the \
+review describes a negative outcome the customer personally experienced — such \
+as scarring, physical harm, severe pain, treatment failure, wasted money, or \
+permanent damage — or whether it describes a positive or neutral experience.
 
-Determine whether the review actually describes a negative outcome the \
-customer experienced, or whether the flagged language appears in a \
-positive or neutral context (e.g., "no scarring at all," "painless \
-compared to what I feared," "didn't work for my friend but worked for me").
+Key context rules:
+- "pain-free", "painless", "no scarring", "great results" → neutral_positive even \
+if pain/scar words appear
+- "left a scar", "caused permanent damage", "avoid this place", "made it worse" → negative
+- Reviewer describing someone else's bad experience, or a hypothetical, \
+is ambiguous unless they clearly own the outcome
 
 Review text:
 ---

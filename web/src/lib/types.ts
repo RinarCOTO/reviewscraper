@@ -1,4 +1,5 @@
 export interface Review {
+  id: string
   provider_name: string
   location_city: string
   location_state: string
@@ -6,6 +7,7 @@ export interface Review {
   review_text: string
   star_rating: number
   review_date: string
+  review_date_iso: string
   reviewer_name: string
   verified_source: string
   _place_title: string
@@ -24,7 +26,16 @@ export interface Review {
   multi_location_brand: boolean
   location_transition: boolean
   transition_note: string
-  bucket: 'inkout' | 'tatt2away' | null
+  bucket: 'inkout' | 'tatt2away' | 'review_required' | null
+  status: 'published' | 'pending' | 'rejected' | 'draft' | null
+  stage_1_hit: boolean | null
+  stage_1_matched_terms: string | null
+  stage_1_bridging_flag: boolean | null
+  stage_2_flagged: boolean | null
+  stage_2_matched_terms: string | null
+  stage_2_classification: string | null
+  stage_2_confidence: number | null
+  stage_2_reasoning: string | null
 }
 
 export interface Provider {

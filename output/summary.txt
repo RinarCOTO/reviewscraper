@@ -1,16 +1,16 @@
-Review Separation Summary — 2026-04-23 20:08:21
+Review Separation Summary — 2026-04-23 23:11:18
 
 BUCKET COUNTS
-  inkout:             76
-  tatt2away:          36
+  inkout:             73
+  tatt2away:          39
   review_required:     0
   TOTAL:             112
   API calls:           0
 
 BY SOURCE (platform)
   Google
-    inkout: 76
-    tatt2away: 36
+    inkout: 73
+    tatt2away: 39
 
 BY CLINIC
   inkOUT (Austin, TX)
@@ -20,8 +20,8 @@ BY CLINIC
     inkout: 7
     tatt2away: 5
   inkOUT (Draper, UT)
-    inkout: 38
-    tatt2away: 12
+    inkout: 35
+    tatt2away: 15
   inkOUT (Houston, TX)
     inkout: 6
 

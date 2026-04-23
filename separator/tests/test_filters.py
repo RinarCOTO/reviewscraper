@@ -267,9 +267,9 @@ class TestRouting(unittest.TestCase):
         r = self._base(pre_rebrand_date_routed=True)
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # Confidence threshold: negative ≥ 0.75 → tatt2away, < 0.75 → review_required
-    def test_negative_high_confidence_routes_tatt2away_threshold(self):
-        for conf in [0.75, 0.9, 1.0]:
+    # Negative → tatt2away at any confidence
+    def test_negative_any_confidence_routes_tatt2away(self):
+        for conf in [0.4, 0.6, 0.75, 1.0]:
             r = self._base(
                 stage_2_flagged=True,
                 stage_2_classification='negative',
@@ -277,24 +277,15 @@ class TestRouting(unittest.TestCase):
             )
             self.assertEqual(assign_bucket(r), 'tatt2away', f"conf={conf}")
 
-    def test_negative_low_confidence_routes_review_required(self):
-        for conf in [0.4, 0.6, 0.74]:
-            r = self._base(
-                stage_2_flagged=True,
-                stage_2_classification='negative',
-                stage_2_confidence=conf,
-            )
-            self.assertEqual(assign_bucket(r), 'review_required', f"conf={conf}")
-
-    # Ambiguous → review_required at any confidence
-    def test_ambiguous_routes_review_required(self):
+    # Ambiguous → tatt2away (skew conservative)
+    def test_ambiguous_routes_tatt2away(self):
         for conf in [0.4, 0.6, 0.9]:
             r = self._base(
                 stage_2_flagged=True,
                 stage_2_classification='ambiguous',
                 stage_2_confidence=conf,
             )
-            self.assertEqual(assign_bucket(r), 'review_required', f"conf={conf}")
+            self.assertEqual(assign_bucket(r), 'tatt2away', f"conf={conf}")
 
     # Stage 1 always wins over bridging
     def test_stage1_hit_overrides_bridging(self):

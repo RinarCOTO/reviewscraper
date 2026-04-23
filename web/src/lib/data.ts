@@ -68,29 +68,35 @@ export async function getCityData(slug: string): Promise<CityData | null> {
   const businesses: BusinessSummary[] = []
   providerMap.forEach((reviews, key) => {
     const [provider] = key.split('|')
-    const total = reviews.length
-    const avgStars = parseFloat((reviews.reduce((s, r) => s + r.star_rating, 0) / total).toFixed(1))
-    const withText = reviews.filter(r => r.has_text)
+    const isInkout = provider.toLowerCase().includes('inkout') || provider.toLowerCase().includes('ink out')
+
+    // inkOUT stats use only approved inkout-bucket reviews — tatt2away-filtered reviews
+    // are excluded so negative outcomes don't pollute inkOUT's own metrics.
+    const statReviews = isInkout ? reviews.filter(r => r.bucket === 'inkout') : reviews
+
+    const total = statReviews.length
+    if (total === 0) return
+    const avgStars = parseFloat((statReviews.reduce((s, r) => s + r.star_rating, 0) / total).toFixed(1))
+    const withText = statReviews.filter(r => r.has_text)
     const resultCounts = { positive: 0, negative: 0, mixed: 0, neutral: 0, unknown: 0 }
     withText.forEach(r => {
       const k = (r.result_rating || 'unknown').toLowerCase() as keyof typeof resultCounts
       if (k in resultCounts) resultCounts[k]++
     })
     const textTotal = withText.length || 1
-    const painCount = reviews.filter(r => r.pain_level !== 'unknown' && r.pain_level > 0).length
-    const scarCount = reviews.filter(r => r.scarring_mentioned === 'Yes').length
-    const sessionsArr = reviews.filter(r => r.sessions_completed !== 'unknown').map(r => r.sessions_completed as number)
+    const painCount = statReviews.filter(r => r.pain_level !== 'unknown' && r.pain_level > 0).length
+    const scarCount = statReviews.filter(r => r.scarring_mentioned === 'Yes').length
+    const sessionsArr = statReviews.filter(r => r.sessions_completed !== 'unknown').map(r => r.sessions_completed as number)
     const avgSessions = sessionsArr.length ? parseFloat((sessionsArr.reduce((a, b) => a + b, 0) / sessionsArr.length).toFixed(1)) : 0
     const useCaseMap: Record<string, number> = {}
-    reviews.forEach(r => {
+    statReviews.forEach(r => {
       const uc = r.use_case || 'unknown'
       useCaseMap[uc] = (useCaseMap[uc] || 0) + 1
     })
-    const method = reviews[0]?.method_used || '—'
-    const providerSlug = reviews[0]
-      ? `${reviews[0].provider_name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${reviews[0].location_city.toLowerCase().replace(/\s+/g, '-')}-${reviews[0].location_state.toLowerCase()}`
+    const method = statReviews[0]?.method_used || '—'
+    const providerSlug = statReviews[0]
+      ? `${statReviews[0].provider_name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${statReviews[0].location_city.toLowerCase().replace(/\s+/g, '-')}-${statReviews[0].location_state.toLowerCase()}`
       : ''
-    const isInkout = provider.toLowerCase().includes('inkout') || provider.toLowerCase().includes('ink out')
 
     businesses.push({
       provider,
@@ -120,12 +126,19 @@ export async function getCityData(slug: string): Promise<CityData | null> {
 }
 
 export async function getCompetitorReviews(slug: string): Promise<Review[]> {
-  const { data, error } = await supabase
+  const isInkout = slug.startsWith('inkout-')
+
+  let query = supabase
     .from('competitor_reviews')
     .select('*')
     .eq('status', 'published')
     .order('review_date_iso', { ascending: false })
 
+  if (isInkout) {
+    query = query.eq('bucket', 'inkout')
+  }
+
+  const { data, error } = await query
   if (error) throw new Error(`getCompetitorReviews: ${error.message}`)
 
   const all = data as Review[]

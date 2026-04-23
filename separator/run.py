@@ -315,30 +315,32 @@ def main():
                 # Stage 2A: keyword tagging (metadata — recorded in CSV output)
                 review.update(run_stage_2a(raw_text))
 
-                if review['stage_2_flagged']:
-                    # Use analyzer's result_rating as primary signal — avoids duplicate LLM calls.
-                    result_rating = review.get('result_rating', 'unknown')
+                # Apply result_rating to ALL reviews — not just keyword-flagged ones.
+                # Negative reviews without keyword hits (e.g. "they mutilate you") would
+                # otherwise fall through to inkout with classification=None.
+                result_rating = review.get('result_rating', 'unknown')
 
-                    if result_rating == 'Negative':
-                        review.update({
-                            'stage_2_classification': 'negative',
-                            'stage_2_confidence': 1.0,
-                            'stage_2_reasoning': 'analyzer result_rating=Negative',
-                        })
-                    elif result_rating == 'Mixed':
-                        review.update({
-                            'stage_2_classification': 'ambiguous',
-                            'stage_2_confidence': 1.0,
-                            'stage_2_reasoning': 'analyzer result_rating=Mixed (contradictory signals)',
-                        })
-                    elif result_rating in ('Positive', 'Neutral'):
-                        review.update({
-                            'stage_2_classification': 'neutral_positive',
-                            'stage_2_confidence': 1.0,
-                            'stage_2_reasoning': f'analyzer result_rating={result_rating}',
-                        })
-                    else:
-                        # unknown result_rating: fall back to LLM, or star rating if unavailable
+                if result_rating == 'Negative':
+                    review.update({
+                        'stage_2_classification': 'negative',
+                        'stage_2_confidence': 1.0,
+                        'stage_2_reasoning': 'analyzer result_rating=Negative',
+                    })
+                elif result_rating == 'Mixed':
+                    review.update({
+                        'stage_2_classification': 'ambiguous',
+                        'stage_2_confidence': 1.0,
+                        'stage_2_reasoning': 'analyzer result_rating=Mixed (contradictory signals)',
+                    })
+                elif result_rating in ('Positive', 'Neutral'):
+                    review.update({
+                        'stage_2_classification': 'neutral_positive',
+                        'stage_2_confidence': 1.0,
+                        'stage_2_reasoning': f'analyzer result_rating={result_rating}',
+                    })
+                else:
+                    # unknown result_rating: use LLM if flagged, star rating otherwise
+                    if review['stage_2_flagged']:
                         dry_run_capped = (
                             args.dry_run
                             and args.dry_run_limit is not None
@@ -350,23 +352,31 @@ def main():
                         else:
                             stars = int(review.get('star_rating') or 3)
                             if stars <= 2:
-                                cls, conf, reason = 'negative', 0.8, f'{stars}★ with no text → negative'
-                            elif stars <= 3:
+                                cls, conf, reason = 'negative', 0.8, f'{stars}★ → negative'
+                            elif stars == 3:
                                 cls, conf, reason = 'ambiguous', 0.6, f'{stars}★ ambiguous'
                             else:
-                                cls, conf, reason = 'neutral_positive', 0.8, f'{stars}★ with no text → positive'
+                                cls, conf, reason = 'neutral_positive', 0.8, f'{stars}★ → positive'
                             review.update({
                                 'stage_2_classification': cls,
                                 'stage_2_confidence': conf,
                                 'stage_2_reasoning': reason,
                             })
-                else:
-                    # No keyword flags → no LLM needed
-                    review.update({
-                        'stage_2_classification': None,
-                        'stage_2_confidence': None,
-                        'stage_2_reasoning': None,
-                    })
+                    else:
+                        # No keywords and no result_rating — use star rating as last signal
+                        stars = int(review.get('star_rating') or 5)
+                        if stars <= 2:
+                            review.update({
+                                'stage_2_classification': 'negative',
+                                'stage_2_confidence': 0.7,
+                                'stage_2_reasoning': f'{stars}★ no text/keywords → negative',
+                            })
+                        else:
+                            review.update({
+                                'stage_2_classification': None,
+                                'stage_2_confidence': None,
+                                'stage_2_reasoning': None,
+                            })
             else:
                 # Stage 1 hit → tatt2away; skip Stage 2 entirely
                 review.update({

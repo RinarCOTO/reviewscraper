@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCompetitorReviews } from '@/lib/data'
+import { getCompetitorReviews, getCityData } from '@/lib/data'
 import CompetitorCharts from '@/components/CompetitorCharts'
 import ReviewList from '@/components/ReviewList'
 import Topbar from '@/components/Topbar'
 import { getCityForCompetitor } from '@/lib/config'
-import type { Review } from '@/lib/types'
+import type { Review, CityData, BusinessSummary } from '@/lib/types'
 
 function computeStats(reviews: Review[]) {
   const total = reviews.length
@@ -36,10 +36,10 @@ function computeStats(reviews: Review[]) {
     ratingDist, painLevels,
     resultPcts: [
       Math.round((resultCounts.positive / textTotal) * 100),
-      Math.round((resultCounts.neutral / textTotal) * 100),
-      Math.round((resultCounts.mixed / textTotal) * 100),
+      Math.round((resultCounts.neutral  / textTotal) * 100),
+      Math.round((resultCounts.mixed    / textTotal) * 100),
       Math.round((resultCounts.negative / textTotal) * 100),
-      Math.round((resultCounts.unknown / textTotal) * 100),
+      Math.round((resultCounts.unknown  / textTotal) * 100),
     ],
     avgSessions, useCaseMap,
     method: reviews[0]?.method_used || '—',
@@ -48,20 +48,32 @@ function computeStats(reviews: Review[]) {
   }
 }
 
+function dotColor(avgStars: number) {
+  if (avgStars >= 4.8) return '#22c55e'
+  if (avgStars >= 4.5) return '#3b82f6'
+  if (avgStars >= 4.0) return '#f59e0b'
+  return '#ef4444'
+}
+
 export default function CompetitorPageClient({ slug }: { slug: string }) {
   const [reviews, setReviews] = useState<Review[]>([])
+  const [cityData, setCityData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getCompetitorReviews(slug).then(data => {
-      setReviews(data)
-      setLoading(false)
-    })
-  }, [slug])
 
   const cityConfig = getCityForCompetitor(slug)
   const cityLabel = cityConfig?.label ?? ''
   const citySlugStr = cityConfig?.slug ?? ''
+
+  useEffect(() => {
+    Promise.all([
+      getCompetitorReviews(slug),
+      citySlugStr ? getCityData(citySlugStr) : Promise.resolve(null),
+    ]).then(([rev, city]) => {
+      setReviews(rev)
+      setCityData(city)
+      setLoading(false)
+    })
+  }, [slug, citySlugStr])
 
   if (loading) {
     return (
@@ -83,9 +95,11 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
     return <div className="hub-main" style={{ padding: 40, color: 'var(--muted)' }}>No reviews found for this competitor.</div>
   }
 
-  // Market rank by avg stars among peers
-  const peers = cityConfig?.competitors ?? []
-  const marketRank = peers.findIndex(c => c.slug === slug) + 1
+  // Live peer rankings from city data (sorted by avg_stars desc)
+  const peers: BusinessSummary[] = cityData
+    ? [...cityData.businesses].sort((a, b) => b.avg_stars - a.avg_stars)
+    : []
+  const marketRank = peers.findIndex(b => b.slug === slug) + 1 || null
 
   return (
     <div className="hub-main">
@@ -97,18 +111,18 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
         ]}
       />
 
-      {/* Peer competitor strip */}
+      {/* Peer strip — live stars and rank from Supabase */}
       {peers.length > 1 && (
         <div className="peer-strip">
-          {peers.map((c, i) => (
+          {peers.map((b, i) => (
             <Link
-              key={c.slug}
-              href={`/competitor/${c.slug}`}
-              className={`peer-card${c.slug === slug ? ' peer-current' : ''}${c.isInkout ? ' peer-inkout' : ''}`}
+              key={b.slug}
+              href={`/competitor/${b.slug}`}
+              className={`peer-card${b.slug === slug ? ' peer-current' : ''}${b.isInkout ? ' peer-inkout' : ''}`}
             >
-              <div className="peer-dot" style={{ background: c.dotColor }} />
-              <span>#{i + 1} {c.name}</span>
-              <span className="peer-stars">{c.stars}</span>
+              <div className="peer-dot" style={{ background: dotColor(b.avg_stars) }} />
+              <span>#{i + 1} {b.provider}</span>
+              <span className="peer-stars">{b.avg_stars}★</span>
             </Link>
           ))}
         </div>
@@ -117,7 +131,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
       <div className="container">
         <div className="disclosure">
           <strong>Data Disclosure:</strong> Reviews scraped from Google Maps on April 2, 2026 (up to 50 per location).
-          Dates verified from SerpAPI timestamps. 79 inkOUT reviews are flagged as transition-era. Reviews without written text are excluded from text analysis.
+          Dates verified from SerpAPI timestamps. Reviews without written text are excluded from text analysis.
         </div>
 
         <div className="kpi-row">
@@ -139,7 +153,10 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
           <div className="kpi">
             <div className="label">Market Rank</div>
             <div className="value" style={{ fontSize: 20, color: stats.isInkout ? '#a78bfa' : '#fff' }}>
-              #{marketRank} <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}>of {peers.length}</span>
+              {marketRank ? `#${marketRank}` : '—'}
+              {peers.length > 0 && (
+                <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}> of {peers.length}</span>
+              )}
             </div>
             <div className="sub">{stats.method} · {stats.avgSessions} avg sessions</div>
           </div>

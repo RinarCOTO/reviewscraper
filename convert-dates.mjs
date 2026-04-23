@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 
-const SCRAPE_DATE = new Date('2026-04-02');
-const SCRAPE_LABEL = 'April 2, 2026';
+const SCRAPE_DATE = new Date();
+const SCRAPE_LABEL = SCRAPE_DATE.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const INPUT_FILE = './analyzed-v4-all.json';
 const OUTPUT_FILE = './analyzed-v4-all-dated.json';
 

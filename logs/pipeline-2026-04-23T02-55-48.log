@@ -1,0 +1,60 @@
+[2026-04-23T02:55:48.629Z] 
+══════════════════════════════════════════════════
+[2026-04-23T02:55:48.629Z]   ReviewIntel Pipeline — 2026-04-23T02-55-48 [DRY RUN]
+[2026-04-23T02:55:48.629Z] ══════════════════════════════════════════════════
+[2026-04-23T02:55:48.629Z] Log file: /Users/rinar/Documents/reviewscraper/logs/pipeline-2026-04-23T02-55-48.log
+[2026-04-23T02:55:48.629Z] 
+══════════════════════════════════════════════════
+[2026-04-23T02:55:48.630Z]   Step 3 — Convert relative dates
+[2026-04-23T02:55:48.630Z] ══════════════════════════════════════════════════
+[2026-04-23T02:55:48.630Z] ▶ convert-dates.mjs
+[2026-04-23T02:55:48.630Z]   $ node convert-dates.mjs
+[2026-04-23T02:55:48.702Z]   Done.
+[2026-04-23T02:55:48.702Z]   Total reviews:      812
+[2026-04-23T02:55:48.702Z]   Verified (SerpAPI): 812
+[2026-04-23T02:55:48.702Z]   Estimated:          0
+[2026-04-23T02:55:48.702Z]   Unparseable:        0
+[2026-04-23T02:55:48.702Z]   Output written to:  ./analyzed-v4-all-dated.json
+[2026-04-23T02:55:48.702Z] ✓ convert-dates.mjs complete
+[2026-04-23T02:55:48.702Z] Step 5 — Supabase import SKIPPED (dry-run)
+[2026-04-23T02:55:48.702Z] 
+══════════════════════════════════════════════════
+[2026-04-23T02:55:48.702Z]   Pipeline complete — 0.1s
+[2026-04-23T02:55:48.702Z] ══════════════════════════════════════════════════
+[2026-04-23T02:55:48.703Z] 
+Review Separation Summary — 2026-04-23 10:20:21
+
+BUCKET COUNTS
+  inkout:       77
+  tatt2away:    35
+  TOTAL:       112
+  API calls:    11
+
+BY SOURCE (platform)
+  Google
+    inkout: 77
+    tatt2away: 35
+
+BY CLINIC
+  inkOUT (Austin, TX)
+    inkout: 25
+    tatt2away: 19
+  inkOUT (Chicago, IL)
+    inkout: 7
+    tatt2away: 5
+  inkOUT (Draper, UT)
+    inkout: 39
+    tatt2away: 11
+  inkOUT (Houston, TX)
+    inkout: 6
+
+TOP 20 STAGE 2 MATCHED TERMS
+  scar: 11
+  scarring: 9
+  scarred: 4
+  burn: 1
+  didn’t work: 1
+  excruciating: 1
+  keloid: 1
+
+[2026-04-23T02:55:48.703Z] Log saved → /Users/rinar/Documents/reviewscraper/logs/pipeline-2026-04-23T02-55-48.log

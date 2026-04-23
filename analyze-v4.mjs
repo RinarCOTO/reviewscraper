@@ -280,11 +280,11 @@ async function analyze() {
   console.log(`Per-provider files saved: ${Object.keys(byProvider).length}`);
 
   // ── QA Report ──
-  const total = analyzed.length;
+  const total = allAnalyzed.length;
 
-  const resultUnknown = analyzed.filter(r => r.result_rating === 'unknown').length;
-  const painUnknown   = analyzed.filter(r => r.pain_level === 'unknown').length;
-  const useCaseUnknown = analyzed.filter(r => r.use_case === 'unknown').length;
+  const resultUnknown = allAnalyzed.filter(r => r.result_rating === 'unknown').length;
+  const painUnknown   = allAnalyzed.filter(r => r.pain_level === 'unknown').length;
+  const useCaseUnknown = allAnalyzed.filter(r => r.use_case === 'unknown').length;
   const resultUnknownPct = Math.round(resultUnknown / total * 100);
   const painUnknownPct   = Math.round(painUnknown / total * 100);
   const useCaseUnknownPct = Math.round(useCaseUnknown / total * 100);
@@ -293,7 +293,7 @@ async function analyze() {
   const painDist   = {};
   const useCaseDist = {};
   const methodDist = {};
-  analyzed.forEach(r => {
+  allAnalyzed.forEach(r => {
     resultDist[r.result_rating] = (resultDist[r.result_rating] || 0) + 1;
     painDist[r.pain_level]      = (painDist[r.pain_level] || 0) + 1;
     useCaseDist[r.use_case]     = (useCaseDist[r.use_case] || 0) + 1;
@@ -311,9 +311,9 @@ async function analyze() {
     analyzed.filter(r => r.provider_name === 'inkOUT').map(r => r.location_city)
   )];
 
-  const hasCa = analyzed.some(r => r.location_state === 'CA');
-  const missingMethod = analyzed.filter(r => !r.method_used || r.method_used === 'Other').length;
-  const missingSource = analyzed.filter(r => !r.verified_source).length;
+  const hasCa = allAnalyzed.some(r => r.location_state === 'CA');
+  const missingMethod = allAnalyzed.filter(r => !r.method_used || r.method_used === 'Other').length;
+  const missingSource = allAnalyzed.filter(r => !r.verified_source).length;
 
   console.log('\n══════════════════════════════════════════');
   console.log('QA REPORT — v4');

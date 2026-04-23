@@ -10,6 +10,7 @@ export default function Sidebar() {
   const pathname = usePathname()
   const [openCities, setOpenCities] = useState<Set<string>>(new Set())
   const [totalReviews, setTotalReviews] = useState<number | undefined>()
+  const [pendingCount, setPendingCount] = useState<number | undefined>()
 
   // Derive active city from current route
   const activeCitySlug = useMemo(() => {
@@ -38,6 +39,13 @@ export default function Sidebar() {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'published')
       .then(({ count }) => setTotalReviews(count ?? undefined))
+
+    supabase
+      .from('competitor_reviews')
+      .select('*', { count: 'exact', head: true })
+      .in('bucket', ['tatt2away', 'review_required'])
+      .neq('status', 'rejected')
+      .then(({ count }) => setPendingCount(count ?? undefined))
   }, [])
 
   function toggleCity(slug: string) {
@@ -62,10 +70,17 @@ export default function Sidebar() {
           <div className="icon" style={{ background: 'rgba(108,99,255,.2)' }}>🏠</div>
           <span className="label">Hub Dashboard</span>
         </Link>
-        <Link href="/reviews" className={`nav-item${pathname.startsWith('/reviews') ? ' active' : ''}`}>
+        <Link href="/reviews" className={`nav-item${pathname === '/reviews' ? ' active' : ''}`}>
           <div className="icon" style={{ background: 'rgba(34,197,94,.12)' }}>💬</div>
           <span className="label">All Reviews</span>
           <span className="badge">{totalReviews ?? '…'}</span>
+        </Link>
+        <Link href="/reviews/review-required" className={`nav-item${pathname.startsWith('/reviews/review-required') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(245,158,11,.15)' }}>⚠</div>
+          <span className="label">Review Queue</span>
+          {(pendingCount ?? 0) > 0 && (
+            <span className="badge" style={{ background: '#f59e0b', color: '#000' }}>{pendingCount}</span>
+          )}
         </Link>
         <Link href="/overview" className={`nav-item${pathname.startsWith('/overview') ? ' active' : ''}`}>
           <div className="icon" style={{ background: 'rgba(59,130,246,.15)' }}>📊</div>

@@ -40,11 +40,18 @@ function computeStats(reviews: Review[]) {
   })
   const dated = reviews.filter(r => r.review_date_iso).map(r => r.review_date_iso).sort()
   const dateRange = dated.length ? { earliest: dated[0], latest: dated[dated.length - 1] } : null
+  const breakdown = withText.length ? {
+    positive: resultCounts.positive + resultCounts.neutral,
+    mixed: resultCounts.mixed,
+    negative: resultCounts.negative,
+    unknown: resultCounts.unknown,
+  } : null
   return {
     total, avgStars,
     positive: Math.round((resultCounts.positive / textTotal) * 100),
     negative: Math.round((resultCounts.negative / textTotal) * 100),
     ratingDist, painLevels,
+    breakdown,
     resultPcts: [
       Math.round((resultCounts.positive / textTotal) * 100),
       Math.round((resultCounts.neutral  / textTotal) * 100),
@@ -162,12 +169,22 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
           <div className="kpi">
             <div className="label">Avg Rating</div>
             <div className="value">{stats.avgStars}★</div>
-            <div className="sub">out of 5 · Google · {cityLabel}</div>
+            {stats.breakdown ? (
+              <div className="sub">
+                <span style={{ color: 'var(--green)' }}>{stats.breakdown.positive} pos</span>
+                {' · '}
+                <span style={{ color: 'var(--yellow)' }}>{stats.breakdown.mixed} mixed</span>
+                {' · '}
+                <span style={{ color: 'var(--red)' }}>{stats.breakdown.negative} neg</span>
+              </div>
+            ) : (
+              <div className="sub">out of 5</div>
+            )}
           </div>
           <div className="kpi">
             <div className="label">Positive Results</div>
             <div className="value" style={{ color: 'var(--green)' }}>{stats.positive}%</div>
-            <div className="sub">{stats.negative}% negative</div>
+            <div className="sub">{stats.negative}% negative · text reviews only</div>
           </div>
           <div className="kpi">
             <div className="label">Market Rank</div>

@@ -1,5 +1,5 @@
 import { supabase } from './supabase'
-import type { Review, CityData, BusinessSummary, DateRange } from './types'
+import type { Review, CityData, BusinessSummary, DateRange, ResultRatingBreakdown } from './types'
 
 export const SCRAPER_CAP = 50
 
@@ -20,6 +20,27 @@ export function computeDateRange(reviews: Review[]): DateRange | null {
 export async function getProviderDateRange(providerSlug: string): Promise<DateRange | null> {
   const reviews = await getCompetitorReviews(providerSlug)
   return computeDateRange(reviews)
+}
+
+export function computeRatingBreakdown(reviews: Review[]): ResultRatingBreakdown | null {
+  const withText = reviews.filter(r => r.has_text)
+  if (!withText.length) return null
+  const c = { positive: 0, negative: 0, mixed: 0, neutral: 0, unknown: 0 }
+  withText.forEach(r => {
+    const k = ((r.result_rating || 'unknown').toLowerCase()) as keyof typeof c
+    if (k in c) c[k]++
+  })
+  return {
+    positive: c.positive + c.neutral,
+    mixed: c.mixed,
+    negative: c.negative,
+    unknown: c.unknown,
+  }
+}
+
+export async function getResultRatingBreakdown(providerSlug: string): Promise<ResultRatingBreakdown | null> {
+  const reviews = await getCompetitorReviews(providerSlug)
+  return computeRatingBreakdown(reviews)
 }
 
 export async function getAllReviews(): Promise<Review[]> {
@@ -152,6 +173,7 @@ export async function getCityData(slug: string): Promise<CityData | null> {
       slug: providerSlug,
       isInkout,
       dateRange: computeDateRange(statReviews),
+      ratingBreakdown: computeRatingBreakdown(statReviews),
     })
   })
 

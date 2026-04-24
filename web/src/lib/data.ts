@@ -24,12 +24,24 @@ export async function getInkoutReviews(): Promise<Review[]> {
   return data as Review[]
 }
 
+export async function getTatt2awayReviews(): Promise<Review[]> {
+  const { data, error } = await supabase
+    .from('competitor_reviews')
+    .select('*')
+    .eq('status', 'published')
+    .eq('bucket', 'tatt2away')
+    .order('review_date_iso', { ascending: false })
+
+  if (error) throw new Error(`getTatt2awayReviews: ${error.message}`)
+  return data as Review[]
+}
+
 export async function getReviewQueue(): Promise<Review[]> {
   const { data, error } = await supabase
     .from('competitor_reviews')
     .select('*')
-    .in('bucket', ['tatt2away', 'review_required'])
-    .neq('status', 'rejected')
+    .eq('bucket', 'review_required')
+    .is('reviewed_at', null)
     .order('review_date_iso', { ascending: false })
 
   if (error) throw new Error(`getReviewQueue: ${error.message}`)
@@ -70,9 +82,11 @@ export async function getCityData(slug: string): Promise<CityData | null> {
     const [provider] = key.split('|')
     const isInkout = provider.toLowerCase().includes('inkout') || provider.toLowerCase().includes('ink out')
 
-    // inkOUT stats use only approved inkout-bucket reviews — tatt2away-filtered reviews
-    // are excluded so negative outcomes don't pollute inkOUT's own metrics.
-    const statReviews = isInkout ? reviews.filter(r => r.bucket === 'inkout') : reviews
+    // inkOUT: only approved inkout-bucket reviews (excludes tatt2away-era negatives)
+    // Competitors: exclude off-topic reviews (other services like lip filler, hair removal)
+    const statReviews = isInkout
+      ? reviews.filter(r => r.bucket === 'inkout')
+      : reviews.filter(r => r.is_tattoo_removal !== false)
 
     const total = statReviews.length
     if (total === 0) return

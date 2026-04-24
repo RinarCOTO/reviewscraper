@@ -19,21 +19,47 @@ function shortDate(d: string) {
   return d ? d.replace(/^~/, '').split(' (')[0] : ''
 }
 
+function getDateCutoff(range: string): string | null {
+  if (range === 'all') return null
+  const d = new Date()
+  if (range === '6mo') d.setMonth(d.getMonth() - 6)
+  else if (range === '12mo') d.setFullYear(d.getFullYear() - 1)
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+}
+
 export default function ReviewList({ reviews }: { reviews: Review[] }) {
   const [filterResult, setFilterResult] = useState('')
   const [filterStars, setFilterStars] = useState('')
   const [filterUsecase, setFilterUsecase] = useState('')
   const [filterTransition, setFilterTransition] = useState('')
   const [filterText, setFilterText] = useState('')
+  const [filterSearch, setFilterSearch] = useState('')
+  const [dateRange, setDateRange] = useState('all')
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
 
-  const filtered = reviews.filter(r =>
-    (!filterResult || r.result_rating === filterResult) &&
-    (!filterStars || Math.round(r.star_rating) === parseInt(filterStars)) &&
-    (!filterUsecase || r.use_case === filterUsecase) &&
-    (!filterTransition || (filterTransition === 'current' ? !r.location_transition : r.location_transition)) &&
-    (!filterText || (filterText === 'text' ? r.has_text : !r.has_text))
-  )
+  const cutoff = getDateCutoff(dateRange)
+
+  const filtered = reviews.filter(r => {
+    if (cutoff && r.review_date_estimated) {
+      if (r.review_date_estimated.slice(0, 7) < cutoff) return false
+    }
+    return (
+      (!filterResult || r.result_rating === filterResult) &&
+      (!filterStars || Math.round(r.star_rating) === parseInt(filterStars)) &&
+      (!filterUsecase || r.use_case === filterUsecase) &&
+      (!filterTransition || (filterTransition === 'current' ? !r.location_transition : r.location_transition)) &&
+      (!filterText || (filterText === 'text' ? r.has_text : !r.has_text)) &&
+      (!filterSearch || (r.review_text || '').toLowerCase().includes(filterSearch.toLowerCase()) ||
+        (r.reviewer_name || '').toLowerCase().includes(filterSearch.toLowerCase()))
+    )
+  })
+
+  const hasActiveFilters = filterResult || filterStars || filterUsecase || filterTransition || filterText || filterSearch || dateRange !== 'all'
+
+  function clearAll() {
+    setFilterResult(''); setFilterStars(''); setFilterUsecase('')
+    setFilterTransition(''); setFilterText(''); setFilterSearch(''); setDateRange('all')
+  }
 
   function copyText(text: string, idx: number) {
     navigator.clipboard.writeText(text || '').then(() => {
@@ -78,10 +104,34 @@ export default function ReviewList({ reviews }: { reviews: Review[] }) {
           <option value="text">With text only</option>
           <option value="notext">Rating only</option>
         </select>
-        <span className="review-count">{filtered.length} reviews</span>
+        <select value={dateRange} onChange={e => setDateRange(e.target.value)}>
+          <option value="all">All time</option>
+          <option value="12mo">Last 12 months</option>
+          <option value="6mo">Last 6 months</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Search text…"
+          value={filterSearch}
+          onChange={e => setFilterSearch(e.target.value)}
+          style={{
+            background: 'var(--card)', border: '1px solid var(--border)',
+            borderRadius: 7, padding: '6px 10px', color: 'var(--text)',
+            fontSize: 12, outline: 'none', width: 160,
+          }}
+        />
+        {hasActiveFilters && (
+          <button className="clear-btn" onClick={clearAll}>Clear</button>
+        )}
+        <span className="review-count">{filtered.length} of {reviews.length}</span>
       </div>
 
       <div>
+        {filtered.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--muted)' }}>
+            No reviews match your filters.
+          </div>
+        )}
         {filtered.map((r, i) => (
           <div key={i} className="review-card">
             <button className="copy-btn" onClick={() => copyText(r.review_text || '', i)}>
@@ -114,6 +164,7 @@ export default function ReviewList({ reviews }: { reviews: Review[] }) {
               )}
               {r.scarring_mentioned === 'Yes' && <span className="badge badge-red">Scarring</span>}
               {r.scarring_mentioned === 'Positive' && <span className="badge badge-green">Healed well</span>}
+              {r.is_tattoo_removal === false && <span className="badge badge-gray" title="Not a tattoo removal review — excluded from metrics">Other service</span>}
             </div>
           </div>
         ))}

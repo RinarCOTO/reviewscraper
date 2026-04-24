@@ -68,13 +68,16 @@ export default function OverviewPage() {
     })
     const summaries = Array.from(map.entries()).map(([key, gr]) => {
       const [provider, city, state] = key.split('||')
-      const total = gr.length
-      const avgStars = parseFloat((gr.reduce((s, r) => s + r.star_rating, 0) / total).toFixed(1))
-      const withText = gr.filter(r => r.has_text)
+      // Exclude confirmed off-topic reviews (other services) from all metrics
+      const relevant = gr.filter(r => r.is_tattoo_removal !== false)
+      const total = relevant.length || gr.length
+      const statGr = relevant.length ? relevant : gr
+      const avgStars = parseFloat((statGr.reduce((s, r) => s + r.star_rating, 0) / total).toFixed(1))
+      const withText = statGr.filter(r => r.has_text)
       const textTotal = withText.length || 1
       const positive = Math.round(withText.filter(r => (r.result_rating || '').toLowerCase() === 'positive').length / textTotal * 100)
       const negative = Math.round(withText.filter(r => (r.result_rating || '').toLowerCase() === 'negative').length / textTotal * 100)
-      const pain = Math.round(gr.filter(r => r.pain_level !== 'unknown' && (r.pain_level as number) > 0).length / total * 100)
+      const pain = Math.round(statGr.filter(r => r.pain_level !== 'unknown' && (r.pain_level as number) > 0).length / total * 100)
       const method = gr[0]?.method_used || '—'
       const isInkout = gr[0]?.brand_name === 'inkOUT'
       const citySlug = CITY_TO_SLUG[`${city}|${state}`] || ''

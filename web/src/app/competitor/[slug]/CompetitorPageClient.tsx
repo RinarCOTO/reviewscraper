@@ -90,7 +90,9 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
     )
   }
 
-  const stats = computeStats(reviews)
+  // Exclude confirmed off-topic reviews from metrics; show all in the list
+  const removalReviews = reviews.filter(r => r.is_tattoo_removal !== false)
+  const stats = computeStats(removalReviews)
   if (!stats) {
     return <div className="hub-main" style={{ padding: 40, color: 'var(--muted)' }}>No reviews found for this competitor.</div>
   }
@@ -174,7 +176,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
 
         <div className="section">
           <h2>All Reviews <span style={{ color: 'var(--muted)', fontSize: 13, fontWeight: 400 }}>({stats.total})</span></h2>
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={removalReviews} />
         </div>
 
         <div className="review-footer">

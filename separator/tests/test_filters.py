@@ -220,84 +220,43 @@ class TestRouting(unittest.TestCase):
             'stage_2_classification': None,
             'stage_2_confidence': None,
             'stage_2_reasoning': None,
+            'result_rating': 'unknown',
+            'review_text': '',
         }
         base.update(overrides)
         return base
 
-    # Fixture 1: Stage 1 hit → tatt2away
+    # ── Stage 1 routing (unchanged) ───────────────────────────────────────────
+
+    # Fixture 1: Stage 1 hit → tatt2away regardless of content
     def test_stage1_hit_routes_tatt2away(self):
         r = self._base(stage_1_hit=True, stage_1_matched_terms=['Tatt2Away'])
         self.assertEqual(assign_bucket(r), 'tatt2away')
-
-    # Fixture 2: Stage 2 neutral_positive → inkout
-    def test_neutral_positive_routes_inkout(self):
-        r = self._base(
-            stage_2_flagged=True,
-            stage_2_matched_terms=['scarring'],
-            stage_2_classification='neutral_positive',
-            stage_2_confidence=0.95,
-        )
-        self.assertEqual(assign_bucket(r), 'inkout')
-
-    # Fixture 3: Stage 2 negative high-confidence → tatt2away
-    def test_negative_high_confidence_routes_tatt2away(self):
-        r = self._base(
-            stage_2_flagged=True,
-            stage_2_matched_terms=['scar'],
-            stage_2_classification='negative',
-            stage_2_confidence=0.9,
-        )
-        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'stage_1_name_hit')
 
     # Fixture 4: Bridging flag, no Stage 1 hit → review_required (editorial queue)
     def test_bridging_no_stage1_routes_review_required(self):
-        r = self._base(
-            stage_1_bridging_flag=True,
-            stage_1_bridging_terms=['rebranded'],
-        )
+        r = self._base(stage_1_bridging_flag=True, stage_1_bridging_terms=['rebranded'])
         self.assertEqual(assign_bucket(r), 'review_required')
-
-    # Fixture 5: Clean review → inkout
-    def test_clean_review_routes_inkout(self):
-        r = self._base()
-        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'stage_1_bridging_language')
 
     # Fixture 6: Per-clinic pre-rebrand date auto-route → tatt2away
     def test_pre_rebrand_date_routes_tatt2away(self):
         r = self._base(pre_rebrand_date_routed=True)
         self.assertEqual(assign_bucket(r), 'tatt2away')
-
-    # Negative → tatt2away at any confidence
-    def test_negative_any_confidence_routes_tatt2away(self):
-        for conf in [0.4, 0.6, 0.75, 1.0]:
-            r = self._base(
-                stage_2_flagged=True,
-                stage_2_classification='negative',
-                stage_2_confidence=conf,
-            )
-            self.assertEqual(assign_bucket(r), 'tatt2away', f"conf={conf}")
-
-    # Ambiguous → tatt2away (skew conservative)
-    def test_ambiguous_routes_tatt2away(self):
-        for conf in [0.4, 0.6, 0.9]:
-            r = self._base(
-                stage_2_flagged=True,
-                stage_2_classification='ambiguous',
-                stage_2_confidence=conf,
-            )
-            self.assertEqual(assign_bucket(r), 'tatt2away', f"conf={conf}")
+        self.assertEqual(r['routing_reason'], 'pre_rebrand_date')
 
     # Stage 1 always wins over bridging
     def test_stage1_hit_overrides_bridging(self):
         r = self._base(stage_1_hit=True, stage_1_bridging_flag=True)
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # Per-clinic date overrides everything
-    def test_pre_rebrand_overrides_everything(self):
+    # Pre-rebrand date overrides everything else
+    def test_pre_rebrand_overrides_stage1(self):
         r = self._base(pre_rebrand_date_routed=True, stage_1_hit=False)
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # Stage 1 hit wins even with a positive Stage 2 classification
+    # Stage 1 hit wins even if Stage 2 would say positive
     def test_stage1_hit_positive_still_routes_tatt2away(self):
         r = self._base(
             stage_1_hit=True,
@@ -306,15 +265,152 @@ class TestRouting(unittest.TestCase):
         )
         self.assertEqual(assign_bucket(r), 'tatt2away')
 
-    # negative with no keyword flags but high LLM confidence → tatt2away
-    def test_negative_no_keywords_high_confidence_routes_tatt2away(self):
+    # ── result_rating-driven routing (new) ────────────────────────────────────
+
+    def test_result_rating_negative_scarring_routes_tatt2away(self):
+        r = self._base(result_rating='Negative', review_text='left a scar on my arm')
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_scarring')
+
+    def test_result_rating_negative_keloid_routes_tatt2away(self):
+        r = self._base(result_rating='Negative', review_text='developed a keloid after treatment')
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_scarring')
+
+    def test_result_rating_negative_pain_routes_tatt2away(self):
+        r = self._base(result_rating='Negative', review_text='the pain was excruciating')
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_pain')
+
+    def test_result_rating_negative_worst_pain_routes_tatt2away(self):
+        r = self._base(result_rating='Negative', review_text='worst pain of my life')
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_pain')
+
+    # Non-scarring/pain negatives (customer service, pricing, etc.) → inkout
+    def test_result_rating_negative_other_routes_inkout(self):
+        r = self._base(result_rating='Negative', review_text='terrible customer service, would not return')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_other')
+
+    def test_result_rating_negative_pricing_routes_inkout(self):
+        r = self._base(result_rating='Negative', review_text='too expensive and the staff was rude')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_other')
+
+    # Fixture 2: Positive context mentioning scarring → inkout (it's not a negative outcome)
+    def test_result_rating_positive_no_scarring_mention_routes_inkout(self):
         r = self._base(
+            result_rating='Positive',
+            review_text='no scarring at all, amazing results',
+            stage_2_flagged=True,
+            stage_2_matched_terms=['scarring'],
+            stage_2_classification='neutral_positive',
+            stage_2_confidence=0.95,
+        )
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_positive_neutral')
+
+    def test_result_rating_positive_routes_inkout(self):
+        r = self._base(result_rating='Positive')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_positive_neutral')
+
+    def test_result_rating_neutral_routes_inkout(self):
+        r = self._base(result_rating='Neutral')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_positive_neutral')
+
+    def test_result_rating_mixed_routes_inkout(self):
+        r = self._base(result_rating='Mixed')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_mixed')
+
+    # ── LLM fallback routing (result_rating=unknown) ──────────────────────────
+
+    # Fixture 3 (updated): LLM negative + scarring keyword → tatt2away
+    def test_llm_negative_scarring_routes_tatt2away(self):
+        r = self._base(
+            result_rating='unknown',
+            review_text='left permanent scarring on my skin',
+            stage_2_flagged=True,
+            stage_2_matched_terms=['scarring'],
+            stage_2_classification='negative',
+            stage_2_confidence=0.9,
+        )
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'llm_fallback_negative_scarring')
+
+    def test_llm_negative_severe_pain_routes_tatt2away(self):
+        r = self._base(
+            result_rating='unknown',
+            review_text='unbearable pain throughout treatment',
+            stage_2_flagged=True,
+            stage_2_classification='negative',
+            stage_2_confidence=0.85,
+        )
+        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'llm_fallback_negative_pain')
+
+    # LLM negative with no scarring/pain keywords → inkout
+    def test_llm_negative_other_routes_inkout(self):
+        r = self._base(
+            result_rating='unknown',
+            review_text='they mutilate you and overcharge',
             stage_2_flagged=False,
-            stage_2_matched_terms=[],
             stage_2_classification='negative',
             stage_2_confidence=0.88,
         )
-        self.assertEqual(assign_bucket(r), 'tatt2away')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'llm_fallback_negative_other')
+
+    def test_llm_ambiguous_routes_review_required(self):
+        for conf in [0.4, 0.6, 0.9]:
+            r = self._base(
+                result_rating='unknown',
+                stage_2_flagged=True,
+                stage_2_classification='ambiguous',
+                stage_2_confidence=conf,
+            )
+            self.assertEqual(assign_bucket(r), 'review_required', f"conf={conf}")
+            self.assertEqual(r['routing_reason'], 'llm_fallback_ambiguous')
+
+    def test_llm_neutral_positive_routes_inkout(self):
+        r = self._base(
+            result_rating='unknown',
+            stage_2_flagged=True,
+            stage_2_matched_terms=['scarring'],
+            stage_2_classification='neutral_positive',
+            stage_2_confidence=0.95,
+        )
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'llm_fallback_neutral_positive')
+
+    # ── Edge cases ────────────────────────────────────────────────────────────
+
+    # Fixture 5: Clean review with no signals → inkout
+    def test_clean_review_routes_inkout(self):
+        r = self._base()
+        self.assertEqual(assign_bucket(r), 'inkout')
+
+    # bare "painful" should NOT trigger the severe pain route
+    def test_bare_painful_does_not_trigger_pain_route(self):
+        r = self._base(result_rating='Negative', review_text='it was painful but the staff was rude')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_other')
+
+    # bare "hurt" should NOT trigger the severe pain route
+    def test_bare_hurt_does_not_trigger_pain_route(self):
+        r = self._base(result_rating='Negative', review_text='it hurt more than I expected')
+        self.assertEqual(assign_bucket(r), 'inkout')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_other')
+
+    # raw_text param takes priority over review_text in record
+    def test_raw_text_overrides_record_review_text(self):
+        r = self._base(result_rating='Negative', review_text='totally fine, no issues')
+        # Passing scarring text via raw_text should fire scarring route
+        self.assertEqual(assign_bucket(r, raw_text='left a scar'), 'tatt2away')
+        self.assertEqual(r['routing_reason'], 'result_rating_negative_scarring')
 
 
 if __name__ == '__main__':

@@ -43,8 +43,8 @@ export default function Sidebar() {
     supabase
       .from('competitor_reviews')
       .select('*', { count: 'exact', head: true })
-      .in('bucket', ['tatt2away', 'review_required'])
-      .neq('status', 'rejected')
+      .eq('bucket', 'review_required')
+      .is('reviewed_at', null)
       .then(({ count }) => setPendingCount(count ?? undefined))
   }, [])
 
@@ -81,6 +81,10 @@ export default function Sidebar() {
           {(pendingCount ?? 0) > 0 && (
             <span className="badge" style={{ background: '#f59e0b', color: '#000' }}>{pendingCount}</span>
           )}
+        </Link>
+        <Link href="/reviews/tatt2away" className={`nav-item${pathname.startsWith('/reviews/tatt2away') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(239,68,68,.1)' }}>🗂</div>
+          <span className="label">Tatt2Away Archive</span>
         </Link>
         <Link href="/overview" className={`nav-item${pathname.startsWith('/overview') ? ' active' : ''}`}>
           <div className="icon" style={{ background: 'rgba(59,130,246,.15)' }}>📊</div>

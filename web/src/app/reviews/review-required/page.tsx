@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { getReviewQueue } from '@/lib/data'
 import { supabase } from '@/lib/supabase'
 import Topbar from '@/components/Topbar'
@@ -10,48 +10,74 @@ function stars(n: number) {
   return '★'.repeat(n || 0) + '☆'.repeat(5 - (n || 0))
 }
 
-type ActionState = 'idle' | 'loading'
+type Action = 'approve' | 'reject' | 'move_to_tatt2away'
+
+type PendingUndo = {
+  review: Review
+  action: Action
+  timerId: ReturnType<typeof setTimeout>
+}
+
+async function executeAction(review: Review, action: Action) {
+  const now = new Date().toISOString()
+  if (action === 'approve') {
+    await supabase
+      .from('competitor_reviews')
+      .update({ bucket: 'inkout', status: 'published', reviewed_at: now, reviewed_decision: 'approved' })
+      .eq('id', review.id)
+  } else if (action === 'reject') {
+    await supabase
+      .from('competitor_reviews')
+      .update({ reviewed_at: now, reviewed_decision: 'rejected' })
+      .eq('id', review.id)
+  } else {
+    await supabase
+      .from('competitor_reviews')
+      .update({ bucket: 'tatt2away', reviewed_at: now, reviewed_decision: 'moved_to_tatt2away' })
+      .eq('id', review.id)
+  }
+}
 
 export default function ReviewRequiredPage() {
   const [reviews, setReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [actions, setActions] = useState<Record<string, ActionState>>({})
+  const pendingRef = useRef<PendingUndo | null>(null)
+  const [toastInfo, setToastInfo] = useState<{ action: Action; name: string } | null>(null)
 
   useEffect(() => {
     getReviewQueue()
-      .then(data => {
-        setReviews(data)
-        setLoading(false)
-      })
-      .catch(err => {
-        setError(String(err))
-        setLoading(false)
-      })
+      .then(data => { setReviews(data); setLoading(false) })
+      .catch(err => { setError(String(err)); setLoading(false) })
   }, [])
 
-  async function handleApprove(review: Review) {
-    setActions(a => ({ ...a, [review.id]: 'loading' }))
-    await supabase
-      .from('competitor_reviews')
-      .update({ bucket: 'inkout', status: 'published' })
-      .eq('id', review.id)
+  function initiateAction(review: Review, action: Action) {
+    // If another action is still pending, commit it immediately before starting the new one
+    if (pendingRef.current) {
+      clearTimeout(pendingRef.current.timerId)
+      executeAction(pendingRef.current.review, pendingRef.current.action)
+      pendingRef.current = null
+    }
+
     setReviews(prev => prev.filter(r => r.id !== review.id))
-    setActions(a => ({ ...a, [review.id]: 'idle' }))
+
+    const timerId = setTimeout(async () => {
+      await executeAction(review, action)
+      pendingRef.current = null
+      setToastInfo(null)
+    }, 4000)
+
+    pendingRef.current = { review, action, timerId }
+    setToastInfo({ action, name: review.reviewer_name })
   }
 
-  async function handleReject(review: Review) {
-    setActions(a => ({ ...a, [review.id]: 'loading' }))
-    await supabase
-      .from('competitor_reviews')
-      .update({ status: 'rejected' })
-      .eq('id', review.id)
-    setReviews(prev => prev.filter(r => r.id !== review.id))
-    setActions(a => ({ ...a, [review.id]: 'idle' }))
+  function handleUndo() {
+    if (!pendingRef.current) return
+    clearTimeout(pendingRef.current.timerId)
+    setReviews(prev => [pendingRef.current!.review, ...prev])
+    pendingRef.current = null
+    setToastInfo(null)
   }
-
-  const tatt2awayCount = reviews.filter(r => r.bucket === 'tatt2away').length
-  const manualCount = reviews.filter(r => r.bucket === 'review_required').length
 
   return (
     <div className="hub-main">
@@ -72,118 +98,163 @@ export default function ReviewRequiredPage() {
           <div style={{ display: 'flex', gap: 32, marginBottom: 24, flexWrap: 'wrap' }}>
             <div>
               <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)' }}>{reviews.length}</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)' }}>Total in queue</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)' }}>Flagged for review</div>
             </div>
-            <div>
-              <div style={{ fontSize: 28, fontWeight: 700, color: '#ef4444' }}>{tatt2awayCount}</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)' }}>Tatt2Away filtered</div>
-            </div>
-            {manualCount > 0 && (
-              <div>
-                <div style={{ fontSize: 28, fontWeight: 700, color: '#f59e0b' }}>{manualCount}</div>
-                <div style={{ fontSize: 12, color: 'var(--muted)' }}>Flagged for review</div>
-              </div>
-            )}
           </div>
 
-          {reviews.length === 0 && (
+          {reviews.length === 0 && !toastInfo && (
             <div style={{ color: 'var(--muted)', textAlign: 'center', padding: 60 }}>
               Queue is empty.
             </div>
           )}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {reviews.map(r => {
-              const state = actions[r.id] ?? 'idle'
-              const isManual = r.bucket === 'review_required'
-              return (
-                <div
-                  key={r.id}
-                  style={{
-                    background: 'var(--card)',
-                    border: `1px solid ${isManual ? 'rgba(245,158,11,.4)' : 'var(--border)'}`,
-                    borderRadius: 8, padding: '16px 20px',
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-                      <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 14 }}>{r.reviewer_name}</span>
-                      <span style={{ color: 'var(--muted)', fontSize: 12 }}>
-                        {r.provider_name} · {r.location_city}, {r.location_state}
-                      </span>
-                      <span style={{
-                        fontSize: 11, padding: '2px 7px', borderRadius: 4,
-                        background: isManual ? 'rgba(245,158,11,.15)' : 'rgba(239,68,68,.1)',
-                        color: isManual ? '#f59e0b' : '#ef4444',
-                      }}>
-                        {isManual ? 'flagged' : 'tatt2away'}
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                      <span style={{ color: '#f59e0b', fontSize: 13 }}>{stars(r.star_rating)}</span>
-                      <span style={{ color: 'var(--muted)', fontSize: 11 }}>{r.review_date}</span>
-                    </div>
+            {reviews.map(r => (
+              <div
+                key={r.id}
+                style={{
+                  background: 'var(--card)',
+                  border: '1px solid rgba(245,158,11,.4)',
+                  borderRadius: 8, padding: '16px 20px',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 14 }}>{r.reviewer_name}</span>
+                    <span style={{ color: 'var(--muted)', fontSize: 12 }}>
+                      {r.provider_name} · {r.location_city}, {r.location_state}
+                    </span>
+                    <span style={{ fontSize: 11, padding: '2px 7px', borderRadius: 4, background: 'rgba(245,158,11,.15)', color: '#f59e0b' }}>
+                      flagged
+                    </span>
                   </div>
-
-                  {r.review_text && (
-                    <p style={{ color: 'var(--text)', fontSize: 13, lineHeight: 1.6, margin: '0 0 12px' }}>
-                      {r.review_text}
-                    </p>
-                  )}
-
-                  {(r.stage_1_matched_terms || r.stage_1_bridging_flag || r.stage_2_matched_terms || r.stage_2_reasoning) && (
-                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12, fontSize: 12 }}>
-                      {r.stage_1_matched_terms && (
-                        <span style={{ background: 'rgba(239,68,68,.12)', color: '#ef4444', padding: '2px 8px', borderRadius: 4 }}>
-                          name: {r.stage_1_matched_terms}
-                        </span>
-                      )}
-                      {r.stage_1_bridging_flag && (
-                        <span style={{ background: 'rgba(245,158,11,.15)', color: '#f59e0b', padding: '2px 8px', borderRadius: 4 }}>
-                          bridging language
-                        </span>
-                      )}
-                      {r.stage_2_matched_terms && (
-                        <span style={{ background: 'rgba(239,68,68,.12)', color: '#ef4444', padding: '2px 8px', borderRadius: 4 }}>
-                          keywords: {r.stage_2_matched_terms}
-                        </span>
-                      )}
-                      {r.stage_2_reasoning && (
-                        <span style={{ color: 'var(--muted)', fontStyle: 'italic' }}>{r.stage_2_reasoning}</span>
-                      )}
-                    </div>
-                  )}
-
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <button
-                      disabled={state === 'loading'}
-                      onClick={() => handleApprove(r)}
-                      style={{
-                        background: 'rgba(34,197,94,.15)', color: '#22c55e',
-                        border: '1px solid rgba(34,197,94,.3)', borderRadius: 6,
-                        padding: '6px 16px', fontSize: 13, cursor: 'pointer',
-                        opacity: state === 'loading' ? 0.5 : 1,
-                      }}
-                    >
-                      Approve → publish to inkOUT
-                    </button>
-                    <button
-                      disabled={state === 'loading'}
-                      onClick={() => handleReject(r)}
-                      style={{
-                        background: 'rgba(239,68,68,.1)', color: '#ef4444',
-                        border: '1px solid rgba(239,68,68,.25)', borderRadius: 6,
-                        padding: '6px 16px', fontSize: 13, cursor: 'pointer',
-                        opacity: state === 'loading' ? 0.5 : 1,
-                      }}
-                    >
-                      Reject
-                    </button>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <span style={{ color: '#f59e0b', fontSize: 13 }}>{stars(r.star_rating)}</span>
+                    <span style={{ color: 'var(--muted)', fontSize: 11 }}>{r.review_date}</span>
                   </div>
                 </div>
-              )
-            })}
+
+                {r.review_text && (
+                  <p style={{ color: 'var(--text)', fontSize: 13, lineHeight: 1.6, margin: '0 0 12px' }}>
+                    {r.review_text}
+                  </p>
+                )}
+
+                {(r.routing_reason || r.stage_1_matched_terms || r.stage_1_bridging_flag || r.stage_2_matched_terms || r.stage_2_reasoning) && (
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12, fontSize: 12, alignItems: 'center' }}>
+                    {r.routing_reason && (
+                      <span style={{ background: 'rgba(108,99,255,.12)', color: '#a78bfa', padding: '2px 8px', borderRadius: 4, fontFamily: 'monospace' }}>
+                        {r.routing_reason}
+                      </span>
+                    )}
+                    {r.stage_1_matched_terms && (
+                      <span style={{ background: 'rgba(239,68,68,.12)', color: '#ef4444', padding: '2px 8px', borderRadius: 4 }}>
+                        name: {r.stage_1_matched_terms}
+                      </span>
+                    )}
+                    {r.stage_1_bridging_flag && (
+                      <span style={{ background: 'rgba(245,158,11,.15)', color: '#f59e0b', padding: '2px 8px', borderRadius: 4 }}>
+                        bridging language
+                      </span>
+                    )}
+                    {r.stage_2_matched_terms && (
+                      <span style={{ background: 'rgba(239,68,68,.12)', color: '#ef4444', padding: '2px 8px', borderRadius: 4 }}>
+                        keywords: {r.stage_2_matched_terms}
+                      </span>
+                    )}
+                    {r.stage_2_reasoning && (
+                      <span style={{ color: 'var(--muted)', fontStyle: 'italic' }}>
+                        {r.stage_2_reasoning}
+                        {r.stage_2_confidence != null && (
+                          <span style={{
+                            marginLeft: 6,
+                            fontStyle: 'normal',
+                            padding: '1px 6px',
+                            borderRadius: 4,
+                            fontSize: 11,
+                            background: r.stage_2_confidence >= 0.8
+                              ? 'rgba(239,68,68,.15)'
+                              : r.stage_2_confidence >= 0.6
+                                ? 'rgba(245,158,11,.15)'
+                                : 'rgba(148,163,184,.1)',
+                            color: r.stage_2_confidence >= 0.8
+                              ? '#ef4444'
+                              : r.stage_2_confidence >= 0.6
+                                ? '#f59e0b'
+                                : 'var(--muted)',
+                          }}>
+                            {Math.round(r.stage_2_confidence * 100)}% conf
+                          </span>
+                        )}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => initiateAction(r, 'approve')}
+                    style={{
+                      background: 'rgba(34,197,94,.15)', color: '#22c55e',
+                      border: '1px solid rgba(34,197,94,.3)', borderRadius: 6,
+                      padding: '6px 16px', fontSize: 13, cursor: 'pointer',
+                    }}
+                  >
+                    Approve → inkOUT
+                  </button>
+                  <button
+                    onClick={() => initiateAction(r, 'move_to_tatt2away')}
+                    style={{
+                      background: 'rgba(148,163,184,.1)', color: '#94a3b8',
+                      border: '1px solid rgba(148,163,184,.25)', borderRadius: 6,
+                      padding: '6px 16px', fontSize: 13, cursor: 'pointer',
+                    }}
+                  >
+                    Archive as Tatt2Away
+                  </button>
+                  <button
+                    onClick={() => initiateAction(r, 'reject')}
+                    style={{
+                      background: 'rgba(239,68,68,.1)', color: '#ef4444',
+                      border: '1px solid rgba(239,68,68,.25)', borderRadius: 6,
+                      padding: '6px 16px', fontSize: 13, cursor: 'pointer',
+                    }}
+                  >
+                    Reject
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      )}
+
+      {toastInfo && (
+        <div style={{
+          position: 'fixed', bottom: 28, left: '50%', transform: 'translateX(-50%)',
+          background: '#1e293b', border: '1px solid var(--border)', borderRadius: 10,
+          padding: '12px 20px', display: 'flex', alignItems: 'center', gap: 16,
+          boxShadow: '0 8px 32px rgba(0,0,0,.5)', zIndex: 1000, whiteSpace: 'nowrap',
+        }}>
+          <span style={{ fontSize: 13, color: 'var(--text)' }}>
+            {toastInfo.action === 'approve'
+              ? '✓ Approved'
+              : toastInfo.action === 'move_to_tatt2away'
+                ? '⬡ Archived as Tatt2Away'
+                : '✕ Rejected'}{' '}
+            <span style={{ color: 'var(--muted)' }}>{toastInfo.name}</span>
+            {' '}— committing in 4s
+          </span>
+          <button
+            onClick={handleUndo}
+            style={{
+              background: 'rgba(108,99,255,.2)', color: '#a78bfa',
+              border: '1px solid rgba(108,99,255,.4)', borderRadius: 6,
+              padding: '4px 12px', fontSize: 12, cursor: 'pointer', fontWeight: 600,
+            }}
+          >
+            Undo
+          </button>
         </div>
       )}
     </div>

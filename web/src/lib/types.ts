@@ -27,6 +27,7 @@ export interface Review {
   location_transition: boolean
   transition_note: string
   bucket: 'inkout' | 'tatt2away' | 'review_required' | null
+  is_tattoo_removal: boolean | null
   status: 'published' | 'pending' | 'rejected' | 'draft' | null
   stage_1_hit: boolean | null
   stage_1_matched_terms: string | null
@@ -36,6 +37,9 @@ export interface Review {
   stage_2_classification: string | null
   stage_2_confidence: number | null
   stage_2_reasoning: string | null
+  routing_reason: string | null
+  reviewed_at: string | null
+  reviewed_decision: string | null
 }
 
 export interface Provider {

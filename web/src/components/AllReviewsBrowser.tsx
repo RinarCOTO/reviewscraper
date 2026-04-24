@@ -38,6 +38,14 @@ const PROVIDER_SLUGS: Record<string, string> = {
 const CITIES = ['Austin, TX', 'Chicago, IL', 'Draper, UT', 'Houston, TX', 'Pleasant Grove, UT', 'Tampa, FL']
 const PROVIDERS = ['Arviv Medical Aesthetics', 'Clarity Skin', 'Clean Slate Ink', 'DermSurgery Associates', 'Enfuse Medical Spa', 'Erasable Med Spa', 'InkFree, MD', 'Inklifters (Aesthetica)', 'Kovak Cosmetic Center', 'MEDermis Laser Clinic', 'Removery (Bucktown)', 'Removery (Lincoln Square)', 'Removery (South Congress)', 'Skintellect', 'Tatt2Away', 'inkOUT']
 
+function getDateCutoff(range: string): string | null {
+  if (range === 'all') return null
+  const d = new Date()
+  if (range === '6mo') d.setMonth(d.getMonth() - 6)
+  else if (range === '12mo') d.setFullYear(d.getFullYear() - 1)
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+}
+
 export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
   const [city, setCity] = useState('')
   const [provider, setProvider] = useState('')
@@ -46,10 +54,17 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
   const [usecase, setUsecase] = useState('')
   const [sort, setSort] = useState('default')
   const [textQ, setTextQ] = useState('')
+  const [dateRange, setDateRange] = useState('all')
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
+
+  const cutoff = getDateCutoff(dateRange)
 
   let filtered = reviews.filter(r => {
     const cityStr = `${r.location_city}, ${r.location_state}`
+    // tatt2away-bucket reviews are internal (Review Queue only) — never show in main browser
+    const isInkoutProvider = r.provider_name === 'inkOUT'
+    if (isInkoutProvider && r.bucket !== 'inkout') return false
+    if (cutoff && r.review_date_estimated && r.review_date_estimated.slice(0, 7) < cutoff) return false
     return (
       (!city || cityStr === city) &&
       (!provider || r.provider_name === provider) &&
@@ -71,7 +86,7 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
   }
 
   function clearFilters() {
-    setCity(''); setProvider(''); setResult(''); setStarsFilter(''); setUsecase(''); setSort('default'); setTextQ('')
+    setCity(''); setProvider(''); setResult(''); setStarsFilter(''); setUsecase(''); setSort('default'); setTextQ(''); setDateRange('all')
   }
 
   const isInkout = (p: string) => p.toLowerCase().includes('inkout') || p.toLowerCase().includes('ink out')
@@ -110,6 +125,11 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
           <option value="default">Default order</option>
           <option value="stars-desc">Stars ↓</option>
           <option value="stars-asc">Stars ↑</option>
+        </select>
+        <select value={dateRange} onChange={e => setDateRange(e.target.value)}>
+          <option value="all">All time</option>
+          <option value="12mo">Last 12 months</option>
+          <option value="6mo">Last 6 months</option>
         </select>
         <input type="text" placeholder="Search text…" value={textQ} onChange={e => setTextQ(e.target.value)} />
         <button className="clear-btn" onClick={clearFilters}>Clear</button>

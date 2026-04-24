@@ -147,7 +147,7 @@ export default function HubPage() {
               <div className="sc-sub">Filter, search, and copy review text</div>
             </div>
           </Link>
-          <div className="special-card" style={{ borderColor: 'rgba(167,139,250,.3)' }}>
+          <Link href="/reviews/inkout" className="special-card" style={{ borderColor: 'rgba(167,139,250,.3)' }}>
             <div className="icon-wrap" style={{ background: 'rgba(167,139,250,.15)' }}>🎯</div>
             <div>
               <div className="sc-label">Target</div>
@@ -156,7 +156,7 @@ export default function HubPage() {
                 {loading ? '…' : `${inkoutLocations} locations · ${inkoutReviews.length} reviews analyzed`}
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="section-title">Markets</div>

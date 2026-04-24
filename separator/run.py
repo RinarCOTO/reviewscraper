@@ -3,9 +3,10 @@
 CLI entry point for inkOUT review separation pipeline.
 
 Usage:
-  python run.py --input ../reviews-v4-inkout-*.json --output-dir ../output
-  python run.py --input ../reviews-v4-inkout-*.json --dry-run --dry-run-limit 10
-  python run.py --input ../reviews-v4-inkout-*.json --clinics-csv ../clinics.csv
+  python run.py
+  python run.py --input ../data/analyzed/analyzed-v4-all-dated.json --output-dir ../output
+  python run.py --dry-run --dry-run-limit 10
+  python run.py --clinics-csv ../clinics.csv
 """
 import argparse
 import csv
@@ -173,7 +174,10 @@ def write_bucket_lookup(buckets: 'dict[str, list]', path: Path):
     for bucket, reviews in buckets.items():
         for r in reviews:
             key = f"{r.get('reviewer_name')}|{r.get('review_date_iso')}|{r.get('location_city')}"
-            lookup[key] = bucket
+            lookup[key] = {
+                'bucket': bucket,
+                'routing_reason': r.get('routing_reason'),
+            }
     path.write_text(json.dumps(lookup, indent=2), encoding='utf-8')
 
 
@@ -263,7 +267,7 @@ def main():
     parser = argparse.ArgumentParser(description='Separate inkOUT reviews into buckets')
     parser.add_argument(
         '--input',
-        default='../analyzed-v4-all-dated.json',
+        default='../data/analyzed/analyzed-v4-all-dated.json',
         help='Input JSON file — analyzed all-providers file (default) or inkout source glob',
     )
     parser.add_argument(
@@ -387,7 +391,7 @@ def main():
                     'stage_2_reasoning': None,
                 })
 
-        review['bucket'] = assign_bucket(review)
+        review['bucket'] = assign_bucket(review, raw_text)
 
     buckets: dict[str, list] = {
         'inkout': [r for r in reviews if r['bucket'] == 'inkout'],

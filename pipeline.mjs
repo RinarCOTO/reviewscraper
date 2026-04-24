@@ -8,10 +8,12 @@
  *   3. Dates     — convert relative dates to ISO
  *   4. Separate  — bucket inkOUT reviews (Python separator)
  *   5. Import    — upsert all reviews to Supabase
+ *   6. Classify  — tag is_tattoo_removal on competitor reviews (keyword + LLM)
  *
  * Usage:
  *   node pipeline.mjs                  # full run
  *   node pipeline.mjs --dry-run        # scrape + analyze only, no Supabase write
+ *   node pipeline.mjs --skip-llm       # skip step 6 (relevance classification)
  *   node pipeline.mjs --step=scrape    # run a single step
  *
  * All keys read from .env in this directory.
@@ -48,6 +50,7 @@ const REQUIRED_KEYS = {
 // ── Args ─────────────────────────────────────────────────────────────────────
 const args      = process.argv.slice(2);
 const DRY_RUN   = args.includes('--dry-run');
+const SKIP_LLM  = args.includes('--skip-llm');
 const ONLY_STEP = args.find(a => a.startsWith('--step='))?.split('=')[1] ?? null;
 const FORCE     = args.includes('--force');
 
@@ -116,6 +119,24 @@ function shouldRun(step) {
   return !ONLY_STEP || ONLY_STEP === step;
 }
 
+// ── Supabase null-count helper ────────────────────────────────────────────────
+async function countNullRelevance() {
+  const url = 'https://rxrhvbfutjahgwaambqd.supabase.co/rest/v1/competitor_reviews'
+    + '?select=id&is_tattoo_removal=is.null&status=eq.published';
+  const res = await fetch(url, {
+    headers: {
+      'apikey': process.env.SUPABASE_SERVICE_KEY,
+      'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_KEY}`,
+      'Prefer': 'count=exact',
+      'Range-Unit': 'items',
+      'Range': '0-0',
+    },
+  });
+  const range = res.headers.get('content-range') || '';
+  const match = range.match(/\/(\d+)$/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
   logSection(`ReviewIntel Pipeline — ${runId}${DRY_RUN ? ' [DRY RUN]' : ''}`);
@@ -139,7 +160,7 @@ async function main() {
       logSection('Step 1 — Scrape (incremental)');
       const out = run(
         'scrape-v4.mjs',
-        `node scrape-v4.mjs --mode=incremental`
+        `node pipeline/scrape-v4.mjs --mode=incremental`
       );
       const match = out?.match(/(\d+) new reviews fetched/g);
       if (match) {
@@ -153,14 +174,14 @@ async function main() {
       logSection('Step 2 — Analyze (new reviews only)');
       run(
         'analyze-v4.mjs',
-        `node analyze-v4.mjs reviews-v4-all.json --mode=incremental`
+        `node pipeline/analyze-v4.mjs data/reviews/reviews-v4-all.json --mode=incremental`
       );
     }
 
     // ── Step 3: Convert dates ─────────────────────────────────────────────
     if (shouldRun('dates')) {
       logSection('Step 3 — Convert relative dates');
-      run('convert-dates.mjs', `node convert-dates.mjs`);
+      run('convert-dates.mjs', `node pipeline/convert-dates.mjs`);
     }
 
     // ── Step 4: Separate inkOUT reviews ──────────────────────────────────
@@ -168,7 +189,7 @@ async function main() {
       logSection('Step 4 — Separate inkOUT reviews');
       run(
         'separator',
-        `python3 separator/run.py --input "analyzed-v4-all-dated.json" --output-dir output`
+        `python3 separator/run.py --input "data/analyzed/analyzed-v4-all-dated.json" --output-dir output`
       );
     }
 
@@ -177,10 +198,32 @@ async function main() {
       logSection('Step 5 — Import to Supabase');
       run(
         'import-to-supabase-v4.mjs',
-        `node import-to-supabase-v4.mjs --status=published`
+        `node pipeline/import-to-supabase-v4.mjs --status=published`
       );
     } else if (DRY_RUN) {
       log('Step 5 — Supabase import SKIPPED (dry-run)');
+    }
+
+    // ── Step 6: Classify relevance ────────────────────────────────────────
+    if (shouldRun('classify') && !DRY_RUN) {
+      if (SKIP_LLM) {
+        log('Step 6 — Relevance classification SKIPPED (--skip-llm)');
+      } else {
+        logSection('Step 6 — Classify relevance (is_tattoo_removal)');
+        const nullBefore = await countNullRelevance();
+        log(`  null before: ${nullBefore ?? '?'}`);
+        run(
+          'classify-relevance.mjs',
+          `node pipeline/classify-relevance.mjs --llm --write`
+        );
+        const nullAfter = await countNullRelevance();
+        const resolved = nullBefore != null && nullAfter != null
+          ? nullBefore - nullAfter : '?';
+        log(`  null after:  ${nullAfter ?? '?'}`);
+        log(`  resolved:    ${resolved}`);
+      }
+    } else if (DRY_RUN) {
+      log('Step 6 — Relevance classification SKIPPED (dry-run)');
     }
 
     // ── Done ──────────────────────────────────────────────────────────────

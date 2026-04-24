@@ -146,6 +146,11 @@ tbody tr:last-child { border-bottom: none; }
 }
 .filter-bar select:focus { border-color: var(--accent); }
 .filter-bar label { color: var(--muted); font-size: 12px; }
+.filter-bar .clear-btn {
+  padding: 6px 12px; border-radius: 7px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font-size: 12px; cursor: pointer;
+}
+.filter-bar .clear-btn:hover { border-color: var(--accent); color: var(--accent); }
 .review-count { color: var(--muted); font-size: 12px; margin-left: auto; }
 
 /* Disclosure */

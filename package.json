@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "scrape": "node scrape.mjs",
-    "scrape:reddit": "node scrape-reddit.mjs",
-    "analyze": "node analyze.mjs"
+    "pipeline": "node pipeline.mjs",
+    "scrape": "node pipeline/scrape-v4.mjs",
+    "analyze": "node pipeline/analyze-v4.mjs",
+    "dates": "node pipeline/convert-dates.mjs",
+    "import": "node pipeline/import-to-supabase-v4.mjs",
+    "classify": "node pipeline/classify-relevance.mjs",
+    "separate": "python3 separator/run.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0"

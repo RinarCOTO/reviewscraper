@@ -1,9 +1,33 @@
+# Environment
 .env
 .env.local
 **/.env.local
 **/.env*.local
+
+# Dependencies
 node_modules/
-.claude/
-CLAUDE.md
+web/node_modules/
+
+# Next.js build output
 web/.next/
 web/out/
+web/tsconfig.tsbuildinfo
+
+# Pipeline output (generated on each run — not source)
+output/
+logs/
+
+# Supabase CLI state (not migrations — those are tracked)
+supabase/.temp/
+supabase/cli-latest
+supabase/gotrue-version
+supabase/pooler-url
+supabase/postgres-version
+supabase/project-ref
+supabase/rest-version
+supabase/storage-migration
+supabase/storage-version
+
+# Claude Code internal files
+.claude/
+CLAUDE.md

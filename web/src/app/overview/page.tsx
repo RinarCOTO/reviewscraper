@@ -94,7 +94,11 @@ export default function OverviewPage() {
         || `${provider.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${city.toLowerCase().replace(/\s+/g, '-')}-${state.toLowerCase()}`.replace(/-+/g, '-').replace(/-$/, '')
       const datedArr = statGr.filter(r => r.review_date_iso).map(r => r.review_date_iso).sort()
       const dateRange = datedArr.length ? { earliest: datedArr[0], latest: datedArr[datedArr.length - 1], count: total, isCapped: total >= SCRAPER_CAP } : null
-      return { provider, city: `${city}, ${state}`, method, reviews: total, stars: avgStars, positive, negative, pain, isInkout, slug, dateRange }
+      const textRows = statGr.filter(r => r.has_text)
+      const rc = { positive: 0, negative: 0, mixed: 0, neutral: 0, unknown: 0 }
+      textRows.forEach(r => { const k = ((r.result_rating || 'unknown').toLowerCase()) as keyof typeof rc; if (k in rc) rc[k]++ })
+      const ratingBreakdown = textRows.length ? { positive: rc.positive + rc.neutral, mixed: rc.mixed, negative: rc.negative } : null
+      return { provider, city: `${city}, ${state}`, method, reviews: total, stars: avgStars, positive, negative, pain, isInkout, slug, dateRange, ratingBreakdown }
     })
     summaries.sort((a, b) => b.stars - a.stars || b.positive - a.positive)
     return summaries.map((s, i) => ({ ...s, rank: i + 1 }))
@@ -212,7 +216,10 @@ export default function OverviewPage() {
                         {starStr(p.stars)}
                         {p.dateRange && <div style={{ color: 'var(--muted)', fontSize: 10, fontWeight: 400, marginTop: 2 }}>{fmtDateRange(p.dateRange.earliest, p.dateRange.latest)}</div>}
                       </td>
-                      <td>{sentBadge(p.positive)}</td>
+                      <td>
+                        {sentBadge(p.positive)}
+                        {p.ratingBreakdown && <div style={{ color: 'var(--green)', fontSize: 10, marginTop: 2 }}>{p.ratingBreakdown.positive} · <span style={{ color: 'var(--yellow)' }}>{p.ratingBreakdown.mixed}</span> · <span style={{ color: 'var(--red)' }}>{p.ratingBreakdown.negative}</span></div>}
+                      </td>
                       <td>{negBadge(p.negative)}</td>
                       <td>{p.pain}%</td>
                     </tr>

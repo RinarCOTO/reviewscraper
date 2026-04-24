@@ -192,6 +192,15 @@ export default function CityPageClient({ slug }: { slug: string }) {
                   {b.total} reviews{b.dateRange?.isCapped ? ' (most recent)' : ''}
                   {b.dateRange && ` · ${fmtDateRange(b.dateRange.earliest, b.dateRange.latest)}`}
                 </div>
+                {b.ratingBreakdown && (
+                  <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 10 }}>
+                    <span style={{ color: 'var(--green)' }}>{b.ratingBreakdown.positive} positive</span>
+                    {' · '}
+                    <span style={{ color: 'var(--yellow)' }}>{b.ratingBreakdown.mixed} mixed</span>
+                    {' · '}
+                    <span style={{ color: 'var(--red)' }}>{b.ratingBreakdown.negative} negative</span>
+                  </div>
+                )}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: 12 }}>
                   <div><div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 2 }}>Positive Results</div>{sentBadge(b.result_pct.positive)}</div>
                   <div><div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 2 }}>Negative Results</div>{negBadge(b.result_pct.negative)}</div>

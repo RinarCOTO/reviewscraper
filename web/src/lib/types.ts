@@ -80,6 +80,13 @@ export interface CompetitorSlug {
   isInkout: boolean
 }
 
+export interface ResultRatingBreakdown {
+  positive: number
+  mixed: number
+  negative: number
+  unknown: number
+}
+
 export interface DateRange {
   earliest: string
   latest: string
@@ -106,4 +113,5 @@ export interface BusinessSummary {
   slug: string
   isInkout: boolean
   dateRange: DateRange | null
+  ratingBreakdown: ResultRatingBreakdown | null
 }

@@ -2,12 +2,21 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCompetitorReviews, getCityData } from '@/lib/data'
+import { getCompetitorReviews, getCityData, SCRAPER_CAP } from '@/lib/data'
 import CompetitorCharts from '@/components/CompetitorCharts'
 import ReviewList from '@/components/ReviewList'
 import Topbar from '@/components/Topbar'
 import { getCityForCompetitor } from '@/lib/config'
 import type { Review, CityData, BusinessSummary } from '@/lib/types'
+
+function fmtDateRange(earliest: string, latest: string): string {
+  const opts = { month: 'short', day: 'numeric' } as const
+  const d1 = new Date(earliest)
+  const d2 = new Date(latest)
+  const s1 = d1.toLocaleDateString('en-US', opts)
+  const s2 = d2.toLocaleDateString('en-US', { ...opts, year: 'numeric' })
+  return d1.getFullYear() === d2.getFullYear() ? `${s1} – ${s2}` : `${d1.toLocaleDateString('en-US', { ...opts, year: 'numeric' })} – ${s2}`
+}
 
 function computeStats(reviews: Review[]) {
   const total = reviews.length
@@ -29,6 +38,8 @@ function computeStats(reviews: Review[]) {
     const uc = r.use_case || 'unknown'
     if (uc !== 'unknown') useCaseMap[uc] = (useCaseMap[uc] || 0) + 1
   })
+  const dated = reviews.filter(r => r.review_date_iso).map(r => r.review_date_iso).sort()
+  const dateRange = dated.length ? { earliest: dated[0], latest: dated[dated.length - 1] } : null
   return {
     total, avgStars,
     positive: Math.round((resultCounts.positive / textTotal) * 100),
@@ -42,6 +53,8 @@ function computeStats(reviews: Review[]) {
       Math.round((resultCounts.unknown  / textTotal) * 100),
     ],
     avgSessions, useCaseMap,
+    dateRange,
+    isCapped: total >= SCRAPER_CAP,
     method: reviews[0]?.method_used || '—',
     provider: reviews[0]?.provider_name || '',
     isInkout: reviews[0]?.brand_name === 'inkOUT',
@@ -139,13 +152,17 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
         <div className="kpi-row">
           <div className="kpi">
             <div className="label">Total Reviews</div>
-            <div className="value">{stats.total}</div>
-            <div className="sub">Google · {cityLabel}</div>
+            <div className="value">{stats.total}{stats.isCapped && <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)', marginLeft: 4 }}>(most recent)</span>}</div>
+            <div className="sub">
+              {stats.dateRange
+                ? fmtDateRange(stats.dateRange.earliest, stats.dateRange.latest)
+                : `Google · ${cityLabel}`}
+            </div>
           </div>
           <div className="kpi">
             <div className="label">Avg Rating</div>
             <div className="value">{stats.avgStars}★</div>
-            <div className="sub">out of 5</div>
+            <div className="sub">out of 5 · Google · {cityLabel}</div>
           </div>
           <div className="kpi">
             <div className="label">Positive Results</div>

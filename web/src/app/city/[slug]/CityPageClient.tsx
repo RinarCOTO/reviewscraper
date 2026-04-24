@@ -11,6 +11,14 @@ import type { CityData } from '@/lib/types'
 function starStr(n: number) {
   return '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n)) + ' ' + n.toFixed(1)
 }
+function fmtDateRange(earliest: string, latest: string): string {
+  const opts = { month: 'short', day: 'numeric' } as const
+  const d1 = new Date(earliest)
+  const d2 = new Date(latest)
+  const s1 = d1.toLocaleDateString('en-US', opts)
+  const s2 = d2.toLocaleDateString('en-US', { ...opts, year: 'numeric' })
+  return d1.getFullYear() === d2.getFullYear() ? `${s1} – ${s2}` : `${d1.toLocaleDateString('en-US', { ...opts, year: 'numeric' })} – ${s2}`
+}
 function sentBadge(p: number) {
   const cls = p >= 85 ? 'badge-green' : p >= 65 ? 'badge-yellow' : 'badge-red'
   return <span className={`badge ${cls}`}>{p}%</span>
@@ -145,8 +153,14 @@ export default function CityPageClient({ slug }: { slug: string }) {
                       </Link>
                       {b.isInkout && <span className="badge badge-purple" style={{ marginLeft: 6 }}>inkOUT</span>}
                     </td>
-                    <td>{b.total}</td>
-                    <td className="stars">{starStr(b.avg_stars)}</td>
+                    <td>
+                      {b.total}
+                      {b.dateRange?.isCapped && <span style={{ color: 'var(--muted)', fontSize: 10, marginLeft: 3 }}>(cap)</span>}
+                    </td>
+                    <td className="stars">
+                      {starStr(b.avg_stars)}
+                      {b.dateRange && <div style={{ color: 'var(--muted)', fontSize: 10, fontWeight: 400, marginTop: 2 }}>{fmtDateRange(b.dateRange.earliest, b.dateRange.latest)}</div>}
+                    </td>
                     <td>{sentBadge(b.result_pct.positive)}</td>
                     <td>{negBadge(b.result_pct.negative)}</td>
                     <td>{pctBar(b.pain_pct, '#f59e0b')}</td>
@@ -173,7 +187,11 @@ export default function CityPageClient({ slug }: { slug: string }) {
                   <div style={{ fontWeight: 700, color: b.isInkout ? '#a78bfa' : '#fff', fontSize: 15 }}>{shortName(b.provider)}</div>
                   <span style={{ color: 'var(--muted)', fontSize: 11, fontWeight: 600 }}>#{i + 1}</span>
                 </div>
-                <div className="stars" style={{ marginBottom: 10 }}>{starStr(b.avg_stars)} <span style={{ color: 'var(--muted)', fontSize: 12 }}>({b.total} reviews)</span></div>
+                <div className="stars" style={{ marginBottom: 2 }}>{starStr(b.avg_stars)}</div>
+                <div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 10 }}>
+                  {b.total} reviews{b.dateRange?.isCapped ? ' (most recent)' : ''}
+                  {b.dateRange && ` · ${fmtDateRange(b.dateRange.earliest, b.dateRange.latest)}`}
+                </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: 12 }}>
                   <div><div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 2 }}>Positive Results</div>{sentBadge(b.result_pct.positive)}</div>
                   <div><div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 2 }}>Negative Results</div>{negBadge(b.result_pct.negative)}</div>

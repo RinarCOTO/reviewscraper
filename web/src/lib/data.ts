@@ -1,5 +1,26 @@
 import { supabase } from './supabase'
-import type { Review, CityData, BusinessSummary } from './types'
+import type { Review, CityData, BusinessSummary, DateRange } from './types'
+
+export const SCRAPER_CAP = 50
+
+export function computeDateRange(reviews: Review[]): DateRange | null {
+  const dates = reviews
+    .filter(r => r.review_date_iso)
+    .map(r => r.review_date_iso)
+    .sort()
+  if (!dates.length) return null
+  return {
+    earliest: dates[0],
+    latest: dates[dates.length - 1],
+    count: reviews.length,
+    isCapped: reviews.length >= SCRAPER_CAP,
+  }
+}
+
+export async function getProviderDateRange(providerSlug: string): Promise<DateRange | null> {
+  const reviews = await getCompetitorReviews(providerSlug)
+  return computeDateRange(reviews)
+}
 
 export async function getAllReviews(): Promise<Review[]> {
   const { data, error } = await supabase
@@ -130,6 +151,7 @@ export async function getCityData(slug: string): Promise<CityData | null> {
       use_case: useCaseMap,
       slug: providerSlug,
       isInkout,
+      dateRange: computeDateRange(statReviews),
     })
   })
 
@@ -195,6 +217,23 @@ export const CITY_SLUGS = [
   'pleasant-grove-ut',
   'tampa-fl',
 ]
+
+export async function getLastUpdatedAt(): Promise<{ date: string | null; nullCount: number }> {
+  const { data, error } = await supabase
+    .from('competitor_reviews')
+    .select('last_analyzed_at')
+    .eq('status', 'published')
+
+  if (error) throw new Error(`getLastUpdatedAt: ${error.message}`)
+
+  let latest: string | null = null
+  let nullCount = 0
+  for (const row of data as { last_analyzed_at: string | null }[]) {
+    if (!row.last_analyzed_at) { nullCount++; continue }
+    if (!latest || row.last_analyzed_at > latest) latest = row.last_analyzed_at
+  }
+  return { date: latest, nullCount }
+}
 
 export const CITY_LABELS: Record<string, string> = {
   'austin-tx':         'Austin TX',

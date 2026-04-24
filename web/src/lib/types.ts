@@ -38,6 +38,8 @@ export interface Review {
   stage_2_confidence: number | null
   stage_2_reasoning: string | null
   routing_reason: string | null
+  relevance_reason: string | null
+  last_analyzed_at: string | null
   reviewed_at: string | null
   reviewed_decision: string | null
 }
@@ -78,6 +80,13 @@ export interface CompetitorSlug {
   isInkout: boolean
 }
 
+export interface DateRange {
+  earliest: string
+  latest: string
+  count: number
+  isCapped: boolean
+}
+
 export interface CityData {
   cityKey: string
   slug: string
@@ -96,4 +105,5 @@ export interface BusinessSummary {
   use_case: Record<string, number>
   slug: string
   isInkout: boolean
+  dateRange: DateRange | null
 }

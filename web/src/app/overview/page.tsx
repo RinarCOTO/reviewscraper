@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import OverviewCharts from '@/components/OverviewCharts'
 import Topbar from '@/components/Topbar'
-import { getAllReviews } from '@/lib/data'
+import { getAllReviews, SCRAPER_CAP } from '@/lib/data'
 import { CITIES } from '@/lib/config'
 import type { Review } from '@/lib/types'
 
@@ -30,6 +30,15 @@ function computeGroupStats(reviews: Review[]) {
   const positive = Math.round(withText.filter(r => (r.result_rating || '').toLowerCase() === 'positive').length / textTotal * 100)
   const negative = Math.round(withText.filter(r => (r.result_rating || '').toLowerCase() === 'negative').length / textTotal * 100)
   return { total: reviews.length, avgStars, positive, negative }
+}
+
+function fmtDateRange(earliest: string, latest: string): string {
+  const opts = { month: 'short', day: 'numeric' } as const
+  const d1 = new Date(earliest)
+  const d2 = new Date(latest)
+  const s1 = d1.toLocaleDateString('en-US', opts)
+  const s2 = d2.toLocaleDateString('en-US', { ...opts, year: 'numeric' })
+  return d1.getFullYear() === d2.getFullYear() ? `${s1} – ${s2}` : `${d1.toLocaleDateString('en-US', { ...opts, year: 'numeric' })} – ${s2}`
 }
 
 function sentBadge(p: number) {
@@ -83,7 +92,9 @@ export default function OverviewPage() {
       const citySlug = CITY_TO_SLUG[`${city}|${state}`] || ''
       const slug = CONFIG_SLUGS.get(`${provider.toLowerCase()}|${citySlug}`)
         || `${provider.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${city.toLowerCase().replace(/\s+/g, '-')}-${state.toLowerCase()}`.replace(/-+/g, '-').replace(/-$/, '')
-      return { provider, city: `${city}, ${state}`, method, reviews: total, stars: avgStars, positive, negative, pain, isInkout, slug }
+      const datedArr = statGr.filter(r => r.review_date_iso).map(r => r.review_date_iso).sort()
+      const dateRange = datedArr.length ? { earliest: datedArr[0], latest: datedArr[datedArr.length - 1], count: total, isCapped: total >= SCRAPER_CAP } : null
+      return { provider, city: `${city}, ${state}`, method, reviews: total, stars: avgStars, positive, negative, pain, isInkout, slug, dateRange }
     })
     summaries.sort((a, b) => b.stars - a.stars || b.positive - a.positive)
     return summaries.map((s, i) => ({ ...s, rank: i + 1 }))
@@ -193,8 +204,14 @@ export default function OverviewPage() {
                       </td>
                       <td style={{ color: 'var(--muted)' }}>{p.city}</td>
                       <td><span className="badge badge-gray">{p.method}</span></td>
-                      <td><Link href={`/competitor/${p.slug}`} style={{ color: 'var(--blue)' }}>{p.reviews}</Link></td>
-                      <td className="stars">{starStr(p.stars)}</td>
+                      <td>
+                        <Link href={`/competitor/${p.slug}`} style={{ color: 'var(--blue)' }}>{p.reviews}</Link>
+                        {p.dateRange?.isCapped && <span style={{ color: 'var(--muted)', fontSize: 10, marginLeft: 3 }}>(cap)</span>}
+                      </td>
+                      <td className="stars">
+                        {starStr(p.stars)}
+                        {p.dateRange && <div style={{ color: 'var(--muted)', fontSize: 10, fontWeight: 400, marginTop: 2 }}>{fmtDateRange(p.dateRange.earliest, p.dateRange.latest)}</div>}
+                      </td>
                       <td>{sentBadge(p.positive)}</td>
                       <td>{negBadge(p.negative)}</td>
                       <td>{p.pain}%</td>

@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
 import Topbar from '@/components/Topbar'
-import { getAllReviews } from '@/lib/data'
+import { getAllReviews, getLastUpdatedAt } from '@/lib/data'
 import type { Review } from '@/lib/types'
 
 const CITY_CONFIG = [
@@ -37,10 +37,12 @@ function computeCityStats(reviews: Review[], city: string, state: string) {
 export default function HubPage() {
   const [reviews, setReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
+  const [lastUpdated, setLastUpdated] = useState<{ date: string | null; nullCount: number } | null>(null)
 
   useEffect(() => {
-    getAllReviews().then(data => {
+    Promise.all([getAllReviews(), getLastUpdatedAt()]).then(([data, freshness]) => {
       setReviews(data)
+      setLastUpdated(freshness)
       setLoading(false)
     })
   }, [])
@@ -129,6 +131,18 @@ export default function HubPage() {
           </div>
         </div>
 
+        {!loading && lastUpdated && (
+          <div style={{ textAlign: 'center', color: 'var(--muted)', fontSize: 11, marginBottom: 8, marginTop: -8 }}>
+            {lastUpdated.date
+              ? <>Data last updated: <strong style={{ color: 'var(--text)' }}>{new Date(lastUpdated.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</strong></>
+              : 'Data freshness unknown'
+            }
+            {lastUpdated.nullCount > 0 && (
+              <span style={{ marginLeft: 8, color: '#f59e0b' }}>· {lastUpdated.nullCount} reviews without analysis date</span>
+            )}
+          </div>
+        )}
+
         <div className="section-title">Special Views</div>
         <div className="special-grid">
           <Link href="/overview" className="special-card">
@@ -155,6 +169,14 @@ export default function HubPage() {
               <div className="sc-sub">
                 {loading ? '…' : `${inkoutLocations} locations · ${inkoutReviews.length} reviews analyzed`}
               </div>
+            </div>
+          </Link>
+          <Link href="/methodology" className="special-card">
+            <div className="icon-wrap" style={{ background: 'rgba(148,163,184,.1)' }}>📋</div>
+            <div>
+              <div className="sc-label">Reference</div>
+              <div className="sc-title">How to Read This Dashboard</div>
+              <div className="sc-sub">Data sources, bucket definitions, methodology</div>
             </div>
           </Link>
         </div>

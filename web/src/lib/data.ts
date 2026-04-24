@@ -257,6 +257,42 @@ export async function getLastUpdatedAt(): Promise<{ date: string | null; nullCou
   return { date: latest, nullCount }
 }
 
+export interface BucketCounts {
+  inkout: number
+  tatt2away: number
+  review_required: number
+  competitor: number
+  total: number
+}
+
+export async function getBucketCounts(): Promise<BucketCounts> {
+  const [publishedRes, queueRes] = await Promise.all([
+    supabase
+      .from('competitor_reviews')
+      .select('bucket')
+      .eq('status', 'published'),
+    supabase
+      .from('competitor_reviews')
+      .select('id', { count: 'exact', head: true })
+      .eq('bucket', 'review_required')
+      .is('reviewed_at', null),
+  ])
+  if (publishedRes.error) throw new Error(`getBucketCounts: ${publishedRes.error.message}`)
+
+  const rows = publishedRes.data as { bucket: string | null }[]
+  const counts = { inkout: 0, tatt2away: 0, competitor: 0 }
+  rows.forEach(r => {
+    if (r.bucket === 'inkout') counts.inkout++
+    else if (r.bucket === 'tatt2away') counts.tatt2away++
+    else counts.competitor++
+  })
+  return {
+    ...counts,
+    review_required: queueRes.count ?? 0,
+    total: rows.length,
+  }
+}
+
 export const CITY_LABELS: Record<string, string> = {
   'austin-tx':         'Austin TX',
   'chicago-il':        'Chicago IL',

@@ -6,7 +6,7 @@
     "method_used": "PicoWay",
     "review_text": "Great experience!!",
     "star_rating": 5,
-    "review_date": "Edited 4 days ago",
+    "review_date": "Edited a week ago",
     "review_date_iso": "2022-09-02T18:15:19Z",
     "review_date_edited_iso": "2026-04-17T16:18:55Z",
     "reviewer_name": "Raymond Nicholas",
@@ -15,14 +15,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUR1XzVhdGxBRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEICAgIDu_5atlAE%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYfMRzvNWYSzAvA87t\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -31,7 +31,7 @@
     "method_used": "PicoWay",
     "review_text": "Tricia & her team are awesome! Great customer service, very personable & clearly pros at what they do. They've made me feel at ease every step of the way.",
     "star_rating": 5,
-    "review_date": "6 days ago",
+    "review_date": "a week ago",
     "review_date_iso": "2026-04-15T22:10:05Z",
     "review_date_edited_iso": "2026-04-15T22:10:05Z",
     "reviewer_name": "Erin Larson",
@@ -40,14 +40,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOb05GazFabDl5VEZKWlRYRlZkVzE2ZFhGeGNuYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOkNoNFk1Zl9yTFJZTXFVdW16dXFxcnc%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYhtjKbquEyoMsBxAK\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -65,14 +65,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21GT1pWbGhOV3hoYkV4NGJTMHdWRU40WjJKbU5XYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmFOZVlhNWxhbEx4bS0wVEN4Z2JmNWc%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYkT1xbT8Wkq2Bpsa8\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -90,14 +90,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21WRVEwSnRhbGt6U2tseFMzWnRRbmMyVTBSTVgzYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmVEQ0JtalkzSklxS3ZtQnc2U0RMX3c%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYo81ACJKvxfUUq9qM\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -106,7 +106,7 @@
     "method_used": "PicoWay",
     "review_text": "Erica is always so welcoming and does an amazing job !",
     "star_rating": 5,
-    "review_date": "Edited 2 weeks ago",
+    "review_date": "Edited 3 weeks ago",
     "review_date_iso": "2025-05-28T18:34:31Z",
     "review_date_edited_iso": "2026-04-01T18:34:15Z",
     "reviewer_name": "Soniaa Diaz",
@@ -115,14 +115,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJV21odk9FMmFUa0pnEAE!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEIWmhvOE2aTkJg%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYsfMYEmRPbfPsuT1k\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -131,7 +131,7 @@
     "method_used": "PicoWay",
     "review_text": "",
     "star_rating": 5,
-    "review_date": "3 weeks ago",
+    "review_date": "4 weeks ago",
     "review_date_iso": "2026-03-26T05:11:15Z",
     "review_date_edited_iso": "2026-03-26T05:11:15Z",
     "reviewer_name": "Valeriia Filonenko",
@@ -140,14 +140,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25sR1kwRXRUa2RPZVU5M1p6bHBYM05vWlRkbVNXYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOnlGY0EtTkdOeU93ZzlpX3NoZTdmSWc%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYvSYEcM91wJaEzJDR\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -165,14 +165,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
-    "pain_level": "unknown",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURvMS1fVzZnRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEICAgMDo1-_W6gE%7C%7C?hl=en-US",
+    "pain_level": 2,
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDYy3oZeU6GKVf6EHbU\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -190,14 +190,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t0VWQyZFNVRlpqZEhkeWRsSTBaV1ZXV2tKTmJXYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOktUd2dSUFZjdHdydlI0ZWVWWkJNbWc%7C%7C?hl=en-US",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZ1wgfUTMmLP7wBRBx\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -215,14 +215,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KdGQyWm9halpIUkdoT1NUQnlkRUpQUTE5TVZYYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmJtd2ZoajZHRGhOSTBydEJPQ19MVXc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZ4TVUwBG9iWadvxWB\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -240,14 +240,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNvNjZuSTB3RRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEICAgMCo66nI0wE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZ7GfEWEFMTYh13bHi\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -265,14 +265,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1dFFuSjNZbmg2ZDJSSllXUkNSbmxhU3pjMFVFRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOk5tQnJ3Ynh6d2RJYWRCRnlaSzc0UEE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZAEkZy1bhbHcqLNsq\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -290,14 +290,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21odWVVMTRkakEyTW5salNYWXRObFo2V0U1aWVIYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmhueU14djA2MnljSXYtNlZ6WE5ieHc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZDYgrfX9WM8VjLAkz\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -315,14 +315,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
-    "pain_level": "unknown",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT205UVJEQk1ZakpRYUVWcVdHVlRWblZoWTBGc1luYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOm9QRDBMYjJQaEVqWGVTVnVhY0FsYnc%7C%7C?hl=en",
+    "pain_level": 1,
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZGxpW6f3bNZuhMfuj\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -340,14 +340,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21odmJDMXVTVWQ2UWpFM1dISlRMVTB0YzBsTlJXYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmhvbC1uSUd6QjE3WHJTLU0tc0lNRWc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZL2NFkb3BbZxZHHyv\"}"
+    "use_case": "Microblading",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -365,14 +365,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21FeVJVVklNRmRXU3pSWFgyTTRRMkU1T0hOYVdFRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmEyRUVIMFdWSzRXX2M4Q2E5OHNaWEE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZNoYhxR8AG7Phuby5\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -390,14 +390,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21wVmRFMXVhV0l4T1hGbmFtbHNWMHg0V1ZKVE1GRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmpVdE1uaWIxOXFnamlsV0x4WVJTMFE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZRyJQAnC7zd6m1UBh\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -415,14 +415,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKMU0wcGZWRjltV0Y4elRtbGxaSFl3V1ZoSE5uYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlJ1M0pfVF9mWF8zTmllZHYwWVhHNnc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
-    "sessions_completed": "unknown",
+    "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZUoDCBqyxwrvASSiA\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -440,14 +440,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21oUVh6aE9Sbk5JUVZaZmVXeG5RVGxDZDJSUmJsRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmhQXzhORnNIQVZfeWxnQTlCd2RRblE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZXoJ1PShacZrBqdNt\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -465,14 +465,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xGbmVsWXlUR0YzYnpOWGRucENWSEJmVDIxTFRHYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlFnelYyTGF3bzNXdnpCVHBfT21LTGc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZaS3PRUQXittQmXxJ\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -490,14 +490,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVFYwNURkMlpPTUZsblQzcEtNblpsYVZwRFUwRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOm1TV05Dd2ZOMFlnT3pKMnZlaVpDU0E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZdBF2xJypPaJsr6H1\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -515,14 +515,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2psb1ZVeENVa2R2UVhWdE5HVlRaa05RUkZaVlJVRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOjloVUxCUkdvQXVtNGVTZkNQRFZVRUE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZfmGdXia5eYJMbLhU\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -540,14 +540,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkVVYxUndka05yYTJWdFh6bDJRa3RvTjFCa1kzYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOkdUV1RwdkNra2VtXzl2QktoN1BkY3c%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZiNnQHnvxYi3WYzKu\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -565,14 +565,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21VeU0xSllWWGsxUVVjMlgyUk1WakpxT0VkS00wRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmUyM1JYVXk1QUc2X2RMVjJqOEdKM0E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZmFRJm8voPhgbcW1p\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -590,14 +590,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SRWMyZFBNVWhLWVVjM05rdDVWbUpMZEROb1YxRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOnREc2dPMUhKYUc3Nkt5VmJLdDNoV1E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZotArGNmnFAVzQQ66\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -615,14 +615,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSTFVVdGhiRTVTYTNWWFZHdDJiamx4TVdkYVpVRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOjRLUUthbE5Sa3VXVGt2bjlxMWdaZUE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZrqGiezx7EqY7Ei4q\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -640,14 +640,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25Cd1gzaDBUVVZHV1hCQ2FUZDNiVzFoZFhOeGNWRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOnBwX3h0TUVGWXBCaTd3bW1hdXNxcVE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZuiQqE2i4vc8i2Hzx\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -665,14 +665,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210SmFFTndjbDlLVUVrMWJFOXBNVFZSZWxkaFRuYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmtJaENwcl9KUEk1bE9pMTVReldhTnc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDZyNg8ShycWRgiL7fs\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -690,14 +690,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OVWJsZDVhVVJHVVY5Q0xWZFJMVUpWTUhKdFQzYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOnNUbld5aURGUV9CLVdRLUJVMHJtT3c%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
-    "sessions_completed": "unknown",
+    "sessions_completed": 1,
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDa2NWYsThqKsW8SEtk\"}"
+    "use_case": "Microblading",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -715,14 +715,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xGdGMwVXRkbEJ2YlhSa2RWb3RaR05pV0RSUk5VRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlFtc0UtdlBvbXRkdVotZGNiWDRRNUE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDa5CREwrqAZ8ry6nv9\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -740,14 +740,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210V2VFdEtZMjVqYzBOaVRDMVdPVVJyTVdWaU1tYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmtWeEtKY25jc0NiTC1WOURrMWViMmc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDa8JCQUDbXtma4aczN\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -765,14 +765,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2taTFIwaG5hbUZYTlU1M1luTnphbGxhZFZWZlZsRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOkZLR0hnamFXNU53YnNzalladVVfVlE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaBHXuGQGncsqd5b1r\"}"
+    "use_case": "Microblading",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -790,14 +790,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUMya01TbDlnRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEICAgIC2kMSl9gE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaEBfUbsbF79CvejRZ\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -815,14 +815,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2sxUldsUXhObVZOTmxOelMwUlRhM2t3YkRGYVdYYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOk1RWlQxNmVNNlNzS0RTa3kwbDFaWXc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
-    "sessions_completed": "unknown",
+    "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaHHSh3y5ChCQnoNWZ\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -840,14 +840,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tsUWFUQnhWRGROTmtnNU4wdDRVRmgxTFhORE1XYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOklQaTBxVDdNNkg5N0t4UFh1LXNDMWc%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaLGHTheNiZbHyjk1B\"}"
+    "result_rating": "Neutral"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -865,14 +865,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21sb2FGRm1TR1IyZDFkNGVVY3pXR3RQTVd3NGVsRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOmloaFFmSGR2d1d4eUczWGtPMWw4elE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaP5SuSDe7Jdq3CJDt\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -890,14 +890,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxRVYyNWxlbkEzZEU1RVdUZHNZbEJsUWpGNGEzYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOi1EV25lenA3dE5EWTdsYlBlQjF4a3c%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
-    "sessions_completed": "unknown",
+    "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaRpPziLktBk4qHkNP\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -915,14 +915,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSNFFrZG1Za1EyY2xkaVNuVTFOSFY1Wm14dlgxRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOjR4QkdmYkQ2cldiSnU1NHV5ZmxvX1E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaUT9mu9NeXPmSu5W6\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -940,14 +940,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2trMVUzUlJMWFJRWjBSTGVFcFJjbXRVTFc1UVNFRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOkk1U3RRLXRQZ0RLeEpRcmtULW5QSEE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaX1SU6quM4mJAnq1N\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -965,14 +965,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSUFdUTjZhVkZ0WTNSWlZXOHlZM05hUkdGbFVFRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOjRPWTN6aVFtY3RZVW8yY3NaRGFlUEE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaZggEHp1uDLi76znL\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -990,14 +990,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pGVGFGRkpaRnBJZFVFMGNtWXpXRkJTU1dFdGMyYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOjFTaFFJZFpIdUE0cmYzWFBSSWEtc2c%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDacXagcEFsrA3F1u14\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1015,14 +1015,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1d0xVMTNPRnBTTlVSUmMzVkZWRkZQVFROZmQyYxAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOk5wLU13OFpSNURRc3VFVFFPTTNfd2c%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDafgb24hME7RFYa27u\"}"
+    "result_rating": "Negative"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1040,14 +1040,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNveFlpQ2ZREAE!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CIHM0ogKEICAgMCoxYiCfQ%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaiK66XohtAcj1mKGD\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1065,14 +1065,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xneFNGSjNZakpWZFd3eU0yNXZPSEZVYW5OclMwRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlgxSFJ3YjJVdWwyM25vOHFUanNrS0E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaknv1WwmdQsTFR4Vq\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1090,14 +1090,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWV1RqazJjVGxHUVhSMFdFeE1jRGxxUkRoSGVsRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOkVWTjk2cTlGQXR0WExMcDlqRDhHelE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaovRwyhHPHdr5pgdG\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1115,14 +1115,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
-    "pain_level": "unknown",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xM1dFbGxZamhoT1ZsM2VUbHphR054Wm00eVowRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOm13WEllYjhhOVl3eTlzaGNxZm4yZ0E%7C%7C?hl=en",
+    "pain_level": 2,
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaru2MSqiNaXCT7TRE\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1140,14 +1140,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25oalJWVTFZamQ1U0hkMFZIZG9aMTloVTBsSVZrRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOnhjRVU1Yjd5SHd0VHdoZ19hU0lIVkE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaut7Ra9PJEqmdyaTN\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1165,14 +1165,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xSdU1rOTBXVkoyVW5wTFYzaFJUakpGZW5aalJFRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlRuMk90WVJ2UnpLV3hRTjJFenZjREE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDaxtS3TZBmoFD5zKBc\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1190,14 +1190,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT205WE5WTXljbXh2VjNKVVJubFdOVTVQZW5kcWIxRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOm9XNVMycmxvV3JURnlWNU5Pendqb1E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDb1q3WGjcfzMMKmXJe\"}"
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1215,14 +1215,14 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xOcFVYSjZZVmhvVkRsdVFYUXRNMDA0V0VjeFNGRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlNpUXJ6YVhoVDluQXQtM004WEcxSFE%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
-    "sessions_completed": "unknown",
+    "sessions_completed": 12,
     "skin_type": "unknown",
-    "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDb4pd11Q9bUKiWgDMe\"}"
+    "use_case": "Complete",
+    "result_rating": "Positive"
   },
   {
     "provider_name": "Removery (Lincoln Square)",
@@ -1240,13 +1240,13 @@
     "_place_title": "Removery Tattoo Removal & Fading",
     "_place_id": "ChIJP29yVhHSD4gRRDEeZlVDwJw",
     "_scrape_mode": "full",
-    "_scrape_date": "2026-04-22",
+    "_scrape_date": "2026-04-24",
+    "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xVMVl6Vm9hbkJrZDJWRFpFOVdUbGxwVG5kcWIxRRAB!2m1!1s0x0:0x9cc04355661e3144!3m1!1s2@1:CAIQACodChtycF9oOlU1YzVoanBkd2VDZE9WTllpTndqb1E%7C%7C?hl=en",
     "pain_level": "unknown",
     "scarring_mentioned": "No",
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown",
-    "_error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CaKDb7phiYMezySE2QGRk\"}"
+    "result_rating": "Neutral"
   }
 ]

@@ -5,12 +5,15 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { CITIES } from '@/lib/config'
+import { toSlug } from '@/lib/data'
+import { StarRating } from '@/components/ui'
 
 export default function Sidebar() {
   const pathname = usePathname()
   const [openCities, setOpenCities] = useState<Set<string>>(new Set())
   const [totalReviews, setTotalReviews] = useState<number | undefined>()
   const [pendingCount, setPendingCount] = useState<number | undefined>()
+  const [liveStars, setLiveStars] = useState<Map<string, number>>(new Map())
 
   // Derive active city from current route
   const activeCitySlug = useMemo(() => {
@@ -46,6 +49,27 @@ export default function Sidebar() {
       .eq('bucket', 'review_required')
       .is('reviewed_at', null)
       .then(({ count }) => setPendingCount(count ?? undefined))
+
+    // Fetch live avg stars per competitor slug (excludes tatt2away pre-rebrand reviews)
+    supabase
+      .from('competitor_reviews')
+      .select('star_rating, provider_name, location_city, location_state')
+      .eq('status', 'published')
+      .neq('bucket', 'tatt2away')
+      .then(({ data }) => {
+        if (!data) return
+        const sums = new Map<string, { sum: number; count: number }>()
+        for (const r of data as { star_rating: number; provider_name: string; location_city: string; location_state: string }[]) {
+          const slug = toSlug(r.provider_name, r.location_city, r.location_state)
+          const entry = sums.get(slug) ?? { sum: 0, count: 0 }
+          entry.sum += r.star_rating
+          entry.count++
+          sums.set(slug, entry)
+        }
+        const map = new Map<string, number>()
+        sums.forEach(({ sum, count }, slug) => map.set(slug, parseFloat((sum / count).toFixed(1))))
+        setLiveStars(map)
+      })
   }, [])
 
   function toggleCity(slug: string) {
@@ -79,7 +103,7 @@ export default function Sidebar() {
           <div className="icon" style={{ background: 'rgba(245,158,11,.15)' }}>⚠</div>
           <span className="label">Review Queue</span>
           {(pendingCount ?? 0) > 0 && (
-            <span className="badge" style={{ background: '#f59e0b', color: '#000' }}>{pendingCount}</span>
+            <span className="badge" style={{ background: 'var(--yellow)', color: '#000' }}>{pendingCount}</span>
           )}
         </Link>
         <Link href="/reviews/tatt2away" className={`nav-item${pathname.startsWith('/reviews/tatt2away') ? ' active' : ''}`}>
@@ -124,23 +148,29 @@ export default function Sidebar() {
         <div className="sidebar-section-label">By Competitor</div>
         {CITIES.map(city => (
           <div key={city.slug} className="city-group">
-            <div
+            <button
               className={`city-header${openCities.has(city.slug) ? ' open' : ''}`}
+              aria-expanded={openCities.has(city.slug)}
               onClick={() => toggleCity(city.slug)}
+              style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
             >
               <span className="city-name">{city.label}</span>
               <span className="chevron">▶</span>
-            </div>
+            </button>
             <div className={`city-competitors${openCities.has(city.slug) ? ' open' : ''}`}>
               {city.competitors.map(c => (
                 <Link
                   key={c.slug}
                   href={`/competitor/${c.slug}`}
-                  className={`comp-item${c.isInkout ? ' inkout' : ''}${pathname === `/competitor/${c.slug}` ? ' comp-active' : ''}`}
+                  className={`comp-item${c.isInkout ? ' inkout' : ''}${pathname === `/competitor/${c.slug}` || pathname === `/competitor/${c.slug}/` ? ' comp-active' : ''}`}
                 >
                   <div className="dot" style={{ background: c.dotColor }} />
                   <span className="comp-name">{c.name}</span>
-                  <span className="comp-stars">{c.stars}</span>
+                  <span className="comp-stars">
+                    {liveStars.has(c.slug)
+                      ? <StarRating value={liveStars.get(c.slug)!} showValue size="sm" />
+                      : c.stars}
+                  </span>
                 </Link>
               ))}
             </div>

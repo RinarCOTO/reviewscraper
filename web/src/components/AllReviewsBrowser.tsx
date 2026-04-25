@@ -1,42 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import type { Review } from '@/lib/types'
+import { ReviewCard, EmptyState } from '@/components/ui'
+import { CITIES as CITY_CONFIG } from '@/lib/config'
+import { CITY_SLUG_MAP } from '@/lib/data'
 
-function resultColor(r: string) {
-  if (r === 'Positive') return 'var(--green)'
-  if (r === 'Negative') return 'var(--red)'
-  if (r === 'Mixed') return 'var(--yellow)'
-  if (r === 'Neutral') return 'var(--blue)'
-  return '#374151'
-}
+const PROVIDER_SLUGS: Record<string, string> = Object.fromEntries(
+  CITY_CONFIG.flatMap(c => c.competitors.map(comp => [comp.name, comp.slug]))
+)
 
-function stars(n: number) {
-  return '★'.repeat(n || 0) + '☆'.repeat(5 - (n || 0))
-}
+const CITIES = CITY_CONFIG.map(c => {
+  const loc = CITY_SLUG_MAP[c.slug]
+  return `${loc.city}, ${loc.state}`
+})
 
-const PROVIDER_SLUGS: Record<string, string> = {
-  'Arviv Medical Aesthetics': 'arviv-medical-aesthetics-tampa-fl',
-  'Clarity Skin': 'clarity-skin-draper-ut',
-  'Clean Slate Ink': 'clean-slate-ink-austin-tx',
-  'DermSurgery Associates': 'dermsurgery-associates-houston-tx',
-  'Enfuse Medical Spa': 'enfuse-medical-spa-chicago-il',
-  'Erasable Med Spa': 'erasable-med-spa-tampa-fl',
-  'InkFree, MD': 'inkfree-md-houston-tx',
-  'Inklifters (Aesthetica)': 'inklifters-aesthetica-pleasant-grove-ut',
-  'Kovak Cosmetic Center': 'kovak-cosmetic-center-chicago-il',
-  'MEDermis Laser Clinic': 'medermis-laser-clinic-austin-tx',
-  'Removery (Bucktown)': 'removery-bucktown-chicago-il',
-  'Removery (Lincoln Square)': 'removery-lincoln-square-chicago-il',
-  'Removery (South Congress)': 'removery-south-congress-austin-tx',
-  'Skintellect': 'skintellect-tampa-fl',
-  'Tatt2Away': '',
-  'inkOUT': '',
-}
-
-const CITIES = ['Austin, TX', 'Chicago, IL', 'Draper, UT', 'Houston, TX', 'Pleasant Grove, UT', 'Tampa, FL']
-const PROVIDERS = ['Arviv Medical Aesthetics', 'Clarity Skin', 'Clean Slate Ink', 'DermSurgery Associates', 'Enfuse Medical Spa', 'Erasable Med Spa', 'InkFree, MD', 'Inklifters (Aesthetica)', 'Kovak Cosmetic Center', 'MEDermis Laser Clinic', 'Removery (Bucktown)', 'Removery (Lincoln Square)', 'Removery (South Congress)', 'Skintellect', 'Tatt2Away', 'inkOUT']
+const PROVIDERS = [...new Set(CITY_CONFIG.flatMap(c => c.competitors.map(comp => comp.name)))]
 
 function getDateCutoff(range: string): string | null {
   if (range === 'all') return null
@@ -55,13 +34,11 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
   const [sort, setSort] = useState('default')
   const [textQ, setTextQ] = useState('')
   const [dateRange, setDateRange] = useState('all')
-  const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
 
   const cutoff = getDateCutoff(dateRange)
 
   let filtered = reviews.filter(r => {
     const cityStr = `${r.location_city}, ${r.location_state}`
-    // tatt2away-bucket reviews are internal (Review Queue only) — never show in main browser
     const isInkoutProvider = r.provider_name === 'inkOUT'
     if (isInkoutProvider && r.bucket !== 'inkout') return false
     if (cutoff && r.review_date_estimated && r.review_date_estimated.slice(0, 7) < cutoff) return false
@@ -77,13 +54,6 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
 
   if (sort === 'stars-desc') filtered = [...filtered].sort((a, b) => b.star_rating - a.star_rating)
   else if (sort === 'stars-asc') filtered = [...filtered].sort((a, b) => a.star_rating - b.star_rating)
-
-  function copyText(text: string, idx: number) {
-    navigator.clipboard.writeText(text || '').then(() => {
-      setCopiedIdx(idx)
-      setTimeout(() => setCopiedIdx(null), 1500)
-    })
-  }
 
   function clearFilters() {
     setCity(''); setProvider(''); setResult(''); setStarsFilter(''); setUsecase(''); setSort('default'); setTextQ(''); setDateRange('all')
@@ -137,67 +107,22 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
       </div>
 
       <div className="reviews-main">
-        {filtered.length === 0 && (
-          <div className="empty-state">
-            <div className="big">🔍</div>
-            <div>No reviews match your filters.</div>
-          </div>
-        )}
-        {filtered.map((r, i) => {
-          const cityStr = `${r.location_city}, ${r.location_state}`
-          const provSlug = PROVIDER_SLUGS[r.provider_name]
-          const inkout = isInkout(r.provider_name)
-          return (
-            <div key={i} className={`review-card${inkout ? ' inkout' : ''}`}>
-              <button className="copy-btn" onClick={() => copyText(r.review_text || '', i)}>
-                {copiedIdx === i ? 'Copied!' : 'Copy'}
-              </button>
-              <div className="review-meta">
-                <span className="author">{r.reviewer_name || 'Anonymous'}</span>
-                <span className="stars">{stars(r.star_rating)} {r.star_rating}★</span>
-                {provSlug
-                  ? <Link href={`/competitor/${provSlug}`} className="provider-link">{r.provider_name}</Link>
-                  : <span className="provider-link">{r.provider_name}</span>
-                }
-                <span className="review-city">{cityStr}</span>
-                <span className="review-date">{r.review_date_label || r.review_date}</span>
-              </div>
-              {r.has_text
-                ? <div className="review-text">{r.review_text}</div>
-                : <div className="review-text empty">Rating only — no written review</div>
-              }
-              <div className="tags">
-                {r.result_rating && r.result_rating !== 'unknown' && (
-                  <span className="badge" style={{ background: 'rgba(0,0,0,.3)', border: `1px solid ${resultColor(r.result_rating)}`, color: resultColor(r.result_rating) }}>
-                    {r.result_rating}
-                  </span>
-                )}
-                {r.location_transition && (
-                  <span className="badge badge-transition">Transition-era</span>
-                )}
-                {r.pain_level !== 'unknown' && r.pain_level && (
-                  <span className="badge badge-yellow">Pain: {r.pain_level}/5</span>
-                )}
-                {r.use_case && r.use_case !== 'unknown' && (
-                  <span className="badge badge-purple">{r.use_case}</span>
-                )}
-                {r.scarring_mentioned === 'Yes' && <span className="badge badge-red">Scarring</span>}
-                {r.source_url && (
-                  <a
-                    href={r.source_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="badge badge-gray"
-                    style={{ textDecoration: 'none', opacity: 0.7 }}
-                    title="View original review on Google Maps"
-                  >
-                    ↗ Google
-                  </a>
-                )}
-              </div>
-            </div>
-          )
-        })}
+        {filtered.length === 0
+          ? <EmptyState icon="🔍" message="No reviews match your filters." />
+          : filtered.map((r, i) => {
+              const provSlug = PROVIDER_SLUGS[r.provider_name]
+              const variant = isInkout(r.provider_name) ? 'inkout' : 'default'
+              return (
+                <ReviewCard
+                  key={i}
+                  review={r}
+                  variant={variant}
+                  providerHref={provSlug ? `/competitor/${provSlug}` : undefined}
+                  showSourceLink
+                />
+              )
+            })
+        }
       </div>
     </>
   )

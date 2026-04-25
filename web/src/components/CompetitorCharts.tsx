@@ -2,6 +2,7 @@
 
 import BarChart from './BarChart'
 import DonutChart from './DonutChart'
+import { getChartColors } from '@/lib/chart-utils'
 
 interface Props {
   ratingDist: number[]
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function CompetitorCharts({ ratingDist, resultPcts, painLevels, useCaseMap }: Props) {
+  const c = getChartColors()
   return (
     <>
       <div className="grid-2" style={{ marginBottom: 18 }}>
@@ -20,7 +22,7 @@ export default function CompetitorCharts({ ratingDist, resultPcts, painLevels, u
             labels={['1★', '2★', '3★', '4★', '5★']}
             datasets={[{
               data: ratingDist,
-              backgroundColor: ['#ef4444', '#f97316', '#f59e0b', '#3b82f6', '#22c55e'],
+              backgroundColor: [c.red, c.orange, c.yellow, c.blue, c.green],
               borderRadius: 4,
               borderSkipped: false,
             }]}
@@ -32,7 +34,7 @@ export default function CompetitorCharts({ ratingDist, resultPcts, painLevels, u
           <DonutChart
             labels={['Positive', 'Neutral', 'Mixed', 'Negative', 'Unknown']}
             data={resultPcts}
-            colors={['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#374151']}
+            colors={[c.green, c.blue, c.yellow, c.red, c.grayDim]}
           />
         </div>
       </div>
@@ -44,7 +46,7 @@ export default function CompetitorCharts({ ratingDist, resultPcts, painLevels, u
             labels={['1-Painless', '2-Minimal', '3-Moderate', '4-Intense', '5-Severe']}
             datasets={[{
               data: painLevels,
-              backgroundColor: ['#22c55e', '#86efac', '#f59e0b', '#f97316', '#ef4444'],
+              backgroundColor: [c.green, c.greenLight, c.yellow, c.orange, c.red],
               borderRadius: 4,
               borderSkipped: false,
             }]}

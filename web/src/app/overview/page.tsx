@@ -4,16 +4,16 @@ import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import OverviewCharts from '@/components/OverviewCharts'
 import Topbar from '@/components/Topbar'
-import { getAllReviews, SCRAPER_CAP } from '@/lib/data'
+import { KpiBlock, LoadingBlock, SentimentBreakdown, StarRating } from '@/components/ui'
+import { getAllReviews, SCRAPER_CAP, CITY_SLUG_MAP } from '@/lib/data'
 import { CITIES } from '@/lib/config'
 import type { Review } from '@/lib/types'
 
 // Build a slug lookup from config so we use clean slugs rather than computing them from provider names
 const CONFIG_SLUGS = new Map<string, string>()
-const CITY_TO_SLUG: Record<string, string> = {
-  'Austin|TX': 'austin-tx', 'Chicago|IL': 'chicago-il', 'Draper|UT': 'draper-ut',
-  'Houston|TX': 'houston-tx', 'Pleasant Grove|UT': 'pleasant-grove-ut', 'Tampa|FL': 'tampa-fl',
-}
+const CITY_TO_SLUG: Record<string, string> = Object.fromEntries(
+  Object.entries(CITY_SLUG_MAP).map(([slug, { city, state }]) => [`${city}|${state}`, slug])
+)
 CITIES.forEach(city => {
   city.competitors.forEach(comp => {
     CONFIG_SLUGS.set(`${comp.name.toLowerCase()}|${city.slug}`, comp.slug)
@@ -21,6 +21,10 @@ CITIES.forEach(city => {
 })
 
 type SortKey = 'rank' | 'reviews' | 'stars' | 'positive' | 'negative' | 'pain'
+
+const SORT_GOOD_DIR: Record<SortKey, 'asc' | 'desc'> = {
+  rank: 'asc', reviews: 'desc', stars: 'desc', positive: 'desc', negative: 'asc', pain: 'asc',
+}
 
 function computeGroupStats(reviews: Review[]) {
   if (!reviews.length) return { total: 0, avgStars: 0, positive: 0, negative: 0 }
@@ -48,9 +52,6 @@ function sentBadge(p: number) {
 function negBadge(p: number) {
   const cls = p === 0 ? 'badge-green' : p <= 10 ? 'badge-yellow' : 'badge-red'
   return <span className={`badge ${cls}`}>{p}%</span>
-}
-function starStr(n: number) {
-  return '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n)) + ' ' + n
 }
 
 export default function OverviewPage() {
@@ -136,7 +137,7 @@ export default function OverviewPage() {
       setSortDir(d => d === 'asc' ? 'desc' : 'asc')
     } else {
       setSortKey(key)
-      setSortDir(key === 'rank' ? 'asc' : 'desc')
+      setSortDir(SORT_GOOD_DIR[key])
     }
   }
 
@@ -172,18 +173,18 @@ export default function OverviewPage() {
         </div>
 
         <div className="kpi-row">
-          <div className="kpi"><div className="label">Total Reviews</div><div className="value">{v(reviews.length)}</div><div className="sub">across all providers</div></div>
-          <div className="kpi"><div className="label">Providers</div><div className="value">{v(providers.length)}</div><div className="sub">across 6 markets</div></div>
-          <div className="kpi"><div className="label">inkOUT Positive</div><div className="value" style={{ color: 'var(--green)' }}>{v(`${inkout.positive}%`)}</div><div className="sub">vs competitor {v(`${competitor.positive}%`)}</div></div>
-          <div className="kpi"><div className="label">inkOUT Avg Stars</div><div className="value">{v(`${inkout.avgStars}★`)}</div><div className="sub">vs competitor {v(`${competitor.avgStars}★`)}</div></div>
+          <KpiBlock label="Total Reviews" value={reviews.length} sub="across all providers" loading={loading} />
+          <KpiBlock label="Providers" value={providers.length} sub="across 6 markets" loading={loading} />
+          <KpiBlock label="inkOUT Positive" value={`${inkout.positive}%`} sub={`vs competitor ${competitor.positive}%`} loading={loading} valueStyle={{ color: 'var(--green)' }} />
+          <KpiBlock label="inkOUT Avg Stars" value={`${inkout.avgStars}★`} sub={`vs competitor ${competitor.avgStars}★`} loading={loading} />
         </div>
 
         <div className="section">
           <h2>All Providers Ranked <span style={{ color: 'var(--muted)', fontSize: 12, fontWeight: 400 }}>— click any column to sort</span></h2>
           {loading ? (
-            <div style={{ padding: 40, textAlign: 'center', color: 'var(--muted)' }}>Loading…</div>
+            <LoadingBlock />
           ) : (
-            <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+            <div className="card" style={{ padding: 0, overflowX: 'auto' }}>
               <table>
                 <thead>
                   <tr>
@@ -203,7 +204,7 @@ export default function OverviewPage() {
                     <tr key={p.slug} className={p.isInkout ? 'inkout-row' : ''}>
                       <td style={{ color: 'var(--muted)' }}>{p.rank}</td>
                       <td style={{ fontWeight: 600 }}>
-                        <Link href={`/competitor/${p.slug}`} style={{ color: p.isInkout ? '#a78bfa' : '#fff' }}>{p.provider}</Link>
+                        <Link href={`/competitor/${p.slug}`} style={{ color: p.isInkout ? 'var(--purple-brand)' : '#fff' }}>{p.provider}</Link>
                         {p.isInkout && <span className="badge badge-purple" style={{ marginLeft: 6 }}>inkOUT</span>}
                       </td>
                       <td style={{ color: 'var(--muted)' }}>{p.city}</td>
@@ -213,12 +214,12 @@ export default function OverviewPage() {
                         {p.dateRange?.isCapped && <span style={{ color: 'var(--muted)', fontSize: 10, marginLeft: 3 }}>(cap)</span>}
                       </td>
                       <td className="stars">
-                        {starStr(p.stars)}
+                        <StarRating value={p.stars} showValue />
                         {p.dateRange && <div style={{ color: 'var(--muted)', fontSize: 10, fontWeight: 400, marginTop: 2 }}>{fmtDateRange(p.dateRange.earliest, p.dateRange.latest)}</div>}
                       </td>
                       <td>
                         {sentBadge(p.positive)}
-                        {p.ratingBreakdown && <div style={{ color: 'var(--green)', fontSize: 10, marginTop: 2 }}>{p.ratingBreakdown.positive} · <span style={{ color: 'var(--yellow)' }}>{p.ratingBreakdown.mixed}</span> · <span style={{ color: 'var(--red)' }}>{p.ratingBreakdown.negative}</span></div>}
+                        {p.ratingBreakdown && <div style={{ marginTop: 4 }}><SentimentBreakdown positive={p.ratingBreakdown.positive} mixed={p.ratingBreakdown.mixed} negative={p.ratingBreakdown.negative} /></div>}
                       </td>
                       <td>{negBadge(p.negative)}</td>
                       <td>{p.pain}%</td>
@@ -233,36 +234,16 @@ export default function OverviewPage() {
         <div className="section">
           <h2>inkOUT vs Competitors</h2>
           <div className="grid-4">
-            <div className="card">
-              <h3>inkOUT Avg Stars</h3>
-              <div style={{ fontSize: 32, fontWeight: 700, color: '#a78bfa' }}>{v(`${inkout.avgStars}★`)}</div>
-              <div style={{ color: 'var(--muted)', fontSize: 12, marginTop: 6 }}>{v(`${inkout.total} reviews · ${inkoutLocations} locations`)}</div>
-            </div>
-            <div className="card">
-              <h3>Competitor Avg Stars</h3>
-              <div style={{ fontSize: 32, fontWeight: 700, color: '#fff' }}>{v(`${competitor.avgStars}★`)}</div>
-              <div style={{ color: 'var(--muted)', fontSize: 12, marginTop: 6 }}>{v(`${competitor.total} reviews · ${competitorProviders} providers`)}</div>
-            </div>
-            <div className="card">
-              <h3>inkOUT Positive Results</h3>
-              <div style={{ fontSize: 32, fontWeight: 700, color: 'var(--green)' }}>{v(`${inkout.positive}%`)}</div>
-              <div style={{ color: 'var(--muted)', fontSize: 12, marginTop: 6 }}>vs competitor {v(`${competitor.positive}%`)}</div>
-            </div>
-            <div className="card">
-              <h3>inkOUT Negative Results</h3>
-              <div style={{ fontSize: 32, fontWeight: 700, color: 'var(--red)' }}>{v(`${inkout.negative}%`)}</div>
-              <div style={{ color: 'var(--muted)', fontSize: 12, marginTop: 6 }}>vs competitor {v(`${competitor.negative}%`)}</div>
-            </div>
+            <KpiBlock size="lg" label="inkOUT Avg Stars" value={`${inkout.avgStars}★`} sub={`${inkout.total} reviews · ${inkoutLocations} locations`} loading={loading} valueStyle={{ color: 'var(--purple-brand)' }} />
+            <KpiBlock size="lg" label="Competitor Avg Stars" value={`${competitor.avgStars}★`} sub={`${competitor.total} reviews · ${competitorProviders} providers`} loading={loading} />
+            <KpiBlock size="lg" label="inkOUT Positive Results" value={`${inkout.positive}%`} sub={`vs competitor ${competitor.positive}%`} loading={loading} valueStyle={{ color: 'var(--green)' }} />
+            <KpiBlock size="lg" label="inkOUT Negative Results" value={`${inkout.negative}%`} sub={`vs competitor ${competitor.negative}%`} loading={loading} valueStyle={{ color: 'var(--red)' }} />
           </div>
         </div>
 
         <div className="section">
           <h2>Market Comparison</h2>
-          {loading ? (
-            <div style={{ padding: 40, textAlign: 'center', color: 'var(--muted)' }}>Loading…</div>
-          ) : (
-            <OverviewCharts citySummaries={citySummaries} />
-          )}
+          {loading ? <LoadingBlock /> : <OverviewCharts citySummaries={citySummaries} />}
         </div>
 
         <div className="review-footer">

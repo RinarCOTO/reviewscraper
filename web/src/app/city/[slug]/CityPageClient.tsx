@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCityData } from '@/lib/data'
+import { getCityData, getLastUpdatedAt } from '@/lib/data'
 import CityCharts from '@/components/CityCharts'
 import Topbar from '@/components/Topbar'
+import { KpiBlock, LoadingBlock, StarRating, SentimentBreakdown } from '@/components/ui'
 import { CITIES as ALL_CITIES } from '@/lib/config'
 import type { CityData } from '@/lib/types'
 
-function starStr(n: number) {
-  return '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n)) + ' ' + n.toFixed(1)
-}
 function fmtDateRange(earliest: string, latest: string): string {
   const opts = { month: 'short', day: 'numeric' } as const
   const d1 = new Date(earliest)
@@ -53,10 +51,12 @@ const CityNav = ({ slug }: { slug: string }) => (
 export default function CityPageClient({ slug }: { slug: string }) {
   const [data, setData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null)
 
   useEffect(() => {
-    getCityData(slug).then(d => {
+    Promise.all([getCityData(slug), getLastUpdatedAt()]).then(([d, freshness]) => {
       setData(d)
+      setLastUpdated(freshness.date)
       setLoading(false)
     })
   }, [slug])
@@ -69,7 +69,7 @@ export default function CityPageClient({ slug }: { slug: string }) {
           crumbs={[{ label: 'Loading…' }]}
           actions={<CityNav slug={slug} />}
         />
-        <div style={{ padding: 40, color: 'var(--muted)', textAlign: 'center' }}>Loading city data…</div>
+        <LoadingBlock message="Loading city data…" />
       </div>
     )
   }
@@ -96,39 +96,18 @@ export default function CityPageClient({ slug }: { slug: string }) {
 
       <div className="container">
         <div className="kpi-row">
-          <div className="kpi">
-            <div className="label">Competitors Analyzed</div>
-            <div className="value" style={{ fontSize: 20 }}>{biz.length}</div>
-            <div className="sub">{cityKey}</div>
-          </div>
-          <div className="kpi">
-            <div className="label">Market Avg Rating</div>
-            <div className="value" style={{ fontSize: 20 }}>{marketAvg}★</div>
-            <div className="sub">across all providers</div>
-          </div>
-          <div className="kpi">
-            <div className="label">Top Rated</div>
-            <div className="value" style={{ fontSize: 20 }}>{shortName(best.provider)}</div>
-            <div className="sub">{best.avg_stars}★</div>
-          </div>
-          {inkoutEntry ? (
-            <div className="kpi">
-              <div className="label">inkOUT Position</div>
-              <div className="value" style={{ fontSize: 20, color: '#a78bfa' }}>#{inkoutRank} of {biz.length}</div>
-              <div className="sub">{inkoutEntry.avg_stars}★ · {inkoutEntry.result_pct.positive}% positive</div>
-            </div>
-          ) : (
-            <div className="kpi">
-              <div className="label">Most Negative</div>
-              <div className="value" style={{ fontSize: 20 }}>{shortName(worst.provider)}</div>
-              <div className="sub">{worst.result_pct.negative}% negative results</div>
-            </div>
-          )}
+          <KpiBlock label="Competitors Analyzed" value={biz.length} sub={cityKey} />
+          <KpiBlock label="Market Avg Rating" value={`${marketAvg}★`} sub="across all providers" />
+          <KpiBlock label="Top Rated" value={shortName(best.provider)} sub={`${best.avg_stars}★`} />
+          {inkoutEntry
+            ? <KpiBlock label="inkOUT Position" value={<>#{inkoutRank} <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}>of {biz.length}</span></>} sub={`${inkoutEntry.avg_stars}★ · ${inkoutEntry.result_pct.positive}% positive`} valueStyle={{ color: 'var(--purple-brand)' }} />
+            : <KpiBlock label="Most Negative" value={shortName(worst.provider)} sub={`${worst.result_pct.negative}% negative results`} />
+          }
         </div>
 
         <div className="section">
           <h2>Competitor Rankings — {cityKey}</h2>
-          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="card" style={{ padding: 0, overflowX: 'auto' }}>
             <table>
               <thead>
                 <tr>
@@ -148,7 +127,7 @@ export default function CityPageClient({ slug }: { slug: string }) {
                   <tr key={b.slug} className={b.isInkout ? 'inkout-row' : ''}>
                     <td style={{ color: 'var(--muted)', fontWeight: 600 }}>{i + 1}</td>
                     <td style={{ fontWeight: 600 }}>
-                      <Link href={`/competitor/${b.slug}/`} style={{ color: b.isInkout ? '#a78bfa' : '#fff' }}>
+                      <Link href={`/competitor/${b.slug}/`} style={{ color: b.isInkout ? 'var(--purple-brand)' : '#fff' }}>
                         {b.provider}
                       </Link>
                       {b.isInkout && <span className="badge badge-purple" style={{ marginLeft: 6 }}>inkOUT</span>}
@@ -158,13 +137,13 @@ export default function CityPageClient({ slug }: { slug: string }) {
                       {b.dateRange?.isCapped && <span style={{ color: 'var(--muted)', fontSize: 10, marginLeft: 3 }}>(cap)</span>}
                     </td>
                     <td className="stars">
-                      {starStr(b.avg_stars)}
+                      <StarRating value={b.avg_stars} showValue />
                       {b.dateRange && <div style={{ color: 'var(--muted)', fontSize: 10, fontWeight: 400, marginTop: 2 }}>{fmtDateRange(b.dateRange.earliest, b.dateRange.latest)}</div>}
                     </td>
                     <td>{sentBadge(b.result_pct.positive)}</td>
                     <td>{negBadge(b.result_pct.negative)}</td>
-                    <td>{pctBar(b.pain_pct, '#f59e0b')}</td>
-                    <td>{pctBar(b.scarring_pct, '#ef4444')}</td>
+                    <td>{pctBar(b.pain_pct, 'var(--yellow)')}</td>
+                    <td>{pctBar(b.scarring_pct, 'var(--red)')}</td>
                     <td><span className="badge badge-purple">{b.method || '—'}</span></td>
                   </tr>
                 ))}
@@ -184,21 +163,17 @@ export default function CityPageClient({ slug }: { slug: string }) {
             {sorted.map((b, i) => (
               <Link key={b.slug} href={`/competitor/${b.slug}/`} className={`card biz-card${b.isInkout ? ' biz-card-inkout' : ''}`} style={{ display: 'block', textDecoration: 'none' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-                  <div style={{ fontWeight: 700, color: b.isInkout ? '#a78bfa' : '#fff', fontSize: 15 }}>{shortName(b.provider)}</div>
+                  <div style={{ fontWeight: 700, color: b.isInkout ? 'var(--purple-brand)' : '#fff', fontSize: 15 }}>{shortName(b.provider)}</div>
                   <span style={{ color: 'var(--muted)', fontSize: 11, fontWeight: 600 }}>#{i + 1}</span>
                 </div>
-                <div className="stars" style={{ marginBottom: 2 }}>{starStr(b.avg_stars)}</div>
+                <div className="stars" style={{ marginBottom: 2 }}><StarRating value={b.avg_stars} showValue /></div>
                 <div style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 10 }}>
                   {b.total} reviews{b.dateRange?.isCapped ? ' (most recent)' : ''}
                   {b.dateRange && ` · ${fmtDateRange(b.dateRange.earliest, b.dateRange.latest)}`}
                 </div>
                 {b.ratingBreakdown && (
-                  <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 10 }}>
-                    <span style={{ color: 'var(--green)' }}>{b.ratingBreakdown.positive} positive</span>
-                    {' · '}
-                    <span style={{ color: 'var(--yellow)' }}>{b.ratingBreakdown.mixed} mixed</span>
-                    {' · '}
-                    <span style={{ color: 'var(--red)' }}>{b.ratingBreakdown.negative} negative</span>
+                  <div style={{ marginBottom: 10 }}>
+                    <SentimentBreakdown positive={b.ratingBreakdown.positive} mixed={b.ratingBreakdown.mixed} negative={b.ratingBreakdown.negative} />
                   </div>
                 )}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: 12 }}>
@@ -214,7 +189,7 @@ export default function CityPageClient({ slug }: { slug: string }) {
         </div>
 
         <div className="review-footer">
-          Source: Google Maps, scraped April 2, 2026. Sample of up to 50 reviews per location.
+          Source: Google Maps{lastUpdated ? `, scraped ${new Date(lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : ''}. Sample of up to 50 reviews per location.
         </div>
       </div>
     </div>

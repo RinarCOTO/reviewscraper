@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCompetitorReviews, getCityData, SCRAPER_CAP } from '@/lib/data'
+import { getCompetitorReviews, getCityData, getLastUpdatedAt, SCRAPER_CAP } from '@/lib/data'
 import CompetitorCharts from '@/components/CompetitorCharts'
 import ReviewList from '@/components/ReviewList'
 import Topbar from '@/components/Topbar'
+import { KpiBlock, LoadingBlock, SentimentBreakdown } from '@/components/ui'
 import { getCityForCompetitor } from '@/lib/config'
+import { starColor } from '@/lib/utils'
 import type { Review, CityData, BusinessSummary } from '@/lib/types'
 
 function fmtDateRange(earliest: string, latest: string): string {
@@ -68,17 +70,11 @@ function computeStats(reviews: Review[]) {
   }
 }
 
-function dotColor(avgStars: number) {
-  if (avgStars >= 4.8) return '#22c55e'
-  if (avgStars >= 4.5) return '#3b82f6'
-  if (avgStars >= 4.0) return '#f59e0b'
-  return '#ef4444'
-}
-
 export default function CompetitorPageClient({ slug }: { slug: string }) {
   const [reviews, setReviews] = useState<Review[]>([])
   const [cityData, setCityData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null)
 
   const cityConfig = getCityForCompetitor(slug)
   const cityLabel = cityConfig?.label ?? ''
@@ -88,9 +84,11 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
     Promise.all([
       getCompetitorReviews(slug),
       citySlugStr ? getCityData(citySlugStr) : Promise.resolve(null),
-    ]).then(([rev, city]) => {
+      getLastUpdatedAt(),
+    ]).then(([rev, city, freshness]) => {
       setReviews(rev)
       setCityData(city)
+      setLastUpdated(freshness.date)
       setLoading(false)
     })
   }, [slug, citySlugStr])
@@ -105,7 +103,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
             : [{ label: 'Loading…' }]
           }
         />
-        <div style={{ padding: 40, color: 'var(--muted)', textAlign: 'center' }}>Loading competitor data…</div>
+        <LoadingBlock message="Loading competitor data…" />
       </div>
     )
   }
@@ -142,7 +140,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
               href={`/competitor/${b.slug}`}
               className={`peer-card${b.slug === slug ? ' peer-current' : ''}${b.isInkout ? ' peer-inkout' : ''}`}
             >
-              <div className="peer-dot" style={{ background: dotColor(b.avg_stars) }} />
+              <div className="peer-dot" style={{ background: starColor(b.avg_stars) }} />
               <span>#{i + 1} {b.provider}</span>
               <span className="peer-stars">{b.avg_stars}★</span>
             </Link>
@@ -152,50 +150,35 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
 
       <div className="container">
         <div className="disclosure">
-          <strong>Data Disclosure:</strong> Reviews scraped from Google Maps on April 2, 2026 (up to 50 per location).
+          <strong>Data Disclosure:</strong> Reviews scraped from Google Maps{lastUpdated ? ` on ${new Date(lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : ''} (up to 50 per location).
           Dates verified from SerpAPI timestamps. Reviews without written text are excluded from text analysis.
         </div>
 
         <div className="kpi-row">
-          <div className="kpi">
-            <div className="label">Total Reviews</div>
-            <div className="value">{stats.total}{stats.isCapped && <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)', marginLeft: 4 }}>(most recent)</span>}</div>
-            <div className="sub">
-              {stats.dateRange
-                ? fmtDateRange(stats.dateRange.earliest, stats.dateRange.latest)
-                : `Google · ${cityLabel}`}
-            </div>
-          </div>
-          <div className="kpi">
-            <div className="label">Avg Rating</div>
-            <div className="value">{stats.avgStars}★</div>
-            {stats.breakdown ? (
-              <div className="sub">
-                <span style={{ color: 'var(--green)' }}>{stats.breakdown.positive} pos</span>
-                {' · '}
-                <span style={{ color: 'var(--yellow)' }}>{stats.breakdown.mixed} mixed</span>
-                {' · '}
-                <span style={{ color: 'var(--red)' }}>{stats.breakdown.negative} neg</span>
-              </div>
-            ) : (
-              <div className="sub">out of 5</div>
-            )}
-          </div>
-          <div className="kpi">
-            <div className="label">Positive Results</div>
-            <div className="value" style={{ color: 'var(--green)' }}>{stats.positive}%</div>
-            <div className="sub">{stats.negative}% negative · text reviews only</div>
-          </div>
-          <div className="kpi">
-            <div className="label">Market Rank</div>
-            <div className="value" style={{ fontSize: 20, color: stats.isInkout ? '#a78bfa' : '#fff' }}>
-              {marketRank ? `#${marketRank}` : '—'}
-              {peers.length > 0 && (
-                <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}> of {peers.length}</span>
-              )}
-            </div>
-            <div className="sub">{stats.method} · {stats.avgSessions} avg sessions</div>
-          </div>
+          <KpiBlock
+            label="Total Reviews"
+            value={<>{stats.total}{stats.isCapped && <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)', marginLeft: 4 }}>(most recent)</span>}</>}
+            sub={stats.dateRange ? fmtDateRange(stats.dateRange.earliest, stats.dateRange.latest) : `Google · ${cityLabel}`}
+          />
+          <KpiBlock
+            label="Avg Rating"
+            value={`${stats.avgStars}★`}
+            sub={stats.breakdown
+              ? <SentimentBreakdown positive={stats.breakdown.positive} mixed={stats.breakdown.mixed} negative={stats.breakdown.negative} />
+              : 'out of 5'}
+          />
+          <KpiBlock
+            label="Positive Results"
+            value={`${stats.positive}%`}
+            sub={`${stats.negative}% negative · text reviews only`}
+            valueStyle={{ color: 'var(--green)' }}
+          />
+          <KpiBlock
+            label="Market Rank"
+            value={<>{marketRank ? `#${marketRank}` : '—'}{peers.length > 0 && <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--muted)' }}> of {peers.length}</span>}</>}
+            sub={`${stats.method} · ${stats.avgSessions} avg sessions`}
+            valueStyle={{ color: stats.isInkout ? 'var(--purple-brand)' : undefined }}
+          />
         </div>
 
         <div className="section">
@@ -214,7 +197,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
         </div>
 
         <div className="review-footer">
-          Source: Google Maps, scraped April 2, 2026. Sample of up to 50 reviews per location.
+          Source: Google Maps{lastUpdated ? `, scraped ${new Date(lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : ''}. Sample of up to 50 reviews per location.
         </div>
       </div>
     </div>

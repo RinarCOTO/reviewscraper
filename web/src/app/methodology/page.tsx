@@ -74,7 +74,7 @@ export default function MethodologyPage() {
             <p style={{ marginBottom: 16 }}>
               Every review is automatically assigned to one of four buckets based on the provider name,
               the review content, and whether it mentions tattoo removal specifically.
-              Each routing decision is recorded with a <code style={{ background: '#1e293b', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>routing_reason</code> field
+              Each routing decision is recorded with a <code style={{ background: 'var(--surface-raised)', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>routing_reason</code> field
               in the database for auditability.
             </p>
             <div style={{ display: 'grid', gap: 12 }}>
@@ -123,7 +123,7 @@ export default function MethodologyPage() {
               <li style={{ marginBottom: 8 }}>
                 <strong>Off-topic reviews are excluded.</strong> Some providers also offer services unrelated
                 to tattoo removal (lip filler, hair removal, etc.). Reviews confirmed to be about those
-                services are excluded from all metrics via the <code style={{ background: '#1e293b', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>is_tattoo_removal</code> field.
+                services are excluded from all metrics via the <code style={{ background: 'var(--surface-raised)', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>is_tattoo_removal</code> field.
               </li>
               <li style={{ marginBottom: 8 }}>
                 <strong>Text-only analysis.</strong> Some Google reviews consist only of a star rating with
@@ -165,7 +165,7 @@ export default function MethodologyPage() {
               <li style={{ marginBottom: 8 }}>
                 Reviews in the tatt2away archive on any inkOUT page. The Tatt2Away-era reviews are
                 accessible separately via the{' '}
-                <Link href="/reviews/tatt2away" style={{ color: '#f59e0b' }}>Tatt2Away Archive</Link>
+                <Link href="/reviews/tatt2away" style={{ color: 'var(--yellow)' }}>Tatt2Away Archive</Link>
                 {' '}and are intentionally not mixed into current inkOUT performance numbers.
               </li>
               <li style={{ marginBottom: 8 }}>
@@ -226,7 +226,7 @@ function BucketCard({
       </div>
       <div>
         <div style={{ fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>
-          <code style={{ background: '#1e293b', padding: '1px 6px', borderRadius: 4, fontSize: 12, color }}>{name}</code>
+          <code style={{ background: 'var(--surface-raised)', padding: '1px 6px', borderRadius: 4, fontSize: 12, color }}>{name}</code>
           {' '}<span style={{ fontSize: 13 }}>{label}</span>
         </div>
         <div style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7 }}>{description}</div>

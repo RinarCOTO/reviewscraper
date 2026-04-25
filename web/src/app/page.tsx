@@ -3,17 +3,15 @@
 import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
 import Topbar from '@/components/Topbar'
-import { getAllReviews, getLastUpdatedAt } from '@/lib/data'
+import { KpiBlock } from '@/components/ui'
+import { getAllReviews, getLastUpdatedAt, CITY_SLUG_MAP } from '@/lib/data'
+import { CITIES } from '@/lib/config'
 import type { Review } from '@/lib/types'
 
-const CITY_CONFIG = [
-  { slug: 'austin-tx',         name: 'Austin TX',         city: 'Austin',         state: 'TX' },
-  { slug: 'chicago-il',        name: 'Chicago IL',         city: 'Chicago',        state: 'IL' },
-  { slug: 'draper-ut',         name: 'Draper UT',          city: 'Draper',         state: 'UT' },
-  { slug: 'houston-tx',        name: 'Houston TX',         city: 'Houston',        state: 'TX' },
-  { slug: 'pleasant-grove-ut', name: 'Pleasant Grove UT',  city: 'Pleasant Grove', state: 'UT' },
-  { slug: 'tampa-fl',          name: 'Tampa FL',           city: 'Tampa',          state: 'FL' },
-]
+const CITY_CONFIG = CITIES.map(c => {
+  const loc = CITY_SLUG_MAP[c.slug]
+  return { slug: c.slug, name: c.label, city: loc.city, state: loc.state }
+})
 
 function positiveColor(pct: number) {
   if (pct >= 70) return 'var(--green)'
@@ -101,34 +99,20 @@ export default function HubPage() {
 
       <div className="hub-content">
         <div className="hero">
-          <div className="hero-card">
-            <div className="label">Total Reviews</div>
-            <div className="value">{loading ? '…' : totalReviews}</div>
-            <div className="sub">Google reviews</div>
-          </div>
-          <div className="hero-card">
-            <div className="label">Competitors Tracked</div>
-            <div className="value">{loading ? '…' : totalCompetitors}</div>
-            <div className="sub">across 6 markets</div>
-          </div>
-          <div className="hero-card">
-            <div className="label">Biggest Threat</div>
-            <div className="value" style={{ fontSize: 16 }}>
-              {loading ? '…' : biggestThreat?.name ?? '—'}
-            </div>
-            <div className="sub">
-              {loading ? '' : biggestThreat ? `${biggestThreat.pct}% positive · ${biggestThreat.city}, ${biggestThreat.state}` : ''}
-            </div>
-          </div>
-          <div className="hero-card">
-            <div className="label">inkOUT Weak Spot</div>
-            <div className="value" style={{ fontSize: 18 }}>
-              {loading ? '…' : inkoutWeakSpot ? `${inkoutWeakSpot.city}, ${inkoutWeakSpot.state}` : '—'}
-            </div>
-            <div className="sub">
-              {loading ? '' : inkoutWeakSpot ? `${inkoutWeakSpot.stars}★ avg rating` : ''}
-            </div>
-          </div>
+          <KpiBlock label="Total Reviews" value={totalReviews} sub="Google reviews" loading={loading} />
+          <KpiBlock label="Competitors Tracked" value={totalCompetitors} sub="across 6 markets" loading={loading} />
+          <KpiBlock
+            label="Biggest Threat"
+            value={biggestThreat?.name ?? '—'}
+            sub={biggestThreat ? `${biggestThreat.pct}% positive · ${biggestThreat.city}, ${biggestThreat.state}` : undefined}
+            loading={loading}
+          />
+          <KpiBlock
+            label="inkOUT Weak Spot"
+            value={inkoutWeakSpot ? `${inkoutWeakSpot.city}, ${inkoutWeakSpot.state}` : '—'}
+            sub={inkoutWeakSpot ? `${inkoutWeakSpot.stars}★ avg rating` : undefined}
+            loading={loading}
+          />
         </div>
 
         {!loading && lastUpdated && (
@@ -138,7 +122,7 @@ export default function HubPage() {
               : 'Data freshness unknown'
             }
             {lastUpdated.nullCount > 0 && (
-              <span style={{ marginLeft: 8, color: '#f59e0b' }}>· {lastUpdated.nullCount} reviews without analysis date</span>
+              <span style={{ marginLeft: 8, color: 'var(--yellow)' }}>· {lastUpdated.nullCount} reviews without analysis date</span>
             )}
           </div>
         )}

@@ -122,23 +122,27 @@ function toRow(review, status) {
     is_tattoo_removal: null,  // populated by classify-relevance.mjs after import
 
     bucket: (() => {
-      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      const dateKey = review.review_date_iso ?? 'None';
+      const key = `${review.reviewer_name}|${dateKey}|${review.location_city}`;
       return BUCKET_LOOKUP.get(key)?.bucket ?? 'competitor';
     })(),
 
     routing_reason: (() => {
-      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      const dateKey = review.review_date_iso ?? 'None';
+      const key = `${review.reviewer_name}|${dateKey}|${review.location_city}`;
       return BUCKET_LOOKUP.get(key)?.routing_reason ?? null;
     })(),
 
     last_analyzed_at: (() => {
-      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      const dateKey = review.review_date_iso ?? 'None';
+      const key = `${review.reviewer_name}|${dateKey}|${review.location_city}`;
       return BUCKET_LOOKUP.get(key)?.last_analyzed_at ?? null;
     })(),
 
     // review_required reviews are always pending until a company user approves them
     status: (() => {
-      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      const dateKey = review.review_date_iso ?? 'None';
+      const key = `${review.reviewer_name}|${dateKey}|${review.location_city}`;
       return BUCKET_LOOKUP.get(key)?.bucket === 'review_required' ? 'pending' : status;
     })(),
   };

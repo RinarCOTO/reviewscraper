@@ -1,15 +1,15 @@
-Review Separation Summary — 2026-04-25 03:34:45
+Review Separation Summary — 2026-04-25 11:46:27
 
 BUCKET COUNTS
-  inkout:             82
+  inkout:            102
   tatt2away:          37
   review_required:     0
-  TOTAL:             119
+  TOTAL:             139
   API calls:           0
 
 BY SOURCE (platform)
   Google
-    inkout: 82
+    inkout: 102
     tatt2away: 37
 
 BY CLINIC
@@ -24,12 +24,15 @@ BY CLINIC
     tatt2away: 13
   inkOUT (Houston, TX)
     inkout: 6
+  inkOUT (Tampa, FL)
+    inkout: 20
 
 TOP 20 STAGE 2 MATCHED TERMS
   scar: 11
   scarring: 9
   scarred: 4
   burn: 1
+  regret: 1
   didn’t work: 1
   excruciating: 1
   keloid: 1

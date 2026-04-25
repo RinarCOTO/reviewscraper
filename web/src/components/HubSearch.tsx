@@ -47,6 +47,7 @@ export default function HubSearch() {
       <input
         type="text"
         placeholder="Search competitor or city…"
+        aria-label="Search competitor or city"
         autoComplete="off"
         value={query}
         onChange={e => { setQuery(e.target.value); setShow(true) }}

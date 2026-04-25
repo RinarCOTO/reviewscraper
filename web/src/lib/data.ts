@@ -96,16 +96,17 @@ export async function getReviewQueue(): Promise<Review[]> {
   return data as Review[]
 }
 
+export const CITY_SLUG_MAP: Record<string, { city: string; state: string }> = {
+  'austin-tx':         { city: 'Austin',         state: 'TX' },
+  'chicago-il':        { city: 'Chicago',         state: 'IL' },
+  'draper-ut':         { city: 'Draper',          state: 'UT' },
+  'houston-tx':        { city: 'Houston',         state: 'TX' },
+  'pleasant-grove-ut': { city: 'Pleasant Grove',  state: 'UT' },
+  'tampa-fl':          { city: 'Tampa',           state: 'FL' },
+}
+
 export async function getCityData(slug: string): Promise<CityData | null> {
-  const cityMap: Record<string, { city: string; state: string }> = {
-    'austin-tx':        { city: 'Austin',         state: 'TX' },
-    'chicago-il':       { city: 'Chicago',         state: 'IL' },
-    'draper-ut':        { city: 'Draper',          state: 'UT' },
-    'houston-tx':       { city: 'Houston',         state: 'TX' },
-    'pleasant-grove-ut':{ city: 'Pleasant Grove',  state: 'UT' },
-    'tampa-fl':         { city: 'Tampa',           state: 'FL' },
-  }
-  const loc = cityMap[slug]
+  const loc = CITY_SLUG_MAP[slug]
   if (!loc) return null
 
   const { data, error } = await supabase

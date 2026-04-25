@@ -8,10 +8,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
+import { getChartColors } from '@/lib/chart-utils'
 
 Chart.register(DoughnutController, ArcElement, Tooltip, Legend)
-Chart.defaults.color = '#94a3b8'
-Chart.defaults.borderColor = '#2a2d3a'
 
 interface Props {
   labels: string[]
@@ -28,6 +27,8 @@ export default function DonutChart({ labels, data, colors, height = 200 }: Props
     if (!ref.current) return
     if (chartRef.current) chartRef.current.destroy()
 
+    const c = getChartColors()
+
     chartRef.current = new Chart(ref.current, {
       type: 'doughnut',
       data: {
@@ -40,7 +41,7 @@ export default function DonutChart({ labels, data, colors, height = 200 }: Props
         plugins: {
           legend: {
             position: 'right',
-            labels: { color: '#94a3b8', boxWidth: 12, padding: 12 },
+            labels: { color: c.muted, boxWidth: 12, padding: 12 },
           },
         },
       },

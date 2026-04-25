@@ -1,6 +1,8 @@
 'use client'
 
 import BarChart from './BarChart'
+import { starColor } from '@/lib/utils'
+import { resolveToken, getChartColors } from '@/lib/chart-utils'
 
 interface CitySummary {
   cityKey: string
@@ -8,12 +10,9 @@ interface CitySummary {
   positive: number
 }
 
-function starColor(s: number) {
-  return s >= 4.8 ? '#22c55e' : s >= 4.5 ? '#3b82f6' : s >= 4 ? '#f59e0b' : '#ef4444'
-}
-
 export default function OverviewCharts({ citySummaries }: { citySummaries: CitySummary[] }) {
   if (!citySummaries.length) return null
+  const c = getChartColors()
   const labels = citySummaries.map(c => c.cityKey)
   return (
     <div className="grid-2">
@@ -22,8 +21,8 @@ export default function OverviewCharts({ citySummaries }: { citySummaries: CityS
         <BarChart
           labels={labels}
           datasets={[{
-            data: citySummaries.map(c => c.avg_stars),
-            backgroundColor: citySummaries.map(c => starColor(c.avg_stars)),
+            data: citySummaries.map(s => s.avg_stars),
+            backgroundColor: citySummaries.map(s => resolveToken(starColor(s.avg_stars))),
             borderRadius: 4,
             borderSkipped: false,
           }]}
@@ -37,8 +36,10 @@ export default function OverviewCharts({ citySummaries }: { citySummaries: CityS
         <BarChart
           labels={labels}
           datasets={[{
-            data: citySummaries.map(c => c.positive),
-            backgroundColor: citySummaries.map(c => c.positive >= 70 ? '#22c55e' : c.positive >= 50 ? '#f59e0b' : '#ef4444'),
+            data: citySummaries.map(s => s.positive),
+            backgroundColor: citySummaries.map(s =>
+              s.positive >= 70 ? c.green : s.positive >= 50 ? c.yellow : c.red
+            ),
             borderRadius: 4,
             borderSkipped: false,
           }]}

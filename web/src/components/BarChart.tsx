@@ -10,10 +10,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
+import { getChartColors } from '@/lib/chart-utils'
 
 Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend)
-Chart.defaults.color = '#94a3b8'
-Chart.defaults.borderColor = '#2a2d3a'
 
 interface Dataset {
   label?: string
@@ -42,6 +41,8 @@ export default function BarChart({ labels, datasets, horizontal, xmax, suffix, l
     if (!ref.current) return
     if (chartRef.current) chartRef.current.destroy()
 
+    const c = getChartColors()
+
     chartRef.current = new Chart(ref.current, {
       type: 'bar',
       data: { labels, datasets },
@@ -50,7 +51,7 @@ export default function BarChart({ labels, datasets, horizontal, xmax, suffix, l
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { display: !!legend },
+          legend: { display: !!legend, labels: { color: c.muted } },
           tooltip: {
             callbacks: {
               label: (ctx) => ' ' + ctx.parsed[horizontal ? 'x' : 'y'] + (suffix || ''),
@@ -58,10 +59,10 @@ export default function BarChart({ labels, datasets, horizontal, xmax, suffix, l
           },
         },
         scales: {
-          x: { grid: { color: '#2a2d3a' }, ticks: { color: '#94a3b8' }, stacked: !!stacked, max: xmax },
+          x: { grid: { color: c.border }, ticks: { color: c.muted }, stacked: !!stacked, max: xmax },
           y: {
-            grid: { display: !horizontal, color: '#2a2d3a' },
-            ticks: { color: '#e2e8f0', font: { size: 11 } },
+            grid: { display: !horizontal, color: c.border },
+            ticks: { color: c.text, font: { size: 11 } },
             stacked: !!stacked,
           },
         },

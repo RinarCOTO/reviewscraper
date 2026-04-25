@@ -34,7 +34,7 @@ function loadBucketLookup() {
   const lookup = new Map(
     Object.entries(obj).map(([k, v]) => [
       k,
-      typeof v === 'string' ? { bucket: v, routing_reason: null } : v,
+      typeof v === 'string' ? { bucket: v, routing_reason: null, last_analyzed_at: null } : v,
     ])
   );
   console.log(`Bucket lookup loaded: ${lookup.size} inkOUT reviews mapped`);
@@ -117,6 +117,8 @@ function toRow(review, status) {
     _scrape_mode:           review._scrape_mode ?? 'full',
     scrape_version:         'v4',
 
+    source_url:             review.source_url || null,
+
     is_tattoo_removal: null,  // populated by classify-relevance.mjs after import
 
     bucket: (() => {
@@ -127,6 +129,11 @@ function toRow(review, status) {
     routing_reason: (() => {
       const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
       return BUCKET_LOOKUP.get(key)?.routing_reason ?? null;
+    })(),
+
+    last_analyzed_at: (() => {
+      const key = `${review.reviewer_name}|${review.review_date_iso}|${review.location_city}`;
+      return BUCKET_LOOKUP.get(key)?.last_analyzed_at ?? null;
     })(),
 
     // review_required reviews are always pending until a company user approves them

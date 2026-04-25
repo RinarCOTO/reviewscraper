@@ -369,6 +369,7 @@ async function scrapeProvider(provider) {
     _place_id:               resolvedPlaceId,
     _scrape_mode:            MODE,
     _scrape_date:            new Date().toISOString().split('T')[0],
+    source_url: r.link || null,
   }));
 
   const count = reviews.length;

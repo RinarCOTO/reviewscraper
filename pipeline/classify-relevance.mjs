@@ -1,11 +1,17 @@
 // classify-relevance.mjs
-// Tags each review with is_tattoo_removal (true/false/null) in Supabase.
+// Tags each review with is_tattoo_removal (true/false) and relevance_reason in Supabase.
+// Also sets last_analyzed_at to now() on every row it touches.
 //
 // Layers:
-//   1. Auto-true: inkOUT brand, or analyzer already gave a non-unknown result_rating
-//   2. Keyword: text mention of 'tattoo' → true; explicit non-removal services → false
-//   3. LLM: ambiguous reviews (requires --llm flag, uses claude-haiku)
-//   4. null: no-text reviews or unresolved ambiguous (no --llm)
+//   1. No text  → false, relevance_reason = 'no_text'
+//   2. Auto-true: inkOUT brand, or analyzer already gave a non-unknown result_rating
+//      → relevance_reason = 'auto_true_brand_inkout' or 'auto_true_result_rating'
+//   3. Keyword: CONFIRM_REMOVAL list → true, 'keyword_confirm'
+//              bare 'tattoo' mention → true, 'keyword_tattoo'
+//              NON_REMOVAL list (no tattoo mention) → false, 'keyword_deny'
+//   4. LLM: ambiguous reviews (requires --llm flag, uses claude-haiku)
+//      → relevance_reason = 'llm_classified'
+//   5. null: unresolved ambiguous (no --llm) — not touched
 //
 // Usage:
 //   node classify-relevance.mjs             # keyword pass only, dry-run output
@@ -26,7 +32,6 @@ if (!SERVICE_KEY) { console.error('Missing SUPABASE_SERVICE_KEY'); process.exit(
 
 // ── Keyword lists ─────────────────────────────────────────────────────────────
 
-// Any of these in text → definitely tattoo removal (these businesses don't apply tattoos)
 const CONFIRM_REMOVAL = [
   'tattoo removal', 'remove tattoo', 'removed tattoo', 'removing tattoo',
   'tattoo laser', 'laser tattoo', 'laser removal', 'removal session',
@@ -39,7 +44,6 @@ const CONFIRM_REMOVAL = [
   'tattoo appointment', 'tattoo procedure',
 ]
 
-// Any of these → NOT a tattoo removal review (explicit other services)
 // Only triggers if no CONFIRM_REMOVAL keyword and no 'tattoo' mention
 const NON_REMOVAL = [
   'lip filler', 'lip flip', 'lip augmentation', 'lip injection',
@@ -85,24 +89,16 @@ async function api(method, path, body) {
 }
 
 async function fetchAllReviews() {
-  // Supabase REST paginates at 1000 by default; fetch with range headers
   const rows = []
   let from = 0
   const pageSize = 1000
   while (true) {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/competitor_reviews?select=id,provider_name,brand_name,has_text,review_text,result_rating,is_tattoo_removal&status=eq.published&limit=${pageSize}&offset=${from}`,
+      `${SUPABASE_URL}/rest/v1/competitor_reviews?select=id,provider_name,brand_name,has_text,review_text,result_rating,is_tattoo_removal,relevance_reason&status=eq.published&limit=${pageSize}&offset=${from}`,
       { headers: { ...HEADERS, 'Prefer': 'count=none' } }
     )
     if (!res.ok) {
       const text = await res.text()
-      // Column doesn't exist yet — print migration SQL and exit
-      if (text.includes('is_tattoo_removal')) {
-        console.error('\n⚠  Column `is_tattoo_removal` not found in competitor_reviews.')
-        console.error('Run this SQL in your Supabase SQL editor first:\n')
-        console.error('  ALTER TABLE competitor_reviews ADD COLUMN IF NOT EXISTS is_tattoo_removal boolean;\n')
-        process.exit(1)
-      }
       throw new Error(`GET reviews → ${res.status}: ${text}`)
     }
     const page = await res.json()
@@ -117,26 +113,36 @@ async function fetchAllReviews() {
 // ── Keyword classifier ────────────────────────────────────────────────────────
 
 function keywordClassify(review) {
-  // inkOUT brand or already has a non-unknown result → definitely removal
-  if (review.brand_name === 'inkOUT') return true
-  if (review.result_rating && review.result_rating !== 'unknown') return true
+  // No text → mark as not removal (can't verify, stops the null churn)
+  if (!review.has_text || !review.review_text) {
+    return { value: false, reason: 'no_text' }
+  }
 
-  // No text — can't determine
-  if (!review.has_text || !review.review_text) return null
+  // inkOUT brand → always removal
+  if (review.brand_name === 'inkOUT') {
+    return { value: true, reason: 'auto_true_brand_inkout' }
+  }
+
+  // Already has a non-unknown result_rating from the analyzer → definitely removal
+  if (review.result_rating && review.result_rating !== 'unknown') {
+    return { value: true, reason: 'auto_true_result_rating' }
+  }
 
   const text = review.review_text.toLowerCase()
 
-  // Direct tattoo removal confirmation keywords
-  if (CONFIRM_REMOVAL.some(k => text.includes(k))) return true
+  if (CONFIRM_REMOVAL.some(k => text.includes(k))) {
+    return { value: true, reason: 'keyword_confirm' }
+  }
 
-  // 'tattoo' mention — these businesses only do removal, not application
-  if (text.includes('tattoo')) return true
+  if (text.includes('tattoo')) {
+    return { value: true, reason: 'keyword_tattoo' }
+  }
 
-  // Explicit non-removal service keywords
-  if (NON_REMOVAL.some(k => text.includes(k))) return false
+  if (NON_REMOVAL.some(k => text.includes(k))) {
+    return { value: false, reason: 'keyword_deny' }
+  }
 
-  // Ambiguous
-  return undefined
+  return { value: undefined, reason: null }
 }
 
 // ── LLM classifier ────────────────────────────────────────────────────────────
@@ -165,57 +171,88 @@ async function run() {
 
   const client = USE_LLM ? new Anthropic({ apiKey: ANTHROPIC_KEY }) : null
 
-  const results = { true: 0, false: 0, null: 0, llm_true: 0, llm_false: 0, already_set: 0 }
+  const results = {
+    no_text: 0,
+    auto_true_brand_inkout: 0,
+    auto_true_result_rating: 0,
+    keyword_confirm: 0,
+    keyword_tattoo: 0,
+    keyword_deny: 0,
+    llm_classified: 0,
+    skipped_already_classified: 0,
+    unresolved: 0,
+  }
   const updates = []
 
   for (const review of reviews) {
-    // Skip if already classified
-    if (review.is_tattoo_removal !== null && review.is_tattoo_removal !== undefined) {
-      results.already_set++
+    // Skip only if already classified AND reason is already populated
+    // (re-classify no_text rows even if previously set, since they now get a reason)
+    const alreadyDone = review.is_tattoo_removal !== null &&
+                        review.is_tattoo_removal !== undefined &&
+                        review.relevance_reason !== null
+
+    if (alreadyDone) {
+      results.skipped_already_classified++
       continue
     }
 
-    let value = keywordClassify(review)
+    let value, reason
+
+    const kwResult = keywordClassify(review)
+    value = kwResult.value
+    reason = kwResult.reason
 
     if (value === undefined) {
-      // Ambiguous — try LLM or leave null
       if (USE_LLM && client) {
-        value = await llmClassify(review, client)
-        value ? results.llm_true++ : results.llm_false++
+        const isRemoval = await llmClassify(review, client)
+        value = isRemoval
+        reason = 'llm_classified'
+        results.llm_classified++
       } else {
-        value = null
+        results.unresolved++
+        continue // leave null — don't touch without LLM
       }
+    } else {
+      results[reason] = (results[reason] || 0) + 1
     }
 
-    results[String(value)]++
-    updates.push({ id: review.id, is_tattoo_removal: value })
+    updates.push({ id: review.id, is_tattoo_removal: value, relevance_reason: reason })
 
     if (!WRITE) {
-      const label = value === true ? '✓ removal' : value === false ? '✗ other service' : '? unknown'
-      const snippet = (review.review_text || '').slice(0, 80)
-      if (value === false || value === null) {
-        console.log(`  [${label}] ${review.provider_name} — "${snippet}"`)
+      const label = value === true ? '✓ removal' : '✗ other'
+      const snippet = (review.review_text || '[no text]').slice(0, 80)
+      if (value === false || reason === 'no_text') {
+        console.log(`  [${label}] [${reason}] ${review.provider_name} — "${snippet}"`)
       }
     }
   }
 
   console.log('\n── Results ──────────────────────────────────────────')
-  console.log(`  Already classified:  ${results.already_set}`)
-  console.log(`  → tattoo removal:    ${results.true}${results.llm_true ? ` (${results.llm_true} via LLM)` : ''}`)
-  console.log(`  → other service:     ${results.false}${results.llm_false ? ` (${results.llm_false} via LLM)` : ''}`)
-  console.log(`  → unknown (null):    ${results.null}`)
-  console.log(`  Total updates:       ${updates.length}`)
+  console.log(`  Already classified:        ${results.skipped_already_classified}`)
+  console.log(`  no_text (→ false):         ${results.no_text}`)
+  console.log(`  auto_true_brand_inkout:    ${results.auto_true_brand_inkout}`)
+  console.log(`  auto_true_result_rating:   ${results.auto_true_result_rating}`)
+  console.log(`  keyword_confirm:           ${results.keyword_confirm}`)
+  console.log(`  keyword_tattoo:            ${results.keyword_tattoo}`)
+  console.log(`  keyword_deny:              ${results.keyword_deny}`)
+  console.log(`  llm_classified:            ${results.llm_classified}`)
+  console.log(`  unresolved (null, no LLM): ${results.unresolved}`)
+  console.log(`  Total updates:             ${updates.length}`)
 
   if (!WRITE) {
     console.log('\n  Add --write to apply these changes to Supabase.')
     return
   }
 
-  // Batch updates — PATCH by id
   console.log('\nWriting to Supabase...')
+  const now = new Date().toISOString()
   let written = 0
   for (const u of updates) {
-    await api('PATCH', `competitor_reviews?id=eq.${u.id}`, { is_tattoo_removal: u.is_tattoo_removal })
+    await api('PATCH', `competitor_reviews?id=eq.${u.id}`, {
+      is_tattoo_removal: u.is_tattoo_removal,
+      relevance_reason: u.relevance_reason,
+      last_analyzed_at: now,
+    })
     written++
     if (written % 50 === 0) process.stdout.write(`  ${written}/${updates.length}\r`)
   }

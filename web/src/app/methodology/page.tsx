@@ -191,6 +191,9 @@ export default function MethodologyPage() {
                 processed by the AI analysis pipeline.
               </li>
               <li style={{ marginBottom: 8 }}>
+                Reviews link back to their Google source for verification where available.
+              </li>
+              <li style={{ marginBottom: 8 }}>
                 The full underlying dataset — including routing reasons, AI analysis fields, and raw review
                 text — is available on request for legal or internal review.
               </li>

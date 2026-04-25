@@ -131,6 +131,19 @@ export default function InkoutReviewsPage() {
                 <p style={{ color: 'var(--text)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
                   {r.review_text}
                 </p>
+                {r.source_url && (
+                  <div style={{ marginTop: 8 }}>
+                    <a
+                      href={r.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: 11, color: 'var(--muted)', textDecoration: 'none', opacity: 0.7 }}
+                      title="View original review on Google Maps"
+                    >
+                      ↗ View on Google
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>

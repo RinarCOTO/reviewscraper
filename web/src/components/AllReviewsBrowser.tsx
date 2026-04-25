@@ -167,9 +167,11 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
                 : <div className="review-text empty">Rating only — no written review</div>
               }
               <div className="tags">
-                <span className="badge" style={{ background: 'rgba(0,0,0,.3)', border: `1px solid ${resultColor(r.result_rating)}`, color: resultColor(r.result_rating) }}>
-                  {r.result_rating || 'unknown'}
-                </span>
+                {r.result_rating && r.result_rating !== 'unknown' && (
+                  <span className="badge" style={{ background: 'rgba(0,0,0,.3)', border: `1px solid ${resultColor(r.result_rating)}`, color: resultColor(r.result_rating) }}>
+                    {r.result_rating}
+                  </span>
+                )}
                 {r.location_transition && (
                   <span className="badge badge-transition">Transition-era</span>
                 )}
@@ -180,6 +182,18 @@ export default function AllReviewsBrowser({ reviews }: { reviews: Review[] }) {
                   <span className="badge badge-purple">{r.use_case}</span>
                 )}
                 {r.scarring_mentioned === 'Yes' && <span className="badge badge-red">Scarring</span>}
+                {r.source_url && (
+                  <a
+                    href={r.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="badge badge-gray"
+                    style={{ textDecoration: 'none', opacity: 0.7 }}
+                    title="View original review on Google Maps"
+                  >
+                    ↗ Google
+                  </a>
+                )}
               </div>
             </div>
           )

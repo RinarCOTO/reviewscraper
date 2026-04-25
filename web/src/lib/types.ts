@@ -42,6 +42,7 @@ export interface Review {
   last_analyzed_at: string | null
   reviewed_at: string | null
   reviewed_decision: string | null
+  source_url: string | null
 }
 
 export interface Provider {

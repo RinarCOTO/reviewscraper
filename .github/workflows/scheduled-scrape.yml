@@ -1,0 +1,89 @@
+name: Scheduled Scrape Pipeline
+
+# Runs on the 1st and 15th of each month at 09:00 UTC (03:00 CT / 04:00 CDT).
+# RTR's rebuild runs the following day, so fresh data lands in Supabase first.
+on:
+  schedule:
+    - cron: '0 9 1,15 * *'
+  workflow_dispatch:
+    inputs:
+      skip_llm:
+        description: 'Skip LLM relevance classification (--skip-llm)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run — no Supabase writes, produces diff CSV (--dry-run)'
+        type: boolean
+        default: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Install Python dependencies
+        run: pip install -r separator/requirements.txt
+
+      # pipeline.mjs requires a .env file at the repo root — inject from secrets
+      - name: Write .env
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          echo "SERPAPI_KEY=${SERPAPI_KEY}" > .env
+          echo "ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}" >> .env
+          echo "SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}" >> .env
+
+      - name: Bucket count — before
+        run: |
+          echo "=== Bucket summary BEFORE ==="
+          if [ -f output/summary.txt ]; then cat output/summary.txt; else echo "(no prior summary.txt in checkout)"; fi
+
+      - name: Run pipeline
+        run: |
+          FLAGS="--force"
+          if [ "${{ inputs.skip_llm }}" = "true" ]; then FLAGS="$FLAGS --skip-llm"; fi
+          if [ "${{ inputs.dry_run }}"  = "true" ]; then FLAGS="$FLAGS --dry-run";  fi
+          echo "node pipeline.mjs $FLAGS"
+          node pipeline.mjs $FLAGS
+
+      - name: Bucket count — after
+        if: always()
+        run: |
+          echo "=== Bucket summary AFTER ==="
+          if [ -f output/summary.txt ]; then cat output/summary.txt; else echo "(no summary.txt produced)"; fi
+
+      - name: Upload pipeline logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 30
+
+      - name: Upload dry-run diff
+        if: ${{ inputs.dry_run == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-diff-${{ github.run_id }}
+          path: output/pipeline_dry_run_*.csv
+          retention-days: 7

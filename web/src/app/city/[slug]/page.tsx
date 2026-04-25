@@ -5,6 +5,7 @@ export function generateStaticParams() {
   return CITY_SLUGS.map(slug => ({ slug }))
 }
 
-export default function CityPage({ params }: { params: { slug: string } }) {
-  return <CityPageClient slug={params.slug} />
+export default async function CityPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  return <CityPageClient slug={slug} />
 }

@@ -16,6 +16,7 @@ import os
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+
 from pathlib import Path
 
 # Allow running from anywhere relative to this file
@@ -177,6 +178,7 @@ def write_bucket_lookup(buckets: 'dict[str, list]', path: Path):
             lookup[key] = {
                 'bucket': bucket,
                 'routing_reason': r.get('routing_reason'),
+                'last_analyzed_at': r.get('last_analyzed_at'),
             }
     path.write_text(json.dumps(lookup, indent=2), encoding='utf-8')
 
@@ -392,6 +394,7 @@ def main():
                 })
 
         review['bucket'] = assign_bucket(review, raw_text)
+        review['last_analyzed_at'] = datetime.now(timezone.utc).isoformat()
 
     buckets: dict[str, list] = {
         'inkout': [r for r in reviews if r['bucket'] == 'inkout'],

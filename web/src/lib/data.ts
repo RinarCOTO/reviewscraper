@@ -3,6 +3,12 @@ import type { Review, CityData, BusinessSummary, DateRange, ResultRatingBreakdow
 
 export const SCRAPER_CAP = 50
 
+export function toSlug(providerName: string, city: string, state: string) {
+  const p = providerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  const c = city.toLowerCase().replace(/\s+/g, '-')
+  return `${p}-${c}-${state.toLowerCase()}`
+}
+
 export function computeDateRange(reviews: Review[]): DateRange | null {
   const dates = reviews
     .filter(r => r.review_date_iso)
@@ -151,7 +157,7 @@ export async function getCityData(slug: string): Promise<CityData | null> {
     })
     const method = statReviews[0]?.method_used || '—'
     const providerSlug = statReviews[0]
-      ? `${statReviews[0].provider_name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${statReviews[0].location_city.toLowerCase().replace(/\s+/g, '-')}-${statReviews[0].location_state.toLowerCase()}`
+      ? toSlug(statReviews[0].provider_name, statReviews[0].location_city, statReviews[0].location_state)
       : ''
 
     businesses.push({
@@ -201,8 +207,8 @@ export async function getCompetitorReviews(slug: string): Promise<Review[]> {
 
   const all = data as Review[]
   return all.filter(r => {
-    const rSlug = `${r.provider_name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${r.location_city.toLowerCase().replace(/\s+/g, '-')}-${r.location_state.toLowerCase()}`
-    return rSlug === slug
+    if (!isInkout && r.is_tattoo_removal === false) return false
+    return toSlug(r.provider_name, r.location_city, r.location_state) === slug
   })
 }
 

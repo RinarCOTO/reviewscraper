@@ -191,6 +191,20 @@ export default function ReviewRequiredPage() {
                   </div>
                 )}
 
+                {r.source_url && (
+                  <div style={{ marginBottom: 8 }}>
+                    <a
+                      href={r.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: 11, color: 'var(--muted)', textDecoration: 'none', opacity: 0.7 }}
+                      title="View original review on Google Maps"
+                    >
+                      ↗ View on Google
+                    </a>
+                  </div>
+                )}
+
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   <button
                     onClick={() => initiateAction(r, 'approve')}

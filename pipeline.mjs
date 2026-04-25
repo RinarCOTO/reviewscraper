@@ -12,7 +12,7 @@
  *
  * Usage:
  *   node pipeline.mjs                  # full run
- *   node pipeline.mjs --dry-run        # scrape + analyze only, no Supabase write
+ *   node pipeline.mjs --dry-run        # all steps but no Supabase writes; produces diff CSV
  *   node pipeline.mjs --skip-llm       # skip step 6 (relevance classification)
  *   node pipeline.mjs --step=scrape    # run a single step
  *
@@ -119,6 +119,195 @@ function shouldRun(step) {
   return !ONLY_STEP || ONLY_STEP === step;
 }
 
+// ── Pipeline dry-run diff ─────────────────────────────────────────────────────
+// Runs after Step 4 (separator) when --dry-run is set.
+// Compares proposed routing (from bucket_lookup.json) against current Supabase state.
+// Keyword-only relevance check; LLM changes flagged as skipped.
+
+const CONFIRM_REMOVAL_KW = [
+  'tattoo removal','remove tattoo','removed tattoo','removing tattoo',
+  'tattoo laser','laser tattoo','laser removal','removal session',
+  'tattoo session','tattoo fading','tattoo faded','tattoo gone',
+  'tattoo is fading','tattoo is gone','tattoo is removed',
+  'removal treatment','removal process','tattoo treatment',
+  'tatt2away','inkout','ink-out',
+  'picosure','picoway','revlite','enlighten laser',
+  'q-switch','q switch','nd:yag',
+  'tattoo appointment','tattoo procedure',
+];
+const NON_REMOVAL_KW = [
+  'lip filler','lip flip','lip augmentation','lip injection',
+  'sculptra','juvederm','restylane','kybella','radiesse','belotero',
+  'microneedling','micro needling','micro-needling',
+  'laser hair removal','laser hair','hair removal',
+  'ear piercing','nose piercing','body piercing','ear pierced','nose pierced',
+  'got pierced','had pierced',
+  'botox','dysport','xeomin','botulinum',
+  'hydrafacial','hydra facial','hydra-facial',
+  'microblading','micro blading','permanent makeup',
+  'coolsculpting','cool sculpting','cryolipolysis',
+  'chemical peel','dermaplaning','dermaplane',
+  'iv therapy','iv drip','iv infusion',
+  'dermal filler','filler injection',
+  'lash lift','lash extension','eyelash extension',
+  'prp injection','prp treatment','platelet-rich',
+  'lip plump','lip volume','sculptra treatment',
+];
+
+function kwRelevance(row) {
+  if (!row.has_text || !row.review_text) return { value: false, reason: 'no_text' };
+  if (row.brand_name === 'inkOUT') return { value: true, reason: 'auto_true_brand_inkout' };
+  if (row.result_rating && row.result_rating !== 'unknown') return { value: true, reason: 'auto_true_result_rating' };
+  const t = (row.review_text || '').toLowerCase();
+  if (CONFIRM_REMOVAL_KW.some(k => t.includes(k))) return { value: true, reason: 'keyword_confirm' };
+  if (t.includes('tattoo')) return { value: true, reason: 'keyword_tattoo' };
+  if (NON_REMOVAL_KW.some(k => t.includes(k))) return { value: false, reason: 'keyword_deny' };
+  return { value: null, reason: 'llm_skipped_in_dry_run' };
+}
+
+// Normalize ISO timestamp to Z-suffix format for key matching across sources
+function normalizeIso(s) {
+  if (!s) return s;
+  return s.replace(/\+00:00$/, 'Z');
+}
+
+async function fetchSupabaseRows(serviceKey) {
+  const url = 'https://rxrhvbfutjahgwaambqd.supabase.co/rest/v1/competitor_reviews'
+    + '?select=id,reviewer_name,review_date_iso,location_city,location_state,provider_name,bucket,routing_reason,is_tattoo_removal,has_text,review_text,result_rating,brand_name'
+    + '&status=eq.published&limit=2000';
+  const res = await fetch(url, {
+    headers: {
+      'apikey': serviceKey,
+      'Authorization': `Bearer ${serviceKey}`,
+    },
+  });
+  if (!res.ok) throw new Error(`Supabase fetch: ${res.status} ${await res.text()}`);
+  return res.json();
+}
+
+function escapeCsv(val) {
+  if (val == null) return '';
+  const s = String(val);
+  return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+async function dryRunDiff() {
+  const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  const csvPath = path.join(__dirname, `output/pipeline_dry_run_${ts}.csv`);
+
+  log('\n── Pipeline dry-run diff ────────────────────────────────────────');
+
+  // Load proposed state from separator output
+  const bucketLookupPath = path.join(__dirname, 'output/bucket_lookup.json');
+  if (!fs.existsSync(bucketLookupPath)) {
+    log('  SKIPPED: output/bucket_lookup.json not found (run Step 4 first)');
+    return;
+  }
+  const lookup = JSON.parse(fs.readFileSync(bucketLookupPath, 'utf8'));
+
+  // Load analyzed JSON for review metadata
+  const analyzedPath = path.join(__dirname, 'data/analyzed/analyzed-v4-all-dated.json');
+  const analyzed = JSON.parse(fs.readFileSync(analyzedPath, 'utf8'));
+  const analyzedByKey = new Map();
+  for (const r of analyzed) {
+    const key = `${r.reviewer_name}|${r.review_date_iso}|${r.location_city}`;
+    analyzedByKey.set(key, r);
+  }
+
+  // Fetch current Supabase state
+  const serviceKey = process.env.SUPABASE_SERVICE_KEY;
+  const currentRows = await fetchSupabaseRows(serviceKey);
+  const currentByKey = new Map();
+  for (const r of currentRows) {
+    const key = `${r.reviewer_name}|${normalizeIso(r.review_date_iso)}|${r.location_city}`;
+    currentByKey.set(key, r);
+  }
+
+  const diffRows = [];
+  let newScrapeCount = 0, bucketChangeCount = 0, relevanceChangeCount = 0, unchangedCount = 0;
+
+  for (const [key, entry] of Object.entries(lookup)) {
+    const proposed = typeof entry === 'string' ? { bucket: entry, routing_reason: null } : entry;
+    const current = currentByKey.get(key);
+    const meta = analyzedByKey.get(key);
+
+    const isNew = !current;
+    if (isNew) newScrapeCount++;
+
+    const currentBucket = current?.bucket ?? null;
+    const proposedBucket = proposed.bucket;
+    const currentReason = current?.routing_reason ?? null;
+    const proposedReason = proposed.routing_reason ?? null;
+    const bucketChanged = currentBucket !== proposedBucket;
+    if (bucketChanged && !isNew) bucketChangeCount++;
+
+    // Keyword-only relevance for dry-run
+    const relevRow = meta || current;
+    const { value: proposedRelevance, reason: relevReason } = relevRow ? kwRelevance(relevRow) : { value: null, reason: null };
+    const currentRelevance = current?.is_tattoo_removal ?? null;
+    const relevanceChanged = currentRelevance !== proposedRelevance && proposedRelevance !== null && !isNew;
+    if (relevanceChanged) relevanceChangeCount++;
+
+    if (!isNew && !bucketChanged && !relevanceChanged) { unchangedCount++; continue; }
+
+    const reasons = [];
+    if (isNew) reasons.push('new_scrape');
+    if (bucketChanged && !isNew) reasons.push('bucket_change');
+    if (relevanceChanged) reasons.push('relevance_resolved');
+
+    const provider = meta
+      ? `${meta.provider_name} (${meta.location_city}, ${meta.location_state})`
+      : (current ? `${current.provider_name} (${current.location_city}, ${current.location_state})` : key);
+
+    const preview = (meta?.review_text || current?.review_text || '').slice(0, 120).replace(/\n/g, ' ');
+
+    diffRows.push({
+      review_id:                  current?.id ?? 'NEW',
+      provider,
+      current_bucket:             currentBucket ?? '',
+      proposed_bucket:            proposedBucket,
+      current_routing_reason:     currentReason ?? '',
+      proposed_routing_reason:    proposedReason ?? '',
+      current_is_tattoo_removal:  currentRelevance ?? '',
+      proposed_is_tattoo_removal: proposedRelevance ?? relevReason ?? '',
+      reason_for_change:          reasons.join('; '),
+      review_text_preview:        preview,
+    });
+  }
+
+  // Write CSV
+  const headers = [
+    'review_id','provider','current_bucket','proposed_bucket',
+    'current_routing_reason','proposed_routing_reason',
+    'current_is_tattoo_removal','proposed_is_tattoo_removal',
+    'reason_for_change','review_text_preview',
+  ];
+  const lines = [headers.join(',')];
+  for (const row of diffRows) {
+    lines.push(headers.map(h => escapeCsv(row[h])).join(','));
+  }
+  fs.mkdirSync(path.join(__dirname, 'output'), { recursive: true });
+  fs.writeFileSync(csvPath, lines.join('\n'), 'utf8');
+
+  // Print summary
+  log('\n  Dry-run diff summary:');
+  log(`    New reviews (would be added):       ${newScrapeCount}`);
+  log(`    Bucket changes (existing rows):     ${bucketChangeCount}`);
+  log(`    Relevance resolved (keyword-only):  ${relevanceChangeCount}`);
+  log(`    Unchanged:                          ${unchangedCount}`);
+  log(`    Total writes avoided:               ${newScrapeCount + bucketChangeCount + relevanceChangeCount}`);
+  log(`    LLM relevance step:                 SKIPPED in dry-run — run without --dry-run to classify`);
+  log(`\n  Full diff saved → ${csvPath}`);
+
+  if (diffRows.length > 0) {
+    log('\n  Sample (first 10 changed rows):');
+    for (const r of diffRows.slice(0, 10)) {
+      log(`    [${r.reason_for_change}] ${r.provider}`);
+      log(`      bucket: ${r.current_bucket || '(new)'} → ${r.proposed_bucket}  reason: ${r.proposed_routing_reason || '—'}`);
+    }
+  }
+}
+
 // ── Supabase null-count helper ────────────────────────────────────────────────
 async function countNullRelevance() {
   const url = 'https://rxrhvbfutjahgwaambqd.supabase.co/rest/v1/competitor_reviews'
@@ -191,6 +380,11 @@ async function main() {
         'separator',
         `python3 separator/run.py --input "data/analyzed/analyzed-v4-all-dated.json" --output-dir output`
       );
+    }
+
+    // ── Dry-run diff (after separator, before import) ─────────────────────
+    if (DRY_RUN && shouldRun('separate')) {
+      await dryRunDiff();
     }
 
     // ── Step 5: Import to Supabase ────────────────────────────────────────

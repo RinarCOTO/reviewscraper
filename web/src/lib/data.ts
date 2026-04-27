@@ -54,6 +54,7 @@ export async function getAllReviews(): Promise<Review[]> {
     .from('competitor_reviews')
     .select('*')
     .eq('status', 'published')
+    .or('result_rating.neq.unknown,use_case.neq.unknown')
     .order('review_date_iso', { ascending: false })
 
   if (error) throw new Error(`getAllReviews: ${error.message}`)
@@ -66,6 +67,7 @@ export async function getInkoutReviews(): Promise<Review[]> {
     .select('*')
     .eq('status', 'published')
     .eq('bucket', 'inkout')
+    .or('result_rating.neq.unknown,use_case.neq.unknown')
     .order('review_date_iso', { ascending: false })
 
   if (error) throw new Error(`getInkoutReviews: ${error.message}`)
@@ -78,6 +80,7 @@ export async function getTatt2awayReviews(): Promise<Review[]> {
     .select('*')
     .eq('status', 'published')
     .eq('bucket', 'tatt2away')
+    .or('result_rating.neq.unknown,use_case.neq.unknown')
     .order('review_date_iso', { ascending: false })
 
   if (error) throw new Error(`getTatt2awayReviews: ${error.message}`)
@@ -115,6 +118,7 @@ export async function getCityData(slug: string): Promise<CityData | null> {
     .eq('status', 'published')
     .eq('location_city', loc.city)
     .eq('location_state', loc.state)
+    .or('result_rating.neq.unknown,use_case.neq.unknown')
 
   if (error) throw new Error(`getCityData: ${error.message}`)
   const cityReviews = data as Review[]
@@ -197,6 +201,7 @@ export async function getCompetitorReviews(slug: string): Promise<Review[]> {
     .from('competitor_reviews')
     .select('*')
     .eq('status', 'published')
+    .or('result_rating.neq.unknown,use_case.neq.unknown')
     .order('review_date_iso', { ascending: false })
 
   if (isInkout) {

@@ -140,14 +140,6 @@ const PROVIDERS = [
     providerName: 'Arviv Medical Aesthetics', city: 'Tampa', state: 'FL', method: 'Other',
     in_scope: true,
   },
-  {
-    slug: 'skintellect-tampa-fl',
-    place_id: null,
-    query: 'Skintellect Tampa FL tattoo removal',
-    expected_title_pattern: /skintellect/i,
-    providerName: 'Skintellect', city: 'Tampa', state: 'FL', method: 'Other',
-    in_scope: true,
-  },
 
   // ── Chicago IL competitors ────────────────────────────────────────────────
   {
@@ -230,14 +222,14 @@ const PROVIDERS = [
   // ── Removery expansion — out of scope for now ─────────────────────────────
   // Set in_scope: true to include in future scrapes when comparison set is expanded.
   { slug: 'removery-round-rock-tx',       place_id: null, query: 'Removery Round Rock TX',       expected_title_pattern: /removery/i, providerName: 'Removery (Round Rock)',      city: 'Round Rock',  state: 'TX', method: 'PicoWay', in_scope: false },
-  { slug: 'removery-hedwig-village-tx',   place_id: null, query: 'Removery Hedwig Village TX',   expected_title_pattern: /removery/i, providerName: 'Removery (Hedwig Village)', city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: false },
-  { slug: 'removery-east-houston-tx',     place_id: null, query: 'Removery East Houston TX',     expected_title_pattern: /removery/i, providerName: 'Removery (East Houston)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: false },
+  { slug: 'removery-hedwig-village-tx',   place_id: null, query: 'Removery Hedwig Village TX',   expected_title_pattern: /removery/i, providerName: 'Removery (Hedwig Village)', city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: true },
+  { slug: 'removery-east-houston-tx',     place_id: null, query: 'Removery East Houston TX',     expected_title_pattern: /removery/i, providerName: 'Removery (East Houston)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: true },
   { slug: 'removery-katy-tx',             place_id: null, query: 'Removery Katy TX',             expected_title_pattern: /removery/i, providerName: 'Removery (Katy)',           city: 'Katy',        state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-friendswood-tx',      place_id: null, query: 'Removery Friendswood TX',      expected_title_pattern: /removery/i, providerName: 'Removery (Friendswood)',    city: 'Friendswood', state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-sugar-land-tx',       place_id: null, query: 'Removery Sugar Land TX',       expected_title_pattern: /removery/i, providerName: 'Removery (Sugar Land)',     city: 'Sugar Land',  state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-the-woodlands-tx',    place_id: null, query: 'Removery The Woodlands TX',    expected_title_pattern: /removery/i, providerName: 'Removery (The Woodlands)',  city: 'Shenandoah',  state: 'TX', method: 'PicoWay', in_scope: false },
-  { slug: 'removery-rice-village-tx',     place_id: null, query: 'Removery Rice Village Houston',expected_title_pattern: /removery/i, providerName: 'Removery (Rice Village)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: false },
-  { slug: 'removery-westshore-fl',        place_id: null, query: 'Removery Westshore Tampa FL',  expected_title_pattern: /removery/i, providerName: 'Removery (Westshore)',      city: 'Tampa',       state: 'FL', method: 'PicoWay', in_scope: false },
+  { slug: 'removery-rice-village-tx',     place_id: null, query: 'Removery Rice Village Houston',expected_title_pattern: /removery/i, providerName: 'Removery (Rice Village)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: true },
+  { slug: 'removery-westshore-fl',        place_id: null, query: 'Removery Westshore Tampa FL',  expected_title_pattern: /removery/i, providerName: 'Removery (Westshore)',      city: 'Tampa',       state: 'FL', method: 'PicoWay', in_scope: true },
 ];
 
 // ── CA exclusion guard ───────────────────────────────────────────────────────

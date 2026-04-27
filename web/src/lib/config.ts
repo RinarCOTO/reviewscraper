@@ -40,7 +40,6 @@ export const CITIES: CityConfig[] = [
       { name: 'Arviv Medical Aesthetics', slug: 'arviv-medical-aesthetics-tampa-fl', stars: '5★', dotColor: 'var(--green)' },
       { name: 'Erasable Med Spa', slug: 'erasable-med-spa-tampa-fl', stars: '4.9★', dotColor: 'var(--green)' },
       { name: 'inkOUT', slug: 'inkout-tampa-fl', stars: '4.8★', isInkout: true, dotColor: 'var(--green)' },
-      { name: 'Skintellect', slug: 'skintellect-tampa-fl', stars: '4.8★', dotColor: 'var(--green)' },
     ],
   },
   {

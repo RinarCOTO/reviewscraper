@@ -136,6 +136,16 @@ export default function Sidebar() {
       <hr className="sidebar-divider" />
 
       <div className="sidebar-section">
+        <div className="sidebar-section-label">Comparisons</div>
+        <Link href="/comparisons/picosure-vs-picoway" className={`nav-item${pathname.startsWith('/comparisons/picosure-vs-picoway') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(59,130,246,.1)' }}>⚡</div>
+          <span className="label">PicoSure vs PicoWay</span>
+        </Link>
+      </div>
+
+      <hr className="sidebar-divider" />
+
+      <div className="sidebar-section">
         <Link href="/methodology" className={`nav-item${pathname.startsWith('/methodology') ? ' active' : ''}`}>
           <div className="icon" style={{ background: 'rgba(148,163,184,.1)' }}>📋</div>
           <span className="label">Methodology</span>

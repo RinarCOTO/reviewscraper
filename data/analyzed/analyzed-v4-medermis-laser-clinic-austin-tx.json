@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-12-05",
+    "review_date_label": "Dec 05, 2025 (verified from SerpAPI iso_date, last edited Dec 05, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-01",
+    "review_date_label": "Nov 01, 2025 (verified from SerpAPI iso_date, last edited Nov 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "Light",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-01-24",
+    "review_date_label": "Jan 24, 2022 (verified from SerpAPI iso_date, last edited Oct 31, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-06",
+    "review_date_label": "Sep 06, 2025 (verified from SerpAPI iso_date, last edited Sep 06, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-28",
+    "review_date_label": "Aug 28, 2025 (verified from SerpAPI iso_date, last edited Aug 28, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-01",
+    "review_date_label": "Aug 01, 2025 (verified from SerpAPI iso_date, last edited Aug 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-17",
+    "review_date_label": "Jun 17, 2025 (verified from SerpAPI iso_date, last edited Jun 17, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-01-30",
+    "review_date_label": "Jan 30, 2025 (verified from SerpAPI iso_date, last edited Jan 30, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -222,7 +294,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-11-06",
+    "review_date_label": "Nov 06, 2024 (verified from SerpAPI iso_date, last edited Nov 06, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-10-01",
+    "review_date_label": "Oct 01, 2024 (verified from SerpAPI iso_date, last edited Oct 01, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-08-07",
+    "review_date_label": "Aug 07, 2024 (verified from SerpAPI iso_date, last edited Aug 07, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -297,7 +396,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-06-13",
+    "review_date_label": "Jun 13, 2024 (verified from SerpAPI iso_date, last edited Jun 13, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-05-20",
+    "review_date_label": "May 20, 2024 (verified from SerpAPI iso_date, last edited May 20, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-05-06",
+    "review_date_label": "May 06, 2024 (verified from SerpAPI iso_date, last edited May 06, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -372,7 +498,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-03-08",
+    "review_date_label": "Mar 08, 2024 (verified from SerpAPI iso_date, last edited Mar 08, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-01-14",
+    "review_date_label": "Jan 14, 2024 (verified from SerpAPI iso_date, last edited Jan 14, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -422,7 +566,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-12-04",
+    "review_date_label": "Dec 04, 2023 (verified from SerpAPI iso_date, last edited Dec 04, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-09-09",
+    "review_date_label": "Sep 09, 2023 (verified from SerpAPI iso_date, last edited Sep 09, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -472,7 +634,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-09-05",
+    "review_date_label": "Sep 05, 2023 (verified from SerpAPI iso_date, last edited Sep 05, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-01-13",
+    "review_date_label": "Jan 13, 2023 (verified from SerpAPI iso_date, last edited Jan 13, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -522,7 +702,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-09-23",
+    "review_date_label": "Sep 23, 2022 (verified from SerpAPI iso_date, last edited Sep 23, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-05-05",
+    "review_date_label": "May 05, 2022 (verified from SerpAPI iso_date, last edited May 05, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-04-25",
+    "review_date_label": "Apr 25, 2022 (verified from SerpAPI iso_date, last edited Apr 25, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-04-25",
+    "review_date_label": "Apr 25, 2022 (verified from SerpAPI iso_date, last edited Apr 25, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Cover-up",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-04-14",
+    "review_date_label": "Apr 14, 2022 (verified from SerpAPI iso_date, last edited Apr 14, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-04-10",
+    "review_date_label": "Apr 10, 2022 (verified from SerpAPI iso_date, last edited Apr 10, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -672,7 +906,16 @@
     "sessions_completed": 6,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-03-18",
+    "review_date_label": "Mar 18, 2022 (verified from SerpAPI iso_date, last edited Mar 18, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-03-14",
+    "review_date_label": "Mar 14, 2022 (verified from SerpAPI iso_date, last edited Mar 14, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -722,7 +974,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-02-08",
+    "review_date_label": "Feb 08, 2022 (verified from SerpAPI iso_date, last edited Feb 08, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-08-16",
+    "review_date_label": "Aug 16, 2021 (verified from SerpAPI iso_date, last edited Aug 16, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-06-30",
+    "review_date_label": "Jun 30, 2021 (verified from SerpAPI iso_date, last edited Jun 30, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2021-05-27",
+    "review_date_label": "May 27, 2021 (verified from SerpAPI iso_date, last edited May 27, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-05-10",
+    "review_date_label": "May 10, 2021 (verified from SerpAPI iso_date, last edited May 10, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-08-02",
+    "review_date_label": "Aug 02, 2019 (verified from SerpAPI iso_date, last edited Apr 25, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -872,7 +1178,16 @@
     "sessions_completed": 7,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-04-16",
+    "review_date_label": "Apr 16, 2021 (verified from SerpAPI iso_date, last edited Apr 16, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -897,7 +1212,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-03-19",
+    "review_date_label": "Mar 19, 2021 (verified from SerpAPI iso_date, last edited Mar 19, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-12-20",
+    "review_date_label": "Dec 20, 2020 (verified from SerpAPI iso_date, last edited Dec 20, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-11-10",
+    "review_date_label": "Nov 10, 2020 (verified from SerpAPI iso_date, last edited Nov 10, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-10-11",
+    "review_date_label": "Oct 11, 2020 (verified from SerpAPI iso_date, last edited Oct 11, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-09-16",
+    "review_date_label": "Sep 16, 2020 (verified from SerpAPI iso_date, last edited Sep 16, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1022,7 +1382,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-02-21",
+    "review_date_label": "Feb 21, 2020 (verified from SerpAPI iso_date, last edited Feb 21, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-12-07",
+    "review_date_label": "Dec 07, 2019 (verified from SerpAPI iso_date, last edited Dec 07, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "Dark",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-10-10",
+    "review_date_label": "Oct 10, 2019 (verified from SerpAPI iso_date, last edited Oct 10, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-09-05",
+    "review_date_label": "Sep 05, 2019 (verified from SerpAPI iso_date, last edited Sep 05, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-08-27",
+    "review_date_label": "Aug 27, 2019 (verified from SerpAPI iso_date, last edited Aug 27, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-08-20",
+    "review_date_label": "Aug 20, 2019 (verified from SerpAPI iso_date, last edited Aug 20, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-08-18",
+    "review_date_label": "Aug 18, 2019 (verified from SerpAPI iso_date, last edited Aug 18, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-08-15",
+    "review_date_label": "Aug 15, 2019 (verified from SerpAPI iso_date, last edited Aug 15, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-07-25",
+    "review_date_label": "Jul 25, 2019 (verified from SerpAPI iso_date, last edited Jul 25, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "MEDermis Laser Clinic",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2019-07-09",
+    "review_date_label": "Jul 09, 2019 (verified from SerpAPI iso_date, last edited Jul 09, 2019)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "MEDermis Laser Clinic",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

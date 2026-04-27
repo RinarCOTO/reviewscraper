@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-23",
+    "review_date_label": "Apr 23, 2026 (verified from SerpAPI iso_date, last edited Apr 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-23",
+    "review_date_label": "Apr 23, 2026 (verified from SerpAPI iso_date, last edited Apr 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-22",
+    "review_date_label": "Apr 22, 2026 (verified from SerpAPI iso_date, last edited Apr 22, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-03-11",
+    "review_date_label": "Mar 11, 2025 (verified from SerpAPI iso_date, last edited Apr 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-20",
+    "review_date_label": "Apr 20, 2026 (verified from SerpAPI iso_date, last edited Apr 20, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -147,7 +192,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2026-04-18",
+    "review_date_label": "Apr 18, 2026 (verified from SerpAPI iso_date, last edited Apr 19, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-03-06",
+    "review_date_label": "Mar 06, 2025 (verified from SerpAPI iso_date, last edited Apr 16, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -197,7 +260,16 @@
     "sessions_completed": 6,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-17",
+    "review_date_label": "Dec 17, 2025 (verified from SerpAPI iso_date, last edited Apr 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-13",
+    "review_date_label": "Apr 13, 2026 (verified from SerpAPI iso_date, last edited Apr 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-21",
+    "review_date_label": "Jan 21, 2026 (verified from SerpAPI iso_date, last edited Apr 10, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-10",
+    "review_date_label": "Apr 10, 2026 (verified from SerpAPI iso_date, last edited Apr 10, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-09",
+    "review_date_label": "Apr 09, 2026 (verified from SerpAPI iso_date, last edited Apr 09, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-07",
+    "review_date_label": "Apr 07, 2026 (verified from SerpAPI iso_date, last edited Apr 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-04",
+    "review_date_label": "Apr 04, 2026 (verified from SerpAPI iso_date, last edited Apr 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -422,7 +566,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-08-16",
+    "review_date_label": "Aug 16, 2024 (verified from SerpAPI iso_date, last edited Mar 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-02-04",
+    "review_date_label": "Feb 04, 2022 (verified from SerpAPI iso_date, last edited Mar 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-27",
+    "review_date_label": "Mar 27, 2026 (verified from SerpAPI iso_date, last edited Mar 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-26",
+    "review_date_label": "Mar 26, 2026 (verified from SerpAPI iso_date, last edited Mar 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-26",
+    "review_date_label": "Mar 26, 2026 (verified from SerpAPI iso_date, last edited Mar 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-26",
+    "review_date_label": "Mar 26, 2026 (verified from SerpAPI iso_date, last edited Mar 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-25",
+    "review_date_label": "Mar 25, 2026 (verified from SerpAPI iso_date, last edited Mar 25, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-25",
+    "review_date_label": "Mar 25, 2026 (verified from SerpAPI iso_date, last edited Mar 25, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-21",
+    "review_date_label": "Mar 21, 2026 (verified from SerpAPI iso_date, last edited Mar 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-21",
+    "review_date_label": "Mar 21, 2026 (verified from SerpAPI iso_date, last edited Mar 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-18",
+    "review_date_label": "Mar 18, 2026 (verified from SerpAPI iso_date, last edited Mar 18, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-18",
+    "review_date_label": "Mar 18, 2026 (verified from SerpAPI iso_date, last edited Mar 18, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -722,7 +974,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-13",
+    "review_date_label": "Mar 13, 2026 (verified from SerpAPI iso_date, last edited Mar 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-13",
+    "review_date_label": "Mar 13, 2026 (verified from SerpAPI iso_date, last edited Mar 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-12",
+    "review_date_label": "Mar 12, 2026 (verified from SerpAPI iso_date, last edited Mar 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-06",
+    "review_date_label": "Mar 06, 2026 (verified from SerpAPI iso_date, last edited Mar 06, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-17",
+    "review_date_label": "Jan 17, 2026 (verified from SerpAPI iso_date, last edited Mar 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-04",
+    "review_date_label": "Mar 04, 2026 (verified from SerpAPI iso_date, last edited Mar 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -897,7 +1212,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-28",
+    "review_date_label": "Oct 28, 2025 (verified from SerpAPI iso_date, last edited Mar 03, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-02",
+    "review_date_label": "Mar 02, 2026 (verified from SerpAPI iso_date, last edited Mar 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-02",
+    "review_date_label": "Mar 02, 2026 (verified from SerpAPI iso_date, last edited Mar 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-02",
+    "review_date_label": "Mar 02, 2026 (verified from SerpAPI iso_date, last edited Mar 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-28",
+    "review_date_label": "Feb 28, 2026 (verified from SerpAPI iso_date, last edited Feb 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-28",
+    "review_date_label": "Feb 28, 2026 (verified from SerpAPI iso_date, last edited Feb 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-26",
+    "review_date_label": "Feb 26, 2026 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-26",
+    "review_date_label": "Feb 26, 2026 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1097,7 +1484,16 @@
     "sessions_completed": 7,
     "skin_type": "unknown",
     "use_case": "Color",
-    "result_rating": "Mixed"
+    "result_rating": "Mixed",
+    "review_date_estimated": "2026-02-26",
+    "review_date_label": "Feb 26, 2026 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-23",
+    "review_date_label": "Feb 23, 2026 (verified from SerpAPI iso_date, last edited Feb 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-23",
+    "review_date_label": "Feb 23, 2026 (verified from SerpAPI iso_date, last edited Feb 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-12-05",
+    "review_date_label": "Dec 05, 2024 (verified from SerpAPI iso_date, last edited Feb 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-17",
+    "review_date_label": "Feb 17, 2026 (verified from SerpAPI iso_date, last edited Feb 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-17",
+    "review_date_label": "Feb 17, 2026 (verified from SerpAPI iso_date, last edited Feb 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (Bucktown)",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-17",
+    "review_date_label": "Feb 17, 2026 (verified from SerpAPI iso_date, last edited Feb 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

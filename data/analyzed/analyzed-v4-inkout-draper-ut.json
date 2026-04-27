@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-16",
+    "review_date_label": "Apr 16, 2026 (verified from SerpAPI iso_date, last edited Apr 16, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-30",
+    "review_date_label": "Nov 30, 2025 (verified from SerpAPI iso_date, last edited Apr 16, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-21",
+    "review_date_label": "Aug 21, 2025 (verified from SerpAPI iso_date, last edited Apr 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-02",
+    "review_date_label": "Apr 02, 2026 (verified from SerpAPI iso_date, last edited Apr 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-01",
+    "review_date_label": "Mar 01, 2026 (verified from SerpAPI iso_date, last edited Mar 01, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-01-16",
+    "review_date_label": "Jan 16, 2026 (verified from SerpAPI iso_date, last edited Jan 16, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -172,7 +226,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2026-01-12",
+    "review_date_label": "Jan 12, 2026 (verified from SerpAPI iso_date, last edited Jan 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-02-13",
+    "review_date_label": "Feb 13, 2025 (verified from SerpAPI iso_date, last edited Jan 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -222,7 +294,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-12-23",
+    "review_date_label": "Dec 23, 2025 (verified from SerpAPI iso_date, last edited Dec 24, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-12-09",
+    "review_date_label": "Dec 09, 2025 (verified from SerpAPI iso_date, last edited Dec 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-05",
+    "review_date_label": "Dec 05, 2025 (verified from SerpAPI iso_date, last edited Dec 05, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-03",
+    "review_date_label": "Oct 03, 2025 (verified from SerpAPI iso_date, last edited Oct 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-21",
+    "review_date_label": "Aug 21, 2025 (verified from SerpAPI iso_date, last edited Aug 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-08-12",
+    "review_date_label": "Aug 12, 2025 (verified from SerpAPI iso_date, last edited Aug 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -372,7 +498,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-11-02",
+    "review_date_label": "Nov 02, 2024 (verified from SerpAPI iso_date, last edited Aug 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -397,7 +532,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-08-02",
+    "review_date_label": "Aug 02, 2025 (verified from SerpAPI iso_date, last edited Aug 02, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -422,7 +566,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-09",
+    "review_date_label": "Jul 09, 2025 (verified from SerpAPI iso_date, last edited Jul 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-05",
+    "review_date_label": "Jul 05, 2025 (verified from SerpAPI iso_date, last edited Jul 05, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -472,7 +634,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-04-02",
+    "review_date_label": "Apr 02, 2025 (verified from SerpAPI iso_date, last edited Apr 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -497,7 +668,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-01-23",
+    "review_date_label": "Jan 23, 2025 (verified from SerpAPI iso_date, last edited Jan 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-12-12",
+    "review_date_label": "Dec 12, 2024 (verified from SerpAPI iso_date, last edited Dec 12, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-11-26",
+    "review_date_label": "Nov 26, 2024 (verified from SerpAPI iso_date, last edited Nov 26, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-11-16",
+    "review_date_label": "Nov 16, 2024 (verified from SerpAPI iso_date, last edited Nov 16, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-10-17",
+    "review_date_label": "Oct 17, 2024 (verified from SerpAPI iso_date, last edited Oct 17, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -622,7 +838,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-09-23",
+    "review_date_label": "Sep 23, 2024 (verified from SerpAPI iso_date, last edited Sep 23, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -647,7 +872,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-08-31",
+    "review_date_label": "Aug 31, 2024 (verified from SerpAPI iso_date, last edited Aug 31, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-08-07",
+    "review_date_label": "Aug 07, 2024 (verified from SerpAPI iso_date, last edited Aug 07, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-06-24",
+    "review_date_label": "Jun 24, 2024 (verified from SerpAPI iso_date, last edited Jun 24, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-06-19",
+    "review_date_label": "Jun 19, 2024 (verified from SerpAPI iso_date, last edited Jun 19, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-05-02",
+    "review_date_label": "May 02, 2024 (verified from SerpAPI iso_date, last edited May 02, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-05-01",
+    "review_date_label": "May 01, 2024 (verified from SerpAPI iso_date, last edited May 02, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2023-11-06",
+    "review_date_label": "Nov 06, 2023 (verified from SerpAPI iso_date, last edited Nov 06, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-10-26",
+    "review_date_label": "Oct 26, 2023 (verified from SerpAPI iso_date, last edited Oct 26, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-09-06",
+    "review_date_label": "Sep 06, 2023 (verified from SerpAPI iso_date, last edited Sep 06, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-05-10",
+    "review_date_label": "May 10, 2023 (verified from SerpAPI iso_date, last edited May 10, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "Dark",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2023-03-11",
+    "review_date_label": "Mar 11, 2023 (verified from SerpAPI iso_date, last edited Mar 11, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-03-11",
+    "review_date_label": "Mar 11, 2023 (verified from SerpAPI iso_date, last edited Mar 11, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-03-02",
+    "review_date_label": "Mar 02, 2023 (verified from SerpAPI iso_date, last edited Mar 02, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -972,7 +1314,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-02-18",
+    "review_date_label": "Feb 18, 2023 (verified from SerpAPI iso_date, last edited Feb 18, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2023-01-05",
+    "review_date_label": "Jan 05, 2023 (verified from SerpAPI iso_date, last edited Jan 05, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-12-10",
+    "review_date_label": "Dec 10, 2022 (verified from SerpAPI iso_date, last edited Dec 10, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-11-22",
+    "review_date_label": "Nov 22, 2022 (verified from SerpAPI iso_date, last edited Nov 22, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2022-11-17",
+    "review_date_label": "Nov 17, 2022 (verified from SerpAPI iso_date, last edited Nov 17, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-11-10",
+    "review_date_label": "Nov 10, 2022 (verified from SerpAPI iso_date, last edited Nov 10, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-10-21",
+    "review_date_label": "Oct 21, 2022 (verified from SerpAPI iso_date, last edited Oct 21, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2022-10-07",
+    "review_date_label": "Oct 07, 2022 (verified from SerpAPI iso_date, last edited Oct 07, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1172,7 +1586,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-09-30",
+    "review_date_label": "Sep 30, 2022 (verified from SerpAPI iso_date, last edited Sep 30, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-09-27",
+    "review_date_label": "Sep 27, 2022 (verified from SerpAPI iso_date, last edited Sep 27, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1222,7 +1654,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-04-07",
+    "review_date_label": "Apr 07, 2022 (verified from SerpAPI iso_date, last edited Apr 07, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1247,7 +1688,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-03-14",
+    "review_date_label": "Mar 14, 2022 (verified from SerpAPI iso_date, last edited Mar 14, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1272,7 +1722,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-03-03",
+    "review_date_label": "Mar 03, 2022 (verified from SerpAPI iso_date, last edited Mar 03, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1297,7 +1756,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-02-17",
+    "review_date_label": "Feb 17, 2022 (verified from SerpAPI iso_date, last edited Feb 17, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1322,7 +1790,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-02-15",
+    "review_date_label": "Feb 15, 2022 (verified from SerpAPI iso_date, last edited Feb 15, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1347,7 +1824,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-02-11",
+    "review_date_label": "Feb 11, 2022 (verified from SerpAPI iso_date, last edited Feb 11, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1372,7 +1858,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-09-15",
+    "review_date_label": "Sep 15, 2021 (verified from SerpAPI iso_date, last edited Sep 15, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1397,7 +1892,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-09-15",
+    "review_date_label": "Sep 15, 2021 (verified from SerpAPI iso_date, last edited Sep 15, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "inkOUT",
@@ -1422,6 +1926,15 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-09-11",
+    "review_date_label": "Sep 11, 2021 (verified from SerpAPI iso_date, last edited Sep 11, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "inkOUT",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

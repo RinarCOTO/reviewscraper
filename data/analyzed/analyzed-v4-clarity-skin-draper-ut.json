@@ -22,7 +22,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-30",
+    "review_date_label": "Mar 30, 2026 (verified from SerpAPI iso_date, last edited Mar 30, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-13",
+    "review_date_label": "Mar 13, 2026 (verified from SerpAPI iso_date, last edited Mar 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-13",
+    "review_date_label": "Mar 13, 2026 (verified from SerpAPI iso_date, last edited Mar 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2026-03-06",
+    "review_date_label": "Mar 06, 2026 (verified from SerpAPI iso_date, last edited Mar 06, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -122,7 +158,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-04",
+    "review_date_label": "Mar 04, 2026 (verified from SerpAPI iso_date, last edited Mar 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-02-11",
+    "review_date_label": "Feb 11, 2026 (verified from SerpAPI iso_date, last edited Feb 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-10-15",
+    "review_date_label": "Oct 15, 2025 (verified from SerpAPI iso_date, last edited Oct 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -197,7 +260,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-26",
+    "review_date_label": "Sep 26, 2025 (verified from SerpAPI iso_date, last edited Sep 26, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-23",
+    "review_date_label": "Sep 23, 2025 (verified from SerpAPI iso_date, last edited Sep 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-03",
+    "review_date_label": "Sep 03, 2025 (verified from SerpAPI iso_date, last edited Sep 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-30",
+    "review_date_label": "Aug 30, 2025 (verified from SerpAPI iso_date, last edited Aug 30, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-11",
+    "review_date_label": "Jul 11, 2025 (verified from SerpAPI iso_date, last edited Jul 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -322,7 +430,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-03",
+    "review_date_label": "Jul 03, 2025 (verified from SerpAPI iso_date, last edited Jul 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-05-20",
+    "review_date_label": "May 20, 2025 (verified from SerpAPI iso_date, last edited May 20, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-04-16",
+    "review_date_label": "Apr 16, 2025 (verified from SerpAPI iso_date, last edited Apr 16, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-03-31",
+    "review_date_label": "Mar 31, 2025 (verified from SerpAPI iso_date, last edited Mar 31, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -422,7 +566,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-01-21",
+    "review_date_label": "Jan 21, 2025 (verified from SerpAPI iso_date, last edited Jan 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-12-26",
+    "review_date_label": "Dec 26, 2024 (verified from SerpAPI iso_date, last edited Dec 26, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-11-09",
+    "review_date_label": "Nov 09, 2024 (verified from SerpAPI iso_date, last edited Nov 09, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-08-22",
+    "review_date_label": "Aug 22, 2024 (verified from SerpAPI iso_date, last edited Aug 22, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-06-26",
+    "review_date_label": "Jun 26, 2024 (verified from SerpAPI iso_date, last edited Jun 26, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-03-15",
+    "review_date_label": "Mar 15, 2024 (verified from SerpAPI iso_date, last edited Mar 15, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-02-24",
+    "review_date_label": "Feb 24, 2024 (verified from SerpAPI iso_date, last edited Feb 24, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-01-24",
+    "review_date_label": "Jan 24, 2024 (verified from SerpAPI iso_date, last edited Jan 28, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-01-24",
+    "review_date_label": "Jan 24, 2024 (verified from SerpAPI iso_date, last edited Jan 24, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2023-10-26",
+    "review_date_label": "Oct 26, 2023 (verified from SerpAPI iso_date, last edited Oct 26, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Mixed"
+    "result_rating": "Mixed",
+    "review_date_estimated": "2018-11-07",
+    "review_date_label": "Nov 07, 2018 (verified from SerpAPI iso_date, last edited Aug 24, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2023-05-03",
+    "review_date_label": "May 03, 2023 (verified from SerpAPI iso_date, last edited May 03, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2020-06-26",
+    "review_date_label": "Jun 26, 2020 (verified from SerpAPI iso_date, last edited Feb 07, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2023-02-02",
+    "review_date_label": "Feb 02, 2023 (verified from SerpAPI iso_date, last edited Feb 02, 2023)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2022-09-01",
+    "review_date_label": "Sep 01, 2022 (verified from SerpAPI iso_date, last edited Sep 01, 2022)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2021-11-17",
+    "review_date_label": "Nov 17, 2021 (verified from SerpAPI iso_date, last edited Nov 17, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -822,7 +1110,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2021-11-12",
+    "review_date_label": "Nov 12, 2021 (verified from SerpAPI iso_date, last edited Nov 12, 2021)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-12-15",
+    "review_date_label": "Dec 15, 2020 (verified from SerpAPI iso_date, last edited Dec 15, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2020-12-14",
+    "review_date_label": "Dec 14, 2020 (verified from SerpAPI iso_date, last edited Dec 14, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2020-11-17",
+    "review_date_label": "Nov 17, 2020 (verified from SerpAPI iso_date, last edited Nov 17, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2020-11-10",
+    "review_date_label": "Nov 10, 2020 (verified from SerpAPI iso_date, last edited Nov 10, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-11-02",
+    "review_date_label": "Nov 02, 2020 (verified from SerpAPI iso_date, last edited Nov 02, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2020-10-10",
+    "review_date_label": "Oct 10, 2020 (verified from SerpAPI iso_date, last edited Oct 24, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-10-19",
+    "review_date_label": "Oct 19, 2020 (verified from SerpAPI iso_date, last edited Oct 19, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2020-10-19",
+    "review_date_label": "Oct 19, 2020 (verified from SerpAPI iso_date, last edited Oct 19, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2020-10-05",
+    "review_date_label": "Oct 05, 2020 (verified from SerpAPI iso_date, last edited Oct 05, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2020-07-29",
+    "review_date_label": "Jul 29, 2020 (verified from SerpAPI iso_date, last edited Jul 29, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-07-22",
+    "review_date_label": "Jul 22, 2020 (verified from SerpAPI iso_date, last edited Jul 22, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2020-07-13",
+    "review_date_label": "Jul 13, 2020 (verified from SerpAPI iso_date, last edited Jul 13, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-07-13",
+    "review_date_label": "Jul 13, 2020 (verified from SerpAPI iso_date, last edited Jul 13, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2020-07-09",
+    "review_date_label": "Jul 09, 2020 (verified from SerpAPI iso_date, last edited Jul 09, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-07-01",
+    "review_date_label": "Jul 01, 2020 (verified from SerpAPI iso_date, last edited Jul 01, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2020-06-29",
+    "review_date_label": "Jun 29, 2020 (verified from SerpAPI iso_date, last edited Jun 29, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Clarity Skin",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2020-05-20",
+    "review_date_label": "May 20, 2020 (verified from SerpAPI iso_date, last edited May 20, 2020)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Clarity Skin",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

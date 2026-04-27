@@ -177,6 +177,14 @@ const PROVIDERS = [
 
   // ── Houston TX competitors ────────────────────────────────────────────────
   {
+    slug: 'dermaluxe-spa-houston-tx',
+    place_id: 'ChIJ_____7_UQIYRUXuEDE27d_4',
+    query: null,
+    expected_title_pattern: /dermaluxe/i,
+    providerName: 'Dermaluxe Spa', city: 'Houston', state: 'TX', method: 'Saline+Pico',
+    in_scope: true,
+  },
+  {
     slug: 'dermsurgery-associates-houston-tx',
     place_id: null,
     query: 'DermSurgery Associates Houston TX tattoo removal',

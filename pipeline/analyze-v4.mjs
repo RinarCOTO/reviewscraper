@@ -57,6 +57,7 @@ const METHOD_MAP = {
   'Kovak Cosmetic Center':      'PicoWay',
   'DermSurgery Associates':     'Q-Switch',
   'InkFree, MD':                'Other',
+  'Dermaluxe Spa':              'Saline+Pico',
 };
 
 function lookupMethod(providerName) {
@@ -175,6 +176,7 @@ async function analyze() {
   const args = process.argv.slice(2);
   const inputFile = args.find(a => !a.startsWith('--')) || path.join(REVIEWS_DIR, 'reviews-v4-all.json');
   const INCREMENTAL = args.includes('--mode=incremental');
+  const SKIP_AI = args.includes('--skip-ai');
 
   if (!fs.existsSync(inputFile)) {
     console.error(`${inputFile} not found — run scrape-v4.mjs first`);
@@ -235,21 +237,13 @@ async function analyze() {
   if (methodsAdded > 0) {
     console.log(`+ Added method_used to ${methodsAdded} reviews from provider lookup`);
   }
-  console.log(`\nAnalyzing ${reviews.length} reviews with ${MODEL}...\n`);
-
-  // ── Step 4: AI analysis ──
+  // ── Step 4: AI analysis (skipped when --skip-ai; Qwen patches these fields post-import) ──
   const analyzed = [];
   let errorCount = 0;
 
-  for (let i = 0; i < reviews.length; i++) {
-    const review = reviews[i];
-    process.stdout.write(`\r[${i + 1}/${reviews.length}] ${review.provider_name} (${review.location_city})...`);
-    try {
-      const fields = await categorize(review);
-      analyzed.push({ ...review, ...fields });
-    } catch (e) {
-      console.error(`\nFailed on review ${i + 1}:`, e.message);
-      errorCount++;
+  if (SKIP_AI) {
+    console.log(`\nSkipping AI analysis (--skip-ai) — Qwen will patch result_rating, pain_level, etc. after import\n`);
+    for (const review of reviews) {
       analyzed.push({
         ...review,
         pain_level: 'unknown',
@@ -258,13 +252,34 @@ async function analyze() {
         skin_type: 'unknown',
         use_case: 'unknown',
         result_rating: 'unknown',
-        _error: e.message,
       });
     }
-    await new Promise(r => setTimeout(r, 300));
+  } else {
+    console.log(`\nAnalyzing ${reviews.length} reviews with ${MODEL}...\n`);
+    for (let i = 0; i < reviews.length; i++) {
+      const review = reviews[i];
+      process.stdout.write(`\r[${i + 1}/${reviews.length}] ${review.provider_name} (${review.location_city})...`);
+      try {
+        const fields = await categorize(review);
+        analyzed.push({ ...review, ...fields });
+      } catch (e) {
+        console.error(`\nFailed on review ${i + 1}:`, e.message);
+        errorCount++;
+        analyzed.push({
+          ...review,
+          pain_level: 'unknown',
+          scarring_mentioned: 'No',
+          sessions_completed: 'unknown',
+          skin_type: 'unknown',
+          use_case: 'unknown',
+          result_rating: 'unknown',
+          _error: e.message,
+        });
+      }
+      await new Promise(r => setTimeout(r, 300));
+    }
+    console.log('\n');
   }
-
-  console.log('\n');
 
   // Merge with existing if incremental, then save
   const allAnalyzed = INCREMENTAL ? [...analyzed, ...existingAnalyzed] : analyzed;

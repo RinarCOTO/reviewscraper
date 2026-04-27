@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-14",
+    "review_date_label": "Oct 14, 2025 (verified from SerpAPI iso_date, last edited Feb 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-29",
+    "review_date_label": "Jul 29, 2025 (verified from SerpAPI iso_date, last edited Jan 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-13",
+    "review_date_label": "Jan 13, 2026 (verified from SerpAPI iso_date, last edited Jan 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-09",
+    "review_date_label": "Jan 09, 2026 (verified from SerpAPI iso_date, last edited Jan 09, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-31",
+    "review_date_label": "Dec 31, 2025 (verified from SerpAPI iso_date, last edited Dec 31, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-12-18",
+    "review_date_label": "Dec 18, 2025 (verified from SerpAPI iso_date, last edited Dec 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-10",
+    "review_date_label": "Dec 10, 2025 (verified from SerpAPI iso_date, last edited Dec 10, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-09-18",
+    "review_date_label": "Sep 18, 2025 (verified from SerpAPI iso_date, last edited Dec 02, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-27",
+    "review_date_label": "Nov 27, 2025 (verified from SerpAPI iso_date, last edited Nov 27, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-11-26",
+    "review_date_label": "Nov 26, 2025 (verified from SerpAPI iso_date, last edited Nov 26, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-11-19",
+    "review_date_label": "Nov 19, 2025 (verified from SerpAPI iso_date, last edited Nov 26, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-11-22",
+    "review_date_label": "Nov 22, 2025 (verified from SerpAPI iso_date, last edited Nov 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-21",
+    "review_date_label": "Nov 21, 2025 (verified from SerpAPI iso_date, last edited Nov 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-19",
+    "review_date_label": "Nov 19, 2025 (verified from SerpAPI iso_date, last edited Nov 19, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-11-13",
+    "review_date_label": "Nov 13, 2025 (verified from SerpAPI iso_date, last edited Nov 13, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-06-19",
+    "review_date_label": "Jun 19, 2025 (verified from SerpAPI iso_date, last edited Nov 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -422,7 +566,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-11",
+    "review_date_label": "Nov 11, 2025 (verified from SerpAPI iso_date, last edited Nov 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-11",
+    "review_date_label": "Nov 11, 2025 (verified from SerpAPI iso_date, last edited Nov 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-04",
+    "review_date_label": "Nov 04, 2025 (verified from SerpAPI iso_date, last edited Nov 04, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-31",
+    "review_date_label": "Oct 31, 2025 (verified from SerpAPI iso_date, last edited Oct 31, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-30",
+    "review_date_label": "Oct 30, 2025 (verified from SerpAPI iso_date, last edited Oct 30, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-30",
+    "review_date_label": "Oct 30, 2025 (verified from SerpAPI iso_date, last edited Oct 30, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-29",
+    "review_date_label": "Oct 29, 2025 (verified from SerpAPI iso_date, last edited Oct 29, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-10-24",
+    "review_date_label": "Oct 24, 2025 (verified from SerpAPI iso_date, last edited Oct 24, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-24",
+    "review_date_label": "Oct 24, 2025 (verified from SerpAPI iso_date, last edited Oct 24, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-22",
+    "review_date_label": "Oct 22, 2025 (verified from SerpAPI iso_date, last edited Oct 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-22",
+    "review_date_label": "Oct 22, 2025 (verified from SerpAPI iso_date, last edited Oct 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-22",
+    "review_date_label": "Oct 22, 2025 (verified from SerpAPI iso_date, last edited Oct 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-09",
+    "review_date_label": "Oct 09, 2025 (verified from SerpAPI iso_date, last edited Oct 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-01",
+    "review_date_label": "Oct 01, 2025 (verified from SerpAPI iso_date, last edited Oct 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-09-26",
+    "review_date_label": "Sep 26, 2025 (verified from SerpAPI iso_date, last edited Sep 26, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-09-19",
+    "review_date_label": "Sep 19, 2025 (verified from SerpAPI iso_date, last edited Sep 19, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-19",
+    "review_date_label": "Sep 19, 2025 (verified from SerpAPI iso_date, last edited Sep 19, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-10",
+    "review_date_label": "Sep 10, 2025 (verified from SerpAPI iso_date, last edited Sep 10, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-08-27",
+    "review_date_label": "Aug 27, 2025 (verified from SerpAPI iso_date, last edited Aug 27, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-18",
+    "review_date_label": "Aug 18, 2025 (verified from SerpAPI iso_date, last edited Aug 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-15",
+    "review_date_label": "Aug 15, 2025 (verified from SerpAPI iso_date, last edited Aug 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-05-12",
+    "review_date_label": "May 12, 2025 (verified from SerpAPI iso_date, last edited Aug 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-14",
+    "review_date_label": "Aug 14, 2025 (verified from SerpAPI iso_date, last edited Aug 14, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-08-08",
+    "review_date_label": "Aug 08, 2025 (verified from SerpAPI iso_date, last edited Aug 08, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-25",
+    "review_date_label": "Jul 25, 2025 (verified from SerpAPI iso_date, last edited Jul 25, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-25",
+    "review_date_label": "Jul 25, 2025 (verified from SerpAPI iso_date, last edited Jul 25, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-24",
+    "review_date_label": "Jul 24, 2025 (verified from SerpAPI iso_date, last edited Jul 24, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-23",
+    "review_date_label": "Jul 23, 2025 (verified from SerpAPI iso_date, last edited Jul 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-03",
+    "review_date_label": "Jul 03, 2025 (verified from SerpAPI iso_date, last edited Jul 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-06-28",
+    "review_date_label": "Jun 28, 2025 (verified from SerpAPI iso_date, last edited Jun 28, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-27",
+    "review_date_label": "Jun 27, 2025 (verified from SerpAPI iso_date, last edited Jun 27, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-12",
+    "review_date_label": "Jun 12, 2025 (verified from SerpAPI iso_date, last edited Jun 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-11",
+    "review_date_label": "Jun 11, 2025 (verified from SerpAPI iso_date, last edited Jun 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "DermSurgery Associates",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-06-07",
+    "review_date_label": "Jun 07, 2025 (verified from SerpAPI iso_date, last edited Jun 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "DermSurgery Associates",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

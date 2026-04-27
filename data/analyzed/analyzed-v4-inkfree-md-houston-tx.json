@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-12",
+    "review_date_label": "Apr 12, 2026 (verified from SerpAPI iso_date, last edited Apr 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-30",
+    "review_date_label": "Mar 30, 2026 (verified from SerpAPI iso_date, last edited Mar 30, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-21",
+    "review_date_label": "Mar 21, 2026 (verified from SerpAPI iso_date, last edited Mar 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-12",
+    "review_date_label": "Feb 12, 2026 (verified from SerpAPI iso_date, last edited Feb 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -122,7 +158,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-03",
+    "review_date_label": "Feb 03, 2026 (verified from SerpAPI iso_date, last edited Feb 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -147,7 +192,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-04",
+    "review_date_label": "Feb 04, 2026 (verified from SerpAPI iso_date, last edited Feb 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-27",
+    "review_date_label": "Jan 27, 2026 (verified from SerpAPI iso_date, last edited Jan 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -197,7 +260,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-24",
+    "review_date_label": "Jan 24, 2026 (verified from SerpAPI iso_date, last edited Jan 24, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -222,7 +294,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2026-01-19",
+    "review_date_label": "Jan 19, 2026 (verified from SerpAPI iso_date, last edited Jan 19, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-29",
+    "review_date_label": "Jun 29, 2025 (verified from SerpAPI iso_date, last edited Nov 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-11-18",
+    "review_date_label": "Nov 18, 2025 (verified from SerpAPI iso_date, last edited Nov 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-24",
+    "review_date_label": "Oct 24, 2025 (verified from SerpAPI iso_date, last edited Oct 24, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-18",
+    "review_date_label": "Oct 18, 2025 (verified from SerpAPI iso_date, last edited Oct 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Color",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-15",
+    "review_date_label": "Oct 15, 2025 (verified from SerpAPI iso_date, last edited Oct 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-07",
+    "review_date_label": "Oct 07, 2025 (verified from SerpAPI iso_date, last edited Oct 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-02",
+    "review_date_label": "Oct 02, 2025 (verified from SerpAPI iso_date, last edited Oct 02, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -422,7 +566,16 @@
     "sessions_completed": 4,
     "skin_type": "Dark",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-01",
+    "review_date_label": "Sep 01, 2025 (verified from SerpAPI iso_date, last edited Sep 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-20",
+    "review_date_label": "Aug 20, 2025 (verified from SerpAPI iso_date, last edited Aug 20, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-28",
+    "review_date_label": "Jul 28, 2025 (verified from SerpAPI iso_date, last edited Jul 28, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -497,7 +668,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-26",
+    "review_date_label": "Jul 26, 2025 (verified from SerpAPI iso_date, last edited Jul 26, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-18",
+    "review_date_label": "Jul 18, 2025 (verified from SerpAPI iso_date, last edited Jul 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-07-16",
+    "review_date_label": "Jul 16, 2025 (verified from SerpAPI iso_date, last edited Jul 16, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -572,7 +770,16 @@
     "sessions_completed": 0,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-14",
+    "review_date_label": "Jul 14, 2025 (verified from SerpAPI iso_date, last edited Jul 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-30",
+    "review_date_label": "Jun 30, 2025 (verified from SerpAPI iso_date, last edited Jun 30, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-04-28",
+    "review_date_label": "Apr 28, 2025 (verified from SerpAPI iso_date, last edited Jun 17, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-11",
+    "review_date_label": "Jun 11, 2025 (verified from SerpAPI iso_date, last edited Jun 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-06-11",
+    "review_date_label": "Jun 11, 2025 (verified from SerpAPI iso_date, last edited Jun 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-05-19",
+    "review_date_label": "May 19, 2025 (verified from SerpAPI iso_date, last edited May 19, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -722,7 +974,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-05-01",
+    "review_date_label": "May 01, 2025 (verified from SerpAPI iso_date, last edited May 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-04-15",
+    "review_date_label": "Apr 15, 2025 (verified from SerpAPI iso_date, last edited Apr 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04-03",
+    "review_date_label": "Apr 03, 2025 (verified from SerpAPI iso_date, last edited Apr 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-03-29",
+    "review_date_label": "Mar 29, 2025 (verified from SerpAPI iso_date, last edited Mar 29, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-03-27",
+    "review_date_label": "Mar 27, 2025 (verified from SerpAPI iso_date, last edited Mar 27, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -847,7 +1144,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2024-09-26",
+    "review_date_label": "Sep 26, 2024 (verified from SerpAPI iso_date, last edited Mar 08, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -872,7 +1178,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-22",
+    "review_date_label": "Feb 22, 2025 (verified from SerpAPI iso_date, last edited Feb 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-15",
+    "review_date_label": "Feb 15, 2025 (verified from SerpAPI iso_date, last edited Feb 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-02-12",
+    "review_date_label": "Feb 12, 2025 (verified from SerpAPI iso_date, last edited Feb 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -947,7 +1280,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-11",
+    "review_date_label": "Feb 11, 2025 (verified from SerpAPI iso_date, last edited Feb 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-11-08",
+    "review_date_label": "Nov 08, 2024 (verified from SerpAPI iso_date, last edited Nov 08, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-10-28",
+    "review_date_label": "Oct 28, 2024 (verified from SerpAPI iso_date, last edited Oct 28, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-10-21",
+    "review_date_label": "Oct 21, 2024 (verified from SerpAPI iso_date, last edited Oct 21, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-09-28",
+    "review_date_label": "Sep 28, 2024 (verified from SerpAPI iso_date, last edited Sep 28, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-08-26",
+    "review_date_label": "Aug 26, 2024 (verified from SerpAPI iso_date, last edited Aug 26, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-03-23",
+    "review_date_label": "Mar 23, 2024 (verified from SerpAPI iso_date, last edited Jun 22, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-06-16",
+    "review_date_label": "Jun 16, 2024 (verified from SerpAPI iso_date, last edited Jun 16, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-05-22",
+    "review_date_label": "May 22, 2024 (verified from SerpAPI iso_date, last edited May 22, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-05-20",
+    "review_date_label": "May 20, 2024 (verified from SerpAPI iso_date, last edited May 20, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1197,7 +1620,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-05-18",
+    "review_date_label": "May 18, 2024 (verified from SerpAPI iso_date, last edited May 18, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1222,7 +1654,16 @@
     "sessions_completed": 2,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-03-26",
+    "review_date_label": "Mar 26, 2024 (verified from SerpAPI iso_date, last edited Mar 26, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "InkFree, MD",
@@ -1247,6 +1688,15 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-03-06",
+    "review_date_label": "Mar 06, 2024 (verified from SerpAPI iso_date, last edited Mar 06, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "InkFree, MD",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

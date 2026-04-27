@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2021-08-23",
+    "review_date_label": "Aug 23, 2021 (verified from SerpAPI iso_date, last edited Apr 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-16",
+    "review_date_label": "Oct 16, 2025 (verified from SerpAPI iso_date, last edited Apr 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-22",
+    "review_date_label": "Apr 22, 2026 (verified from SerpAPI iso_date, last edited Apr 22, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-04-10",
+    "review_date_label": "Apr 10, 2026 (verified from SerpAPI iso_date, last edited Apr 10, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-07",
+    "review_date_label": "Apr 07, 2026 (verified from SerpAPI iso_date, last edited Apr 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-07",
+    "review_date_label": "Apr 07, 2026 (verified from SerpAPI iso_date, last edited Apr 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-27",
+    "review_date_label": "Mar 27, 2026 (verified from SerpAPI iso_date, last edited Mar 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-17",
+    "review_date_label": "Mar 17, 2026 (verified from SerpAPI iso_date, last edited Mar 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-12",
+    "review_date_label": "Mar 12, 2026 (verified from SerpAPI iso_date, last edited Mar 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Color",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-12",
+    "review_date_label": "Mar 12, 2026 (verified from SerpAPI iso_date, last edited Mar 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -272,7 +362,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-05",
+    "review_date_label": "Mar 05, 2026 (verified from SerpAPI iso_date, last edited Mar 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-05",
+    "review_date_label": "Mar 05, 2026 (verified from SerpAPI iso_date, last edited Mar 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-03-14",
+    "review_date_label": "Mar 14, 2025 (verified from SerpAPI iso_date, last edited Mar 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-08",
+    "review_date_label": "Jul 08, 2025 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-02-17",
+    "review_date_label": "Feb 17, 2026 (verified from SerpAPI iso_date, last edited Feb 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -422,7 +566,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-11",
+    "review_date_label": "Feb 11, 2026 (verified from SerpAPI iso_date, last edited Feb 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -447,7 +600,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-02-09",
+    "review_date_label": "Feb 09, 2026 (verified from SerpAPI iso_date, last edited Feb 09, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-02-05",
+    "review_date_label": "Feb 05, 2026 (verified from SerpAPI iso_date, last edited Feb 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2021-11-10",
+    "review_date_label": "Nov 10, 2021 (verified from SerpAPI iso_date, last edited Feb 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-04",
+    "review_date_label": "Feb 04, 2026 (verified from SerpAPI iso_date, last edited Feb 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-29",
+    "review_date_label": "Jan 29, 2026 (verified from SerpAPI iso_date, last edited Jan 29, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-29",
+    "review_date_label": "Jan 29, 2026 (verified from SerpAPI iso_date, last edited Jan 29, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-27",
+    "review_date_label": "Jan 27, 2026 (verified from SerpAPI iso_date, last edited Jan 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-26",
+    "review_date_label": "Jan 26, 2026 (verified from SerpAPI iso_date, last edited Jan 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-01-26",
+    "review_date_label": "Jan 26, 2026 (verified from SerpAPI iso_date, last edited Jan 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-20",
+    "review_date_label": "Feb 20, 2025 (verified from SerpAPI iso_date, last edited Jan 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-23",
+    "review_date_label": "Jan 23, 2026 (verified from SerpAPI iso_date, last edited Jan 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-19",
+    "review_date_label": "Jan 19, 2026 (verified from SerpAPI iso_date, last edited Jan 19, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-01-19",
+    "review_date_label": "Jan 19, 2026 (verified from SerpAPI iso_date, last edited Jan 19, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-01-14",
+    "review_date_label": "Jan 14, 2026 (verified from SerpAPI iso_date, last edited Jan 14, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-01-14",
+    "review_date_label": "Jan 14, 2026 (verified from SerpAPI iso_date, last edited Jan 14, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-13",
+    "review_date_label": "Jan 13, 2026 (verified from SerpAPI iso_date, last edited Jan 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-13",
+    "review_date_label": "Jan 13, 2026 (verified from SerpAPI iso_date, last edited Jan 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-28",
+    "review_date_label": "Oct 28, 2025 (verified from SerpAPI iso_date, last edited Jan 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-12-28",
+    "review_date_label": "Dec 28, 2025 (verified from SerpAPI iso_date, last edited Dec 28, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -922,7 +1246,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-23",
+    "review_date_label": "Dec 23, 2025 (verified from SerpAPI iso_date, last edited Dec 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-23",
+    "review_date_label": "Dec 23, 2025 (verified from SerpAPI iso_date, last edited Dec 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-11-15",
+    "review_date_label": "Nov 15, 2025 (verified from SerpAPI iso_date, last edited Nov 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -997,7 +1348,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-11",
+    "review_date_label": "Nov 11, 2025 (verified from SerpAPI iso_date, last edited Nov 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-05",
+    "review_date_label": "Nov 05, 2025 (verified from SerpAPI iso_date, last edited Nov 05, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-10-28",
+    "review_date_label": "Oct 28, 2025 (verified from SerpAPI iso_date, last edited Oct 28, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-10-21",
+    "review_date_label": "Oct 21, 2025 (verified from SerpAPI iso_date, last edited Oct 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-17",
+    "review_date_label": "Oct 17, 2025 (verified from SerpAPI iso_date, last edited Oct 17, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-16",
+    "review_date_label": "Oct 16, 2025 (verified from SerpAPI iso_date, last edited Oct 16, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-21",
+    "review_date_label": "Sep 21, 2025 (verified from SerpAPI iso_date, last edited Sep 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1172,7 +1586,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09-12",
+    "review_date_label": "Sep 12, 2025 (verified from SerpAPI iso_date, last edited Sep 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2018-08-23",
+    "review_date_label": "Aug 23, 2018 (verified from SerpAPI iso_date, last edited Aug 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08-06",
+    "review_date_label": "Aug 06, 2025 (verified from SerpAPI iso_date, last edited Aug 06, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Erasable Med Spa",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-07-25",
+    "review_date_label": "Jul 25, 2025 (verified from SerpAPI iso_date, last edited Jul 25, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Erasable Med Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

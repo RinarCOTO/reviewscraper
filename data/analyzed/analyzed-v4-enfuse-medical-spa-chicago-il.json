@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-18",
+    "review_date_label": "Apr 18, 2026 (verified from SerpAPI iso_date, last edited Apr 18, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-04-08",
+    "review_date_label": "Apr 08, 2026 (verified from SerpAPI iso_date, last edited Apr 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-07",
+    "review_date_label": "Apr 07, 2026 (verified from SerpAPI iso_date, last edited Apr 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-01",
+    "review_date_label": "Apr 01, 2026 (verified from SerpAPI iso_date, last edited Apr 01, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-28",
+    "review_date_label": "Mar 28, 2026 (verified from SerpAPI iso_date, last edited Mar 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-23",
+    "review_date_label": "Mar 23, 2026 (verified from SerpAPI iso_date, last edited Mar 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-06",
+    "review_date_label": "Mar 06, 2026 (verified from SerpAPI iso_date, last edited Mar 06, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-03-05",
+    "review_date_label": "Mar 05, 2026 (verified from SerpAPI iso_date, last edited Mar 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -247,7 +328,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-12",
+    "review_date_label": "Feb 12, 2026 (verified from SerpAPI iso_date, last edited Feb 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-28",
+    "review_date_label": "Jan 28, 2026 (verified from SerpAPI iso_date, last edited Jan 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2026-01-21",
+    "review_date_label": "Jan 21, 2026 (verified from SerpAPI iso_date, last edited Jan 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -322,7 +430,16 @@
     "sessions_completed": 8,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-04-09",
+    "review_date_label": "Apr 09, 2024 (verified from SerpAPI iso_date, last edited Jan 02, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-21",
+    "review_date_label": "Nov 21, 2025 (verified from SerpAPI iso_date, last edited Nov 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-17",
+    "review_date_label": "Nov 17, 2025 (verified from SerpAPI iso_date, last edited Nov 17, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -397,7 +532,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-11",
+    "review_date_label": "Nov 11, 2025 (verified from SerpAPI iso_date, last edited Nov 11, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -422,7 +566,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-10",
+    "review_date_label": "Nov 10, 2025 (verified from SerpAPI iso_date, last edited Nov 10, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-11-10",
+    "review_date_label": "Nov 10, 2025 (verified from SerpAPI iso_date, last edited Nov 10, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-11-09",
+    "review_date_label": "Nov 09, 2025 (verified from SerpAPI iso_date, last edited Nov 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2023-12-10",
+    "review_date_label": "Dec 10, 2023 (verified from SerpAPI iso_date, last edited Nov 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-11-07",
+    "review_date_label": "Nov 07, 2025 (verified from SerpAPI iso_date, last edited Nov 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-11-06",
+    "review_date_label": "Nov 06, 2025 (verified from SerpAPI iso_date, last edited Nov 06, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-15",
+    "review_date_label": "Oct 15, 2025 (verified from SerpAPI iso_date, last edited Oct 15, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -597,7 +804,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-12",
+    "review_date_label": "Oct 12, 2025 (verified from SerpAPI iso_date, last edited Oct 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -622,7 +838,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-10-09",
+    "review_date_label": "Oct 09, 2025 (verified from SerpAPI iso_date, last edited Oct 09, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -647,7 +872,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-09-03",
+    "review_date_label": "Sep 03, 2025 (verified from SerpAPI iso_date, last edited Sep 03, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-07-02",
+    "review_date_label": "Jul 02, 2025 (verified from SerpAPI iso_date, last edited Jul 02, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -697,7 +940,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-06-18",
+    "review_date_label": "Jun 18, 2025 (verified from SerpAPI iso_date, last edited Jun 18, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-06-14",
+    "review_date_label": "Jun 14, 2025 (verified from SerpAPI iso_date, last edited Jun 14, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-06-14",
+    "review_date_label": "Jun 14, 2025 (verified from SerpAPI iso_date, last edited Jun 14, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-05-31",
+    "review_date_label": "May 31, 2025 (verified from SerpAPI iso_date, last edited May 31, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-05-22",
+    "review_date_label": "May 22, 2025 (verified from SerpAPI iso_date, last edited May 22, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-04-21",
+    "review_date_label": "Apr 21, 2025 (verified from SerpAPI iso_date, last edited Apr 21, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04-01",
+    "review_date_label": "Apr 01, 2025 (verified from SerpAPI iso_date, last edited Apr 01, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2025-03-08",
+    "review_date_label": "Mar 08, 2025 (verified from SerpAPI iso_date, last edited Mar 08, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-03-08",
+    "review_date_label": "Mar 08, 2025 (verified from SerpAPI iso_date, last edited Mar 08, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -922,7 +1246,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-02-23",
+    "review_date_label": "Feb 23, 2025 (verified from SerpAPI iso_date, last edited Feb 23, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -947,7 +1280,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-07",
+    "review_date_label": "Feb 07, 2025 (verified from SerpAPI iso_date, last edited Feb 07, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-01-12",
+    "review_date_label": "Jan 12, 2025 (verified from SerpAPI iso_date, last edited Jan 12, 2025)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-12-29",
+    "review_date_label": "Dec 29, 2024 (verified from SerpAPI iso_date, last edited Dec 29, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1022,7 +1382,16 @@
     "sessions_completed": 7,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-12-10",
+    "review_date_label": "Dec 10, 2024 (verified from SerpAPI iso_date, last edited Dec 10, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1047,7 +1416,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-12-10",
+    "review_date_label": "Dec 10, 2024 (verified from SerpAPI iso_date, last edited Dec 10, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-12-01",
+    "review_date_label": "Dec 01, 2024 (verified from SerpAPI iso_date, last edited Dec 01, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1097,7 +1484,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-11-19",
+    "review_date_label": "Nov 19, 2024 (verified from SerpAPI iso_date, last edited Nov 19, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "unknown"
+    "result_rating": "unknown",
+    "review_date_estimated": "2024-11-18",
+    "review_date_label": "Nov 18, 2024 (verified from SerpAPI iso_date, last edited Nov 18, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-11-18",
+    "review_date_label": "Nov 18, 2024 (verified from SerpAPI iso_date, last edited Nov 18, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-10-25",
+    "review_date_label": "Oct 25, 2024 (verified from SerpAPI iso_date, last edited Oct 25, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-10-24",
+    "review_date_label": "Oct 24, 2024 (verified from SerpAPI iso_date, last edited Oct 24, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2024-10-24",
+    "review_date_label": "Oct 24, 2024 (verified from SerpAPI iso_date, last edited Oct 24, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Enfuse Medical Spa",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-10-19",
+    "review_date_label": "Oct 19, 2024 (verified from SerpAPI iso_date, last edited Oct 19, 2024)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Enfuse Medical Spa",
+    "multi_location_brand": false,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

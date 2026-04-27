@@ -22,7 +22,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-23",
+    "review_date_label": "Apr 23, 2026 (verified from SerpAPI iso_date, last edited Apr 23, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -47,7 +56,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-10-30",
+    "review_date_label": "Oct 30, 2025 (verified from SerpAPI iso_date, last edited Apr 22, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -72,7 +90,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2024-04-17",
+    "review_date_label": "Apr 17, 2024 (verified from SerpAPI iso_date, last edited Apr 21, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -97,7 +124,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-11-02",
+    "review_date_label": "Nov 02, 2023 (verified from SerpAPI iso_date, last edited Apr 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -122,7 +158,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-15",
+    "review_date_label": "Apr 15, 2026 (verified from SerpAPI iso_date, last edited Apr 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -147,7 +192,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-15",
+    "review_date_label": "Apr 15, 2026 (verified from SerpAPI iso_date, last edited Apr 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -172,7 +226,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-15",
+    "review_date_label": "Apr 15, 2026 (verified from SerpAPI iso_date, last edited Apr 15, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -197,7 +260,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -222,7 +294,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Microblading",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -247,7 +328,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -272,7 +362,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -297,7 +396,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -322,7 +430,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-11",
+    "review_date_label": "Apr 11, 2026 (verified from SerpAPI iso_date, last edited Apr 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -347,7 +464,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-08",
+    "review_date_label": "Apr 08, 2026 (verified from SerpAPI iso_date, last edited Apr 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -372,7 +498,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-04-08",
+    "review_date_label": "Apr 08, 2026 (verified from SerpAPI iso_date, last edited Apr 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -397,7 +532,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-08",
+    "review_date_label": "Apr 08, 2026 (verified from SerpAPI iso_date, last edited Apr 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -422,7 +566,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-04-03",
+    "review_date_label": "Apr 03, 2026 (verified from SerpAPI iso_date, last edited Apr 03, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -447,7 +600,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-11",
+    "review_date_label": "Dec 11, 2025 (verified from SerpAPI iso_date, last edited Mar 31, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -472,7 +634,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-28",
+    "review_date_label": "Mar 28, 2026 (verified from SerpAPI iso_date, last edited Mar 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -497,7 +668,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-28",
+    "review_date_label": "Mar 28, 2026 (verified from SerpAPI iso_date, last edited Mar 28, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -522,7 +702,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-27",
+    "review_date_label": "Mar 27, 2026 (verified from SerpAPI iso_date, last edited Mar 27, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -547,7 +736,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-25",
+    "review_date_label": "Mar 25, 2026 (verified from SerpAPI iso_date, last edited Mar 25, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -572,7 +770,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-20",
+    "review_date_label": "Mar 20, 2026 (verified from SerpAPI iso_date, last edited Mar 20, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -597,7 +804,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-12",
+    "review_date_label": "Mar 12, 2026 (verified from SerpAPI iso_date, last edited Mar 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -622,7 +838,16 @@
     "sessions_completed": 0,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-12",
+    "review_date_label": "Mar 12, 2026 (verified from SerpAPI iso_date, last edited Mar 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -647,7 +872,16 @@
     "sessions_completed": 3,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -672,7 +906,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -697,7 +940,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -722,7 +974,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-11",
+    "review_date_label": "Mar 11, 2026 (verified from SerpAPI iso_date, last edited Mar 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -747,7 +1008,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-07",
+    "review_date_label": "Mar 07, 2026 (verified from SerpAPI iso_date, last edited Mar 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -772,7 +1042,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-07",
+    "review_date_label": "Mar 07, 2026 (verified from SerpAPI iso_date, last edited Mar 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -797,7 +1076,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-03-05",
+    "review_date_label": "Mar 05, 2026 (verified from SerpAPI iso_date, last edited Mar 05, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -822,7 +1110,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-04",
+    "review_date_label": "Mar 04, 2026 (verified from SerpAPI iso_date, last edited Mar 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -847,7 +1144,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-04",
+    "review_date_label": "Mar 04, 2026 (verified from SerpAPI iso_date, last edited Mar 04, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -872,7 +1178,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-03-01",
+    "review_date_label": "Mar 01, 2026 (verified from SerpAPI iso_date, last edited Mar 01, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -897,7 +1212,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2023-11-28",
+    "review_date_label": "Nov 28, 2023 (verified from SerpAPI iso_date, last edited Mar 01, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -922,7 +1246,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-27",
+    "review_date_label": "Feb 27, 2025 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -947,7 +1280,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-26",
+    "review_date_label": "Feb 26, 2026 (verified from SerpAPI iso_date, last edited Feb 26, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -972,7 +1314,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-02-24",
+    "review_date_label": "Feb 24, 2026 (verified from SerpAPI iso_date, last edited Feb 24, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -997,7 +1348,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-24",
+    "review_date_label": "Feb 24, 2026 (verified from SerpAPI iso_date, last edited Feb 24, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1022,7 +1382,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-20",
+    "review_date_label": "Feb 20, 2026 (verified from SerpAPI iso_date, last edited Feb 20, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1047,7 +1416,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-17",
+    "review_date_label": "Feb 17, 2026 (verified from SerpAPI iso_date, last edited Feb 17, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1072,7 +1450,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-14",
+    "review_date_label": "Feb 14, 2026 (verified from SerpAPI iso_date, last edited Feb 14, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": false,
+    "text_note": "Rating only — no written review text. Excluded from text-based analysis.",
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1097,7 +1484,16 @@
     "sessions_completed": 5,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-12-13",
+    "review_date_label": "Dec 13, 2025 (verified from SerpAPI iso_date, last edited Feb 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1122,7 +1518,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-02-01",
+    "review_date_label": "Feb 01, 2025 (verified from SerpAPI iso_date, last edited Feb 13, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1147,7 +1552,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-12",
+    "review_date_label": "Feb 12, 2026 (verified from SerpAPI iso_date, last edited Feb 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1172,7 +1586,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-12",
+    "review_date_label": "Feb 12, 2026 (verified from SerpAPI iso_date, last edited Feb 12, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1197,7 +1620,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-02-11",
+    "review_date_label": "Feb 11, 2026 (verified from SerpAPI iso_date, last edited Feb 11, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1222,7 +1654,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-08",
+    "review_date_label": "Feb 08, 2026 (verified from SerpAPI iso_date, last edited Feb 08, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Removery (South Congress)",
@@ -1247,6 +1688,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2026-02-07",
+    "review_date_label": "Feb 07, 2026 (verified from SerpAPI iso_date, last edited Feb 07, 2026)",
+    "review_date_source": "verified_serpapi",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Removery",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

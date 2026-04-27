@@ -15,7 +15,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2026-02",
+    "review_date_label": "~Feb 2026 (estimated from \"Edited 2 months ago\", scraped April 25, 2026, review was edited)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -33,7 +42,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-09",
+    "review_date_label": "~Sep 2025 (estimated from \"7 months ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -51,7 +69,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Cover-up",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08",
+    "review_date_label": "~Aug 2025 (estimated from \"8 months ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -69,7 +96,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-08",
+    "review_date_label": "~Aug 2025 (estimated from \"8 months ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -87,7 +123,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -105,7 +150,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -123,7 +177,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -141,7 +204,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -159,7 +231,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -177,7 +258,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -195,7 +285,16 @@
     "sessions_completed": 4,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -213,7 +312,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "Complete",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -231,7 +339,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "Other",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -249,7 +366,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -267,6 +393,15 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

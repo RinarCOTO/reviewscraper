@@ -48,11 +48,12 @@ const REQUIRED_KEYS = {
 };
 
 // ── Args ─────────────────────────────────────────────────────────────────────
-const args      = process.argv.slice(2);
-const DRY_RUN   = args.includes('--dry-run');
-const SKIP_LLM  = args.includes('--skip-llm');
-const ONLY_STEP = args.find(a => a.startsWith('--step='))?.split('=')[1] ?? null;
-const FORCE     = args.includes('--force');
+const args         = process.argv.slice(2);
+const DRY_RUN      = args.includes('--dry-run');
+const SKIP_LLM     = args.includes('--skip-llm');
+const ONLY_STEP    = args.find(a => a.startsWith('--step='))?.split('=')[1] ?? null;
+const ONLY_PROVIDER = args.find(a => a.startsWith('--provider='))?.split('=')[1] ?? null;
+const FORCE        = args.includes('--force');
 
 // ── Every-other-week guard ────────────────────────────────────────────────────
 // First scheduled run: 2026-04-26 (Sunday). Runs every 2 weeks from that date.
@@ -347,9 +348,10 @@ async function main() {
     // ── Step 1: Scrape ────────────────────────────────────────────────────
     if (shouldRun('scrape')) {
       logSection('Step 1 — Scrape (incremental)');
+      const providerFlag = ONLY_PROVIDER ? ` --provider=${ONLY_PROVIDER}` : '';
       const out = run(
         'scrape-v4.mjs',
-        `node pipeline/scrape-v4.mjs --mode=incremental`
+        `node pipeline/scrape-v4.mjs --mode=incremental${providerFlag}`
       );
       const match = out?.match(/(\d+) new reviews fetched/g);
       if (match) {
@@ -359,11 +361,15 @@ async function main() {
     }
 
     // ── Step 2: Analyze ───────────────────────────────────────────────────
+    // AI fields (result_rating, pain_level, etc.) are patched by Qwen post-import.
     if (shouldRun('analyze')) {
-      logSection('Step 2 — Analyze (new reviews only)');
+      logSection('Step 2 — Analyze (new reviews only, AI skipped — Qwen handles it)');
+      const inputFile = ONLY_PROVIDER
+        ? `data/reviews/reviews-v4-${ONLY_PROVIDER}.json`
+        : 'data/reviews/reviews-v4-all.json';
       run(
         'analyze-v4.mjs',
-        `node pipeline/analyze-v4.mjs data/reviews/reviews-v4-all.json --mode=incremental`
+        `node pipeline/analyze-v4.mjs ${inputFile} --mode=incremental --skip-ai`
       );
     }
 
@@ -390,9 +396,10 @@ async function main() {
     // ── Step 5: Import to Supabase ────────────────────────────────────────
     if (shouldRun('import') && !DRY_RUN) {
       logSection('Step 5 — Import to Supabase');
+      const providerFlag = ONLY_PROVIDER ? ` --provider=${ONLY_PROVIDER}` : '';
       run(
         'import-to-supabase-v4.mjs',
-        `node pipeline/import-to-supabase-v4.mjs --status=published`
+        `node pipeline/import-to-supabase-v4.mjs --status=published${providerFlag}`
       );
     } else if (DRY_RUN) {
       log('Step 5 — Supabase import SKIPPED (dry-run)');

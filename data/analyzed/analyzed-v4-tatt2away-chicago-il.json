@@ -15,7 +15,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -33,7 +42,16 @@
     "sessions_completed": 1,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Positive"
+    "result_rating": "Positive",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -51,7 +69,16 @@
     "sessions_completed": "unknown",
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Neutral"
+    "result_rating": "Neutral",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   },
   {
     "provider_name": "Tatt2Away",
@@ -69,6 +96,15 @@
     "sessions_completed": 0,
     "skin_type": "unknown",
     "use_case": "unknown",
-    "result_rating": "Negative"
+    "result_rating": "Negative",
+    "review_date_estimated": "2025-04",
+    "review_date_label": "~Apr 2025 (estimated from \"a year ago\", scraped April 25, 2026)",
+    "review_date_source": "estimated",
+    "has_text": true,
+    "text_note": null,
+    "brand_name": "Tatt2Away",
+    "multi_location_brand": true,
+    "location_transition": false,
+    "transition_note": null
   }
 ]

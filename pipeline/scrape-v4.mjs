@@ -105,6 +105,23 @@ const PROVIDERS = [
     in_scope: true,
   },
 
+  {
+    slug: 'think-again-tattoo-removal-austin-tx',
+    place_id: null,
+    query: 'Think Again Tattoo Removal Austin TX',
+    expected_title_pattern: /think again/i,
+    providerName: 'Think Again Tattoo Removal', city: 'Austin', state: 'TX', method: 'Laser',
+    in_scope: true,
+  },
+  {
+    slug: 'unbranded-atx-austin-tx',
+    place_id: null,
+    query: 'Unbranded ATX tattoo removal Austin TX',
+    expected_title_pattern: /unbranded/i,
+    providerName: 'Unbranded ATX', city: 'Austin', state: 'TX', method: 'Laser',
+    in_scope: true,
+  },
+
   // ── Draper UT competitors ─────────────────────────────────────────────────
   {
     slug: 'inklifters-aesthetica-pleasant-grove-ut',
@@ -138,6 +155,23 @@ const PROVIDERS = [
     query: 'Arviv Medical Aesthetics Tampa FL',
     expected_title_pattern: /arviv/i,
     providerName: 'Arviv Medical Aesthetics', city: 'Tampa', state: 'FL', method: 'Other',
+    in_scope: true,
+  },
+
+  {
+    slug: 'eraditatt-tampa-fl',
+    place_id: null,
+    query: 'EradiTatt tattoo removal Tampa FL',
+    expected_title_pattern: /eraditatt/i,
+    providerName: 'EradiTatt', city: 'Tampa', state: 'FL', method: 'Laser',
+    in_scope: true,
+  },
+  {
+    slug: 'reversatatt-tattoo-removal-tampa-fl',
+    place_id: null,
+    query: 'ReversaTatt tattoo removal Tampa FL',
+    expected_title_pattern: /reversatatt/i,
+    providerName: 'ReversaTatt', city: 'Tampa', state: 'FL', method: 'Laser',
     in_scope: true,
   },
 
@@ -198,6 +232,23 @@ const PROVIDERS = [
     query: 'InkFree MD Houston TX tattoo removal',
     expected_title_pattern: /inkfree/i,
     providerName: 'InkFree, MD', city: 'Houston', state: 'TX', method: 'Other',
+    in_scope: true,
+  },
+
+  {
+    slug: 'rethink-laser-houston-tx',
+    place_id: null,
+    query: 'Rethink Laser tattoo removal Houston TX',
+    expected_title_pattern: /rethink/i,
+    providerName: 'Rethink Laser', city: 'Houston', state: 'TX', method: 'Laser',
+    in_scope: true,
+  },
+  {
+    slug: 'houston-tattoo-removal-clinic-houston-tx',
+    place_id: null,
+    query: 'Houston Tattoo Removal Clinic Houston TX',
+    expected_title_pattern: /houston tattoo removal/i,
+    providerName: 'Houston Tattoo Removal Clinic', city: 'Houston', state: 'TX', method: 'Laser',
     in_scope: true,
   },
 

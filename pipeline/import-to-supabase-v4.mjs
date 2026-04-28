@@ -78,10 +78,18 @@ async function supabase(method, path, body = null) {
   }
 }
 
+// Multi-location brands: strip the location suffix, e.g. "Removery (Bucktown)" → "Removery"
+const MULTI_LOCATION_BRANDS = ['Removery', 'LaserAway', 'inkOUT', 'Tatt2Away'];
+function deriveBrandName(providerName) {
+  if (!providerName) return null;
+  const match = MULTI_LOCATION_BRANDS.find(b => providerName === b || providerName.startsWith(b + ' ('));
+  return match ?? providerName;
+}
+
 function toRow(review, status) {
   return {
     provider_name:          review.provider_name ?? null,
-    brand_name:             review.brand_name ?? null,
+    brand_name:             review.brand_name ?? deriveBrandName(review.provider_name),
     location_city:          review.location_city ?? null,
     location_state:         review.location_state ?? null,
     method_used:            review.method_used ?? null,

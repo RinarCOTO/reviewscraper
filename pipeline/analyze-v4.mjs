@@ -22,9 +22,10 @@ const REVIEWS_DIR = path.join(__dirname, '../data/reviews');
 const ANALYZED_DIR = path.join(__dirname, '../data/analyzed');
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!ANTHROPIC_API_KEY) { console.error('Missing ANTHROPIC_API_KEY env var'); process.exit(1); }
+const SKIP_AI_EARLY = process.argv.includes('--skip-ai');
+if (!ANTHROPIC_API_KEY && !SKIP_AI_EARLY) { console.error('Missing ANTHROPIC_API_KEY env var'); process.exit(1); }
 
-const client = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+const client = ANTHROPIC_API_KEY ? new Anthropic({ apiKey: ANTHROPIC_API_KEY }) : null;
 const MODEL = 'claude-sonnet-4-20250514';
 
 // ── Provider → method lookup ──
@@ -62,6 +63,12 @@ const METHOD_MAP = {
   'LaserAway (Chicago)':        'PicoSure',
   'LaserAway (Houston)':        'PicoSure',
   'LaserAway (Tampa)':          'PicoSure',
+  'Think Again Tattoo Removal': 'Laser',
+  'Unbranded ATX':              'Laser',
+  'EradiTatt':                  'Laser',
+  'ReversaTatt':                'Laser',
+  'Rethink Laser':              'Laser',
+  'Houston Tattoo Removal Clinic': 'Laser',
 };
 
 function lookupMethod(providerName) {

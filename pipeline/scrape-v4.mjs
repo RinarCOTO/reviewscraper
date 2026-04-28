@@ -227,11 +227,46 @@ const PROVIDERS = [
     in_scope: true,
   },
 
+  // ── LaserAway locations ───────────────────────────────────────────────────
+  // Confirmed locations: Austin East Side, Chicago Bucktown, Houston Galleria, Tampa (single location)
+  {
+    slug: 'laseraway-austin-tx',
+    place_id: null,
+    query: 'LaserAway East Side Austin TX 1109 E 5th St',
+    expected_title_pattern: /laseraway/i,
+    providerName: 'LaserAway (Austin)', city: 'Austin', state: 'TX', method: 'PicoSure',
+    in_scope: true,
+  },
+  {
+    slug: 'laseraway-chicago-il',
+    place_id: null,
+    query: 'LaserAway Bucktown Chicago IL W Wabansia Ave',
+    expected_title_pattern: /laseraway/i,
+    providerName: 'LaserAway (Chicago)', city: 'Chicago', state: 'IL', method: 'PicoSure',
+    in_scope: true,
+  },
+  {
+    slug: 'laseraway-houston-tx',
+    place_id: null,
+    query: 'LaserAway Galleria Houston TX 5385 Westheimer',
+    expected_title_pattern: /laseraway/i,
+    providerName: 'LaserAway (Houston)', city: 'Houston', state: 'TX', method: 'PicoSure',
+    in_scope: true,
+  },
+  {
+    slug: 'laseraway-tampa-fl',
+    place_id: null,
+    query: 'LaserAway Tampa FL 319 W Palm Ave',
+    expected_title_pattern: /laseraway/i,
+    providerName: 'LaserAway (Tampa)', city: 'Tampa', state: 'FL', method: 'PicoSure',
+    in_scope: true,
+  },
+
   // ── Removery expansion — out of scope for now ─────────────────────────────
   // Set in_scope: true to include in future scrapes when comparison set is expanded.
   { slug: 'removery-round-rock-tx',       place_id: null, query: 'Removery Round Rock TX',       expected_title_pattern: /removery/i, providerName: 'Removery (Round Rock)',      city: 'Round Rock',  state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-hedwig-village-tx',   place_id: null, query: 'Removery Hedwig Village TX',   expected_title_pattern: /removery/i, providerName: 'Removery (Hedwig Village)', city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: true },
-  { slug: 'removery-east-houston-tx',     place_id: null, query: 'Removery East Houston TX',     expected_title_pattern: /removery/i, providerName: 'Removery (East Houston)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: true },
+  { slug: 'removery-east-houston-tx',     place_id: null, query: 'Removery East Houston TX',     expected_title_pattern: /removery/i, providerName: 'Removery (East Houston)',   city: 'Houston',     state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-katy-tx',             place_id: null, query: 'Removery Katy TX',             expected_title_pattern: /removery/i, providerName: 'Removery (Katy)',           city: 'Katy',        state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-friendswood-tx',      place_id: null, query: 'Removery Friendswood TX',      expected_title_pattern: /removery/i, providerName: 'Removery (Friendswood)',    city: 'Friendswood', state: 'TX', method: 'PicoWay', in_scope: false },
   { slug: 'removery-sugar-land-tx',       place_id: null, query: 'Removery Sugar Land TX',       expected_title_pattern: /removery/i, providerName: 'Removery (Sugar Land)',     city: 'Sugar Land',  state: 'TX', method: 'PicoWay', in_scope: false },

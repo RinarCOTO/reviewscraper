@@ -20,9 +20,7 @@ if env_path.exists():
             os.environ.setdefault(k.strip(), v.strip())
 
 SUPABASE_URL = "https://rxrhvbfutjahgwaambqd.supabase.co"
-SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_KEY")
-if not SERVICE_KEY:
-    raise SystemExit("Missing SUPABASE_SERVICE_KEY")
+SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4cmh2YmZ1dGphaGd3YWFtYnFkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjM1MTcwNywiZXhwIjoyMDkxOTI3NzA3fQ.06-kZtLuaPlukmFE9wJESRdVzgdv-LQW5Ffr64_BbWs")
 
 INPUT_FILE = Path(__file__).parent / "qwen-results-full.json"
 if not INPUT_FILE.exists():

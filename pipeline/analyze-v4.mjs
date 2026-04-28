@@ -58,6 +58,10 @@ const METHOD_MAP = {
   'DermSurgery Associates':     'Q-Switch',
   'InkFree, MD':                'Other',
   'Dermaluxe Spa':              'Saline+Pico',
+  'LaserAway (Austin)':         'PicoSure',
+  'LaserAway (Chicago)':        'PicoSure',
+  'LaserAway (Houston)':        'PicoSure',
+  'LaserAway (Tampa)':          'PicoSure',
 };
 
 function lookupMethod(providerName) {

@@ -29,8 +29,27 @@ for _i, _a in enumerate(_args):
         break
 INPUT_CSV = Path(__file__).parent / (_input_arg or "reviews.csv")
 
-OUTPUT_FILE = Path(__file__).parent / "qwen-results-full.json"
-PROMPT_FILE = Path(__file__).parent / "qwen-analyzer-prompt.txt"
+# --prompt flag
+_prompt_arg = None
+for _i, _a in enumerate(_args):
+    if _a.startswith("--prompt="):
+        _prompt_arg = _a.split("=", 1)[1]
+        break
+    elif _a == "--prompt" and _i + 1 < len(_args):
+        _prompt_arg = _args[_i + 1]
+        break
+PROMPT_FILE = Path(__file__).parent / (_prompt_arg or "qwen-analyzer-prompt.txt")
+
+# --output flag
+_output_arg = None
+for _i, _a in enumerate(_args):
+    if _a.startswith("--output="):
+        _output_arg = _a.split("=", 1)[1]
+        break
+    elif _a == "--output" and _i + 1 < len(_args):
+        _output_arg = _args[_i + 1]
+        break
+OUTPUT_FILE = Path(__file__).parent / (_output_arg or "qwen-results-full.json")
 
 with open(PROMPT_FILE, "r") as f:
     PROMPT_TEMPLATE = f.read()
@@ -43,7 +62,7 @@ with open(INPUT_CSV, "r", encoding="utf-8") as f:
         if text and len(text) > 20:
             reviews.append({
                 "id": row["id"],
-                "brand_name": row.get("brand_name", ""),
+                "brand_name": row.get("brand_name") or row.get("provider_name", ""),
                 "location_city": row.get("location_city", ""),
                 "star_rating": row.get("star_rating", ""),
                 "review_text": text

@@ -18,9 +18,15 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5:14b"
 
 # --input flag support
-_input_arg = next((a.split("=",1)[1] for a in sys.argv[1:] if a.startswith("--input=")), None)
-if not _input_arg:
-    _input_arg = next((sys.argv[i+1] for i, a in enumerate(sys.argv[1:]) if a == "--input" and i+1 < len(sys.argv[1:])), None)
+_args = sys.argv[1:]
+_input_arg = None
+for _i, _a in enumerate(_args):
+    if _a.startswith("--input="):
+        _input_arg = _a.split("=", 1)[1]
+        break
+    elif _a == "--input" and _i + 1 < len(_args):
+        _input_arg = _args[_i + 1]
+        break
 INPUT_CSV = Path(__file__).parent / (_input_arg or "reviews.csv")
 
 OUTPUT_FILE = Path(__file__).parent / "qwen-results-full.json"

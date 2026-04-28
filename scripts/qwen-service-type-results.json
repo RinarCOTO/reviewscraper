@@ -1,0 +1,200 @@
+[
+  {
+    "id": "008213d4-f309-4ffb-a0bd-8aa7e061412b",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer praises the staff at LaserAway for their welcoming and positive attitude but does not mention any specific treatment results or services related to tattoo removal."
+  },
+  {
+    "id": "041a1480-81d8-4ee5-9e7b-835f7c598ed8",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer praises a staff member named Kasi but does not mention what service they received or any treatment results."
+  },
+  {
+    "id": "050c8183-4a96-4957-8497-8e23246d8444",
+    "service_type": "facial",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a HydraFacial treatment, not tattoo removal. The client had a positive experience with the provider Hope."
+  },
+  {
+    "id": "05819441-3d59-4a5b-a471-89b6379e1734",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer recommends the service highly but does not mention specific treatment details or results."
+  },
+  {
+    "id": "0599c86c-a3a6-4136-833e-15a3167acbd7",
+    "service_type": "facial",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about a Clear + Brilliant treatment, not tattoo removal. The client experienced a scheduling issue but was satisfied with the staff's attentiveness and received a complimentary treatment."
+  },
+  {
+    "id": "001a8ea8-bd18-4272-abab-b19b90c1e0ae",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer praises the clinic and its owner Alan for their post-treatment care but does not mention specific tattoo removal results or experiences."
+  },
+  {
+    "id": "0d18ccf9-19d6-45b5-9d66-980862faecf9",
+    "service_type": "facial",
+    "result_rating": "unknown",
+    "pain_level": "1",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a carbon facial treatment, not tattoo removal. The client found it quick and painless with amazing results."
+  },
+  {
+    "id": "11d82428-7f93-4fe4-be09-450acb754b84",
+    "service_type": "tattoo_removal",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "2",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had 2 tattoo removal sessions and is satisfied with the provider Alan's communication, education on the process, and pricing. No specific results are mentioned."
+  },
+  {
+    "id": "144f674f-9d9e-436d-8420-4be90fcff852",
+    "service_type": "tattoo_removal",
+    "result_rating": "Neutral",
+    "pain_level": "3",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had tattoo removal on a fresh tattoo. The experience was positive in terms of staff and process, but no specific results are mentioned."
+  },
+  {
+    "id": "2263b728-e67d-4d68-afab-36a1a97c7df1",
+    "service_type": "tattoo_removal",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had tattoo removal performed by Alan and was happy with the experience. The review mentions one session but does not explicitly discuss results or pain level."
+  },
+  {
+    "id": "070648ba-6960-480c-b71f-fb7a668d3069",
+    "service_type": "unknown",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about a positive experience with aesthetic treatments but does not specify the type of treatment or mention any results related to tattoo removal."
+  },
+  {
+    "id": "0ddd94d0-16f1-46f4-9ae9-27110285c4f4",
+    "service_type": "unknown",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review mentions various services including injectables, facials, and micro needling but does not specify tattoo removal. The client is satisfied with the results of their facial series."
+  },
+  {
+    "id": "17da553c-d9b9-425c-a140-3dc3c27827ed",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer praises Dr. Arviv but does not mention what service they received or any treatment results."
+  },
+  {
+    "id": "1b6647c6-5f5f-4c9a-a17d-19a89dc00f68",
+    "service_type": "unknown",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about a CO2 laser treatment but does not specify tattoo removal. The client had excellent results and feels very happy with the smoother skin texture."
+  },
+  {
+    "id": "03f57925-d4b6-452e-bc2b-84e85936270a",
+    "service_type": "other",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about lymphatic and Wood massages after surgical procedures, not tattoo removal. The client highly recommends the service."
+  },
+  {
+    "id": "0a5d2cb5-fc48-4fcd-9502-894f9e6a93fe",
+    "service_type": "injectables",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about injectable treatments (likely Botox or fillers) performed by Mindy. The client praises the natural-looking results and Mindy's skill."
+  },
+  {
+    "id": "0c715569-0ced-4739-8f04-591d8e6204cf",
+    "service_type": "unknown",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The reviewer praises the staff at Clarity but does not mention what service they received or any treatment results."
+  },
+  {
+    "id": "109890a8-1f29-4014-a3ad-0aac198ed4c5",
+    "service_type": "microblading",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client had microbladed eyebrows removed via laser and reports the pigment is completely gone after one session. They recommend the clinic for laser removal."
+  }
+]

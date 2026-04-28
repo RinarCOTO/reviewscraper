@@ -1,0 +1,632 @@
+[
+  {
+    "id": "b160dbfa-33ed-4bfc-8f6e-334a4f5317d2",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client expressed initial nerves but praised Marla for making them feel comfortable. They are pleased with the results so far, though they are still in the healing process."
+  },
+  {
+    "id": "defa524f-a99d-42cd-8fc4-0f7d9016988c",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a derma peel treatment, not tattoo removal. The client praised Danielle's personable approach and expressed eagerness to schedule another session."
+  },
+  {
+    "id": "ec760119-42d1-4022-98f5-399380955bdd",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a YAG facial treatment and does not mention tattoo removal. The client praises the results and service provided by Nadina."
+  },
+  {
+    "id": "c06fa268-28a4-4e17-8fbe-b74a37647379",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is not about tattoo removal but rather a negative experience with filler treatment, where the clinic refused to refund or take responsibility."
+  },
+  {
+    "id": "0253f061-cefe-4e49-add1-d2e1540b79fd",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is about a negative experience with gift certificate policy and customer service, not tattoo removal."
+  },
+  {
+    "id": "1a7d52fa-9152-478a-99d0-c6a42ec15eed",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about Botox treatment, not tattoo removal. The client expresses disappointment with the results and finds it unprofessional to ask for a tip after injections."
+  },
+  {
+    "id": "4f37ab7c-4906-4463-ac14-4f62609c0566",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "5",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had a pink tattoo removed over five sessions but experienced unexpected color changes and darkening, making the tattoo appear worse. They are disappointed with Clean Slate Ink for not informing them of potential issues and continuing treatment despite worsening results."
+  },
+  {
+    "id": "469f44fc-2fc0-45d0-af06-5a80302afe35",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a negative experience with the business owner regarding a refund request and lack of response, not related to tattoo removal."
+  },
+  {
+    "id": "dcc16f70-0700-4e1a-940a-bb8da78658d4",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had a negative experience with tattoo removal, resulting in severe burns and scarring. They advise others to seek treatment elsewhere for color tattoos."
+  },
+  {
+    "id": "32a65f2b-a404-4a79-bcc4-64c507fe6c93",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client expressed satisfaction with the service but did not mention any specific results or outcomes related to tattoo removal."
+  },
+  {
+    "id": "9533aa44-4c3b-4e13-b75f-ea98db4dbdd4",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised the clinic for being professional but did not mention any specific treatment results or outcomes."
+  },
+  {
+    "id": "7582cea7-7473-4d49-92cf-f993875b1397",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a dermatologist's professionalism and patient care, not tattoo removal."
+  },
+  {
+    "id": "9a0d7300-f612-4e95-808d-a64a37c0fff4",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about various beauty treatments including Morpheus 8, lip flip, Botox, and laser hair removal. The client praises the injectable nurse Chris for her honesty and natural-looking results but does not mention tattoo removal."
+  },
+  {
+    "id": "023b09fb-d6f9-44e2-97e8-f110ca74c9dc",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client had eyebrow tattoo laser removal and praised the staff for their welcoming attitude and thorough explanations. No specific results or pain level was mentioned."
+  },
+  {
+    "id": "318450e0-3520-463c-86b8-b5784a647985",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised Chris for providing good advice and making them feel comfortable during the treatment. They mentioned being sensitive to pain but did not discuss specific results or outcomes."
+  },
+  {
+    "id": "4ccc5a0b-1685-401c-bca8-d49db52e9f2d",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a positive experience with scheduling and consultations but did not mention specific treatment results or outcomes."
+  },
+  {
+    "id": "6fec362b-3505-43c6-a727-98d7e96133df",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised the professionalism of the staff but did not mention any specific results or outcomes from tattoo removal."
+  },
+  {
+    "id": "35d8eb83-4a8b-4b3e-948a-481d79b53bd6",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "Paula had a consultation followed by the procedure for removing microbladed eyebrow tattoos. She was impressed with the office and staff, feeling very comfortable during her visit but did not mention specific results or outcomes."
+  },
+  {
+    "id": "09399570-955c-4110-950b-276784d088da",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client feels the treatment was a scam, a waste of money and time for a brief session on a small tattoo. They advise others to look elsewhere."
+  },
+  {
+    "id": "b559bf30-c24b-459b-9ee7-15c7e06d10a6",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is not about tattoo removal. The reviewer expresses dissatisfaction with a service related to healing burn scars, which was never completed."
+  },
+  {
+    "id": "960e2dbe-3663-4d77-8ac7-7ed1f42f054e",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review focuses on praising the front desk staff and Irene for their friendly and comforting demeanor but does not mention any specific treatment results or outcomes."
+  },
+  {
+    "id": "d8dc36bf-172b-4de8-b573-ef1e695d1373",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client had microbladed eyebrows laser removed and found the results to be life-changing. They praised April for explaining the process thoroughly but did not mention specific pain levels or number of sessions."
+  },
+  {
+    "id": "306fee7f-2f8a-4d1a-a5e4-ce85249ed12e",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "2",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a positive experience with April at Ink Lifters, completing their second treatment and expressing satisfaction with the results so far. No mention of pain or scarring."
+  },
+  {
+    "id": "389ced78-05bb-4263-b9fa-e2c1e938b957",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had multiple sessions over 12 months and praises McKayla for making each session comfortable. No specific results or pain level is mentioned."
+  },
+  {
+    "id": "02e4634b-3672-4a87-9354-49b67db13347",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a positive initial experience with technician Maggie but was disappointed when she left the company. The subsequent technician was not nice and seemed indifferent to skin integrity, raising concerns about potential scarring."
+  },
+  {
+    "id": "d809187f-a200-4a24-9a1f-50e448acdaa2",
+    "result_rating": "Negative",
+    "pain_level": "4",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a negative experience with the treatment, reporting significant pain and a severe scar. They praised Maggie but criticized the corporate replacement for prioritizing profits over patient care."
+  },
+  {
+    "id": "9a728688-5ffa-4685-a525-5b238334ca0e",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "2",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client experienced negative results with permanent scarring and a worsened tattoo appearance after two sessions. They paid $1800 for four treatments but received only a partial refund of $600."
+  },
+  {
+    "id": "0f1c9471-d1a1-4410-988f-cf06c2798d06",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "0",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is not about tattoo removal. The client expresses dissatisfaction with the clinic's organization and their experience being cancelled due to a hypermobility syndrome."
+  },
+  {
+    "id": "169063fd-ea50-4c1e-ab9f-776d92405a94",
+    "result_rating": "Positive",
+    "pain_level": "4",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client reports great results and praises Mandy for ensuring comfort during sessions. They note that the treatment is faster than laser removal but can be very painful, recommending skin numbing beforehand."
+  },
+  {
+    "id": "80be0329-f2f8-4016-a5e9-e627b498d18f",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client is highly satisfied with their tattoo removal experience at Tat2Away, crediting Mandy's skillful technique for significant fading of the tattoo. No mention of pain or scarring."
+  },
+  {
+    "id": "8a8df2c6-555c-4d63-be16-7910faaa4c2c",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "0",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a very negative experience with unprofessionalism and poor service, leading them to discontinue treatment. No mention of actual tattoo removal results or sessions."
+  },
+  {
+    "id": "03c86447-0505-4338-87cb-3824c240ea0e",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "Dark",
+    "use_case": "Complete",
+    "review_summary": "The reviewer warns that the treatment is not suitable for melanin-rich or scar-prone skin, resulting in large raised scars on their arm."
+  },
+  {
+    "id": "79011cc6-386f-49c2-8098-59ba3fb0c0bf",
+    "result_rating": "Mixed",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client reports that their tattoo is mostly gone after four years but also has hypertrophic scars from the treatment. They had only one session and advise others to avoid this clinic."
+  },
+  {
+    "id": "0c104314-6353-4f23-b57a-b17cdb1e8899",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised Ms. Idalia and Michelle for their kindness and professionalism but did not mention any specific results or outcomes from the procedure."
+  },
+  {
+    "id": "bbf168b9-186a-4de0-b1b7-c0566a18a341",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a positive experience with both Idalia and Cheri, who were informative and helpful. However, the review does not mention specific results or outcomes from tattoo removal."
+  },
+  {
+    "id": "9d12a820-8110-46dd-ba69-f0a96d391739",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had one session of tattoo removal and is excited about the progress but did not mention specific results or outcomes."
+  },
+  {
+    "id": "97fcc06f-c8de-4c88-b1e2-9be16468ec73",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "0",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about poor customer service and does not mention any tattoo removal treatment."
+  },
+  {
+    "id": "6617b6b3-621d-47bd-86ef-31b1f6091ac9",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The review is entirely about the positive experience with staff and their hospitality, without mentioning any treatment results or outcomes."
+  },
+  {
+    "id": "e2743034-a9d9-40de-9ad5-816ac455cd33",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had a positive experience with Dr. Ramos and his staff but did not mention specific results or outcomes from the tattoo removal process."
+  },
+  {
+    "id": "ded4eef5-5201-4a44-8524-a3d8ffd4a25a",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about laser treatment for a mole, not tattoo removal. The client reports no change in the mole's appearance despite spending $1,500 and mentions poor follow-up communication."
+  },
+  {
+    "id": "6220f59a-d3c9-40d4-8918-d0d9d88f0ab6",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a consultation for eye bag removal, not tattoo removal. The client experienced poor service and was told only surgical options were available."
+  },
+  {
+    "id": "b9f720d3-d1ab-4a61-87e4-cd99dc701b8f",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about Sculptra treatment, not tattoo removal. The client reports no change in appearance despite spending a significant amount of money."
+  },
+  {
+    "id": "0d7ce26d-c08b-4f54-ab4e-1be3aa60eaa7",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client is very satisfied with their tattoo removal experience, praising the staff for being patient and professional. However, no specific results or pain level was mentioned."
+  },
+  {
+    "id": "7b6826fe-945f-41d0-bde6-3a8a868c55c9",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client received permanent makeup removal treatments over a year with thorough discussions about expectations and risks. They highly recommend Medermis tattoo removal but do not mention specific results or pain levels."
+  },
+  {
+    "id": "0fe97b4a-d201-428d-bfb3-c119e8a7b0e8",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "3",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client had a tattoo removed over three sessions with results shown in before and after photos. They found the pain level and cost to be lower than expected, with each session taking less than 10 minutes."
+  },
+  {
+    "id": "316025eb-a9f9-4d29-8124-3a090ede91b2",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "1",
+    "skin_type": "unknown",
+    "use_case": "Other",
+    "review_summary": "The client had a tattoo removal session for eyebrow tattoos but was disappointed with the service, finding it expensive and noticing uneven laser treatment. The review focuses on dissatisfaction rather than results or pain."
+  },
+  {
+    "id": "f689b824-de5a-4125-9a0c-3d351aa939ba",
+    "result_rating": "Mixed",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "7",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The reviewer had successful removal of black ink tattoos but struggled with a purple tattoo, which only changed color after seven sessions. They recommend the clinic for black ink removal but not for colored inks."
+  },
+  {
+    "id": "bab11153-0394-490f-bed3-4fd824faa120",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client is very satisfied with the fast and effective service for microbladed eyebrow removal. They highly recommend Removery due to excellent results."
+  },
+  {
+    "id": "34b14b6d-9367-4f25-acfe-e98dce76e78d",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a positive experience with Gina and the clinic, feeling welcomed and more confident about their skin journey. However, no specific tattoo removal results were mentioned."
+  },
+  {
+    "id": "23178aea-af1e-4e95-8214-a363c8a07f36",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praises the staff, service quality, and customer care at this med spa but does not mention any specific tattoo removal results or outcomes."
+  },
+  {
+    "id": "69f5fbf6-d7e8-4a90-b799-75516a387f7c",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about laser hair removal, not tattoo removal. The client highly praises Stephanie's attention to detail and recommends the clinic enthusiastically."
+  },
+  {
+    "id": "0cde63d4-f50c-4b3f-a1e8-55956bc004ab",
+    "result_rating": "Negative",
+    "pain_level": "4",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a negative experience with the new staff member, reporting painful treatment and a severe scar. They criticized the clinic for prioritizing profits over patient care."
+  },
+  {
+    "id": "3bebd8fd-a2d1-4645-9798-66adb0e620b9",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praises Michelle for providing a great tattoo removal experience but does not mention specific treatment results or outcomes."
+  },
+  {
+    "id": "c6d5aa55-21a9-4aad-b97c-5cdb62c3d7db",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had an excellent experience at Tatt2Away with Michelle, praising the cleanliness of the studio and Michelle's knowledge and comfort provided. No specific results or pain level was mentioned."
+  },
+  {
+    "id": "f872a4dc-6ba5-4f2d-bf5f-40c8a28ce5bf",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "0",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about a cancelled appointment due to the clinic's rejection of a patient with hypermobility syndrome. The client criticizes the clinic for poor communication and organization."
+  },
+  {
+    "id": "3c2dd75f-e73e-47a2-9b82-409287791d08",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "0",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client appreciated Mandy's knowledge and explanation of laser tattoo removal versus the Tatt2Away method but did not mention undergoing any treatment or specific results."
+  },
+  {
+    "id": "04cd1f62-2fe2-4b0b-bef3-7be1fa6941a5",
+    "result_rating": "Positive",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client had a fantastic experience with Mandy at Tatt2Away, praising her knowledge and professionalism. They reported amazing results but did not mention specific details about pain or scarring."
+  },
+  {
+    "id": "73ce7154-0f2e-4a9f-9151-159b3a183aac",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Microblading",
+    "review_summary": "The client had microbladed eyebrows removed but experienced long healing time, vertical striped scabs, and slight scarring. They are now pursuing laser treatment as an alternative."
+  },
+  {
+    "id": "7d3340b8-18f9-46bd-b3d1-bfad232a439f",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client expresses severe regret about their treatment, stating it caused significant skin damage. They describe the experience as worse than getting the original tattoo."
+  },
+  {
+    "id": "1b7810fd-fb38-411d-9466-b8bacd7a28a2",
+    "result_rating": "Negative",
+    "pain_level": "unknown",
+    "scarring_mentioned": "Yes",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "Complete",
+    "review_summary": "The client experienced a botched tattoo removal that resulted in extreme keloid scars on her arm. The clinic and dermatologist confirmed it was a reaction to the treatment."
+  },
+  {
+    "id": "6c1e2474-20e4-48fc-9fe2-7d8dca669d21",
+    "result_rating": "unknown",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "This review is about poor customer service and does not mention any tattoo removal treatment."
+  },
+  {
+    "id": "7a2764da-c2e3-4a6a-bb3a-2be966618010",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised the quick and friendly environment but did not mention any specific treatment results or outcomes."
+  },
+  {
+    "id": "0cfb736d-9136-44bd-9ce1-6aa9118c3e23",
+    "result_rating": "Neutral",
+    "pain_level": "unknown",
+    "scarring_mentioned": "No",
+    "sessions_completed": "unknown",
+    "skin_type": "unknown",
+    "use_case": "unknown",
+    "review_summary": "The client praised the staff for their clear intake process, thorough explanation of the procedure and science behind it, and regular check-ins during treatment. No specific results or pain level was mentioned."
+  }
+]

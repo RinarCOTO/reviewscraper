@@ -11,12 +11,18 @@ Output: qwen-results-full.json
 Then run: python patch-qwen-results.py
 """
 
-import json, csv, requests, time, os
+import json, csv, requests, time, os, sys
 from pathlib import Path
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "qwen2.5:14b"
-INPUT_CSV = Path(__file__).parent / "reviews.csv"
+
+# --input flag support
+_input_arg = next((a.split("=",1)[1] for a in sys.argv[1:] if a.startswith("--input=")), None)
+if not _input_arg:
+    _input_arg = next((sys.argv[i+1] for i, a in enumerate(sys.argv[1:]) if a == "--input" and i+1 < len(sys.argv[1:])), None)
+INPUT_CSV = Path(__file__).parent / (_input_arg or "reviews.csv")
+
 OUTPUT_FILE = Path(__file__).parent / "qwen-results-full.json"
 PROMPT_FILE = Path(__file__).parent / "qwen-analyzer-prompt.txt"
 
@@ -56,7 +62,7 @@ for i, review in enumerate(reviews):
     if review["id"] in done_ids:
         continue
 
-    brand = (review.get("brand_name") or "unknown")[:20]
+    brand = (review.get("brand_name") or review.get("provider_name") or "unknown")[:20]
     print(f"[{i+1}/{len(reviews)}] {brand.ljust(20)} ", end="", flush=True)
 
     prompt = PROMPT_TEMPLATE.replace("{{REVIEW_TEXT}}", review["review_text"])

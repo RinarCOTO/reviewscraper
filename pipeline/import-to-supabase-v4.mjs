@@ -156,9 +156,12 @@ async function run() {
   if (ONLY_SLUG) console.log(`Filter:  ${ONLY_SLUG} only`);
   console.log('');
 
-  const analyzedPath = path.join(ROOT, 'data/analyzed/analyzed-v4-all-dated.json');
+  const inputArg = args.find(a => a.startsWith('--input='))?.split('=').slice(1).join('=') ?? null;
+  const analyzedPath = inputArg
+    ? path.resolve(ROOT, inputArg)
+    : path.join(ROOT, 'data/analyzed/analyzed-v4-all-dated.json');
   const reviews = JSON.parse(fs.readFileSync(analyzedPath, 'utf8'));
-  console.log(`Loaded ${reviews.length} reviews from data/analyzed/analyzed-v4-all-dated.json\n`);
+  console.log(`Loaded ${reviews.length} reviews from ${analyzedPath}\n`);
 
   // Group by provider + city + state so we can delete and re-insert per location
   const groups = {};

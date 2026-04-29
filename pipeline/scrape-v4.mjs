@@ -25,7 +25,7 @@ if (!API_KEY) { console.error('Missing SERPAPI_KEY — run as: SERPAPI_KEY=xxx n
 
 const MODE = process.argv.includes('--mode=incremental') ? 'incremental' : 'full';
 const ONLY_SLUG = process.argv.find(a => a.startsWith('--provider='))?.split('=')[1] ?? null;
-const MAX = 50;
+const MAX = 100;
 const SORT_BY = 'newestFirst';
 
 console.log(`Mode: ${MODE}`);

@@ -60,7 +60,7 @@ const PROVIDERS = [
     query: 'Rejuvatek Aesthetics 8909 Regents Park Dr Tampa FL',
     expected_title_pattern: /rejuvatek|inkout/i,
     providerName: 'inkOUT', city: 'Tampa', state: 'FL', method: 'TEPR',
-    in_scope: true,
+    in_scope: false, // No standalone Google Maps listing — address shared with hair salon
   },
   {
     slug: 'inkout-chicago-il',

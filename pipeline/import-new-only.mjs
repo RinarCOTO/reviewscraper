@@ -1,5 +1,5 @@
 // Import only NEW reviews to Supabase — does NOT delete existing rows.
-// Matches existing reviews by reviewer_name + provider_name + review_date_iso.
+// Matches existing reviews by reviewer_name + provider_name + date (YYYY-MM-DD).
 // Safe to run after re-scraping without losing Qwen classifications.
 //
 // Usage:
@@ -17,7 +17,7 @@ const SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || 'eyJhbGciOiJIUzI1NiIsInR
 const TABLE = 'competitor_reviews';
 const DRY_RUN = process.argv.includes('--dry-run');
 
-const ANALYZED_FILE = path.join(__dirname, '../data/analyzed/analyzed-v4-all-dated.json');
+const ANALYZED_FILE = path.join(__dirname, '../data/analyzed/analyzed-v4-all.json');
 
 const headers = {
   'apikey': SERVICE_KEY,
@@ -39,6 +39,11 @@ async function supabase(method, endpoint, body) {
   return method === 'GET' ? res.json() : null;
 }
 
+function dateKey(iso) {
+  if (!iso) return 'null';
+  return String(iso).slice(0, 10); // YYYY-MM-DD regardless of format
+}
+
 async function fetchExistingKeys() {
   console.log('Fetching existing reviews from Supabase...');
   const keys = new Set();
@@ -46,7 +51,7 @@ async function fetchExistingKeys() {
   while (true) {
     const rows = await supabase('GET', `${TABLE}?select=reviewer_name,provider_name,review_date_iso&limit=1000&offset=${offset}`);
     for (const r of rows) {
-      keys.add(`${r.provider_name}|${r.reviewer_name}|${r.review_date_iso}`);
+      keys.add(`${r.provider_name}|${r.reviewer_name}|${dateKey(r.review_date_iso)}`);
     }
     if (rows.length < 1000) break;
     offset += 1000;
@@ -103,7 +108,7 @@ async function main() {
   const existingKeys = await fetchExistingKeys();
 
   const newRows = analyzed.filter(r => {
-    const key = `${r.provider_name}|${r.reviewer_name}|${r.review_date_iso}`;
+    const key = `${r.provider_name}|${r.reviewer_name}|${dateKey(r.review_date_iso)}`;
     return !existingKeys.has(key);
   });
 

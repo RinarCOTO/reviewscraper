@@ -78,7 +78,6 @@ function toRow(r) {
     verified_source:        r.verified_source || 'Google',
     source_url:             r.source_url || null,
     has_text:               r.has_text ?? false,
-    text_note:              r.text_note || null,
     brand_name:             r.brand_name || null,
     multi_location_brand:   r.multi_location_brand ?? false,
     location_transition:    r.location_transition ?? false,

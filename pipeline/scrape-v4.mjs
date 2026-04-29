@@ -25,7 +25,7 @@ if (!API_KEY) { console.error('Missing SERPAPI_KEY — run as: SERPAPI_KEY=xxx n
 
 const MODE = process.argv.includes('--mode=incremental') ? 'incremental' : 'full';
 const ONLY_SLUG = process.argv.find(a => a.startsWith('--provider='))?.split('=')[1] ?? null;
-const MAX = 100;
+const MAX = 500;
 const SORT_BY = 'newestFirst';
 
 console.log(`Mode: ${MODE}`);
@@ -323,6 +323,16 @@ const PROVIDERS = [
     in_scope: true,
   },
 
+  // ── Beat & Blade — saline tattoo removal, Houston TX ─────────────────────
+  {
+    slug: 'beat-and-blade-houston-tx',
+    place_id: null,
+    query: 'Beat and Blade 2990 Richmond Ave Houston TX',
+    expected_title_pattern: /beat.*blade|beat & blade/i,
+    providerName: 'Beat & Blade', city: 'Houston', state: 'TX', method: 'Saline',
+    in_scope: true,
+  },
+
   // ── Removery expansion — out of scope for now ─────────────────────────────
   // Set in_scope: true to include in future scrapes when comparison set is expanded.
   { slug: 'removery-round-rock-tx',       place_id: null, query: 'Removery Round Rock TX',       expected_title_pattern: /removery/i, providerName: 'Removery (Round Rock)',      city: 'Round Rock',  state: 'TX', method: 'PicoWay', in_scope: true },
@@ -448,7 +458,7 @@ async function scrapeProvider(provider) {
   }
 
   // Step 5: shape the output
-  const reviews = rawReviews.slice(0, MAX).map(r => ({
+  const reviews = rawReviews.map(r => ({
     provider_name:           providerName,
     location_city:           city,
     location_state:          state,

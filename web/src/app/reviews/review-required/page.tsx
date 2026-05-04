@@ -30,7 +30,12 @@ async function executeAction(review: Review, action: Action) {
   } else {
     await supabase
       .from('competitor_reviews')
-      .update({ bucket: 'tatt2away', reviewed_at: now, reviewed_decision: 'moved_to_tatt2away' })
+      .update({
+        bucket: 'tatt2away',
+        status: 'published',
+        reviewed_at: now,
+        reviewed_decision: 'moved_to_tatt2away',
+      })
       .eq('id', review.id)
   }
 }

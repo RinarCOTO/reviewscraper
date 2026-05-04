@@ -41,6 +41,7 @@ export default function Sidebar() {
       .from('competitor_reviews')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'published')
+      .or('result_rating.neq.unknown,use_case.neq.unknown')
       .then(({ count }) => setTotalReviews(count ?? undefined))
 
     supabase

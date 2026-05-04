@@ -98,6 +98,22 @@ export default function ReviewCard({
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', flexShrink: 0 }}>
           <StarRating value={r.star_rating || 0} size="sm" />
           <span className="date">{displayDate(r)}</span>
+          {showSourceLink && r.source_url && (
+            <a
+              href={r.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: 'var(--text-xs)',
+                color: 'var(--blue)',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+              }}
+              title="Open the original Google review"
+            >
+              Original Google review
+            </a>
+          )}
           {showCopyButton && r.has_text && (
             <button
               className="copy-btn"
@@ -144,13 +160,6 @@ export default function ReviewCard({
         {r.scarring_mentioned === 'Positive' && <span className="badge badge-green">Healed well</span>}
         {r.is_tattoo_removal === false && (
           <span className="badge badge-gray" title="Not a tattoo removal review — excluded from metrics">Other service</span>
-        )}
-        {showSourceLink && r.source_url && (
-          <a href={r.source_url} target="_blank" rel="noopener noreferrer"
-            className="badge badge-gray" style={{ textDecoration: 'none', opacity: 0.7 }}
-            title="View original on Google Maps">
-            ↗ Google
-          </a>
         )}
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCompetitorReviews, getCityData, getLastUpdatedAt, SCRAPER_CAP } from '@/lib/data'
+import { getCompetitorRawReviewCount, getCompetitorReviews, getCityData, getLastUpdatedAt, SCRAPER_CAP } from '@/lib/data'
 import CompetitorCharts from '@/components/CompetitorCharts'
 import ReviewList from '@/components/ReviewList'
 import Topbar from '@/components/Topbar'
@@ -75,6 +75,7 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
   const [cityData, setCityData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState<string | null>(null)
+  const [rawReviewCount, setRawReviewCount] = useState<number | null>(null)
 
   const cityConfig = getCityForCompetitor(slug)
   const cityLabel = cityConfig?.label ?? ''
@@ -85,10 +86,12 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
       getCompetitorReviews(slug),
       citySlugStr ? getCityData(citySlugStr) : Promise.resolve(null),
       getLastUpdatedAt(),
-    ]).then(([rev, city, freshness]) => {
+      getCompetitorRawReviewCount(slug),
+    ]).then(([rev, city, freshness, rawCount]) => {
       setReviews(rev)
       setCityData(city)
       setLastUpdated(freshness.date)
+      setRawReviewCount(rawCount)
       setLoading(false)
     })
   }, [slug, citySlugStr])
@@ -156,7 +159,12 @@ export default function CompetitorPageClient({ slug }: { slug: string }) {
 
         <div className="kpi-row">
           <KpiBlock
-            label="Total Reviews"
+            label="Raw Reviews"
+            value={rawReviewCount ?? '…'}
+            sub={`published for ${cityLabel}`}
+          />
+          <KpiBlock
+            label="Processed Reviews"
             value={<>{stats.total}{stats.isCapped && <span style={{ fontSize: 12, fontWeight: 400, color: 'var(--muted)', marginLeft: 4 }}>(most recent)</span>}</>}
             sub={stats.dateRange ? fmtDateRange(stats.dateRange.earliest, stats.dateRange.latest) : `Google · ${cityLabel}`}
           />

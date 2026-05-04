@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getCityData, getLastUpdatedAt } from '@/lib/data'
+import { getCityData, getCityRawReviewCount, getLastUpdatedAt } from '@/lib/data'
 import CityCharts from '@/components/CityCharts'
 import Topbar from '@/components/Topbar'
 import { KpiBlock, LoadingBlock, StarRating, SentimentBreakdown } from '@/components/ui'
@@ -52,11 +52,13 @@ export default function CityPageClient({ slug }: { slug: string }) {
   const [data, setData] = useState<CityData | null>(null)
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState<string | null>(null)
+  const [rawReviewCount, setRawReviewCount] = useState<number | null>(null)
 
   useEffect(() => {
-    Promise.all([getCityData(slug), getLastUpdatedAt()]).then(([d, freshness]) => {
+    Promise.all([getCityData(slug), getLastUpdatedAt(), getCityRawReviewCount(slug)]).then(([d, freshness, rawCount]) => {
       setData(d)
       setLastUpdated(freshness.date)
+      setRawReviewCount(rawCount)
       setLoading(false)
     })
   }, [slug])
@@ -85,6 +87,7 @@ export default function CityPageClient({ slug }: { slug: string }) {
   const marketAvg = (biz.reduce((s, b) => s + b.avg_stars, 0) / biz.length).toFixed(1)
   const inkoutEntry = biz.find(b => b.isInkout)
   const inkoutRank = inkoutEntry ? sorted.indexOf(inkoutEntry) + 1 : null
+  const processedReviewCount = biz.reduce((sum, b) => sum + b.total, 0)
 
   return (
     <div className="hub-main">
@@ -96,6 +99,8 @@ export default function CityPageClient({ slug }: { slug: string }) {
 
       <div className="container">
         <div className="kpi-row">
+          <KpiBlock label="Raw Reviews" value={rawReviewCount ?? '…'} sub="published in this market" />
+          <KpiBlock label="Processed Reviews" value={processedReviewCount} sub="included in analysis" />
           <KpiBlock label="Competitors Analyzed" value={biz.length} sub={cityKey} />
           <KpiBlock label="Market Avg Rating" value={`${marketAvg}★`} sub="across all providers" />
           <KpiBlock label="Top Rated" value={shortName(best.provider)} sub={`${best.avg_stars}★`} />

@@ -101,7 +101,10 @@ export default function Tatt2awayReviewsPage() {
           </div>
 
           {filtered.length === 0
-            ? <EmptyState message="No reviews match your filters." />
+            ? <EmptyState
+                message={reviews.length === 0 ? 'No archived Tatt2Away reviews yet.' : 'No reviews match your filters.'}
+                hint={reviews.length === 0 ? 'Reviews moved into the Tatt2Away archive will appear here once archived and published.' : undefined}
+              />
             : <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
                 {filtered.map((r, i) => (
                   <ReviewCard key={i} review={r} variant="tatt2away" showSourceLink />

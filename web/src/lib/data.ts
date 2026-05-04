@@ -49,16 +49,60 @@ export async function getResultRatingBreakdown(providerSlug: string): Promise<Re
   return computeRatingBreakdown(reviews)
 }
 
-export async function getAllReviews(): Promise<Review[]> {
+export async function getRawReviewCount(): Promise<number> {
+  const { data, error } = await supabase.rpc('get_raw_review_count')
+  if (error) throw new Error(`getRawReviewCount: ${error.message}`)
+  return data ?? 0
+}
+
+export async function getCityRawReviewCount(slug: string): Promise<number> {
+  const loc = CITY_SLUG_MAP[slug]
+  if (!loc) return 0
+
+  const { count, error } = await supabase
+    .from('competitor_reviews')
+    .select('id', { count: 'exact', head: true })
+    .eq('status', 'published')
+    .eq('location_city', loc.city)
+    .eq('location_state', loc.state)
+
+  if (error) throw new Error(`getCityRawReviewCount: ${error.message}`)
+  return count ?? 0
+}
+
+export async function getCompetitorRawReviewCount(slug: string): Promise<number> {
+  const isInkout = slug.startsWith('inkout-')
   const { data, error } = await supabase
     .from('competitor_reviews')
-    .select('*')
+    .select('provider_name, location_city, location_state, bucket')
     .eq('status', 'published')
-    .or('result_rating.neq.unknown,use_case.neq.unknown')
-    .order('review_date_iso', { ascending: false })
 
-  if (error) throw new Error(`getAllReviews: ${error.message}`)
-  return data as Review[]
+  if (error) throw new Error(`getCompetitorRawReviewCount: ${error.message}`)
+
+  return (data as Pick<Review, 'provider_name' | 'location_city' | 'location_state' | 'bucket'>[]).filter(r => {
+    if (isInkout && r.bucket !== 'inkout') return false
+    return toSlug(r.provider_name, r.location_city, r.location_state) === slug
+  }).length
+}
+
+export async function getAllReviews(): Promise<Review[]> {
+  const all: Review[] = []
+  const PAGE = 1000
+  let offset = 0
+  while (true) {
+    const { data, error } = await supabase
+      .from('competitor_reviews')
+      .select('*')
+      .eq('status', 'published')
+      .or('result_rating.neq.unknown,use_case.neq.unknown')
+      .order('review_date_iso', { ascending: false })
+      .range(offset, offset + PAGE - 1)
+    if (error) throw new Error(`getAllReviews: ${error.message}`)
+    all.push(...(data as Review[]))
+    if (data.length < PAGE) break
+    offset += PAGE
+  }
+  return all
 }
 
 export async function getInkoutReviews(): Promise<Review[]> {

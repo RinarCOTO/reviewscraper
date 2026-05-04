@@ -5,7 +5,7 @@ import Link from 'next/link'
 import OverviewCharts from '@/components/OverviewCharts'
 import Topbar from '@/components/Topbar'
 import { KpiBlock, LoadingBlock, SentimentBreakdown, StarRating } from '@/components/ui'
-import { getAllReviews, SCRAPER_CAP, CITY_SLUG_MAP } from '@/lib/data'
+import { getAllReviews, getRawReviewCount, SCRAPER_CAP, CITY_SLUG_MAP } from '@/lib/data'
 import { CITIES } from '@/lib/config'
 import type { Review } from '@/lib/types'
 
@@ -58,11 +58,13 @@ export default function OverviewPage() {
   const [sortKey, setSortKey] = useState<SortKey>('rank')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
   const [reviews, setReviews] = useState<Review[]>([])
+  const [rawCount, setRawCount] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getAllReviews().then(data => {
+    Promise.all([getAllReviews(), getRawReviewCount()]).then(([data, count]) => {
       setReviews(data)
+      setRawCount(count)
       setLoading(false)
     })
   }, [])
@@ -165,7 +167,7 @@ export default function OverviewPage() {
 
       <div className="container">
         <div className="disclosure">
-          <strong>Data Disclosure:</strong> This dataset contains <strong>{v(reviews.length)} reviews</strong> scraped from Google Maps (up to 50 per location, most recent first).
+          <strong>Data Disclosure:</strong> We have collected <strong>{v(rawCount ?? '…')} total reviews</strong> in the database, and this overview currently analyzes <strong>{v(reviews.length)} reviews</strong> scraped from Google Maps (up to 50 per location, most recent first).
           All dates are <strong>estimated</strong> from relative timestamps and carry month-level accuracy only.
           {!loading && transitionCount > 0 && <> <strong>{transitionCount} inkOUT reviews</strong> are flagged as transition-era (previously operated as Tatt2Away).</>}
           {!loading && noTextCount > 0 && <> <strong>{noTextCount} reviews</strong> contain no written text and are excluded from text analysis.</>}
@@ -173,6 +175,7 @@ export default function OverviewPage() {
         </div>
 
         <div className="kpi-row">
+          <KpiBlock label="Raw Collected" value={rawCount ?? '…'} sub="total in database" loading={loading} />
           <KpiBlock label="Total Reviews" value={reviews.length} sub="across all providers" loading={loading} />
           <KpiBlock label="Providers" value={providers.length} sub="across 6 markets" loading={loading} />
           <KpiBlock label="inkOUT Positive" value={`${inkout.positive}%`} sub={`vs competitor ${competitor.positive}%`} loading={loading} valueStyle={{ color: 'var(--green)' }} />

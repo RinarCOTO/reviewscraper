@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { supabase, supabaseInternal } from './supabase'
 import type { Review, CityData, BusinessSummary, DateRange, ResultRatingBreakdown } from './types'
 
 export const SCRAPER_CAP = 50
@@ -119,12 +119,11 @@ export async function getInkoutReviews(): Promise<Review[]> {
 }
 
 export async function getTatt2awayReviews(): Promise<Review[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseInternal
     .from('competitor_reviews')
     .select('*')
     .eq('status', 'published')
     .eq('bucket', 'tatt2away')
-    .or('result_rating.neq.unknown,use_case.neq.unknown')
     .order('review_date_iso', { ascending: false })
 
   if (error) throw new Error(`getTatt2awayReviews: ${error.message}`)
@@ -132,7 +131,7 @@ export async function getTatt2awayReviews(): Promise<Review[]> {
 }
 
 export async function getReviewQueue(): Promise<Review[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseInternal
     .from('competitor_reviews')
     .select('*')
     .eq('bucket', 'review_required')
@@ -142,6 +141,7 @@ export async function getReviewQueue(): Promise<Review[]> {
   if (error) throw new Error(`getReviewQueue: ${error.message}`)
   return data as Review[]
 }
+
 
 export const CITY_SLUG_MAP: Record<string, { city: string; state: string }> = {
   'austin-tx':         { city: 'Austin',         state: 'TX' },
@@ -295,6 +295,26 @@ export const CITY_SLUGS = [
   'pleasant-grove-ut',
   'tampa-fl',
 ]
+
+export async function getMomentumReviews(): Promise<Pick<Review, 'provider_name' | 'brand_name' | 'bucket' | 'review_date_iso' | 'is_tattoo_removal'>[]> {
+  const all: Pick<Review, 'provider_name' | 'brand_name' | 'bucket' | 'review_date_iso' | 'is_tattoo_removal'>[] = []
+  const PAGE = 1000
+  let offset = 0
+  while (true) {
+    const { data, error } = await supabase
+      .from('competitor_reviews')
+      .select('provider_name, brand_name, bucket, review_date_iso, is_tattoo_removal')
+      .eq('status', 'published')
+      .neq('bucket', 'tatt2away')
+      .not('review_date_iso', 'is', null)
+      .range(offset, offset + PAGE - 1)
+    if (error) throw new Error(`getMomentumReviews: ${error.message}`)
+    all.push(...(data as Pick<Review, 'provider_name' | 'brand_name' | 'bucket' | 'review_date_iso' | 'is_tattoo_removal'>[]))
+    if (data.length < PAGE) break
+    offset += PAGE
+  }
+  return all
+}
 
 export async function getLastUpdatedAt(): Promise<{ date: string | null; nullCount: number }> {
   const { data, error } = await supabase

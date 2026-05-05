@@ -10,6 +10,8 @@ function fmtLabel(label: string) {
 }
 
 const SEARCH_DATA = [
+  { label: 'CEO Scorecard', sub: 'Executive View', href: '/ceo' },
+  { label: 'Momentum Tracker', sub: 'Executive View', href: '/momentum' },
   ...CITIES.flatMap(city =>
     city.competitors.map(c => ({
       label: `${c.name} — ${fmtLabel(city.label)}`,

@@ -115,6 +115,30 @@ export default function Sidebar() {
           <div className="icon" style={{ background: 'rgba(59,130,246,.15)' }}>📊</div>
           <span className="label">Full Overview</span>
         </Link>
+        <Link href="/ceo" className={`nav-item${pathname.startsWith('/ceo') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(249,115,22,.15)' }}>🧭</div>
+          <span className="label">CEO Scorecard</span>
+        </Link>
+        <Link href="/momentum" className={`nav-item${pathname.startsWith('/momentum') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(59,130,246,.1)' }}>📈</div>
+          <span className="label">Momentum Tracker</span>
+        </Link>
+        <Link href="/city-matrix" className={`nav-item${pathname.startsWith('/city-matrix') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(34,197,94,.1)' }}>🗺</div>
+          <span className="label">City Win / Loss Map</span>
+        </Link>
+        <Link href="/differentiators" className={`nav-item${pathname.startsWith('/differentiators') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(167,139,250,.12)' }}>📋</div>
+          <span className="label">Differentiator Brief</span>
+        </Link>
+        <Link href="/threats" className={`nav-item${pathname.startsWith('/threats') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(239,68,68,.12)' }}>⚠️</div>
+          <span className="label">Threat Radar</span>
+        </Link>
+        <Link href="/gaps" className={`nav-item${pathname.startsWith('/gaps') ? ' active' : ''}`}>
+          <div className="icon" style={{ background: 'rgba(245,158,11,.12)' }}>🗺️</div>
+          <span className="label">Coverage Gaps</span>
+        </Link>
       </div>
 
       <hr className="sidebar-divider" />
